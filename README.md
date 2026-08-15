@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- حماية الموقع من إجبار المتصفح على عكس الألوان في وضع النهار -->
     <meta name="color-scheme" content="only dark">
     <title>Mohamed Antar | Ultimate Cyber Portfolio</title>
     
@@ -20,7 +19,7 @@
             --text-muted: #94a3b8;
         }
 
-        /* Matrix Theme Overrides */
+        /* Matrix Mode */
         body.matrix-mode {
             --bg-dark: #020d05;
             --accent: #22c55e;
@@ -39,7 +38,7 @@
             transition: background 0.5s ease;
         }
 
-        /* 1. Custom Laser Cursor Trail */
+        /* Mouse Laser Trail */
         .cursor-trail {
             position: fixed; width: 10px; height: 10px; background: var(--accent);
             border-radius: 50%; pointer-events: none; z-index: 9999;
@@ -47,25 +46,25 @@
             transform: translate(-50%, -50%);
         }
 
-        /* 2. Scroll Progress Bar */
+        /* Scroll Progress Bar */
         #progress-bar {
             position: fixed; top: 0; left: 0; height: 4px; background: var(--accent);
             width: 0%; z-index: 1001; box-shadow: 0 0 10px var(--accent);
         }
 
-        /* 3. Header & Navigation */
+        /* Glassmorphism Header */
         header { 
-            background: rgba(3, 7, 18, 0.9); backdrop-filter: blur(12px); 
+            background: rgba(3, 7, 18, 0.85); backdrop-filter: blur(12px); 
             position: fixed; width: 100%; top: 0; z-index: 1000; 
             border-bottom: 1px solid rgba(56, 189, 248, 0.2); 
         }
         .nav-container { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 2rem; }
         .logo { font-weight: bold; color: var(--accent); font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
         
-        /* 4. Live Ping & Network Status Ticker */
+        /* Live Ping */
         .network-ticker { font-size: 0.75rem; color: var(--accent); background: rgba(56, 189, 248, 0.1); padding: 4px 10px; border-radius: 12px; border: 1px solid var(--accent); }
 
-        /* 5. Freelance Status Badge */
+        /* Freelance Status */
         .status-badge { font-size: 0.75rem; background: rgba(34, 197, 94, 0.15); color: #22c55e; border: 1px solid #22c55e; padding: 3px 10px; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px; }
         .status-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 8px #22c55e; animation: pulse 1.5s infinite; }
         @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
@@ -74,44 +73,47 @@
         .nav-links a { color: var(--text); text-decoration: none; font-size: 0.95rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--accent); }
 
-        /* 6. Hero Section */
+        /* Hero Section */
         .hero { padding: 150px 20px 60px; text-align: center; position: relative; }
         h1 { font-size: 3.5rem; background: linear-gradient(to right, #38bdf8, #818cf8, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; }
+        
+        /* Dynamic Typing */
         .typed-text { color: var(--accent); border-right: 2px solid var(--accent); padding-right: 5px; animation: blink 0.7s infinite; }
         @keyframes blink { 50% { border-color: transparent; } }
 
-        /* 7. Now Playing Vibe Ticker */
+        /* Vibe Ticker */
         .vibe-ticker { font-size: 0.85rem; color: var(--text-muted); margin-top: 15px; display: inline-flex; align-items: center; gap: 8px; background: var(--glass); padding: 6px 16px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); }
 
-        /* 8. Animated Stats Counter */
+        /* Stats Counter */
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; max-width: 900px; margin: 40px auto 0; }
         .stat-card { background: var(--glass); padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(10px); }
         .stat-number { font-size: 2.2rem; font-weight: bold; color: var(--accent); }
         .stat-label { font-size: 0.85rem; color: var(--text-muted); }
 
-        /* 9. Container & Cards + Scroll Reveal Animation */
+        /* Scroll Reveal */
         .container { max-width: 1100px; margin: auto; padding: 50px 20px; opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
         .container.visible { opacity: 1; transform: translateY(0); }
         
         .section-title { font-size: 2rem; margin-bottom: 25px; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px; }
+        
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         
         .card { background: var(--glass); padding: 25px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(12px); transition: 0.4s; }
         .card:hover { transform: translateY(-8px); border-color: var(--accent); box-shadow: 0 0 25px var(--accent-glow); }
 
-        /* 10. Showcase Gallery */
+        /* Showcase Grid */
         .showcase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 20px; }
         .media-box { background: var(--glass); border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); padding: 15px; text-align: center; }
         .media-box img { width: 100%; border-radius: 12px; height: 200px; object-fit: cover; cursor: pointer; transition: 0.3s; }
         .media-box img:hover { transform: scale(1.04); }
 
-        /* 11. Interactive Buttons */
+        /* Buttons */
         .btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 26px; margin: 8px; background: var(--accent); color: #030712; text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s; cursor: pointer; border: none; }
         .btn:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--accent); }
         .btn-outline { background: transparent; border: 2px solid var(--accent); color: var(--accent); }
         .btn-outline:hover { background: var(--accent); color: #030712; }
 
-        /* 12. Toast Notification */
+        /* Toast Notification */
         #toast {
             position: fixed; bottom: 30px; right: 30px; background: rgba(15, 23, 42, 0.95);
             border: 1px solid var(--accent); color: white; padding: 15px 25px; border-radius: 12px;
@@ -120,12 +122,12 @@
         }
         #toast.show { transform: translateY(0); }
 
-        /* 13. Floating Controls */
+        /* Floating Controls */
         .floating-controls { position: fixed; bottom: 25px; left: 25px; display: flex; flex-direction: column; gap: 12px; z-index: 1000; }
         .float-btn { width: 45px; height: 45px; background: var(--accent); border-radius: 50%; border: none; cursor: pointer; display: flex; justify-content: center; align-items: center; color: #030712; font-size: 1.1rem; box-shadow: 0 0 15px var(--accent-glow); transition: 0.3s; }
         .float-btn:hover { transform: scale(1.15); }
 
-        /* 14. Lightbox Zoom Modal */
+        /* Lightbox */
         #lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); z-index: 20000; display: none; justify-content: center; align-items: center; padding: 20px; }
         #lightbox img { max-width: 90%; max-height: 85vh; border-radius: 12px; border: 2px solid var(--accent); box-shadow: 0 0 35px var(--accent-glow); }
 
@@ -140,7 +142,7 @@
 </head>
 <body>
 
-<!-- Laser Cursor Trail -->
+<!-- Mouse Laser Trail -->
 <div class="cursor-trail" id="trail"></div>
 
 <!-- Scroll Progress Bar -->
@@ -150,8 +152,8 @@
 <div id="toast">
     <i class="fa-solid fa-bolt" style="color: var(--accent); font-size: 1.3rem;"></i>
     <div>
-        <div style="font-weight: bold;">Welcome to the Master Site!</div>
-        <div style="font-size: 0.85rem; color: var(--text-muted);">Mohamed Antar's 50-Feature Portfolio.</div>
+        <div style="font-weight: bold;">Welcome to the Elite Site!</div>
+        <div style="font-size: 0.85rem; color: var(--text-muted);">Explore Mohamed Antar's Portfolio.</div>
     </div>
 </div>
 
@@ -160,7 +162,7 @@
     <img id="lightbox-img" src="" alt="Zoomed View">
 </div>
 
-<!-- Navigation Header -->
+<!-- Header -->
 <header>
     <div class="nav-container">
         <div class="logo">
@@ -168,7 +170,6 @@
             <span class="status-badge"><span class="status-dot"></span> Available</span>
         </div>
         
-        <!-- Live Ping Indicator -->
         <div class="network-ticker">
             <i class="fa-solid fa-wifi"></i> PING: <span id="ping-val">24</span>ms | ONLINE
         </div>
@@ -190,7 +191,6 @@
             Architecting <span class="typed-text" id="typed"></span>
         </p>
         
-        <!-- Now Playing / Vibe Ticker -->
         <div class="vibe-ticker">
             <i class="fa-solid fa-compact-disc fa-spin" style="color: var(--accent);"></i> 
             <span>Now Vibing: <b>Phonky Beats & High-Speed Code</b></span>
@@ -205,7 +205,6 @@
             <a href="https://youtube.com/@mo7amed_5277" class="btn btn-outline" target="_blank"><i class="fa-brands fa-youtube"></i> MK QURAN</a>
         </div>
 
-        <!-- Animated Stats Counter -->
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-number" data-target="40">0</div>
@@ -223,7 +222,7 @@
     </div>
 </section>
 
-<!-- Projects Powerhouse -->
+<!-- Projects -->
 <div class="container" id="projects">
     <h2 class="section-title">OUR POWERHOUSE</h2>
     <div class="grid">
@@ -242,7 +241,7 @@
     </div>
 </div>
 
-<!-- Creative Showcase Gallery -->
+<!-- Creative Showcase Gallery (بدون تكرار) -->
 <div class="container" id="gallery">
     <h2 class="section-title">CREATIVE SHOWCASE & WORKS</h2>
     <div class="showcase-grid">
@@ -255,12 +254,8 @@
             <img src="Screenshot_20260815_093326.jpg" alt="Minecraft Thumbnail" onclick="openLightbox(this.src)">
         </div>
         <div class="media-box">
-            <h3 style="color: var(--accent); margin-bottom: 10px; font-size: 1rem;">Islam: A Way of Life (1)</h3>
-            <img src="Screenshot_20260815_093338.jpg" alt="Islam Way of Life 1" onclick="openLightbox(this.src)">
-        </div>
-        <div class="media-box">
-            <h3 style="color: var(--accent); margin-bottom: 10px; font-size: 1rem;">Islam: A Way of Life (2)</h3>
-            <img src="Screenshot_20260815_093346.jpg" alt="Islam Way of Life 2" onclick="openLightbox(this.src)">
+            <h3 style="color: var(--accent); margin-bottom: 10px; font-size: 1rem;">Islam: A Way of Life</h3>
+            <img src="Screenshot_20260815_093338.jpg" alt="Islam Way of Life" onclick="openLightbox(this.src)">
         </div>
     </div>
 </div>
@@ -276,7 +271,7 @@
     </div>
 </div>
 
-<!-- Floating Controls (Matrix Mode & Back to Top) -->
+<!-- Floating Controls -->
 <div class="floating-controls">
     <button class="float-btn" onclick="toggleMatrixMode()" title="Toggle Matrix Green Theme"><i class="fa-solid fa-code"></i></button>
     <button class="float-btn" onclick="scrollToTop()" title="Back to Top"><i class="fa-solid fa-arrow-up"></i></button>
@@ -288,44 +283,37 @@
 
 <!-- JavaScript Engine -->
 <script>
-    // 1. Mouse Laser Trail
     const trail = document.getElementById('trail');
     window.addEventListener('mousemove', (e) => {
         trail.style.left = e.clientX + 'px';
         trail.style.top = e.clientY + 'px';
     });
 
-    // 2. Scroll Progress Bar
     window.onscroll = () => {
         let winScroll = document.documentElement.scrollTop || document.body.scrollTop;
         let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         let scrolled = (winScroll / height) * 100;
         document.getElementById("progress-bar").style.width = scrolled + "%";
         
-        // Scroll Reveal Sections
         document.querySelectorAll('.container').forEach(el => {
             let rect = el.getBoundingClientRect();
             if(rect.top < window.innerHeight - 100) el.classList.add('visible');
         });
     };
 
-    // 3. Simulated Live Ping Variation
     setInterval(() => {
         let randomPing = Math.floor(Math.random() * 12) + 18;
         document.getElementById('ping-val').textContent = randomPing;
     }, 3000);
 
-    // 4. On Load Init
     window.onload = () => {
         setTimeout(() => {
             document.getElementById("toast").classList.add("show");
             setTimeout(() => document.getElementById("toast").classList.remove("show"), 4000);
         }, 800);
-        
         startCounters();
     };
 
-    // 5. Typing Effect
     const words = ["High-Retention Media Ecosystems.", "Scalable Software Solutions.", "Cinematic Video Productions."];
     let i = 0, j = 0, currentWord = "", isDeleting = false;
     function typeEffect() {
@@ -343,7 +331,6 @@
     }
     typeEffect();
 
-    // 6. Number Counter
     function startCounters() {
         const counters = document.querySelectorAll('.stat-number');
         counters.forEach(counter => {
@@ -363,7 +350,6 @@
         });
     }
 
-    // 7. Lightbox Zoom
     function openLightbox(src) {
         document.getElementById('lightbox-img').src = src;
         document.getElementById('lightbox').style.display = 'flex';
@@ -372,12 +358,10 @@
         document.getElementById('lightbox').style.display = 'none';
     }
 
-    // 8. Matrix Mode Toggle
     function toggleMatrixMode() {
         document.body.classList.toggle('matrix-mode');
     }
 
-    // 9. Copy Email
     function copyEmail() {
         navigator.clipboard.writeText("moamedantar8@gmail.com");
         let toast = document.getElementById("toast");
@@ -386,11 +370,10 @@
         setTimeout(() => toast.classList.remove("show"), 3000);
     }
 
-    // 10. Scroll to Top
     function scrollToTop() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 </script>
 
 </body>
-</html> 
+</html>
