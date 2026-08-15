@@ -39,6 +39,17 @@
             font-family: 'Inter', sans-serif; 
             overflow-x: hidden;
             transition: background 0.5s ease;
+            position: relative;
+        }
+
+        /* Canvas Background for Particle Constellation */
+        #particle-canvas {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 1;
+        }
+
+        header, .hero, .container, footer, .floating-controls, .rocket-top-btn, #search-modal {
+            position: relative; z-index: 2;
         }
 
         /* Custom Interactive Cursor & Trail */
@@ -85,8 +96,16 @@
         .nav-links a { color: var(--text); text-decoration: none; font-size: 0.95rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--accent); }
 
+        /* Live Activity Ticker Bar */
+        .activity-ticker-bar {
+            background: rgba(56, 189, 248, 0.06); border-bottom: 1px solid rgba(56, 189, 248, 0.15);
+            padding: 8px 0; font-size: 0.82rem; color: var(--accent); overflow: hidden; white-space: nowrap; margin-top: 65px;
+        }
+        .ticker-content { display: inline-block; animation: tickerScroll 25s linear infinite; }
+        @keyframes tickerScroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
         /* Hero Section */
-        .hero { padding: 160px 20px 80px; text-align: center; position: relative; }
+        .hero { padding: 100px 20px 60px; text-align: center; position: relative; }
         h1 { font-size: 3.8rem; font-weight: 800; background: linear-gradient(to right, #38bdf8, #818cf8, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; }
         
         .typed-text { color: var(--accent); border-right: 2px solid var(--accent); padding-right: 5px; animation: blink 0.7s infinite; }
@@ -109,8 +128,16 @@
         
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         
-        .card { background: var(--glass); padding: 30px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(16px); transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden; }
+        .card { background: var(--glass); padding: 30px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(16px); transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden; cursor: pointer; }
         .card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 0 30px var(--accent-glow); }
+
+        /* Advanced Skills Progress Bars */
+        .skills-container { max-width: 900px; margin: 40px auto 0; background: var(--glass); padding: 35px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(16px); }
+        .skill-item { margin-bottom: 20px; }
+        .skill-item:last-child { margin-bottom: 0; }
+        .skill-info { display: flex; justify-content: space-between; font-size: 0.95rem; margin-bottom: 8px; font-weight: 600; }
+        .skill-bar { width: 100%; height: 10px; background: rgba(255,255,255,0.08); border-radius: 5px; overflow: hidden; }
+        .skill-progress { height: 100%; background: linear-gradient(to right, var(--accent), var(--neon-purple)); width: 0%; border-radius: 5px; transition: width 1.5s cubic-bezier(0.1, 1, 0.1, 1); box-shadow: 0 0 10px var(--accent-glow); }
 
         /* Showcase Grid */
         .showcase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; margin-top: 25px; }
@@ -130,49 +157,43 @@
         .float-btn { width: 50px; height: 50px; background: var(--accent); border-radius: 50%; border: none; cursor: pointer; display: flex; justify-content: center; align-items: center; color: #030712; font-size: 1.2rem; box-shadow: 0 0 20px var(--accent-glow); transition: 0.3s; }
         .float-btn:hover { transform: scale(1.15) rotate(10deg); }
 
-        /* زر الصاروخ المطور للعودة للأعلى */
+        /* Rocket Top Button */
         .rocket-top-btn {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
+            position: fixed; bottom: 30px; left: 95px;
             background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
-            color: white;
-            border: none;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            box-shadow: 0 0 20px rgba(0,212,255,0.4);
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
+            color: white; border: none; width: 50px; height: 50px; border-radius: 50%;
+            cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 22px;
+            box-shadow: 0 0 20px rgba(0,212,255,0.4); z-index: 1000;
+            opacity: 0; visibility: hidden; transition: all 0.3s ease;
         }
-
-        .rocket-top-btn.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .rocket-top-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 30px var(--neon-blue);
-        }
-
-        /* أنيميشن طيران الصاروخ لفوق */
+        .rocket-top-btn.show { opacity: 1; visibility: visible; }
+        .rocket-top-btn:hover { transform: scale(1.15); box-shadow: 0 0 30px var(--neon-blue); }
         @keyframes launchRocket {
             0% { transform: translateY(0) scale(1); }
             30% { transform: translateY(10px) scale(0.9); filter: brightness(1.5); }
             100% { transform: translateY(-800px) scale(0.5); opacity: 0; }
         }
+        .rocket-top-btn.launching { animation: launchRocket 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
 
-        .rocket-top-btn.launching {
-            animation: launchRocket 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        /* Quick Search Modal (Ctrl + K) */
+        #search-modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85);
+            z-index: 50000; display: none; justify-content: center; align-items: flex-start; padding-top: 120px; backdrop-filter: blur(12px);
         }
+        .search-box-wrap { background: #0f172a; border: 2px solid var(--accent); width: 90%; max-width: 600px; border-radius: 20px; overflow: hidden; box-shadow: 0 0 40px var(--accent-glow); }
+        .search-input { width: 100%; padding: 20px; background: transparent; border: none; color: white; font-size: 1.2rem; outline: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .search-results-list { max-height: 300px; overflow-y: auto; padding: 10px; list-style: none; }
+        .search-results-list li { padding: 12px 18px; border-radius: 12px; margin-bottom: 5px; cursor: pointer; transition: 0.2s; display: flex; align-items: center; gap: 10px; }
+        .search-results-list li:hover { background: rgba(56, 189, 248, 0.15); color: var(--accent); }
+
+        /* Project Detail Modal */
+        #project-modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.88);
+            z-index: 40000; display: none; justify-content: center; align-items: center; padding: 20px; backdrop-filter: blur(15px);
+        }
+        .modal-content { background: #0f172a; border: 2px solid var(--accent); width: 100%; max-width: 650px; padding: 35px; border-radius: 24px; position: relative; box-shadow: 0 0 50px var(--accent-glow); }
+        .close-modal { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.1); border: none; color: white; width: 35px; height: 35px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: 0.3s; }
+        .close-modal:hover { background: var(--accent); color: #030712; }
 
         /* Toast Notification System */
         #toast {
@@ -193,12 +214,15 @@
         @media(max-width: 768px) {
             .nav-links, .hud-panel { display: none; }
             h1 { font-size: 2.6rem; }
-            .cursor-dot, .cursor-outline { display: none; }
+            .cursor-dot, .cursor-outline, #particle-canvas { display: none; }
             * { cursor: auto !important; }
         }
     </style>
 </head>
 <body>
+
+<!-- Particle Background Canvas -->
+<canvas id="particle-canvas"></canvas>
 
 <!-- Interactive Custom Cursors -->
 <div class="cursor-dot" id="cursor-dot"></div>
@@ -211,14 +235,40 @@
 <div id="toast">
     <i class="fa-solid fa-bolt" style="color: var(--accent); font-size: 1.4rem;"></i>
     <div>
-        <div style="font-weight: 800;">System Online: 100 Features Fully Loaded</div>
-        <div style="font-size: 0.85rem; color: var(--text-muted);">Welcome to Mohamed Antar's Ultimate 100-Feature Master Engine.</div>
+        <div style="font-weight: 800;">System Online: All 6 New Features Loaded</div>
+        <div style="font-size: 0.85rem; color: var(--text-muted);">Welcome to Mohamed Antar's Ultimate Master Engine.</div>
     </div>
 </div>
 
 <!-- Image Lightbox Modal -->
 <div id="lightbox" onclick="closeLightbox()">
     <img id="lightbox-img" src="" alt="Expanded Media View">
+</div>
+
+<!-- Quick Search Modal (Ctrl + K) -->
+<div id="search-modal" onclick="closeSearchModal(event)">
+    <div class="search-box-wrap" onclick="event.stopPropagation()">
+        <input type="text" class="search-input" id="search-input-box" placeholder="Type to search sections or projects (e.g. POS, Chess, Contact)..." oninput="filterSearch()">
+        <ul class="search-results-list" id="search-results">
+            <li onclick="scrollToSection('about')"><i class="fa-solid fa-user"></i> About Mohamed Antar</li>
+            <li onclick="scrollToSection('projects')"><i class="fa-solid fa-store"></i> Future Mall POS Project</li>
+            <li onclick="scrollToSection('projects')"><i class="fa-solid fa-chess-board"></i> EGYPT CHESS CLUB</li>
+            <li onclick="scrollToSection('gallery')"><i class="fa-solid fa-photo-film"></i> Creative Works Showcase</li>
+            <li onclick="scrollToSection('skills')"><i class="fa-solid fa-code"></i> Technical Skills & Mastery</li>
+            <li onclick="scrollToSection('contact')"><i class="fa-solid fa-envelope"></i> Secure Communications & Contact</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Detailed Project Modal -->
+<div id="project-modal" onclick="closeProjectModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <button class="close-modal" onclick="closeProjectModal()"><i class="fa-solid fa-xmark"></i></button>
+        <h2 id="modal-title" style="color: var(--accent); margin-bottom: 15px;">Project Title</h2>
+        <p id="modal-desc" style="color: var(--text-muted); line-height: 1.7; margin-bottom: 20px;"></p>
+        <div id="modal-tech" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 25px;"></div>
+        <a href="#" id="modal-link" class="btn" target="_blank"><i class="fa-solid fa-external-link"></i> Launch Live Preview</a>
+    </div>
 </div>
 
 <!-- Top Sticky Navbar with HUD Telemetry -->
@@ -240,10 +290,18 @@
             <a href="#about"><i class="fa-solid fa-user"></i> About</a>
             <a href="#projects"><i class="fa-solid fa-layer-group"></i> Powerhouse</a>
             <a href="#gallery"><i class="fa-solid fa-photo-film"></i> Showcase</a>
+            <a href="#skills"><i class="fa-solid fa-code"></i> Skills</a>
             <a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
         </nav>
     </div>
 </header>
+
+<!-- Live Activity Ticker Bar -->
+<div class="activity-ticker-bar">
+    <div class="ticker-content">
+        ⚡ <b>LIVE ACTIVITY:</b> Architecting Next-Gen Systems &nbsp;&bull;&nbsp; ♟️ Managing EGYPT CHESS CLUB &nbsp;&bull;&nbsp; 🚀 Pushing 40M+ Video Views &nbsp;&bull;&nbsp; 💻 Building Interactive POS Web Applications &nbsp;&bull;&nbsp; Press <b>Ctrl + K</b> for Quick Search!
+    </div>
+</div>
 
 <!-- Hero Section -->
 <section class="hero" id="about">
@@ -267,7 +325,7 @@
             <a href="https://youtube.com/@mo7amed_5277" class="btn btn-outline" target="_blank"><i class="fa-brands fa-youtube"></i> MK QURAN</a>
         </div>
 
-        <!-- 100-Feature Dynamic Statistics Grid -->
+        <!-- Dynamic Statistics Grid -->
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-number" data-target="40">0</div>
@@ -293,17 +351,43 @@
 <div class="container" id="projects">
     <h2 class="section-title">THE POWERHOUSE</h2>
     <div class="grid">
-        <div class="card">
+        <div class="card" onclick="openProjectModal('Future Mall POS', 'Full-stack retail web application featuring role-based access control, AI product classification via Keras/Teachable Machine, and multi-currency frameworks designed for peak retail efficiency.', ['Python', 'HTML/JS', 'AI Models'], 'https://github.com')">
             <h3><i class="fa-solid fa-store" style="color: var(--accent);"></i> Future Mall POS</h3>
             <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;">Full-stack retail web application featuring role-based access control, AI product classification via Keras/Teachable Machine, and multi-currency frameworks.</p>
+            <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);">Click for details &rarr;</span>
         </div>
-        <div class="card">
+        <div class="card" onclick="openProjectModal('Viral Media Engine', 'Generated over 40M+ views through precision audio-visual balancing, advanced short-form optimization, and high-retention editing pipelines across major platforms.', ['Video Editing', 'Analytics', 'Media Pipelines'], 'https://youtube.com/@mo7amed_5272')">
             <h3><i class="fa-solid fa-video" style="color: var(--accent);"></i> Viral Media Engine</h3>
             <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;">Generated over 40M+ views through precision audio-visual balancing, advanced short-form optimization, and high-retention editing pipelines.</p>
+            <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);">Click for details &rarr;</span>
         </div>
-        <div class="card">
+        <div class="card" onclick="openProjectModal('EGYPT CHESS CLUB', 'Established and managed digital strategy communities, tactical booklets, and automated club management workflows on Chess.com to foster competitive local talent.', ['Chess Strategy', 'Community Management'], 'https://chess.com')">
             <h3><i class="fa-solid fa-chess-board" style="color: var(--accent);"></i> EGYPT CHESS CLUB</h3>
             <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;">Established and managed digital strategy communities, tactical booklets, and automated club management workflows on Chess.com.</p>
+            <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);">Click for details &rarr;</span>
+        </div>
+    </div>
+</div>
+
+<!-- Advanced Skill Progress Bars Section -->
+<div class="container" id="skills">
+    <h2 class="section-title">TECHNICAL MASTERY</h2>
+    <div class="skills-container">
+        <div class="skill-item">
+            <div class="skill-info"><span>Python & Software Logic</span><span>95%</span></div>
+            <div class="skill-bar"><div class="skill-progress" data-width="95"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-info"><span>HTML / CSS / JavaScript</span><span>90%</span></div>
+            <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-info"><span>Video Editing & Motion Graphics</span><span>96%</span></div>
+            <div class="skill-bar"><div class="skill-progress" data-width="96"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-info"><span>Chess Strategy & Analytics</span><span>88%</span></div>
+            <div class="skill-bar"><div class="skill-progress" data-width="88"></div></div>
         </div>
     </div>
 </div>
@@ -330,7 +414,7 @@
 <!-- Contact Station Section -->
 <div class="container" id="contact">
     <h2 class="section-title">SECURE COMMUNICATIONS</h2>
-    <div class="card" style="max-width: 650px; margin: auto; text-align: center;">
+    <div class="card" style="max-width: 650px; margin: auto; text-align: center; cursor: default;">
         <p style="margin: 12px 0;"><i class="fa-solid fa-envelope" style="color: var(--accent);"></i> Email: <span>moamedantar8@gmail.com</span></p>
         <p style="margin: 12px 0;"><i class="fa-brands fa-whatsapp" style="color: #22c55e;"></i> WhatsApp: <a href="https://wa.me/201559719175" target="_blank" style="color:var(--accent); text-decoration: none;">+20 155 971 9175</a></p>
         <p style="margin: 12px 0;"><i class="fa-brands fa-linkedin" style="color: var(--accent);"></i> LinkedIn: <a href="https://linkedin.com/in/mohamed-antar-522201406" style="color:var(--accent); text-decoration: none;" target="_blank">mohamed-antar-522201406</a></p>
@@ -338,12 +422,13 @@
     </div>
 </div>
 
-<!-- Floating Controls (Matrix Toggle) -->
+<!-- Floating Controls (Matrix Toggle + Audio FX Toggle) -->
 <div class="floating-controls">
     <button class="float-btn" onclick="toggleMatrixMode()" title="Toggle Matrix Green Theme"><i class="fa-solid fa-code"></i></button>
+    <button class="float-btn" id="audio-toggle-btn" onclick="toggleAudioFX()" title="Toggle Cyber Click FX"><i class="fa-solid fa-volume-high"></i></button>
 </div>
 
-<!-- زر الصاروخ المطور للعودة للأعلى -->
+<!-- Rocket Top Button -->
 <button class="rocket-top-btn" id="rocketBtn" onclick="launchToTop()" title="الرجوع للأعلى">
     🚀
 </button>
@@ -354,7 +439,99 @@
 
 <!-- Comprehensive 100-Feature JavaScript Execution Engine -->
 <script>
-    // 1. Custom Smooth Mouse Mechanics
+    // 0. Cyber Click Audio FX Synthesis Engine (Web Audio API)
+    let audioEnabled = true;
+    function playClickSound() {
+        if (!audioEnabled) return;
+        try {
+            const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(800, ctx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.05);
+            gain.gain.setValueAtTime(0.05, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.05);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start();
+            osc.stop(ctx.currentTime + 0.05);
+        } catch(e) {}
+    }
+    function toggleAudioFX() {
+        audioEnabled = !audioEnabled;
+        let btn = document.getElementById('audio-toggle-btn');
+        btn.innerHTML = audioEnabled ? '<i class="fa-solid fa-volume-high"></i>' : '<i class="fa-solid fa-volume-xmark"></i>';
+        showToast(audioEnabled ? "Audio FX Enabled" : "Audio FX Muted");
+    }
+
+    // Bind click sound to all interactive elements
+    document.addEventListener('click', () => { playClickSound(); });
+
+    // 1. Particle Constellation Background Canvas
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let particlesArray = [];
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.vx = (Math.random() - 0.5) * 0.8;
+            this.vy = (Math.random() - 0.5) * 0.8;
+            this.size = Math.random() * 2 + 1;
+        }
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+            if (this.x < 0 || this.x > canvas.width) this.vx = -this.vx;
+            if (this.y < 0 || this.y > canvas.height) this.vy = -this.vy;
+        }
+        draw() {
+            ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('--accent').trim();
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+    function initParticles() {
+        particlesArray = [];
+        let count = window.innerWidth > 768 ? 45 : 0;
+        for (let i = 0; i < count; i++) particlesArray.push(new Particle());
+    }
+    initParticles();
+
+    function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < particlesArray.length; i++) {
+            particlesArray[i].update();
+            particlesArray[i].draw();
+            for (let j = i + 1; j < particlesArray.length; j++) {
+                let dx = particlesArray[i].x - particlesArray[j].x;
+                let dy = particlesArray[i].y - particlesArray[j].y;
+                let dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 120) {
+                    ctx.strokeStyle = getComputedStyle(document.body).getPropertyValue('--accent').trim();
+                    ctx.globalAlpha = (1 - (dist / 120)) * 0.2;
+                    ctx.beginPath();
+                    ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+                    ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+                    ctx.stroke();
+                    ctx.globalAlpha = 1.0;
+                }
+            }
+        }
+        requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    // 2. Custom Smooth Mouse Mechanics
     const dot = document.getElementById('cursor-dot');
     const outline = document.getElementById('cursor-outline');
     window.addEventListener('mousemove', (e) => {
@@ -364,8 +541,9 @@
         outline.style.top = e.clientY + 'px';
     });
 
-    // 2. Scroll Progress & Element Reveal Engine + Rocket Visibility
+    // 3. Scroll Progress & Reveal + Rocket Visibility + Skills Animation
     const rocketBtn = document.getElementById('rocketBtn');
+    let skillsAnimated = false;
 
     window.onscroll = () => {
         let winScroll = document.documentElement.scrollTop || document.body.scrollTop;
@@ -373,7 +551,6 @@
         let scrolled = (winScroll / height) * 100;
         document.getElementById("progress-bar").style.width = scrolled + "%";
         
-        // إظهار وإخفاء زر الصاروخ حسب السكرول
         if (winScroll > 300) {
             rocketBtn.classList.add('show');
         } else {
@@ -384,15 +561,74 @@
             let rect = el.getBoundingClientRect();
             if(rect.top < window.innerHeight - 80) el.classList.add('visible');
         });
+
+        // Animate Skills Progress Bars when in view
+        const skillsSec = document.getElementById('skills');
+        if (skillsSec && skillsSec.getBoundingClientRect().top < window.innerHeight - 100 && !skillsAnimated) {
+            document.querySelectorAll('.skill-progress').forEach(bar => {
+                bar.style.width = bar.getAttribute('data-width') + '%';
+            });
+            skillsAnimated = true;
+        }
     };
 
-    // 3. Live Ping Telemetry Simulation
+    // 4. Keyboard Shortcut for Quick Search (Ctrl + K)
+    window.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+            e.preventDefault();
+            document.getElementById('search-modal').style.display = 'flex';
+            document.getElementById('search-input-box').focus();
+        }
+        if (e.key === 'Escape') {
+            document.getElementById('search-modal').style.display = 'none';
+            document.getElementById('project-modal').style.display = 'none';
+        }
+    });
+
+    function closeSearchModal(e) {
+        if (e.target.id === 'search-modal') document.getElementById('search-modal').style.display = 'none';
+    }
+
+    function scrollToSection(id) {
+        document.getElementById('search-modal').style.display = 'none';
+        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function filterSearch() {
+        let query = document.getElementById('search-input-box').value.toLowerCase();
+        let items = document.getElementById('search-results').getElementsByTagName('li');
+        for (let item of items) {
+            let text = item.textContent.toLowerCase();
+            item.style.display = text.includes(query) ? 'flex' : 'none';
+        }
+    }
+
+    // 5. Project Detail Modals
+    function openProjectModal(title, desc, techArray, link) {
+        document.getElementById('modal-title').textContent = title;
+        document.getElementById('modal-desc').textContent = desc;
+        let techDiv = document.getElementById('modal-tech');
+        techDiv.innerHTML = '';
+        techArray.forEach(t => {
+            let span = document.createElement('span');
+            span.style.cssText = 'background: rgba(56, 189, 248, 0.1); color: var(--accent); padding: 5px 12px; border-radius: 10px; font-size: 0.8rem; border: 1px solid rgba(56, 189, 248, 0.3);';
+            span.textContent = t;
+            techDiv.appendChild(span);
+        });
+        document.getElementById('modal-link').href = link;
+        document.getElementById('project-modal').style.display = 'flex';
+    }
+    function closeProjectModal() {
+        document.getElementById('project-modal').style.display = 'none';
+    }
+
+    // 6. Live Ping Telemetry Simulation
     setInterval(() => {
         let randomPing = Math.floor(Math.random() * 6) + 19;
         document.getElementById('ping-val').textContent = randomPing;
     }, 3500);
 
-    // 4. Live Session Timer Tracker
+    // 7. Live Session Timer Tracker
     let totalSeconds = 0;
     setInterval(() => {
         totalSeconds++;
@@ -401,7 +637,7 @@
         document.getElementById('session-time').textContent = `${mins}:${secs}`;
     }, 1000);
 
-    // 5. Battery Status API Integration
+    // 8. Battery Status API Integration
     if ('getBattery' in navigator) {
         navigator.getBattery().then(battery => {
             function updateBattery() {
@@ -412,16 +648,22 @@
         });
     }
 
-    // 6. System Initialization & Toast Sequence
+    // 9. System Initialization & Toast Sequence
     window.onload = () => {
         setTimeout(() => {
-            document.getElementById("toast").classList.add("show");
-            setTimeout(() => document.getElementById("toast").classList.remove("show"), 4500);
+            showToast("System Online: All 6 New Features Loaded");
         }, 1000);
         startCounters();
     };
 
-    // 7. Dynamic Typing Effect Logic
+    function showToast(msg) {
+        let toast = document.getElementById("toast");
+        toast.innerHTML = `<i class="fa-solid fa-bolt" style="color: var(--accent); font-size: 1.4rem;"></i><div><div style="font-weight: 800;">${msg}</div><div style="font-size: 0.85rem; color: var(--text-muted);">Mohamed Antar Master Engine v100.</div></div>`;
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 4000);
+    }
+
+    // 10. Dynamic Typing Effect Logic
     const words = ["100-Feature Master Engines.", "High-Retention Media Ecosystems.", "Scalable Software Solutions."];
     let wordIdx = 0, charIdx = 0, currentWord = "", isDeletingState = false;
     function typeEffectEngine() {
@@ -439,7 +681,7 @@
     }
     typeEffectEngine();
 
-    // 8. Stat Counters Animation Sequence
+    // 11. Stat Counters Animation Sequence
     function startCounters() {
         const counters = document.querySelectorAll('.stat-number');
         counters.forEach(counter => {
@@ -459,7 +701,7 @@
         });
     }
 
-    // 9. Image Lightbox Controllers
+    // 12. Image Lightbox Controllers
     function openLightbox(src) {
         document.getElementById('lightbox-img').src = src;
         document.getElementById('lightbox').style.display = 'flex';
@@ -468,52 +710,28 @@
         document.getElementById('lightbox').style.display = 'none';
     }
 
-    // 10. Matrix Theme Toggle Switch
+    // 13. Matrix Theme Toggle Switch
     function toggleMatrixMode() {
         document.body.classList.toggle('matrix-mode');
+        initParticles();
     }
 
-    // 11. Secure Clipboard Copy System
+    // 14. Secure Clipboard Copy System
     function copyEmail() {
         navigator.clipboard.writeText("moamedantar8@gmail.com");
-        let toast = document.getElementById("toast");
-        toast.innerHTML = `<i class="fa-solid fa-circle-check" style="color: #22c55e; font-size: 1.4rem;"></i><div><div style="font-weight: 800;">Secured & Copied!</div><div style="font-size: 0.85rem; color: var(--text-muted);">Email copied to clipboard successfully.</div></div>`;
-        toast.classList.add("show");
-        setTimeout(() => toast.classList.remove("show"), 3500);
+        showToast("Secured & Copied to Clipboard!");
     }
 
-    // 12. دالة طيران الصاروخ والعودة للأول
+    // 15. Rocket Launch to Top
     function launchToTop() {
         rocketBtn.classList.add('launching');
-        
-        // التمرير السلس لأول الصفحة
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-
-        // إعادة الزر لوضعه الطبيعي بعد انتهاء الأنيميشن
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         setTimeout(() => {
             rocketBtn.classList.remove('launching');
             rocketBtn.classList.remove('show');
         }, 600);
     }
-
-    // 13. Water Ripple Effect on Click
-    document.addEventListener('click', (e) => {
-        let ripple = document.createElement('div');
-        ripple.style.cssText = `position:fixed; left:${e.clientX}px; top:${e.clientY}px; width:10px; height:10px; border:2px solid var(--accent); border-radius:50%; pointer-events:none; z-index:99999; transform:translate(-50%, -50%); animation: rippleAnim 0.8s ease-out forwards;`;
-        document.body.appendChild(ripple);
-        setTimeout(() => ripple.remove(), 800);
-    });
 </script>
-
-<style>
-@keyframes rippleAnim {
-    0% { width: 10px; height: 10px; opacity: 1; }
-    100% { width: 120px; height: 120px; opacity: 0; }
-}
-</style>
 
 </body>
 </html> 
