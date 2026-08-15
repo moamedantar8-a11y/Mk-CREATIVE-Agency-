@@ -114,8 +114,8 @@
         .showcase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; margin-top: 25px; }
         .media-box { background: var(--glass); border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); padding: 18px; text-align: center; backdrop-filter: blur(12px); transition: 0.3s; }
         .media-box:hover { border-color: var(--accent); }
-        .media-box img { width: 100%; border-radius: 14px; height: 210px; object-fit: cover; cursor: pointer; transition: 0.4s; }
-        .media-box img:hover { transform: scale(1.05); }
+        .media-box img, .media-box video { width: 100%; border-radius: 14px; height: 380px; object-fit: cover; cursor: pointer; transition: 0.4s; }
+        .media-box img:hover, .media-box video:hover { transform: scale(1.02); }
 
         .btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; margin: 6px; background: var(--accent); color: #030712; text-decoration: none; border-radius: 50px; font-weight: 800; transition: 0.3s; cursor: pointer; border: none; box-shadow: 0 0 15px var(--accent-glow); font-size: 0.9rem; }
         .btn:hover { transform: scale(1.06); box-shadow: 0 0 25px var(--accent); }
@@ -350,6 +350,17 @@
             <p style="color: #cbd5e1; font-size: 0.950rem; line-height: 1.6;">
                 Served as the lead Motion Graphic Designer for MK CREATIVE Agency's Summer Launch. Demonstrated exemplary commitment, visual creativity, and professional execution across brand video production and dynamic logo animations.
             </p>
+            
+            <!-- Added Asmaa Centre Collaboration Video Project -->
+            <div style="margin-top: 15px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 16px; border: 1px solid rgba(56, 189, 248, 0.2);">
+                <h4 style="color: var(--accent); font-size: 1rem; margin-bottom: 10px;"><i class="fa-solid fa-play-circle"></i> Asmaa Centre Collaboration Project</h4>
+                <video controls autoplay muted loop playsinline style="width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); max-height: 450px; object-fit: cover;">
+                    <source src="Asmaa Centre collaboration project .mov" type="video/quicktime">
+                    <source src="Asmaa Centre collaboration project .mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
             <div style="margin-top: 10px;">
                 <button class="btn btn-outline" onclick="openLightbox('Screenshot_20260815_210636.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-award"></i> View Official Internship Certificate (June 29, 2026)</button>
             </div>
