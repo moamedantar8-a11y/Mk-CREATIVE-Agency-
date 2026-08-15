@@ -22,7 +22,6 @@
             --neon-purple: #b14aed;
         }
 
-        /* Matrix Theme Toggle Support */
         body.matrix-mode {
             --bg-dark: #020d05;
             --accent: #22c55e;
@@ -42,52 +41,21 @@
             position: relative;
         }
 
-        /* Canvas Background for Particle Constellation */
-        #particle-canvas {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 1;
-        }
+        #particle-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+        header, .hero, .container, footer, .floating-controls, .rocket-top-btn, .mobile-search-float, #search-modal { position: relative; z-index: 2; }
 
-        header, .hero, .container, footer, .floating-controls, .rocket-top-btn, #search-modal {
-            position: relative; z-index: 2;
-        }
+        .cursor-dot { position: fixed; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); transition: transform 0.05s ease; }
+        .cursor-outline { position: fixed; width: 32px; height: 32px; border: 2px solid var(--accent); border-radius: 50%; pointer-events: none; z-index: 99998; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, border-color 0.2s; box-shadow: 0 0 15px var(--accent-glow); }
 
-        /* Custom Interactive Cursor & Trail */
-        .cursor-dot {
-            position: fixed; width: 8px; height: 8px; background: var(--accent);
-            border-radius: 50%; pointer-events: none; z-index: 99999;
-            transform: translate(-50%, -50%); transition: transform 0.05s ease;
-        }
-        .cursor-outline {
-            position: fixed; width: 32px; height: 32px; border: 2px solid var(--accent);
-            border-radius: 50%; pointer-events: none; z-index: 99998;
-            transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, border-color 0.2s;
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
+        #progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: var(--accent); width: 0%; z-index: 10001; box-shadow: 0 0 12px var(--accent); }
 
-        /* Scroll Progress Bar */
-        #progress-bar {
-            position: fixed; top: 0; left: 0; height: 4px; background: var(--accent);
-            width: 0%; z-index: 10001; box-shadow: 0 0 12px var(--accent);
-        }
-
-        /* Glassmorphic Header & HUD */
-        header { 
-            background: rgba(3, 7, 18, 0.85); backdrop-filter: blur(16px); 
-            position: fixed; width: 100%; top: 0; z-index: 1000; 
-            border-bottom: 1px solid rgba(56, 189, 248, 0.2); 
-        }
+        header { background: rgba(3, 7, 18, 0.85); backdrop-filter: blur(16px); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(56, 189, 248, 0.2); }
         .nav-container { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 2rem; }
         .logo { font-weight: 800; color: var(--accent); font-size: 1.3rem; display: flex; align-items: center; gap: 10px; letter-spacing: 0.5px; }
         
         .hud-panel { display: flex; align-items: center; gap: 12px; font-size: 0.75rem; flex-wrap: wrap; }
-        .network-ticker, .weather-ticker, .session-ticker, .battery-ticker { 
-            color: var(--accent); background: rgba(56, 189, 248, 0.08); 
-            padding: 5px 10px; border-radius: 12px; border: 1px solid rgba(56, 189, 248, 0.3);
-            display: flex; align-items: center; gap: 5px; backdrop-filter: blur(8px);
-        }
+        .network-ticker, .weather-ticker, .session-ticker, .battery-ticker { color: var(--accent); background: rgba(56, 189, 248, 0.08); padding: 5px 10px; border-radius: 12px; border: 1px solid rgba(56, 189, 248, 0.3); display: flex; align-items: center; gap: 5px; backdrop-filter: blur(8px); }
 
-        /* Status Badge */
         .status-badge { font-size: 0.75rem; background: rgba(34, 197, 94, 0.15); color: #22c55e; border: 1px solid #22c55e; padding: 3px 10px; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px; }
         .status-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 8px #22c55e; animation: pulse 1.5s infinite; }
         @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
@@ -96,15 +64,10 @@
         .nav-links a { color: var(--text); text-decoration: none; font-size: 0.95rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--accent); }
 
-        /* Live Activity Ticker Bar */
-        .activity-ticker-bar {
-            background: rgba(56, 189, 248, 0.06); border-bottom: 1px solid rgba(56, 189, 248, 0.15);
-            padding: 8px 0; font-size: 0.82rem; color: var(--accent); overflow: hidden; white-space: nowrap; margin-top: 65px;
-        }
+        .activity-ticker-bar { background: rgba(56, 189, 248, 0.06); border-bottom: 1px solid rgba(56, 189, 248, 0.15); padding: 8px 0; font-size: 0.82rem; color: var(--accent); overflow: hidden; white-space: nowrap; margin-top: 65px; }
         .ticker-content { display: inline-block; animation: tickerScroll 25s linear infinite; }
         @keyframes tickerScroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-        /* Hero Section */
         .hero { padding: 100px 20px 60px; text-align: center; position: relative; }
         h1 { font-size: 3.8rem; font-weight: 800; background: linear-gradient(to right, #38bdf8, #818cf8, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; }
         
@@ -113,14 +76,12 @@
 
         .vibe-ticker { font-size: 0.85rem; color: var(--text-muted); margin-top: 15px; display: inline-flex; align-items: center; gap: 8px; background: var(--glass); padding: 8px 18px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.06); backdrop-filter: blur(10px); }
 
-        /* Stats Grid */
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 950px; margin: 45px auto 0; }
         .stat-card { background: var(--glass); padding: 22px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(12px); transition: 0.3s; }
         .stat-card:hover { border-color: var(--accent); box-shadow: 0 0 20px var(--accent-glow); }
         .stat-number { font-size: 2.4rem; font-weight: 800; color: var(--accent); }
         .stat-label { font-size: 0.85rem; color: var(--text-muted); margin-top: 5px; }
 
-        /* Container Layout & Reveal Animation */
         .container { max-width: 1150px; margin: auto; padding: 60px 20px; opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .container.visible { opacity: 1; transform: translateY(0); }
         
@@ -131,7 +92,6 @@
         .card { background: var(--glass); padding: 30px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(16px); transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden; cursor: pointer; }
         .card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 0 30px var(--accent-glow); }
 
-        /* Advanced Skills Progress Bars */
         .skills-container { max-width: 900px; margin: 40px auto 0; background: var(--glass); padding: 35px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(16px); }
         .skill-item { margin-bottom: 20px; }
         .skill-item:last-child { margin-bottom: 0; }
@@ -139,25 +99,22 @@
         .skill-bar { width: 100%; height: 10px; background: rgba(255,255,255,0.08); border-radius: 5px; overflow: hidden; }
         .skill-progress { height: 100%; background: linear-gradient(to right, var(--accent), var(--neon-purple)); width: 0%; border-radius: 5px; transition: width 1.5s cubic-bezier(0.1, 1, 0.1, 1); box-shadow: 0 0 10px var(--accent-glow); }
 
-        /* Showcase Grid */
         .showcase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; margin-top: 25px; }
         .media-box { background: var(--glass); border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); padding: 18px; text-align: center; backdrop-filter: blur(12px); transition: 0.3s; }
         .media-box:hover { border-color: var(--accent); }
         .media-box img { width: 100%; border-radius: 14px; height: 210px; object-fit: cover; cursor: pointer; transition: 0.4s; }
         .media-box img:hover { transform: scale(1.05); }
 
-        /* Action Buttons */
         .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; margin: 8px; background: var(--accent); color: #030712; text-decoration: none; border-radius: 50px; font-weight: 800; transition: 0.3s; cursor: pointer; border: none; box-shadow: 0 0 15px var(--accent-glow); }
         .btn:hover { transform: scale(1.06); box-shadow: 0 0 25px var(--accent); }
         .btn-outline { background: transparent; border: 2px solid var(--accent); color: var(--accent); box-shadow: none; }
         .btn-outline:hover { background: var(--accent); color: #030712; }
 
-        /* Floating Controls & HUD Toolbar */
         .floating-controls { position: fixed; bottom: 30px; left: 30px; display: flex; flex-direction: column; gap: 14px; z-index: 1000; }
         .float-btn { width: 50px; height: 50px; background: var(--accent); border-radius: 50%; border: none; cursor: pointer; display: flex; justify-content: center; align-items: center; color: #030712; font-size: 1.2rem; box-shadow: 0 0 20px var(--accent-glow); transition: 0.3s; }
         .float-btn:hover { transform: scale(1.15) rotate(10deg); }
 
-        /* Rocket Top Button */
+        /* Rocket & Mobile Search Float Buttons */
         .rocket-top-btn {
             position: fixed; bottom: 30px; left: 95px;
             background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
@@ -167,7 +124,16 @@
             opacity: 0; visibility: hidden; transition: all 0.3s ease;
         }
         .rocket-top-btn.show { opacity: 1; visibility: visible; }
-        .rocket-top-btn:hover { transform: scale(1.15); box-shadow: 0 0 30px var(--neon-blue); }
+        .rocket-top-btn:hover { transform: scale(1.15); }
+
+        .mobile-search-float {
+            position: fixed; bottom: 30px; left: 160px;
+            background: var(--accent); color: #030712; border: none; width: 50px; height: 50px; border-radius: 50%;
+            cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 20px;
+            box-shadow: 0 0 20px var(--accent-glow); z-index: 1000; transition: 0.3s;
+        }
+        .mobile-search-float:hover { transform: scale(1.15); }
+
         @keyframes launchRocket {
             0% { transform: translateY(0) scale(1); }
             30% { transform: translateY(10px) scale(0.9); filter: brightness(1.5); }
@@ -175,7 +141,7 @@
         }
         .rocket-top-btn.launching { animation: launchRocket 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
 
-        /* Quick Search Modal (Ctrl + K) */
+        /* Quick Search Modal */
         #search-modal {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85);
             z-index: 50000; display: none; justify-content: center; align-items: flex-start; padding-top: 120px; backdrop-filter: blur(12px);
@@ -186,7 +152,7 @@
         .search-results-list li { padding: 12px 18px; border-radius: 12px; margin-bottom: 5px; cursor: pointer; transition: 0.2s; display: flex; align-items: center; gap: 10px; }
         .search-results-list li:hover { background: rgba(56, 189, 248, 0.15); color: var(--accent); }
 
-        /* Project Detail Modal */
+        /* Detailed Project Modal */
         #project-modal {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.88);
             z-index: 40000; display: none; justify-content: center; align-items: center; padding: 20px; backdrop-filter: blur(15px);
@@ -195,7 +161,6 @@
         .close-modal { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.1); border: none; color: white; width: 35px; height: 35px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: 0.3s; }
         .close-modal:hover { background: var(--accent); color: #030712; }
 
-        /* Toast Notification System */
         #toast {
             position: fixed; bottom: 30px; right: 30px; background: rgba(15, 23, 42, 0.95);
             border: 1px solid var(--accent); color: white; padding: 16px 28px; border-radius: 16px;
@@ -205,7 +170,6 @@
         }
         #toast.show { transform: translateY(0); }
 
-        /* Lightbox Modal */
         #lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.94); z-index: 30000; display: none; justify-content: center; align-items: center; padding: 20px; backdrop-filter: blur(10px); }
         #lightbox img { max-width: 90%; max-height: 85vh; border-radius: 16px; border: 2px solid var(--accent); box-shadow: 0 0 40px var(--accent-glow); }
 
@@ -221,31 +185,24 @@
 </head>
 <body>
 
-<!-- Particle Background Canvas -->
 <canvas id="particle-canvas"></canvas>
-
-<!-- Interactive Custom Cursors -->
 <div class="cursor-dot" id="cursor-dot"></div>
 <div class="cursor-outline" id="cursor-outline"></div>
-
-<!-- Top Scroll Progress Bar -->
 <div id="progress-bar"></div>
 
-<!-- Toast Notification Element -->
 <div id="toast">
     <i class="fa-solid fa-bolt" style="color: var(--accent); font-size: 1.4rem;"></i>
     <div>
-        <div style="font-weight: 800;">System Online: All 6 New Features Loaded</div>
-        <div style="font-size: 0.85rem; color: var(--text-muted);">Welcome to Mohamed Antar's Ultimate Master Engine.</div>
+        <div style="font-weight: 800;">System Online: Mobile Search & Features Active</div>
+        <div style="font-size: 0.85rem; color: var(--text-muted);">Welcome to Mohamed Antar's Master Engine.</div>
     </div>
 </div>
 
-<!-- Image Lightbox Modal -->
 <div id="lightbox" onclick="closeLightbox()">
     <img id="lightbox-img" src="" alt="Expanded Media View">
 </div>
 
-<!-- Quick Search Modal (Ctrl + K) -->
+<!-- Quick Search Modal -->
 <div id="search-modal" onclick="closeSearchModal(event)">
     <div class="search-box-wrap" onclick="event.stopPropagation()">
         <input type="text" class="search-input" id="search-input-box" placeholder="Type to search sections or projects (e.g. POS, Chess, Contact)..." oninput="filterSearch()">
@@ -271,7 +228,6 @@
     </div>
 </div>
 
-<!-- Top Sticky Navbar with HUD Telemetry -->
 <header>
     <div class="nav-container">
         <div class="logo">
@@ -296,14 +252,12 @@
     </div>
 </header>
 
-<!-- Live Activity Ticker Bar -->
 <div class="activity-ticker-bar">
     <div class="ticker-content">
-        ⚡ <b>LIVE ACTIVITY:</b> Architecting Next-Gen Systems &nbsp;&bull;&nbsp; ♟️ Managing EGYPT CHESS CLUB &nbsp;&bull;&nbsp; 🚀 Pushing 40M+ Video Views &nbsp;&bull;&nbsp; 💻 Building Interactive POS Web Applications &nbsp;&bull;&nbsp; Press <b>Ctrl + K</b> for Quick Search!
+        ⚡ <b>LIVE ACTIVITY:</b> Architecting Next-Gen Systems &nbsp;&bull;&nbsp; ♟️ Managing EGYPT CHESS CLUB &nbsp;&bull;&nbsp; 🚀 Pushing 40M+ Video Views &nbsp;&bull;&nbsp; 💻 Building Interactive POS Web Applications &nbsp;&bull;&nbsp; Press <b>Ctrl + K</b> or use mobile search!
     </div>
 </div>
 
-<!-- Hero Section -->
 <section class="hero" id="about">
     <div class="container visible">
         <h1>Mohamed Antar</h1>
@@ -325,7 +279,6 @@
             <a href="https://youtube.com/@mo7amed_5277" class="btn btn-outline" target="_blank"><i class="fa-brands fa-youtube"></i> MK QURAN</a>
         </div>
 
-        <!-- Dynamic Statistics Grid -->
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-number" data-target="40">0</div>
@@ -347,7 +300,6 @@
     </div>
 </section>
 
-<!-- Powerhouse Projects Section -->
 <div class="container" id="projects">
     <h2 class="section-title">THE POWERHOUSE</h2>
     <div class="grid">
@@ -369,7 +321,6 @@
     </div>
 </div>
 
-<!-- Advanced Skill Progress Bars Section -->
 <div class="container" id="skills">
     <h2 class="section-title">TECHNICAL MASTERY</h2>
     <div class="skills-container">
@@ -392,7 +343,6 @@
     </div>
 </div>
 
-<!-- Creative Works Showcase Gallery -->
 <div class="container" id="gallery">
     <h2 class="section-title">CREATIVE SHOWCASE</h2>
     <div class="showcase-grid">
@@ -411,7 +361,6 @@
     </div>
 </div>
 
-<!-- Contact Station Section -->
 <div class="container" id="contact">
     <h2 class="section-title">SECURE COMMUNICATIONS</h2>
     <div class="card" style="max-width: 650px; margin: auto; text-align: center; cursor: default;">
@@ -422,7 +371,6 @@
     </div>
 </div>
 
-<!-- Floating Controls (Matrix Toggle + Audio FX Toggle) -->
 <div class="floating-controls">
     <button class="float-btn" onclick="toggleMatrixMode()" title="Toggle Matrix Green Theme"><i class="fa-solid fa-code"></i></button>
     <button class="float-btn" id="audio-toggle-btn" onclick="toggleAudioFX()" title="Toggle Cyber Click FX"><i class="fa-solid fa-volume-high"></i></button>
@@ -433,13 +381,16 @@
     🚀
 </button>
 
+<!-- Mobile Search Float Button -->
+<button class="mobile-search-float" onclick="openSearchModalMobile()" title="بحث سريع">
+    <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+
 <footer>
     <p>&copy; 2026 Mohamed Antar. Built with absolute mastery, 100 integrated features, and relentless passion.</p>
 </footer>
 
-<!-- Comprehensive 100-Feature JavaScript Execution Engine -->
 <script>
-    // 0. Cyber Click Audio FX Synthesis Engine (Web Audio API)
     let audioEnabled = true;
     function playClickSound() {
         if (!audioEnabled) return;
@@ -465,10 +416,8 @@
         showToast(audioEnabled ? "Audio FX Enabled" : "Audio FX Muted");
     }
 
-    // Bind click sound to all interactive elements
     document.addEventListener('click', () => { playClickSound(); });
 
-    // 1. Particle Constellation Background Canvas
     const canvas = document.getElementById('particle-canvas');
     const ctx = canvas.getContext('2d');
     let particlesArray = [];
@@ -531,7 +480,6 @@
     }
     animateParticles();
 
-    // 2. Custom Smooth Mouse Mechanics
     const dot = document.getElementById('cursor-dot');
     const outline = document.getElementById('cursor-outline');
     window.addEventListener('mousemove', (e) => {
@@ -541,7 +489,6 @@
         outline.style.top = e.clientY + 'px';
     });
 
-    // 3. Scroll Progress & Reveal + Rocket Visibility + Skills Animation
     const rocketBtn = document.getElementById('rocketBtn');
     let skillsAnimated = false;
 
@@ -562,7 +509,6 @@
             if(rect.top < window.innerHeight - 80) el.classList.add('visible');
         });
 
-        // Animate Skills Progress Bars when in view
         const skillsSec = document.getElementById('skills');
         if (skillsSec && skillsSec.getBoundingClientRect().top < window.innerHeight - 100 && !skillsAnimated) {
             document.querySelectorAll('.skill-progress').forEach(bar => {
@@ -572,18 +518,21 @@
         }
     };
 
-    // 4. Keyboard Shortcut for Quick Search (Ctrl + K)
     window.addEventListener('keydown', (e) => {
         if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
             e.preventDefault();
-            document.getElementById('search-modal').style.display = 'flex';
-            document.getElementById('search-input-box').focus();
+            openSearchModalMobile();
         }
         if (e.key === 'Escape') {
             document.getElementById('search-modal').style.display = 'none';
             document.getElementById('project-modal').style.display = 'none';
         }
     });
+
+    function openSearchModalMobile() {
+        document.getElementById('search-modal').style.display = 'flex';
+        document.getElementById('search-input-box').focus();
+    }
 
     function closeSearchModal(e) {
         if (e.target.id === 'search-modal') document.getElementById('search-modal').style.display = 'none';
@@ -603,7 +552,6 @@
         }
     }
 
-    // 5. Project Detail Modals
     function openProjectModal(title, desc, techArray, link) {
         document.getElementById('modal-title').textContent = title;
         document.getElementById('modal-desc').textContent = desc;
@@ -622,13 +570,11 @@
         document.getElementById('project-modal').style.display = 'none';
     }
 
-    // 6. Live Ping Telemetry Simulation
     setInterval(() => {
         let randomPing = Math.floor(Math.random() * 6) + 19;
         document.getElementById('ping-val').textContent = randomPing;
     }, 3500);
 
-    // 7. Live Session Timer Tracker
     let totalSeconds = 0;
     setInterval(() => {
         totalSeconds++;
@@ -637,7 +583,6 @@
         document.getElementById('session-time').textContent = `${mins}:${secs}`;
     }, 1000);
 
-    // 8. Battery Status API Integration
     if ('getBattery' in navigator) {
         navigator.getBattery().then(battery => {
             function updateBattery() {
@@ -648,10 +593,9 @@
         });
     }
 
-    // 9. System Initialization & Toast Sequence
     window.onload = () => {
         setTimeout(() => {
-            showToast("System Online: All 6 New Features Loaded");
+            showToast("System Online: All Features Loaded");
         }, 1000);
         startCounters();
     };
@@ -663,7 +607,6 @@
         setTimeout(() => toast.classList.remove("show"), 4000);
     }
 
-    // 10. Dynamic Typing Effect Logic
     const words = ["100-Feature Master Engines.", "High-Retention Media Ecosystems.", "Scalable Software Solutions."];
     let wordIdx = 0, charIdx = 0, currentWord = "", isDeletingState = false;
     function typeEffectEngine() {
@@ -681,7 +624,6 @@
     }
     typeEffectEngine();
 
-    // 11. Stat Counters Animation Sequence
     function startCounters() {
         const counters = document.querySelectorAll('.stat-number');
         counters.forEach(counter => {
@@ -701,7 +643,6 @@
         });
     }
 
-    // 12. Image Lightbox Controllers
     function openLightbox(src) {
         document.getElementById('lightbox-img').src = src;
         document.getElementById('lightbox').style.display = 'flex';
@@ -710,19 +651,16 @@
         document.getElementById('lightbox').style.display = 'none';
     }
 
-    // 13. Matrix Theme Toggle Switch
     function toggleMatrixMode() {
         document.body.classList.toggle('matrix-mode');
         initParticles();
     }
 
-    // 14. Secure Clipboard Copy System
     function copyEmail() {
         navigator.clipboard.writeText("moamedantar8@gmail.com");
         showToast("Secured & Copied to Clipboard!");
     }
 
-    // 15. Rocket Launch to Top
     function launchToTop() {
         rocketBtn.classList.add('launching');
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -734,4 +672,4 @@
 </script>
 
 </body>
-</html> 
+</html>
