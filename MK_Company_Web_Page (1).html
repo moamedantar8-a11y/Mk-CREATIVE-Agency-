@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK Company™ | Premium Digital Media & Development</title>
+    <style>
+        /* Global Reset & Theme Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --bg-dark: #0b0d10;
+            --bg-card: #13171c;
+            --accent-neon: #10b981;
+            --accent-blue: #0ea5e9;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: rgba(19, 23, 28, 0.9);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #ffffff;
+        }
+
+        .logo span {
+            color: var(--accent-neon);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-neon);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px 0;
+            text-align: center;
+            background: radial-gradient(circle at top, rgba(16, 185, 129, 0.1) 0%, transparent 60%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(to right, var(--accent-neon), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--accent-neon);
+            color: #000000;
+            padding: 14px 32px;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5);
+        }
+
+        /* Divisions Section */
+        .brands {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid #1e293b;
+            padding: 40px 30px;
+            border-radius: 12px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-neon);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        .card-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #07090c;
+            padding: 40px 0;
+            border-top: 1px solid #1e293b;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Nav -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">MK <span>Company™</span></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#brands">Divisions</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Building the Future of <br><span>Digital Media & Tech</span></h1>
+            <p>MK Company™ is a cutting-edge multi-niche ecosystem driving innovation through premium gaming networks, deep visual production, and automation solutions.</p>
+            <a href="#brands" class="cta-btn">Explore Our Brands</a>
+        </div>
+    </section>
+
+    <!-- Brands Grid Section -->
+    <section class="brands" id="brands">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Premium Divisions</h2>
+                <p>Scaling reach and performance across diverse creative and technical industries.</p>
+            </div>
+            
+            <div class="grid">
+                <!-- MK GAMES PRO -->
+                <div class="card">
+                    <div class="card-icon">🎮</div>
+                    <h3>MK GAMES PRO</h3>
+                    <p>A powerhouse gaming brand pushing dynamic, high-engagement entertainment. Built around viral content creation, dedicated mobile gaming strategy, and massive community building.</p>
+                    <a href="https://www.youtube.com/@MKGAMESPRO" target="_blank" class="card-link">Launch YouTube Channel →</a>
+                </div>
+
+                <!-- MK QURAN -->
+                <div class="card">
+                    <div class="card-icon">🌙</div>
+                    <h3>MK QURAN</h3>
+                    <p>A high-level aesthetic and spiritual media platform. Delivering elite typography, moving ambient sound design, and pristine atmospheric production designed for high audience retention.</p>
+                    <a href="https://www.youtube.com" target="_blank" class="card-link">Launch Platform →</a>
+                </div>
+
+                <!-- MK DIGITAL LABS -->
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>MK Digital Labs</h3>
+                    <p>The core automation, scripting, and full-stack engineering cell. Crafting custom Python extensions, automation macros, and elite user experiences designed to scale enterprise efficiency.</p>
+                    <a href="https://www.linkedin.com" target="_blank" class="card-link">Request Collaboration →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MK Company™ • All Rights Reserved. Cultivating Digital Excellence.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
