@@ -117,13 +117,12 @@
         .media-box img { width: 100%; border-radius: 14px; height: 210px; object-fit: cover; cursor: pointer; transition: 0.4s; }
         .media-box img:hover { transform: scale(1.05); }
 
-        /* Stock Market Ticker Table Style */
-        .stock-table-box { background: var(--glass); border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); overflow: hidden; backdrop-filter: blur(16px); margin-top: 25px; }
-        .stock-table { width: 100%; border-collapse: collapse; text-align: left; }
-        .stock-table th, .stock-table td { padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.95rem; }
-        .stock-table th { background: rgba(255,255,255,0.03); color: var(--accent); font-weight: 800; font-family: 'Courier New', monospace; }
-        .trend-up { color: #22c55e; font-weight: bold; display: inline-flex; align-items: center; gap: 6px; }
-        .trend-badge { background: rgba(34, 197, 94, 0.12); padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(34, 197, 94, 0.3); }
+        /* MK Creative Agency Services Table Style */
+        .agency-table-box { background: var(--glass); border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); overflow: hidden; backdrop-filter: blur(16px); margin-top: 25px; }
+        .agency-table { width: 100%; border-collapse: collapse; text-align: left; }
+        .agency-table th, .agency-table td { padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.95rem; }
+        .agency-table th { background: rgba(255,255,255,0.03); color: var(--accent); font-weight: 800; font-family: 'Courier New', monospace; }
+        .service-badge { background: rgba(56, 189, 248, 0.12); color: var(--accent); padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(56, 189, 248, 0.3); font-weight: bold; display: inline-flex; align-items: center; gap: 6px; }
 
         /* Code Sandbox Box with Escaping Bugs */
         .code-sandbox-box { background: rgba(3, 7, 18, 0.95); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 16px; overflow: hidden; position: relative; height: 300px; margin-top: 25px; font-family: 'Courier New', monospace; }
@@ -192,8 +191,8 @@
 <div id="toast">
     <i class="fa-solid fa-bolt" style="color: var(--accent); font-size: 1.4rem;"></i>
     <div>
-        <div style="font-weight: 800;">System Online: 100+ Elite Features Loaded</div>
-        <div style="font-size: 0.85rem; color: var(--text-muted);">Welcome to Mohamed Antar's Master Engine & Stock Ticker.</div>
+        <div style="font-weight: 800;">System Online: MK Creative Agency Loaded</div>
+        <div style="font-size: 0.85rem; color: var(--text-muted);">Welcome to Mohamed Antar's Master Engine.</div>
     </div>
 </div>
 
@@ -220,7 +219,7 @@
         <nav class="nav-links">
             <a href="#about"><i class="fa-solid fa-user"></i> About</a>
             <a href="#projects"><i class="fa-solid fa-layer-group"></i> Powerhouse</a>
-            <a href="#markets"><i class="fa-solid fa-chart-line"></i> Analytics</a>
+            <a href="#services"><i class="fa-solid fa-briefcase"></i> Agency Services</a>
             <a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
         </nav>
     </div>
@@ -236,11 +235,11 @@
         
         <div class="vibe-ticker">
             <i class="fa-solid fa-compact-disc fa-spin" style="color: var(--accent);"></i> 
-            <span>Active Vibe: <b>100-Feature Master Engine & Live Stock Stream</b></span>
+            <span>Active Vibe: <b>MK Creative Agency & Master Engine Core</b></span>
         </div>
 
         <p style="max-width: 750px; margin: 25px auto; color: #cbd5e1; line-height: 1.8;">
-            A 14-year-old software architect, competitive chess organizer, and advanced video producer driving over 40M+ viral views through state-of-the-art web systems and optimized digital media engines.
+            A 14-year-old software architect, competitive chess organizer, and advanced video producer driving viral digital campaigns through state-of-the-art web systems and optimized content pipelines.
         </p>
         
         <div style="margin-top: 30px;">
@@ -280,7 +279,7 @@
         </div>
         <div class="card">
             <h3><i class="fa-solid fa-video" style="color: var(--accent);"></i> Viral Media Engine</h3>
-            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;">Generated over 40M+ views through precision audio-visual balancing, advanced short-form optimization, and high-retention editing pipelines.</p>
+            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;">Generated massive global views through precision audio-visual balancing, advanced short-form optimization, and high-retention editing pipelines.</p>
         </div>
         <div class="card">
             <h3><i class="fa-solid fa-chess-board" style="color: var(--accent);"></i> EGYPT CHESS CLUB</h3>
@@ -289,39 +288,39 @@
     </div>
 </div>
 
-<!-- Live Asset Market & Stock Ticker Section (Requested Feature) -->
-<div class="container" id="markets">
-    <h2 class="section-title">LIVE ASSETS & STOCKS TELEMETRY</h2>
-    <p style="color: var(--text-muted); margin-bottom: 15px;">Real-time valuation index tracking engagement growth, viral media milestones, and global assets.</p>
+<!-- MK Creative Agency Services Table (Replacement Section) -->
+<div class="container" id="services">
+    <h2 class="section-title">MK CREATIVE AGENCY SERVICES</h2>
+    <p style="color: var(--text-muted); margin-bottom: 15px;">Professional digital production modules, software engineering, and multimedia scaling pipelines.</p>
     
-    <div class="stock-table-box">
-        <table class="stock-table">
+    <div class="agency-table-box">
+        <table class="agency-table">
             <thead>
                 <tr>
-                    <th>ASSET / TICKER</th>
-                    <th>CATEGORY</th>
-                    <th>CURRENT MILESTONE</th>
-                    <th>24H PERFORMANCE</th>
+                    <th>SERVICE MODULE</th>
+                    <th>CORE DOMAIN</th>
+                    <th>DELIVERY STANDARD</th>
+                    <th>STATUS</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><b>MK_REMIXES_40M</b></td>
-                    <td>Viral Video Engine</td>
-                    <td><b>40,000,000 Views</b></td>
-                    <td><span class="trend-up trend-badge"><i class="fa-solid fa-arrow-trend-up"></i> +14.8% (Bullish)</span></td>
+                    <td><b>High-Retention Video Editing</b></td>
+                    <td>Media Production</td>
+                    <td>Advanced Short-Form Optimization</td>
+                    <td><span class="service-badge"><i class="fa-solid fa-circle-check"></i> Active Pipeline</span></td>
                 </tr>
                 <tr>
-                    <td><b>GOLD_INDEX_XAU</b></td>
-                    <td>Precious Asset</td>
-                    <td><b>All-Time High Tier</b></td>
-                    <td><span class="trend-up trend-badge"><i class="fa-solid fa-arrow-trend-up"></i> +3.2% (Rising)</span></td>
+                    <td><b>Full-Stack Web Development</b></td>
+                    <td>Software Engineering</td>
+                    <td>Interactive JS, Python & Responsive UI</td>
+                    <td><span class="service-badge"><i class="fa-solid fa-circle-check"></i> Scalable Ready</span></td>
                 </tr>
                 <tr>
-                    <td><b>TECH_CODE_ENGINE</b></td>
-                    <td>Software Architecture</td>
-                    <td><b>100 Features Active</b></td>
-                    <td><span class="trend-up trend-badge"><i class="fa-solid fa-arrow-trend-up"></i> +9.5% (Stable)</span></td>
+                    <td><b>Brand & Thumbnail Strategy</b></td>
+                    <td>Creative Branding</td>
+                    <td>High Click-Through Design Assets</td>
+                    <td><span class="service-badge"><i class="fa-solid fa-circle-check"></i> Optimized</span></td>
                 </tr>
             </tbody>
         </table>
@@ -388,7 +387,7 @@
 </div>
 
 <footer>
-    <p>&copy; 2026 Mohamed Antar. Built with absolute mastery, integrated features, and live stock market indexes.</p>
+    <p>&copy; 2026 Mohamed Antar. Built with absolute mastery and agency service architectures.</p>
 </footer>
 
 <!-- JavaScript Execution Engine -->
