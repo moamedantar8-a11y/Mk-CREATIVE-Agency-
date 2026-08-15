@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Antar | Portfolio & MK Ecosystem</title>
+    <style>
+        :root {
+            --bg-color: #030712;
+            --card-bg: #111827;
+            --card-hover: #1f2937;
+            --accent-color: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.3);
+            --text-color: #f9fafb;
+            --text-muted: #9ca3af;
+            --border-color: #1e3a8a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: rgba(3, 7, 18, 0.85);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            background: rgba(59, 130, 246, 0.15);
+            padding: 3px 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(59, 130, 246, 0.4);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.8rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        section {
+            padding: 6rem 2rem 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 90vh;
+            padding-top: 7rem;
+        }
+
+        .agency-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            color: var(--accent-color);
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 25px var(--accent-glow);
+            animation: pulseGlow 2.5s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 15px rgba(59, 130, 246, 0.2); }
+            100% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.5); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff, #60a5fa, #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* حركات النص التفاعلية */
+        .animated-text {
+            display: inline-block;
+            animation: floatText 3s ease-in-out infinite;
+        }
+
+        @keyframes floatText {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .hero h2 {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .hero p {
+            max-width: 750px;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        h2.section-title {
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            display: inline-block;
+            color: #ffffff;
+        }
+
+        h2.section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent-color), #60a5fa);
+            border-radius: 2px;
+            transition: width 0.4s ease;
+        }
+
+        h2.section-title:hover::after {
+            width: 100%;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid #1f2937;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.01);
+            border-color: var(--accent-color);
+            background-color: var(--card-hover);
+            box-shadow: 0 20px 35px -10px rgba(59, 130, 246, 0.25);
+        }
+
+        .card h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            transition: color 0.3s ease;
+        }
+
+        .card:hover h3 {
+            color: #60a5fa;
+        }
+
+        .card p, .card li {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .card ul {
+            list-style-type: disc;
+            padding-left: 1.2rem;
+            margin-top: 0.8rem;
+        }
+
+        .card li {
+            margin-bottom: 0.6rem;
+        }
+
+        .card-link {
+            display: inline-block;
+            margin-top: 1.2rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+            transform: translateX(5px);
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .contact-info a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #60a5fa;
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #010409;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 6rem;
+            border-top: 1px solid #1f2937;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <div class="logo">Mohamed Antar <span>Portfolio</span></div>
+            <ul class="nav-links">
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#company">MK Company</a></li>
+                <li><a href="#agency">MK Creative Agency</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="agency-badge">
+            <span class="animated-text">✨ Founder & Lead Developer</span>
+        </div>
+        <h1 class="animated-text">Mohamed Antar</h1>
+        <h2>Digital Content Creator | Designer | Software Developer</h2>
+        <p>
+            Fusing creative media design, advanced video editing pipelines, and professional software development to engineer scalable digital ecosystems.
+        </p>
+    </section>
+
+    <!-- About Me & Skills -->
+    <section id="about">
+        <h2 class="section-title">About Me & Core Expertise</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Personal Profile & Background</h3>
+                <p>I am Mohamed Antar, a multidisciplinary digital content creator, designer, and software developer[cite: 6]. I bridge the gap between technical programming and high-end visual media production, constructing seamless and robust digital platforms from scratch[cite: 7].</p>
+            </div>
+            <div class="card">
+                <h3>Advanced Technical & Creative Skills</h3>
+                <ul>
+                    <li><strong>Creative Media & Post-Production:</strong> Advanced video editing, short-form content scaling, acoustic balancing, and YouTube SEO growth engineering[cite: 7].</li>
+                    <li><strong>Development & Automation:</strong> Python scripting, HTML5 & CSS3 architecture, mobile application prototyping, and automated smart workflows[cite: 7].</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- MK Company Overview & Divisions -->
+    <section id="company">
+        <h2 class="section-title">MK Company™ - Overview & Divisions</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2.5rem; font-size: 1.1rem;">
+            MK Company™ is a cutting-edge multidisciplinary digital innovation lab focused on high-performance media production, dynamic gaming networks, and automated software workflows[cite: 7]. Our ecosystem blends raw creative vision with rigorous technical engineering to establish a lasting digital footprint and achieve maximum audience retention[cite: 7].
+        </p>
+        
+        <div class="grid">
+            <!-- MK GAMES PRO -->
+            <div class="card">
+                <h3>MK GAMES PRO</h3>
+                <p>A powerhouse gaming brand pushing high-engagement, dynamic entertainment[cite: 7]. Built around viral content creation strategies, specialized mobile gaming content, and large-scale community building[cite: 7].</p>
+                <a href="https://www.youtube.com/@mo7amed_5272" target="_blank" class="card-link">Launch YouTube Channel →</a>
+            </div>
+
+            <!-- MK QURAN -->
+            <div class="card">
+                <h3>MK QURAN</h3>
+                <p>An elite aesthetic and spiritual media platform[cite: 7]. Focused on delivering high-level typography, moving ambient sound design, and pristine atmospheric audio-visual production engineered for prolonged audience retention[cite: 7].</p>
+                <a href="https://www.youtube.com/@mo7amed_5277" target="_blank" class="card-link">Launch Platform →</a>
+            </div>
+
+            <!-- MK Digital Labs -->
+            <div class="card">
+                <h3>MK Digital Labs</h3>
+                <p>The core software development, scripting, and full-stack engineering cell[cite: 7]. Crafting custom Python extensions, workflow automation macros, and optimized user interfaces designed to scale operational efficiency[cite: 7].</p>
+                <a href="https://linkedin.com/in/mohamed-antar-522201406" target="_blank" class="card-link">Request Collaboration →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MK Creative Agency -->
+    <section id="agency">
+        <h2 class="section-title">MK Creative Agency</h2>
+        <div class="card">
+            <h3>Agency Vision & Professional Impact</h3>
+            <p>As a foundational strategic initiative, MK Creative Agency is dedicated to delivering professional digital solutions that communicate compelling brand stories and resolve complex technical challenges for clients worldwide[cite: 6]. Our core focus relies on writing exceptionally clean code, maintaining full cross-device responsiveness, and executing high-retention video pipelines to guarantee impactful digital experiences[cite: 6].</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="card contact-info">
+            <p style="margin-bottom: 1.5rem; color: var(--text-muted);">Feel free to reach out for brand collaborations, agency partnerships, or technical inquiries!</p>
+            <p>📧 <strong>Email:</strong> <a href="mailto:moamedantar8@gmail.com">moamedantar8@gmail.com</a>[cite: 6]</p>
+            <p>💬 <strong>WhatsApp:</strong> <a href="https://wa.me/201559719175" target="_blank">+20 155 971 9175</a>[cite: 6]</p>
+            <p>🔗 <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/mohamed-antar-522201406" target="_blank">Mohamed Antar Profile</a>[cite: 6]</p>
+            <p>🎮 <strong>YouTube Hubs:</strong> <a href="https://youtube.com/@mo7amed_5272" target="_blank">@mo7amed_5272</a> | <a href="https://youtube.com/@mo7amed_5277" target="_blank">@mo7amed_5277</a>[cite: 6]</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Mohamed Antar & MK Creative Agency. Built with passion, robust code, and continuous growth.</p>
+    </footer>
+
+</body>
+</html>
