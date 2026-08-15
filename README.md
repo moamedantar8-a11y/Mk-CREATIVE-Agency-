@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamed Antar | Cyber Pro Portfolio</title>
+    <title>Mohamed Antar | Ultimate Cyber Portfolio</title>
     <style>
         :root { 
             --bg-dark: #030712; 
@@ -12,86 +12,81 @@
             --text: #f8fafc;
         }
         
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+        
         body { 
             background: radial-gradient(circle at top right, #1e1b4b, #030712); 
             background-attachment: fixed;
             color: var(--text); 
             font-family: 'Segoe UI', sans-serif; 
-            margin: 0; 
             overflow-x: hidden;
         }
 
-        /* Loading Screen */
-        #loader {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: #030712; z-index: 9999; display: flex; justify-content: center; align-items: center;
-            transition: opacity 0.5s;
-        }
+        /* Navbar */
+        header { background: rgba(3, 7, 18, 0.8); backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(56, 189, 248, 0.2); }
+        .nav-container { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
+        .logo { font-weight: bold; color: var(--accent); font-size: 1.5rem; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
 
-        /* Elements */
-        .container { max-width: 1000px; margin: auto; padding: 80px 20px; }
-        h1 { font-size: 3.5rem; margin: 0; background: linear-gradient(to right, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; }
+        /* Hero */
+        .hero { padding: 150px 20px 100px; text-align: center; }
+        h1 { font-size: 4rem; background: linear-gradient(to right, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; }
         
+        /* Container & Cards */
+        .container { max-width: 1000px; margin: auto; padding: 60px 20px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        
-        .card { 
-            background: var(--glass); padding: 30px; border-radius: 20px; 
-            border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(15px);
-            transition: 0.4s;
-        }
-        .card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 0 30px rgba(56, 189, 248, 0.3); }
+        .card { background: var(--glass); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); transition: 0.4s; }
+        .card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 0 20px rgba(56, 189, 248, 0.2); }
 
-        .btn { 
-            display: inline-block; padding: 15px 30px; margin: 10px;
-            background: var(--accent); color: white; text-decoration: none; border-radius: 50px; 
-            font-weight: bold; transition: 0.3s;
-        }
-        .btn:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--accent); }
+        /* Buttons */
+        .btn { display: inline-block; padding: 12px 25px; margin: 10px; background: var(--accent); color: #030712; text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s; }
+        .btn:hover { transform: scale(1.05); box-shadow: 0 0 15px var(--accent); }
 
-        #theme-toggle { position: fixed; top: 20px; right: 20px; cursor: pointer; padding: 10px; background: var(--accent); border-radius: 50%; border: none; }
+        #theme-toggle { position: fixed; bottom: 20px; left: 20px; cursor: pointer; padding: 10px; background: var(--accent); border-radius: 50%; border: none; }
     </style>
 </head>
 <body>
 
-<div id="loader"><h1>LOADING CYBER PORTFOLIO...</h1></div>
+<header>
+    <div class="nav-container">
+        <div class="logo">Mohamed Antar</div>
+        <nav class="nav-links">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
 
-<button id="theme-toggle" onclick="toggleTheme()">☀️</button>
-
-<div class="container" style="text-align: center;">
+<section class="hero" id="about">
     <h1>Mohamed Antar</h1>
     <p>Video Editor | Content Architect | Aspiring Software Engineer</p>
     <div style="margin-top: 30px;">
         <a href="https://youtube.com/@mo7amed_5272" class="btn">MK GAMES PRO</a>
         <a href="https://youtube.com/@mo7amed_5277" class="btn">MK QURAN</a>
-        <a href="mailto:moamedantar8@gmail.com" class="btn">Email Me</a>
     </div>
-</div>
+</section>
 
-<div class="container">
+<div class="container" id="projects">
     <h2>OUR POWERHOUSE</h2>
-    <div class="grid">
+    <div class="grid" style="margin-top: 30px;">
         <div class="card"><h3>Future Mall</h3><p>Full-stack retail application with role-based access.</p></div>
-        <div class="card"><h3>Content Growth</h3><p>40M+ views generated through high-retention editing.</p></div>
+        <div class="card"><h3>Viral Media</h3><p>40M+ views generated through high-retention editing.</p></div>
         <div class="card"><h3>Automation</h3><p>Python-based smart workflows for maximum efficiency.</p></div>
     </div>
 </div>
 
-<div class="container">
-    <h2>EXPERIENCE</h2>
-    <div class="grid">
-        <div class="card"><h3>Lead Media Engineer</h3><p>MK GAMES PRO (450+ videos published).</p></div>
-        <div class="card"><h3>Software Developer</h3><p>Building scalable systems using Python, HTML, CSS.</p></div>
+<div class="container" id="contact">
+    <h2>CONTACT INFO</h2>
+    <div class="card" style="margin-top: 30px;">
+        <p>📧 Email: moamedantar8@gmail.com</p>
+        <p>💬 WhatsApp: +20 155 971 9175</p>
+        <p>🔗 LinkedIn: <a href="https://linkedin.com/in/mohamed-antar-522201406" style="color:var(--accent)">Profile Link</a></p>
     </div>
 </div>
 
-<script>
-    window.onload = () => document.getElementById('loader').style.opacity = '0';
-    setTimeout(() => document.getElementById('loader').style.display = 'none', 500);
-
-    function toggleTheme() {
-        document.body.style.filter = document.body.style.filter === 'invert(1)' ? 'none' : 'invert(1)';
-    }
-</script>
+<button id="theme-toggle" onclick="document.body.style.filter = document.body.style.filter ? '' : 'invert(1)'">☀️</button>
 
 </body>
-</html>
+</html> 
