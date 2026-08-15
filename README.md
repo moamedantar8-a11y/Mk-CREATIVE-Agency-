@@ -350,11 +350,11 @@
             </div>
             <div>
                 <h3 style="font-size: 1.6rem; color: var(--accent);">Mohamed Antar (محمد عنتر)</h3>
-                <p style="color: var(--text-muted); font-size: 0.95rem;" data-translate="ceo_role">Founder & Chief Executive Officer (CEO) • Age 14 • Dakahlia, Egypt</p>
+                <p style="color: var(--text-muted); font-size: 0.95rem;" data-translate="ceo_role">Founder & Chief Executive Officer (CEO)[cite: 2] • Age 14[cite: 2] • Dakahlia, Egypt[cite: 2]</p>
             </div>
         </div>
         <p style="color: #cbd5e1; line-height: 1.8;" data-translate="ceo_desc">
-            As the 14-year-old visionary behind MK CREATIVE Agency, Mohamed oversees technical architecture, AI integrations, and high-level software engineering. Holding 10 official certifications from Udacity and Google Cloud, he bridges the gap between advanced cloud operations, automated commercial applications, and viral digital media solutions. He also actively participates as an Admin in strategic chess initiatives within the EGYPT CHESS CLUB.
+            As the 14-year-old visionary behind MK CREATIVE Agency, Mohamed oversees technical architecture, AI integrations, and high-level software engineering[cite: 2]. Holding 10 official certifications from Udacity and Google Cloud, he bridges the gap between advanced cloud operations, automated commercial applications, and viral digital media solutions[cite: 2]. He also actively participates as an Admin in strategic chess initiatives within the EGYPT CHESS CLUB[cite: 2].
         </p>
     </div>
 </div>
@@ -362,7 +362,7 @@
 <!-- AGENCY TEAM & COLLABORATORS SECTION -->
 <div class="container" id="team">
     <h2 class="section-title" data-translate="sec_team">AGENCY TEAM & COLLABORATORS</h2>
-    <p style="color: var(--text-muted); margin-bottom: 25px;" data-translate="team_subtitle">Key talent who contributed creative excellence to MK CREATIVE Agency projects.</p>
+    <p style="color: var(--text-muted); margin-bottom: 25px;" data-translate="team_subtitle">Key talent who contributed creative excellence to MK CREATIVE Agency projects[cite: 2].</p>
     
     <div class="grid" style="max-width: 900px; margin: auto;">
         <div class="card" style="display: flex; flex-direction: column; gap: 15px;">
@@ -372,16 +372,16 @@
                 </div>
                 <div>
                     <h3 style="font-size: 1.3rem; color: var(--accent);">Malek Mohamed</h3>
-                    <p style="color: var(--text-muted); font-size: 0.85rem;" data-translate="malek_role">Motion Graphic Designer & Video Editor (Summer Launch)</p>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;" data-translate="malek_role">Motion Graphic Designer & Video Editor (Summer Launch)[cite: 2]</p>
                 </div>
             </div>
             <p style="color: #cbd5e1; font-size: 0.950rem; line-height: 1.6;" data-translate="malek_desc">
-                Served as the lead Motion Graphic Designer for MK CREATIVE Agency's Summer Launch. Demonstrated exemplary commitment, visual creativity, and professional execution across brand video production and dynamic logo animations.
+                Served as the lead Motion Graphic Designer for MK CREATIVE Agency's Summer Launch[cite: 2]. Demonstrated exemplary commitment, visual creativity, and professional execution across brand video production and dynamic logo animations[cite: 2].
             </p>
             
             <!-- Asmaa Centre Collaboration Video Project -->
             <div style="margin-top: 15px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 16px; border: 1px solid rgba(56, 189, 248, 0.2);">
-                <h4 style="color: var(--accent); font-size: 1rem; margin-bottom: 10px;"><i class="fa-solid fa-play-circle"></i> <span data-translate="asmaa_title">Asmaa Centre Collaboration Project</span></h4>
+                <h4 style="color: var(--accent); font-size: 1rem; margin-bottom: 10px;"><i class="fa-solid fa-play-circle"></i> <span data-translate="asmaa_title">Asmaa Centre Collaboration Project</span>[cite: 2]</h4>
                 <video controls autoplay muted loop playsinline style="width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); max-height: 450px; object-fit: cover;">
                     <source src="Asmaa Centre collaboration project .mov" type="video/quicktime">
                     <source src="Asmaa Centre collaboration project .mov" type="video/mp4">
@@ -390,7 +390,7 @@
             </div>
 
             <div style="margin-top: 10px;">
-                <button class="btn btn-outline" onclick="openLightbox('Screenshot_20260815_210636.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-award"></i> <span data-translate="btn_cert">View Official Internship Certificate (June 29, 2026)</span></button>
+                <button class="btn btn-outline" onclick="openLightbox('Screenshot_20260815_210636.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-award"></i> <span data-translate="btn_cert">View Official Internship Certificate (June 29, 2026)</span>[cite: 2]</button>
             </div>
         </div>
     </div>
@@ -399,69 +399,69 @@
 <!-- CERTIFICATIONS SECTION -->
 <div class="container" id="certifications">
     <h2 class="section-title" data-translate="sec_certs">VERIFIED AGENCY CERTIFICATIONS</h2>
-    <p style="color: var(--text-muted); margin-bottom: 20px;" data-translate="certs_subtitle">Official credentials awarded by Udacity in collaboration with Google Cloud and Accenture.</p>
+    <p style="color: var(--text-muted); margin-bottom: 20px;" data-translate="certs_subtitle">Official credentials awarded by Udacity in collaboration with Google Cloud and Accenture[cite: 2].</p>
     
     <div class="cert-grid">
         <div class="cert-card">
             <img src="IMG_20251221_133154.jpg" alt="Gemini in Google Sheets" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Gemini in Google Sheets</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity[cite: 2]</p>
             <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_133154.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
         </div>
 
         <div class="cert-card">
             <img src="IMG_20251221_133952_edit_1294679129859207.jpg" alt="Gemini in Gmail" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Gemini in Gmail</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity[cite: 2]</p>
             <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_133952_edit_1294679129859207.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
         </div>
 
         <div class="cert-card">
             <img src="IMG_20251221_134712.jpg" alt="Trust and Security with Google Cloud" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Trust & Security with Google Cloud</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity[cite: 2]</p>
             <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_134712.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
         </div>
 
         <div class="cert-card">
             <img src="IMG_20251221_135357.jpg" alt="Modernize Infrastructure and Applications" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Modernize Infrastructure & Apps</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity[cite: 2]</p>
             <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_135357.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
         </div>
 
         <div class="cert-card">
             <img src="IMG_20260501_100603.jpg" alt="Responsible AI" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Responsible AI: Applying Principles</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity[cite: 2]</p>
             <button class="btn btn-outline" onclick="openLightbox('IMG_20260501_100603.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
         </div>
 
         <div class="cert-card">
             <img src="IMG_20251221_140439.jpg" alt="Gemini in Google Meet" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Gemini in Google Meet</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity[cite: 2]</p>
             <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_140439.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
         </div>
 
         <div class="cert-card">
             <img src="IMG_20260501_100729.jpg" alt="Introduction to Gemini for Google Workspace" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Intro to Gemini for Workspace</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity[cite: 2]</p>
             <button class="btn btn-outline" onclick="openLightbox('IMG_20260501_100729.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
         </div>
 
         <div class="cert-card">
             <img src="IMG_20251221_141142.jpg" alt="Scaling with Google Cloud Operations" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Scaling with Cloud Operations</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity[cite: 2]</p>
             <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_141142.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
         </div>
 
         <div class="cert-card">
             <img src="IMG_20251221_142835_edit_2119882193330690.jpg" alt="Gemini in Google Slides" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Gemini in Google Slides</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity[cite: 2]</p>
             <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_142835_edit_2119882193330690.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
         </div>
     </div>
@@ -472,17 +472,17 @@
     <div class="grid">
         <div class="card" onclick="openProjectModal('Future Mall POS', 'Advanced enterprise retail web application featuring role-based access control, AI product classification via Keras/Teachable Machine, multi-currency frameworks, and automated inventory management.', ['Python', 'HTML/JS', 'AI Frameworks'], 'https://github.com')">
             <h3><i class="fa-solid fa-store" style="color: var(--accent);"></i> Future Mall POS</h3>
-            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;" data-translate="proj1_desc">Full-stack retail web application featuring role-based access control, AI product classification, and multi-currency frameworks.</p>
+            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;" data-translate="proj1_desc">Full-stack retail web application featuring role-based access control, AI product classification, and multi-currency frameworks[cite: 2].</p>
             <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);" data-translate="view_specs">View System Specs &rarr;</span>
         </div>
         <div class="card" onclick="openProjectModal('Viral Media Engine', 'Corporate media distribution engine generating over 40M+ views through precision audio-visual balancing, advanced short-form optimization, and high-retention editing pipelines.', ['Video Production', 'Analytics', 'Media Scaling'], 'https://youtube.com/@mo7amed_5272')">
             <h3><i class="fa-solid fa-video" style="color: var(--accent);"></i> Viral Media Engine</h3>
-            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;" data-translate="proj2_desc">Generated over 40M+ views through precision audio-visual balancing, advanced short-form optimization, and high-retention editing.</p>
+            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;" data-translate="proj2_desc">Generated over 40M+ views through precision audio-visual balancing, advanced short-form optimization, and high-retention editing[cite: 2].</p>
             <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);" data-translate="view_specs">View System Specs &rarr;</span>
         </div>
         <div class="card" onclick="openProjectModal('EGYPT CHESS CLUB', 'Strategic community management ecosystem and automated tactical club frameworks hosted on Chess.com to foster high-level analytical thinking and local talent.', ['Strategy', 'Community Engine'], 'https://chess.com')">
             <h3><i class="fa-solid fa-chess-board" style="color: var(--accent);"></i> EGYPT CHESS CLUB (Admin)</h3>
-            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;" data-translate="proj3_desc">Active administration and tactical management within digital strategy communities and club workflows.</p>
+            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;" data-translate="proj3_desc">Active administration and tactical management within digital strategy communities and club workflows[cite: 2].</p>
             <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);" data-translate="view_specs">View System Specs &rarr;</span>
         </div>
     </div>
