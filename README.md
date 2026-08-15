@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="only dark">
-    <title>MK CREATIVE Agency | Powered by Mohamed Antar</title>
+    <title id="page-title">MK CREATIVE Agency | Powered by Mohamed Antar</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <style>
         :root { 
@@ -41,7 +41,7 @@
             background: radial-gradient(circle at top right, #1e1b4b, var(--bg-dark)); 
             background-attachment: fixed;
             color: var(--text); 
-            font-family: 'Inter', sans-serif; 
+            font-family: 'Cairo', 'Inter', sans-serif; 
             overflow-x: hidden;
             transition: background 0.5s ease;
             position: relative;
@@ -61,6 +61,28 @@
         
         .hud-panel { display: flex; align-items: center; gap: 10px; font-size: 0.75rem; flex-wrap: wrap; }
         .network-ticker, .weather-ticker, .session-ticker, .battery-ticker { color: var(--accent); background: rgba(56, 189, 248, 0.08); padding: 5px 10px; border-radius: 12px; border: 1px solid rgba(56, 189, 248, 0.3); display: flex; align-items: center; gap: 5px; backdrop-filter: blur(8px); }
+
+        /* زر اللغات الجديد */
+        .lang-select {
+            background: rgba(56, 189, 248, 0.08);
+            color: var(--accent);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 5px 10px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            outline: none;
+            transition: 0.3s;
+            font-family: 'Cairo', sans-serif;
+        }
+        .lang-select option {
+            background: #030712;
+            color: #fff;
+        }
+        .lang-select:hover {
+            background: rgba(56, 189, 248, 0.2);
+            border-color: var(--accent);
+        }
 
         .status-badge { font-size: 0.75rem; background: rgba(34, 197, 94, 0.15); color: #22c55e; border: 1px solid #22c55e; padding: 3px 10px; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px; }
         .status-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 8px #22c55e; animation: pulse 1.5s infinite; }
@@ -216,13 +238,13 @@
     <div class="search-box-wrap" onclick="event.stopPropagation()">
         <input type="text" class="search-input" id="search-input-box" placeholder="Search agency systems, CEO profile or team..." oninput="filterSearch()">
         <ul class="search-results-list" id="search-results">
-            <li onclick="scrollToSection('about')"><i class="fa-solid fa-building"></i> About MK CREATIVE Agency</li>
-            <li onclick="scrollToSection('ceo')"><i class="fa-solid fa-user-tie"></i> CEO & Founder: Mohamed Antar</li>
-            <li onclick="scrollToSection('team')"><i class="fa-solid fa-users"></i> Motion Graphics Lead: Malek Mohamed</li>
-            <li onclick="scrollToSection('certifications')"><i class="fa-solid fa-award"></i> Verified Google Cloud Certifications</li>
-            <li onclick="scrollToSection('projects')"><i class="fa-solid fa-store"></i> Future Mall POS System</li>
-            <li onclick="scrollToSection('skills')"><i class="fa-solid fa-code"></i> Enterprise Technical Stack</li>
-            <li onclick="scrollToSection('contact')"><i class="fa-solid fa-envelope"></i> Secure Corporate Contact</li>
+            <li onclick="scrollToSection('about')"><i class="fa-solid fa-building"></i> <span data-translate="s_about">About MK CREATIVE Agency</span></li>
+            <li onclick="scrollToSection('ceo')"><i class="fa-solid fa-user-tie"></i> <span data-translate="s_ceo">CEO & Founder: Mohamed Antar</span></li>
+            <li onclick="scrollToSection('team')"><i class="fa-solid fa-users"></i> <span data-translate="s_team">Motion Graphics Lead: Malek Mohamed</span></li>
+            <li onclick="scrollToSection('certifications')"><i class="fa-solid fa-award"></i> <span data-translate="s_certs">Verified Google Cloud Certifications</span></li>
+            <li onclick="scrollToSection('projects')"><i class="fa-solid fa-store"></i> <span data-translate="s_proj">Future Mall POS System</span></li>
+            <li onclick="scrollToSection('skills')"><i class="fa-solid fa-code"></i> <span data-translate="s_skills">Enterprise Technical Stack</span></li>
+            <li onclick="scrollToSection('contact')"><i class="fa-solid fa-envelope"></i> <span data-translate="s_contact">Secure Corporate Contact</span></li>
         </ul>
     </div>
 </div>
@@ -234,7 +256,7 @@
         <h2 id="modal-title" style="color: var(--accent); margin-bottom: 15px;">Project Title</h2>
         <p id="modal-desc" style="color: var(--text-muted); line-height: 1.7; margin-bottom: 20px;"></p>
         <div id="modal-tech" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 25px;"></div>
-        <a href="#" id="modal-link" class="btn" target="_blank"><i class="fa-solid fa-external-link"></i> Launch Agency Demo</a>
+        <a href="#" id="modal-link" class="btn" target="_blank"><i class="fa-solid fa-external-link"></i> <span data-translate="launch_demo">Launch Agency Demo</span></a>
     </div>
 </div>
 
@@ -242,31 +264,37 @@
     <div class="nav-container">
         <div class="logo">
             <i class="fa-solid fa-cube"></i> MK CREATIVE AGENCY
-            <span class="status-badge"><span class="status-dot"></span> Secure Node</span>
+            <span class="status-badge"><span class="status-dot"></span> <span data-translate="secure_node">Secure Node</span></span>
         </div>
         
         <div class="hud-panel">
             <div class="network-ticker"><i class="fa-solid fa-wifi"></i> <span id="ping-val">19</span>ms</div>
-            <div class="weather-ticker"><i class="fa-solid fa-cloud-sun"></i> Dakahlia: 32°C</div>
+            <div class="weather-ticker"><i class="fa-solid fa-cloud-sun"></i> <span data-translate="dakahlia">Dakahlia: 32°C</span></div>
             <div class="session-ticker"><i class="fa-solid fa-clock"></i> <span id="session-time">00:00</span></div>
             <div class="battery-ticker"><i class="fa-solid fa-battery-full"></i> <span id="battery-val">100%</span></div>
+            <!-- زر اختيار وترجمة اللغات المدمج هنا -->
+            <select id="langSwitch" class="lang-select" onchange="changeLanguage(this.value)">
+                <option value="ar">العربية</option>
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+            </select>
         </div>
 
         <nav class="nav-links">
-            <a href="#about"><i class="fa-solid fa-building"></i> Agency</a>
-            <a href="#ceo"><i class="fa-solid fa-user-tie"></i> CEO</a>
-            <a href="#team"><i class="fa-solid fa-users"></i> Team</a>
-            <a href="#certifications"><i class="fa-solid fa-award"></i> Certifications</a>
-            <a href="#projects"><i class="fa-solid fa-layer-group"></i> Solutions</a>
-            <a href="#skills"><i class="fa-solid fa-code"></i> Tech Stack</a>
-            <a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+            <a href="#about"><i class="fa-solid fa-building"></i> <span data-translate="nav_agency">Agency</span></a>
+            <a href="#ceo"><i class="fa-solid fa-user-tie"></i> <span data-translate="nav_ceo">CEO</span></a>
+            <a href="#team"><i class="fa-solid fa-users"></i> <span data-translate="nav_team">Team</span></a>
+            <a href="#certifications"><i class="fa-solid fa-award"></i> <span data-translate="nav_certs">Certifications</span></a>
+            <a href="#projects"><i class="fa-solid fa-layer-group"></i> <span data-translate="nav_solutions">Solutions</span></a>
+            <a href="#skills"><i class="fa-solid fa-code"></i> <span data-translate="nav_tech">Tech Stack</span></a>
+            <a href="#contact"><i class="fa-solid fa-envelope"></i> <span data-translate="nav_contact">Contact</span></a>
         </nav>
     </div>
 </header>
 
 <div class="activity-ticker-bar">
     <div class="ticker-content">
-        🏢 <b>MK CREATIVE AGENCY:</b> High-Performance Cloud Architecture & AI Integration &nbsp;&bull;&nbsp; ♟️ Directed by Mohamed Antar (CEO, 14y) &nbsp;&bull;&nbsp; Press <b>Ctrl + K</b> for Agency Quick Search!
+        🏢 <b data-translate="ticker_title">MK CREATIVE AGENCY:</b> <span data-translate="ticker_desc">High-Performance Cloud Architecture & AI Integration</span> &nbsp;&bull;&nbsp; ♟️ <span data-translate="ticker_ceo">Directed by Mohamed Antar (CEO, 14y)</span> &nbsp;&bull;&nbsp; <span data-translate="ticker_search">Press Ctrl + K for Agency Quick Search!</span>
     </div>
 </div>
 
@@ -274,39 +302,39 @@
     <div class="container visible">
         <h1>MK CREATIVE Agency</h1>
         <p style="font-size: 1.3rem; color: var(--text-muted);">
-            Empowering Global Business with <span class="typed-text" id="typed"></span>
+            <span data-translate="hero_subtitle">Empowering Global Business with</span> <span class="typed-text" id="typed"></span>
         </p>
         
         <div class="vibe-ticker">
             <i class="fa-solid fa-microchip fa-spin" style="color: var(--accent);"></i> 
-            <span>Agency Status: <b>Next-Gen Cloud & AI Frameworks Active</b></span>
+            <span><span data-translate="agency_status">Agency Status:</span> <b><span data-translate="agency_status_val">Next-Gen Cloud & AI Frameworks Active</span></b></span>
         </div>
 
-        <p style="max-width: 750px; margin: 25px auto; color: #cbd5e1; line-height: 1.8;">
+        <p style="max-width: 750px; margin: 25px auto; color: #cbd5e1; line-height: 1.8;" data-translate="hero_desc">
             MK CREATIVE Agency is a forward-thinking technology corporation specializing in automated retail POS systems, high-retention digital media pipelines, and Google Cloud infrastructure integration.
         </p>
         
         <div style="margin-top: 30px;">
-            <a href="#projects" class="btn"><i class="fa-solid fa-rocket"></i> Explore Solutions</a>
-            <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-headset"></i> Partner With Us</a>
+            <a href="#projects" class="btn"><i class="fa-solid fa-rocket"></i> <span data-translate="btn_explore">Explore Solutions</span></a>
+            <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-headset"></i> <span data-translate="btn_partner">Partner With Us</span></a>
         </div>
 
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-number" data-target="10">0</div>
-                <div class="stat-label">Verified Google Cloud Certs</div>
+                <div class="stat-label" data-translate="stat_certs">Verified Google Cloud Certs</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number" data-target="40">0</div>
-                <div class="stat-label">Million+ Global Views</div>
+                <div class="stat-label" data-translate="stat_views">Million+ Global Views</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number" data-target="14">0</div>
-                <div class="stat-label">Years Young Innovator CEO</div>
+                <div class="stat-label" data-translate="stat_age">Years Young Innovator CEO</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number" data-target="100">0</div>
-                <div class="stat-label">% Secure Infrastructure</div>
+                <div class="stat-label" data-translate="stat_secure">% Secure Infrastructure</div>
             </div>
         </div>
     </div>
@@ -314,7 +342,7 @@
 
 <!-- CEO PROFILE SECTION -->
 <div class="container" id="ceo">
-    <h2 class="section-title">EXECUTIVE LEADERSHIP</h2>
+    <h2 class="section-title" data-translate="sec_exec">EXECUTIVE LEADERSHIP</h2>
     <div class="card" style="max-width: 900px; margin: auto; display: flex; flex-direction: column; gap: 20px;">
         <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
             <div style="width: 80px; height: 80px; background: rgba(56, 189, 248, 0.1); border: 2px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; color: var(--accent);">
@@ -322,10 +350,10 @@
             </div>
             <div>
                 <h3 style="font-size: 1.6rem; color: var(--accent);">Mohamed Antar (محمد عنتر)</h3>
-                <p style="color: var(--text-muted); font-size: 0.95rem;">Founder & Chief Executive Officer (CEO) • Age 14 • Dakahlia, Egypt</p>
+                <p style="color: var(--text-muted); font-size: 0.95rem;" data-translate="ceo_role">Founder & Chief Executive Officer (CEO) • Age 14 • Dakahlia, Egypt</p>
             </div>
         </div>
-        <p style="color: #cbd5e1; line-height: 1.8;">
+        <p style="color: #cbd5e1; line-height: 1.8;" data-translate="ceo_desc">
             As the 14-year-old visionary behind MK CREATIVE Agency, Mohamed oversees technical architecture, AI integrations, and high-level software engineering. Holding 10 official certifications from Udacity and Google Cloud, he bridges the gap between advanced cloud operations, automated commercial applications, and viral digital media solutions. He also actively participates as an Admin in strategic chess initiatives within the EGYPT CHESS CLUB.
         </p>
     </div>
@@ -333,8 +361,8 @@
 
 <!-- AGENCY TEAM & COLLABORATORS SECTION -->
 <div class="container" id="team">
-    <h2 class="section-title">AGENCY TEAM & COLLABORATORS</h2>
-    <p style="color: var(--text-muted); margin-bottom: 25px;">Key talent who contributed creative excellence to MK CREATIVE Agency projects.</p>
+    <h2 class="section-title" data-translate="sec_team">AGENCY TEAM & COLLABORATORS</h2>
+    <p style="color: var(--text-muted); margin-bottom: 25px;" data-translate="team_subtitle">Key talent who contributed creative excellence to MK CREATIVE Agency projects.</p>
     
     <div class="grid" style="max-width: 900px; margin: auto;">
         <div class="card" style="display: flex; flex-direction: column; gap: 15px;">
@@ -344,16 +372,16 @@
                 </div>
                 <div>
                     <h3 style="font-size: 1.3rem; color: var(--accent);">Malek Mohamed</h3>
-                    <p style="color: var(--text-muted); font-size: 0.85rem;">Motion Graphic Designer & Video Editor (Summer Launch)</p>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;" data-translate="malek_role">Motion Graphic Designer & Video Editor (Summer Launch)</p>
                 </div>
             </div>
-            <p style="color: #cbd5e1; font-size: 0.950rem; line-height: 1.6;">
+            <p style="color: #cbd5e1; font-size: 0.950rem; line-height: 1.6;" data-translate="malek_desc">
                 Served as the lead Motion Graphic Designer for MK CREATIVE Agency's Summer Launch. Demonstrated exemplary commitment, visual creativity, and professional execution across brand video production and dynamic logo animations.
             </p>
             
-            <!-- Added Asmaa Centre Collaboration Video Project -->
+            <!-- Asmaa Centre Collaboration Video Project -->
             <div style="margin-top: 15px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 16px; border: 1px solid rgba(56, 189, 248, 0.2);">
-                <h4 style="color: var(--accent); font-size: 1rem; margin-bottom: 10px;"><i class="fa-solid fa-play-circle"></i> Asmaa Centre Collaboration Project</h4>
+                <h4 style="color: var(--accent); font-size: 1rem; margin-bottom: 10px;"><i class="fa-solid fa-play-circle"></i> <span data-translate="asmaa_title">Asmaa Centre Collaboration Project</span></h4>
                 <video controls autoplay muted loop playsinline style="width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); max-height: 450px; object-fit: cover;">
                     <source src="Asmaa Centre collaboration project .mov" type="video/quicktime">
                     <source src="Asmaa Centre collaboration project .mov" type="video/mp4">
@@ -362,7 +390,7 @@
             </div>
 
             <div style="margin-top: 10px;">
-                <button class="btn btn-outline" onclick="openLightbox('Screenshot_20260815_210636.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-award"></i> View Official Internship Certificate (June 29, 2026)</button>
+                <button class="btn btn-outline" onclick="openLightbox('Screenshot_20260815_210636.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-award"></i> <span data-translate="btn_cert">View Official Internship Certificate (June 29, 2026)</span></button>
             </div>
         </div>
     </div>
@@ -370,143 +398,143 @@
 
 <!-- CERTIFICATIONS SECTION -->
 <div class="container" id="certifications">
-    <h2 class="section-title">VERIFIED AGENCY CERTIFICATIONS</h2>
-    <p style="color: var(--text-muted); margin-bottom: 20px;">Official credentials awarded by Udacity in collaboration with Google Cloud and Accenture.</p>
+    <h2 class="section-title" data-translate="sec_certs">VERIFIED AGENCY CERTIFICATIONS</h2>
+    <p style="color: var(--text-muted); margin-bottom: 20px;" data-translate="certs_subtitle">Official credentials awarded by Udacity in collaboration with Google Cloud and Accenture.</p>
     
     <div class="cert-grid">
         <div class="cert-card">
             <img src="IMG_20251221_133154.jpg" alt="Gemini in Google Sheets" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Gemini in Google Sheets</h3>
             <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
-            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_133154.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Credential</button>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_133154.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
         </div>
 
         <div class="cert-card">
             <img src="IMG_20251221_133952_edit_1294679129859207.jpg" alt="Gemini in Gmail" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Gemini in Gmail</h3>
             <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
-            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_133952_edit_1294679129859207.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Credential</button>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_133952_edit_1294679129859207.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
         </div>
 
         <div class="cert-card">
             <img src="IMG_20251221_134712.jpg" alt="Trust and Security with Google Cloud" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Trust & Security with Google Cloud</h3>
             <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
-            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_134712.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Credential</button>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_134712.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
         </div>
 
         <div class="cert-card">
             <img src="IMG_20251221_135357.jpg" alt="Modernize Infrastructure and Applications" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Modernize Infrastructure & Apps</h3>
             <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
-            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_135357.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Credential</button>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_135357.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
         </div>
 
         <div class="cert-card">
             <img src="IMG_20260501_100603.jpg" alt="Responsible AI" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Responsible AI: Applying Principles</h3>
             <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
-            <button class="btn btn-outline" onclick="openLightbox('IMG_20260501_100603.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Credential</button>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20260501_100603.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
         </div>
 
         <div class="cert-card">
             <img src="IMG_20251221_140439.jpg" alt="Gemini in Google Meet" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Gemini in Google Meet</h3>
             <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
-            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_140439.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Credential</button>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_140439.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
         </div>
 
         <div class="cert-card">
             <img src="IMG_20260501_100729.jpg" alt="Introduction to Gemini for Google Workspace" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Intro to Gemini for Workspace</h3>
             <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
-            <button class="btn btn-outline" onclick="openLightbox('IMG_20260501_100729.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Credential</button>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20260501_100729.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
         </div>
 
         <div class="cert-card">
             <img src="IMG_20251221_141142.jpg" alt="Scaling with Google Cloud Operations" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Scaling with Cloud Operations</h3>
             <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
-            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_141142.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Credential</button>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_141142.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
         </div>
 
         <div class="cert-card">
             <img src="IMG_20251221_142835_edit_2119882193330690.jpg" alt="Gemini in Google Slides" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Gemini in Google Slides</h3>
             <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
-            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_142835_edit_2119882193330690.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Credential</button>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_142835_edit_2119882193330690.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
         </div>
     </div>
 </div>
 
 <div class="container" id="projects">
-    <h2 class="section-title">AGENCY SOLUTIONS</h2>
+    <h2 class="section-title" data-translate="sec_solutions">AGENCY SOLUTIONS</h2>
     <div class="grid">
         <div class="card" onclick="openProjectModal('Future Mall POS', 'Advanced enterprise retail web application featuring role-based access control, AI product classification via Keras/Teachable Machine, multi-currency frameworks, and automated inventory management.', ['Python', 'HTML/JS', 'AI Frameworks'], 'https://github.com')">
             <h3><i class="fa-solid fa-store" style="color: var(--accent);"></i> Future Mall POS</h3>
-            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;">Full-stack retail web application featuring role-based access control, AI product classification, and multi-currency frameworks.</p>
-            <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);">View System Specs &rarr;</span>
+            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;" data-translate="proj1_desc">Full-stack retail web application featuring role-based access control, AI product classification, and multi-currency frameworks.</p>
+            <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);" data-translate="view_specs">View System Specs &rarr;</span>
         </div>
         <div class="card" onclick="openProjectModal('Viral Media Engine', 'Corporate media distribution engine generating over 40M+ views through precision audio-visual balancing, advanced short-form optimization, and high-retention editing pipelines.', ['Video Production', 'Analytics', 'Media Scaling'], 'https://youtube.com/@mo7amed_5272')">
             <h3><i class="fa-solid fa-video" style="color: var(--accent);"></i> Viral Media Engine</h3>
-            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;">Generated over 40M+ views through precision audio-visual balancing, advanced short-form optimization, and high-retention editing.</p>
-            <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);">View System Specs &rarr;</span>
+            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;" data-translate="proj2_desc">Generated over 40M+ views through precision audio-visual balancing, advanced short-form optimization, and high-retention editing.</p>
+            <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);" data-translate="view_specs">View System Specs &rarr;</span>
         </div>
         <div class="card" onclick="openProjectModal('EGYPT CHESS CLUB', 'Strategic community management ecosystem and automated tactical club frameworks hosted on Chess.com to foster high-level analytical thinking and local talent.', ['Strategy', 'Community Engine'], 'https://chess.com')">
             <h3><i class="fa-solid fa-chess-board" style="color: var(--accent);"></i> EGYPT CHESS CLUB (Admin)</h3>
-            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;">Active administration and tactical management within digital strategy communities and club workflows.</p>
-            <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);">View System Specs &rarr;</span>
+            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;" data-translate="proj3_desc">Active administration and tactical management within digital strategy communities and club workflows.</p>
+            <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);" data-translate="view_specs">View System Specs &rarr;</span>
         </div>
     </div>
 </div>
 
 <div class="container" id="skills">
-    <h2 class="section-title">AGENCY TECHNICAL STACK</h2>
+    <h2 class="section-title" data-translate="sec_techstack">AGENCY TECHNICAL STACK</h2>
     <div class="skills-container">
         <div class="skill-item">
-            <div class="skill-info"><span>Cloud Architecture & Security</span><span>98%</span></div>
+            <div class="skill-info"><span data-translate="skill1">Cloud Architecture & Security</span><span>98%</span></div>
             <div class="skill-bar"><div class="skill-progress" data-width="98"></div></div>
         </div>
         <div class="skill-item">
-            <div class="skill-info"><span>Python & Business Software Logic</span><span>95%</span></div>
+            <div class="skill-info"><span data-translate="skill2">Python & Business Software Logic</span><span>95%</span></div>
             <div class="skill-bar"><div class="skill-progress" data-width="95"></div></div>
         </div>
         <div class="skill-item">
-            <div class="skill-info"><span>Full-Stack Web (HTML/JS/CSS)</span><span>90%</span></div>
+            <div class="skill-info"><span data-translate="skill3">Full-Stack Web (HTML/JS/CSS)</span><span>90%</span></div>
             <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
         </div>
         <div class="skill-item">
-            <div class="skill-info"><span>AI Integration & Workspace Automation</span><span>96%</span></div>
+            <div class="skill-info"><span data-translate="skill4">AI Integration & Workspace Automation</span><span>96%</span></div>
             <div class="skill-bar"><div class="skill-progress" data-width="96"></div></div>
         </div>
     </div>
 </div>
 
 <div class="container" id="gallery">
-    <h2 class="section-title">CLIENT PORTALS & VISUAL DESIGNS</h2>
+    <h2 class="section-title" data-translate="sec_portals">CLIENT PORTALS & VISUAL DESIGNS</h2>
     <div class="showcase-grid">
         <div class="media-box">
-            <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 1rem;">Asmaa Clinic UI Portal</h3>
+            <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 1rem;" data-translate="portal1">Asmaa Clinic UI Portal</h3>
             <img src="IMG-20260630-WA0006.jpg" alt="Asmaa Clinic" onclick="openLightbox(this.src)">
         </div>
         <div class="media-box">
-            <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 1rem;">Gaming Media Production</h3>
+            <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 1rem;" data-translate="portal2">Gaming Media Production</h3>
             <img src="Screenshot_20260815_093326.jpg" alt="Minecraft Thumbnail" onclick="openLightbox(this.src)">
         </div>
         <div class="media-box">
-            <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 1rem;">Islam: A Way of Life Interface</h3>
+            <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 1rem;" data-translate="portal3">Islam: A Way of Life Interface</h3>
             <img src="Screenshot_20260815_093338.jpg" alt="Islam Way of Life" onclick="openLightbox(this.src)">
         </div>
     </div>
 </div>
 
 <div class="container" id="contact">
-    <h2 class="section-title">SECURE AGENCY COMMUNICATIONS</h2>
+    <h2 class="section-title" data-translate="sec_comm">SECURE AGENCY COMMUNICATIONS</h2>
     <div class="card" style="max-width: 650px; margin: auto; text-align: center; cursor: default;">
-        <p style="margin: 12px 0;"><i class="fa-solid fa-envelope" style="color: var(--accent);"></i> Agency Email: <span>moamedantar8@gmail.com</span></p>
-        <p style="margin: 12px 0;"><i class="fa-brands fa-whatsapp" style="color: #22c55e;"></i> Direct Line / WhatsApp: <a href="https://wa.me/201559719175" target="_blank" style="color:var(--accent); text-decoration: none;">+20 155 971 9175</a></p>
-        <p style="margin: 12px 0;"><i class="fa-brands fa-linkedin" style="color: var(--accent);"></i> Executive LinkedIn: <a href="https://linkedin.com/in/mohamed-antar-522201406" style="color:var(--accent); text-decoration: none;" target="_blank">mohamed-antar-522201406</a></p>
-        <button class="btn" style="margin-top: 20px;" onclick="copyEmail()"><i class="fa-solid fa-copy"></i> Copy Agency Email</button>
+        <p style="margin: 12px 0;"><i class="fa-solid fa-envelope" style="color: var(--accent);"></i> <span data-translate="agency_email">Agency Email:</span> <span>moamedantar8@gmail.com</span></p>
+        <p style="margin: 12px 0;"><i class="fa-brands fa-whatsapp" style="color: #22c55e;"></i> <span data-translate="agency_whatsapp">Direct Line / WhatsApp:</span> <a href="https://wa.me/201559719175" target="_blank" style="color:var(--accent); text-decoration: none;">+20 155 971 9175</a></p>
+        <p style="margin: 12px 0;"><i class="fa-brands fa-linkedin" style="color: var(--accent);"></i> <span data-translate="agency_linkedin">Executive LinkedIn:</span> <a href="https://linkedin.com/in/mohamed-antar-522201406" style="color:var(--accent); text-decoration: none;" target="_blank">mohamed-antar-522201406</a></p>
+        <button class="btn" style="margin-top: 20px;" onclick="copyEmail()"><i class="fa-solid fa-copy"></i> <span data-translate="btn_copy">Copy Agency Email</span></button>
     </div>
 </div>
 
@@ -527,10 +555,228 @@
 </button>
 
 <footer>
-    <p>&copy; 2026 MK CREATIVE Agency. Founded and Directed by Mohamed Antar. All Rights Reserved.</p>
+    <p data-translate="footer_text">&copy; 2026 MK CREATIVE Agency. Founded and Directed by Mohamed Antar. All Rights Reserved.</p>
 </footer>
 
 <script>
+    // قاموس الترجمات الديناميكية للغات الثلاث
+    const translations = {
+        ar: {
+            dir: "rtl",
+            secure_node: "نقطة آمنة",
+            dakahlia: "الدقهلية: 32°م",
+            nav_agency: "الوكالة",
+            nav_ceo: "المؤسس",
+            nav_team: "الفريق",
+            nav_certs: "الشهادات",
+            nav_solutions: "الحلول",
+            nav_tech: "التقنيات",
+            nav_contact: "تواصل معنا",
+            ticker_title: "وكالة MK الإبداعية:",
+            ticker_desc: "هندسة السحابة عالية الأداء وتكامل الذكاء الاصطناعي",
+            ticker_ceo: "بإدارة محمد عنتر (المدير التنفيذي، 14 سنة)",
+            ticker_search: "اضغط Ctrl + K للبحث السريع داخل الموقع!",
+            hero_subtitle: "تمكين الأعمال العالمية باستخدام",
+            agency_status: "حالة الوكالة:",
+            agency_status_val: "أنظمة السحابة والذكاء الاصطناعي من الجيل التالي نشطة",
+            hero_desc: "وكالة MK الإبداعية هي شركة تقنية مستقبلية تخصصت في أنظمة نقاط البيع الآلية للتجزئة، خطوط الإنتاج الإعلامي الرقمي عالية الاحتفاظ، وتكامل البنية التحتية لسحابة Google Cloud.",
+            btn_explore: "استكشف الحلول",
+            btn_partner: "شاركنا العمل",
+            stat_certs: "شهادات Google Cloud معتمدة",
+            stat_views: "أكثر من مليون مشاهدة عالمية",
+            stat_age: "سنوات عمر المدير التنفيذي المبتكر",
+            stat_secure: "% البنية التحتية الآمنة",
+            sec_exec: "القيادة التنفيذية",
+            ceo_role: "المؤسس والرئيس التنفيذي (CEO) • العمر 14 سنة • الدقهلية، مصر",
+            ceo_desc: "بصفته العقل المبتكر البالغ من العمر 14 عاماً خلف وكالة MK الإبداعية، يشرف محمد على الهندسة المعمارية التقنية، وتكامل الذكاء الاصطناعي، وهندسة البرمجيات عالية المستوى. يحمل 10 شهادات رسمية من Udacity و Google Cloud، ليجسد الجسر بين العمليات السحابية المتقدمة والتطبيقات التجارية الآلية.",
+            sec_team: "فريق الوكالة والمبدعون",
+            team_subtitle: "المواهب الرئيسية التي ساهمت بالتميز الإبداعي في مشاريع وكالة MK الإبداعية.",
+            malek_role: "مصمم جرافيك ومونتير فيديو (إطلاق الصيف)",
+            malek_desc: "عمل كمصمم رئيسي للرسومات المتحركة لإطلاق صيف وكالة MK الإبداعية، وأظهر التزاماً استثنائياً وإبداعاً بصرياً وتنفيذاً احترافياً لإنتاج فيديوهات العلامة التجارية ورسوم الشعار المتحركة.",
+            asmaa_title: "مشروع التعاون مع مركز أسماء",
+            btn_cert: "عرض شهادة التدريب الرسمية (29 يونيو 2026)",
+            sec_certs: "شهادات الوكالة المعتمدة",
+            certs_subtitle: "أوراق الاعتماد الرسمية المقدمة من Udacity بالتعاون مع Google Cloud و Accenture.",
+            view_cred: "عرض الاعتماد",
+            sec_solutions: "حلول الوكالة",
+            proj1_desc: "تطبيق ويب متكامل لقطاع التجزئة يتميز بالتحكم في الصلاحيات، التصنيف الآلي للمنتجات عبر الذكاء الاصطناعي، وأنظمة العملات المتعددة.",
+            proj2_desc: "حقق أكثر من 40 مليون مشاهدة من خلال التوازن الصوتي البصري الدقيق، والتحسين المتقدم للفيديوهات القصيرة.",
+            proj3_desc: "الإدارة النشطة والإدارة التكتيكية داخل مجتمعات الاستراتيجيات الرقمية وسير عمل الأندية.",
+            view_specs: "عرض تفاصيل النظام ←",
+            sec_techstack: "التقنيات المستخدمة في الوكالة",
+            skill1: "هندسة السحابة والأمان",
+            skill2: "بايثون ومنطق برمجيات الأعمال",
+            skill3: "تطوير الويب الشامل (HTML/JS/CSS)",
+            skill4: "تكامل الذكاء الاصطناعي وأتمتة مساحة العمل",
+            sec_portals: "بوابات العملاء والتصاميم البصرية",
+            portal1: "بوابة عيادة أسماء",
+            portal2: "إنتاج المحتوى الإعلامي للألعاب",
+            portal3: "واجهة الإسلام منهج حياة",
+            sec_comm: "اتصالات الوكالة الآمنة",
+            agency_email: "بريد الوكالة:",
+            agency_whatsapp: "الخط المباشر / واتساب:",
+            agency_linkedin: "لينكد إن التنفيذي:",
+            btn_copy: "نسخ بريد الوكالة",
+            footer_text: "© 2026 وكالة MK الإبداعية. مؤسسة ومُدارة بواسطة محمد عنتر. جميع الحقوق محفوظة.",
+            launch_demo: "تشغيل العرض التوضيحي",
+            s_about: "حول وكالة MK الإبداعية",
+            s_ceo: "المؤسس والرئيس التنفيذي: محمد عنتر",
+            s_team: "مسؤول الموشن جرافيك: مالك محمد",
+            s_certs: "شهادات Google Cloud المعتمدة",
+            s_proj: "نظام نقاط البيع Future Mall POS",
+            s_skills: "التقنيات البرمجية المؤسسية",
+            s_contact: "التواصل المؤسسي الآمن"
+        },
+        en: {
+            dir: "ltr",
+            secure_node: "Secure Node",
+            dakahlia: "Dakahlia: 32°C",
+            nav_agency: "Agency",
+            nav_ceo: "CEO",
+            nav_team: "Team",
+            nav_certs: "Certifications",
+            nav_solutions: "Solutions",
+            nav_tech: "Tech Stack",
+            nav_contact: "Contact",
+            ticker_title: "MK CREATIVE AGENCY:",
+            ticker_desc: "High-Performance Cloud Architecture & AI Integration",
+            ticker_ceo: "Directed by Mohamed Antar (CEO, 14y)",
+            ticker_search: "Press Ctrl + K for Agency Quick Search!",
+            hero_subtitle: "Empowering Global Business with",
+            agency_status: "Agency Status:",
+            agency_status_val: "Next-Gen Cloud & AI Frameworks Active",
+            hero_desc: "MK CREATIVE Agency is a forward-thinking technology corporation specializing in automated retail POS systems, high-retention digital media pipelines, and Google Cloud infrastructure integration.",
+            btn_explore: "Explore Solutions",
+            btn_partner: "Partner With Us",
+            stat_certs: "Verified Google Cloud Certs",
+            stat_views: "Million+ Global Views",
+            stat_age: "Years Young Innovator CEO",
+            stat_secure: "% Secure Infrastructure",
+            sec_exec: "EXECUTIVE LEADERSHIP",
+            ceo_role: "Founder & Chief Executive Officer (CEO) • Age 14 • Dakahlia, Egypt",
+            ceo_desc: "As the 14-year-old visionary behind MK CREATIVE Agency, Mohamed oversees technical architecture, AI integrations, and high-level software engineering. Holding 10 official certifications from Udacity and Google Cloud, he bridges the gap between advanced cloud operations, automated commercial applications, and viral digital media solutions.",
+            sec_team: "AGENCY TEAM & COLLABORATORS",
+            team_subtitle: "Key talent who contributed creative excellence to MK CREATIVE Agency projects.",
+            malek_role: "Motion Graphic Designer & Video Editor (Summer Launch)",
+            malek_desc: "Served as the lead Motion Graphic Designer for MK CREATIVE Agency's Summer Launch. Demonstrated exemplary commitment, visual creativity, and professional execution across brand video production and dynamic logo animations.",
+            asmaa_title: "Asmaa Centre Collaboration Project",
+            btn_cert: "View Official Internship Certificate (June 29, 2026)",
+            sec_certs: "VERIFIED AGENCY CERTIFICATIONS",
+            certs_subtitle: "Official credentials awarded by Udacity in collaboration with Google Cloud and Accenture.",
+            view_cred: "View Credential",
+            sec_solutions: "AGENCY SOLUTIONS",
+            proj1_desc: "Full-stack retail web application featuring role-based access control, AI product classification, and multi-currency frameworks.",
+            proj2_desc: "Generated over 40M+ views through precision audio-visual balancing, advanced short-form optimization, and high-retention editing.",
+            proj3_desc: "Active administration and tactical management within digital strategy communities and club workflows.",
+            view_specs: "View System Specs →",
+            sec_techstack: "AGENCY TECHNICAL STACK",
+            skill1: "Cloud Architecture & Security",
+            skill2: "Python & Business Software Logic",
+            skill3: "Full-Stack Web (HTML/JS/CSS)",
+            skill4: "AI Integration & Workspace Automation",
+            sec_portals: "CLIENT PORTALS & VISUAL DESIGNS",
+            portal1: "Asmaa Clinic UI Portal",
+            portal2: "Gaming Media Production",
+            portal3: "Islam: A Way of Life Interface",
+            sec_comm: "SECURE AGENCY COMMUNICATIONS",
+            agency_email: "Agency Email:",
+            agency_whatsapp: "Direct Line / WhatsApp:",
+            agency_linkedin: "Executive LinkedIn:",
+            btn_copy: "Copy Agency Email",
+            footer_text: "© 2026 MK CREATIVE Agency. Founded and Directed by Mohamed Antar. All Rights Reserved.",
+            launch_demo: "Launch Agency Demo",
+            s_about: "About MK CREATIVE Agency",
+            s_ceo: "CEO & Founder: Mohamed Antar",
+            s_team: "Motion Graphics Lead: Malek Mohamed",
+            s_certs: "Verified Google Cloud Certifications",
+            s_proj: "Future Mall POS System",
+            s_skills: "Enterprise Technical Stack",
+            s_contact: "Secure Corporate Contact"
+        },
+        fr: {
+            dir: "ltr",
+            secure_node: "Nœud Sécurisé",
+            dakahlia: "Dakahlia: 32°C",
+            nav_agency: "Agence",
+            nav_ceo: "PDG",
+            nav_team: "Équipe",
+            nav_certs: "Certifications",
+            nav_solutions: "Solutions",
+            nav_tech: "Technologies",
+            nav_contact: "Contact",
+            ticker_title: "MK CREATIVE AGENCY:",
+            ticker_desc: "Architecture Cloud Haute Performance & Intégration IA",
+            ticker_ceo: "Dirigé par Mohamed Antar (PDG, 14 ans)",
+            ticker_search: "Appuyez sur Ctrl + K pour la recherche rapide !",
+            hero_subtitle: "Autonomiser les entreprises mondiales avec",
+            agency_status: "Statut de l'Agence:",
+            agency_status_val: "Cadres Cloud & IA de Nouvelle Génération Actifs",
+            hero_desc: "MK CREATIVE Agency est une entreprise technologique innovante spécialisée dans les systèmes POS de vente au détail automatisés et l'intégration d'infrastructure Google Cloud.",
+            btn_explore: "Explorer les Solutions",
+            btn_partner: "Devenir Partenaire",
+            stat_certs: "Certifications Google Cloud Vérifiées",
+            stat_views: "Millions de Vues Mondiales",
+            stat_age: "Ans du PDG Innovateur",
+            stat_secure: "% Infrastructure Sécurisée",
+            sec_exec: "LEADERSHIP EXÉCUTIF",
+            ceo_role: "Fondateur & Directeur Général (PDG) • 14 ans • Dakahlia, Égypte",
+            ceo_desc: "En tant que visionnaire de 14 ans derrière MK CREATIVE Agency, Mohamed supervise l'architecture technique, les intégrations d'IA et l'ingénierie logicielle de haut niveau. Détenteur de 10 certifications officielles.",
+            sec_team: "ÉQUIPE DE L'AGENCE & COLLABORATEURS",
+            team_subtitle: "Talents clés ayant contribué à l'excellence créative des projets de MK CREATIVE Agency.",
+            malek_role: "Designer Motion Graphics & Monteur Vidéo",
+            malek_desc: "A servi en tant que Motion Designer principal pour le lancement estival de MK CREATIVE Agency, démontrant un engagement exemplaire et une créativité visuelle.",
+            asmaa_title: "Projet de Collaboration Asmaa Centre",
+            btn_cert: "Voir le Certificat de Stage Officiel (29 Juin 2026)",
+            sec_certs: "CERTIFICATIONS OFFICIELLES DE L'AGENCE",
+            certs_subtitle: "Titres officiels décernés par Udacity en collaboration avec Google Cloud et Accenture.",
+            view_cred: "Voir le Certificat",
+            sec_solutions: "SOLUTIONS DE L'AGENCE",
+            proj1_desc: "Application Web e-commerce complète avec contrôle d'accès basé sur les rôles et classification des produits par IA.",
+            proj2_desc: "Généré plus de 40 millions de vues grâce à un équilibre audiovisuel précis et une optimisation des formats courts.",
+            proj3_desc: "Administration active et gestion tactique au sein des communautés de stratégie numérique.",
+            view_specs: "Voir les Spécifications →",
+            sec_techstack: "PILE TECHNIQUE DE L'AGENCE",
+            skill1: "Architecture Cloud & Sécurité",
+            skill2: "Python & Logique Logicielle",
+            skill3: "Développement Web Full-Stack",
+            skill4: "Intégration IA & Automatisation",
+            sec_portals: "PORTAILS CLIENTS & DESIGNS VISUELS",
+            portal1: "Portail UI Clinique Asmaa",
+            portal2: "Production Multimédia Gaming",
+            portal3: "Interface Islam: Un Mode de Vie",
+            sec_comm: "COMMUNICATIONS SÉCURISÉES DE L'AGENCE",
+            agency_email: "Email de l'Agence:",
+            agency_whatsapp: "Ligne Directe / WhatsApp:",
+            agency_linkedin: "LinkedIn Exécutif:",
+            btn_copy: "Copier l'Email",
+            footer_text: "© 2026 MK CREATIVE Agency. Fondé et Dirigé par Mohamed Antar. Tous droits réservés.",
+            launch_demo: "Lancer la Démo",
+            s_about: "À propos de MK CREATIVE Agency",
+            s_ceo: "PDG & Fondateur : Mohamed Antar",
+            s_team: "Responsable Motion Design : Malek Mohamed",
+            s_certs: "Certifications Google Cloud Vérifiées",
+            s_proj: "Système POS Future Mall",
+            s_skills: "Pile Technique d'Entreprise",
+            s_contact: "Contact Professionnel Sécurisé"
+        }
+    };
+
+    function changeLanguage(lang) {
+        const t = translations[lang];
+        if (!t) return;
+        document.documentElement.lang = lang;
+        document.documentElement.dir = t.dir;
+
+        // تحديث جميع النصوص التي تحتوي على سمة data-translate
+        document.querySelectorAll('[data-translate]').forEach(el => {
+            const key = el.getAttribute('data-translate');
+            if (t[key]) {
+                el.textContent = t[key];
+            }
+        });
+        showToast(lang === 'ar' ? "تم تغيير اللغة إلى العربية" : (lang === 'en' ? "Language changed to English" : "Langue changée en Français"));
+    }
+
     let audioEnabled = true;
     function playClickSound() {
         if (!audioEnabled) return;
