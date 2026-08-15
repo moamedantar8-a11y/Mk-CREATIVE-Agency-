@@ -18,6 +18,8 @@
             --glass: rgba(255, 255, 255, 0.04); 
             --text: #f8fafc;
             --text-muted: #94a3b8;
+            --neon-blue: #00d4ff;
+            --neon-purple: #b14aed;
         }
 
         /* Matrix Theme Toggle Support */
@@ -127,6 +129,50 @@
         .floating-controls { position: fixed; bottom: 30px; left: 30px; display: flex; flex-direction: column; gap: 14px; z-index: 1000; }
         .float-btn { width: 50px; height: 50px; background: var(--accent); border-radius: 50%; border: none; cursor: pointer; display: flex; justify-content: center; align-items: center; color: #030712; font-size: 1.2rem; box-shadow: 0 0 20px var(--accent-glow); transition: 0.3s; }
         .float-btn:hover { transform: scale(1.15) rotate(10deg); }
+
+        /* زر الصاروخ المطور للعودة للأعلى */
+        .rocket-top-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            color: white;
+            border: none;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 0 20px rgba(0,212,255,0.4);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .rocket-top-btn.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .rocket-top-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px var(--neon-blue);
+        }
+
+        /* أنيميشن طيران الصاروخ لفوق */
+        @keyframes launchRocket {
+            0% { transform: translateY(0) scale(1); }
+            30% { transform: translateY(10px) scale(0.9); filter: brightness(1.5); }
+            100% { transform: translateY(-800px) scale(0.5); opacity: 0; }
+        }
+
+        .rocket-top-btn.launching {
+            animation: launchRocket 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
 
         /* Toast Notification System */
         #toast {
@@ -292,11 +338,15 @@
     </div>
 </div>
 
-<!-- Floating Controls (Matrix Toggle & Scroll Top) -->
+<!-- Floating Controls (Matrix Toggle) -->
 <div class="floating-controls">
     <button class="float-btn" onclick="toggleMatrixMode()" title="Toggle Matrix Green Theme"><i class="fa-solid fa-code"></i></button>
-    <button class="float-btn" onclick="scrollToTop()" title="Scroll to Top"><i class="fa-solid fa-arrow-up"></i></button>
 </div>
+
+<!-- زر الصاروخ المطور للعودة للأعلى -->
+<button class="rocket-top-btn" id="rocketBtn" onclick="launchToTop()" title="الرجوع للأعلى">
+    🚀
+</button>
 
 <footer>
     <p>&copy; 2026 Mohamed Antar. Built with absolute mastery, 100 integrated features, and relentless passion.</p>
@@ -314,13 +364,22 @@
         outline.style.top = e.clientY + 'px';
     });
 
-    // 2. Scroll Progress & Element Reveal Engine
+    // 2. Scroll Progress & Element Reveal Engine + Rocket Visibility
+    const rocketBtn = document.getElementById('rocketBtn');
+
     window.onscroll = () => {
         let winScroll = document.documentElement.scrollTop || document.body.scrollTop;
         let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         let scrolled = (winScroll / height) * 100;
         document.getElementById("progress-bar").style.width = scrolled + "%";
         
+        // إظهار وإخفاء زر الصاروخ حسب السكرول
+        if (winScroll > 300) {
+            rocketBtn.classList.add('show');
+        } else {
+            rocketBtn.classList.remove('show');
+        }
+
         document.querySelectorAll('.container').forEach(el => {
             let rect = el.getBoundingClientRect();
             if(rect.top < window.innerHeight - 80) el.classList.add('visible');
@@ -423,12 +482,24 @@
         setTimeout(() => toast.classList.remove("show"), 3500);
     }
 
-    // 12. Smooth Navigation Top Return
-    function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+    // 12. دالة طيران الصاروخ والعودة للأول
+    function launchToTop() {
+        rocketBtn.classList.add('launching');
+        
+        // التمرير السلس لأول الصفحة
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+
+        // إعادة الزر لوضعه الطبيعي بعد انتهاء الأنيميشن
+        setTimeout(() => {
+            rocketBtn.classList.remove('launching');
+            rocketBtn.classList.remove('show');
+        }, 600);
     }
 
-    // 13. Water Ripple Effect on Click (Feature 97)
+    // 13. Water Ripple Effect on Click
     document.addEventListener('click', (e) => {
         let ripple = document.createElement('div');
         ripple.style.cssText = `position:fixed; left:${e.clientX}px; top:${e.clientY}px; width:10px; height:10px; border:2px solid var(--accent); border-radius:50%; pointer-events:none; z-index:99999; transform:translate(-50%, -50%); animation: rippleAnim 0.8s ease-out forwards;`;
@@ -445,4 +516,4 @@
 </style>
 
 </body>
-</html>
+</html> 
