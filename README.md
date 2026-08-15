@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="only dark">
-    <title>Mohamed Antar | Master Engine & Elite Certifications</title>
+    <title>MK CREATIVE Agency | Powered by Mohamed Antar</title>
     
-    <!-- External FontAwesome & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     
@@ -15,7 +14,7 @@
             --bg-dark: #030712; 
             --accent: #38bdf8; 
             --accent-glow: rgba(56, 189, 248, 0.4);
-            --glass: rgba(255, 255, 255, 0.04); 
+            --glass: rgba(255, 255, 255, 0.03); 
             --text: #f8fafc;
             --text-muted: #94a3b8;
             --neon-blue: #00d4ff;
@@ -27,6 +26,13 @@
             --accent: #22c55e;
             --accent-glow: rgba(34, 197, 94, 0.5);
             background: radial-gradient(circle at top right, #052e16, #020d05) !important;
+        }
+
+        body.amber-mode {
+            --bg-dark: #120803;
+            --accent: #f59e0b;
+            --accent-glow: rgba(245, 158, 11, 0.5);
+            background: radial-gradient(circle at top right, #2e1a05, #120803) !important;
         }
         
         * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; color-scheme: dark; cursor: none; }
@@ -51,32 +57,32 @@
 
         header { background: rgba(3, 7, 18, 0.85); backdrop-filter: blur(16px); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(56, 189, 248, 0.2); }
         .nav-container { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 2rem; }
-        .logo { font-weight: 800; color: var(--accent); font-size: 1.3rem; display: flex; align-items: center; gap: 10px; letter-spacing: 0.5px; }
+        .logo { font-weight: 800; color: var(--accent); font-size: 1.2rem; display: flex; align-items: center; gap: 10px; letter-spacing: 0.5px; }
         
-        .hud-panel { display: flex; align-items: center; gap: 12px; font-size: 0.75rem; flex-wrap: wrap; }
+        .hud-panel { display: flex; align-items: center; gap: 10px; font-size: 0.75rem; flex-wrap: wrap; }
         .network-ticker, .weather-ticker, .session-ticker, .battery-ticker { color: var(--accent); background: rgba(56, 189, 248, 0.08); padding: 5px 10px; border-radius: 12px; border: 1px solid rgba(56, 189, 248, 0.3); display: flex; align-items: center; gap: 5px; backdrop-filter: blur(8px); }
 
         .status-badge { font-size: 0.75rem; background: rgba(34, 197, 94, 0.15); color: #22c55e; border: 1px solid #22c55e; padding: 3px 10px; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px; }
         .status-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 8px #22c55e; animation: pulse 1.5s infinite; }
         @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
 
-        .nav-links { display: flex; align-items: center; gap: 18px; list-style: none; }
-        .nav-links a { color: var(--text); text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links { display: flex; align-items: center; gap: 15px; list-style: none; }
+        .nav-links a { color: var(--text); text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--accent); }
 
         .activity-ticker-bar { background: rgba(56, 189, 248, 0.06); border-bottom: 1px solid rgba(56, 189, 248, 0.15); padding: 8px 0; font-size: 0.82rem; color: var(--accent); overflow: hidden; white-space: nowrap; margin-top: 65px; }
-        .ticker-content { display: inline-block; animation: tickerScroll 25s linear infinite; }
+        .ticker-content { display: inline-block; animation: tickerScroll 30s linear infinite; }
         @keyframes tickerScroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-        .hero { padding: 100px 20px 60px; text-align: center; position: relative; }
-        h1 { font-size: 3.8rem; font-weight: 800; background: linear-gradient(to right, #38bdf8, #818cf8, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; }
+        .hero { padding: 90px 20px 50px; text-align: center; position: relative; }
+        h1 { font-size: 3.5rem; font-weight: 800; background: linear-gradient(to right, #38bdf8, #818cf8, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; }
         
         .typed-text { color: var(--accent); border-right: 2px solid var(--accent); padding-right: 5px; animation: blink 0.7s infinite; }
         @keyframes blink { 50% { border-color: transparent; } }
 
         .vibe-ticker { font-size: 0.85rem; color: var(--text-muted); margin-top: 15px; display: inline-flex; align-items: center; gap: 8px; background: var(--glass); padding: 8px 18px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.06); backdrop-filter: blur(10px); }
 
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 950px; margin: 45px auto 0; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 950px; margin: 40px auto 0; }
         .stat-card { background: var(--glass); padding: 22px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(12px); transition: 0.3s; }
         .stat-card:hover { border-color: var(--accent); box-shadow: 0 0 20px var(--accent-glow); }
         .stat-number { font-size: 2.4rem; font-weight: 800; color: var(--accent); }
@@ -85,12 +91,12 @@
         .container { max-width: 1150px; margin: auto; padding: 60px 20px; opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .container.visible { opacity: 1; transform: translateY(0); }
         
-        .section-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 30px; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 6px; }
+        .section-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 25px; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 6px; }
         
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         
         .card { background: var(--glass); padding: 30px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(16px); transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden; cursor: pointer; }
-        .card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 0 30px var(--accent-glow); }
+        .card:hover { transform: translateY(-8px); border-color: var(--accent); box-shadow: 0 0 30px var(--accent-glow); }
 
         .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 25px; }
         .cert-card { background: var(--glass); border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); padding: 20px; backdrop-filter: blur(12px); transition: 0.3s; text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
@@ -98,7 +104,7 @@
         .cert-card img { width: 100%; height: 210px; object-fit: cover; border-radius: 12px; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
         .cert-card img:hover { transform: scale(1.03); }
 
-        .skills-container { max-width: 900px; margin: 40px auto 0; background: var(--glass); padding: 35px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(16px); }
+        .skills-container { max-width: 900px; margin: 30px auto 0; background: var(--glass); padding: 35px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(16px); }
         .skill-item { margin-bottom: 20px; }
         .skill-item:last-child { margin-bottom: 0; }
         .skill-info { display: flex; justify-content: space-between; font-size: 0.95rem; margin-bottom: 8px; font-weight: 600; }
@@ -146,7 +152,6 @@
         }
         .rocket-top-btn.launching { animation: launchRocket 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
 
-        /* Quick Search Modal */
         #search-modal {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85);
             z-index: 50000; display: none; justify-content: center; align-items: flex-start; padding-top: 120px; backdrop-filter: blur(12px);
@@ -157,7 +162,6 @@
         .search-results-list li { padding: 12px 18px; border-radius: 12px; margin-bottom: 5px; cursor: pointer; transition: 0.2s; display: flex; align-items: center; gap: 10px; }
         .search-results-list li:hover { background: rgba(56, 189, 248, 0.15); color: var(--accent); }
 
-        /* Detailed Project Modal */
         #project-modal {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.88);
             z-index: 40000; display: none; justify-content: center; align-items: center; padding: 20px; backdrop-filter: blur(15px);
@@ -182,7 +186,7 @@
 
         @media(max-width: 768px) {
             .nav-links, .hud-panel { display: none; }
-            h1 { font-size: 2.6rem; }
+            h1 { font-size: 2.4rem; }
             .cursor-dot, .cursor-outline, #particle-canvas { display: none; }
             * { cursor: auto !important; }
         }
@@ -196,28 +200,28 @@
 <div id="progress-bar"></div>
 
 <div id="toast">
-    <i class="fa-solid fa-bolt" style="color: var(--accent); font-size: 1.4rem;"></i>
+    <i class="fa-solid fa-shield-halved" style="color: var(--accent); font-size: 1.4rem;"></i>
     <div>
-        <div style="font-weight: 800;">System Online: Elite Certifications Loaded</div>
-        <div style="font-size: 0.85rem; color: var(--text-muted);">Welcome to Mohamed Antar's Master Engine.</div>
+        <div style="font-weight: 800;">MK CREATIVE Agency Security Active</div>
+        <div style="font-size: 0.85rem; color: var(--text-muted);">Systems online under Mohamed Antar's governance.</div>
     </div>
 </div>
 
 <div id="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img" src="" alt="Expanded Media View">
+    <img id="lightbox-img" src="" alt="Expanded Certificate View">
 </div>
 
 <!-- Quick Search Modal -->
 <div id="search-modal" onclick="closeSearchModal(event)">
     <div class="search-box-wrap" onclick="event.stopPropagation()">
-        <input type="text" class="search-input" id="search-input-box" placeholder="Type to search sections or certificates..." oninput="filterSearch()">
+        <input type="text" class="search-input" id="search-input-box" placeholder="Search agency systems, CEO profile or certifications..." oninput="filterSearch()">
         <ul class="search-results-list" id="search-results">
-            <li onclick="scrollToSection('about')"><i class="fa-solid fa-user"></i> About Mohamed Antar</li>
-            <li onclick="scrollToSection('certifications')"><i class="fa-solid fa-award"></i> Elite Certifications Hub</li>
-            <li onclick="scrollToSection('projects')"><i class="fa-solid fa-store"></i> Future Mall POS Project</li>
-            <li onclick="scrollToSection('gallery')"><i class="fa-solid fa-photo-film"></i> Creative Works Showcase</li>
-            <li onclick="scrollToSection('skills')"><i class="fa-solid fa-code"></i> Technical Skills & Mastery</li>
-            <li onclick="scrollToSection('contact')"><i class="fa-solid fa-envelope"></i> Secure Communications & Contact</li>
+            <li onclick="scrollToSection('about')"><i class="fa-solid fa-building"></i> About MK CREATIVE Agency</li>
+            <li onclick="scrollToSection('ceo')"><i class="fa-solid fa-user-tie"></i> CEO & Founder: Mohamed Antar</li>
+            <li onclick="scrollToSection('certifications')"><i class="fa-solid fa-award"></i> Verified Google Cloud Certifications</li>
+            <li onclick="scrollToSection('projects')"><i class="fa-solid fa-store"></i> Future Mall POS System</li>
+            <li onclick="scrollToSection('skills')"><i class="fa-solid fa-code"></i> Enterprise Technical Stack</li>
+            <li onclick="scrollToSection('contact')"><i class="fa-solid fa-envelope"></i> Secure Corporate Contact</li>
         </ul>
     </div>
 </div>
@@ -229,30 +233,30 @@
         <h2 id="modal-title" style="color: var(--accent); margin-bottom: 15px;">Project Title</h2>
         <p id="modal-desc" style="color: var(--text-muted); line-height: 1.7; margin-bottom: 20px;"></p>
         <div id="modal-tech" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 25px;"></div>
-        <a href="#" id="modal-link" class="btn" target="_blank"><i class="fa-solid fa-external-link"></i> Launch Live Preview</a>
+        <a href="#" id="modal-link" class="btn" target="_blank"><i class="fa-solid fa-external-link"></i> Launch Agency Demo</a>
     </div>
 </div>
 
 <header>
     <div class="nav-container">
         <div class="logo">
-            <i class="fa-solid fa-terminal"></i> M. ANTAR
-            <span class="status-badge"><span class="status-dot"></span> Elite Certified</span>
+            <i class="fa-solid fa-cube"></i> MK CREATIVE AGENCY
+            <span class="status-badge"><span class="status-dot"></span> Secure Node</span>
         </div>
         
         <div class="hud-panel">
-            <div class="network-ticker"><i class="fa-solid fa-wifi"></i> <span id="ping-val">21</span>ms</div>
-            <div class="weather-ticker"><i class="fa-solid fa-cloud-sun"></i> Mansoura: 32°C</div>
+            <div class="network-ticker"><i class="fa-solid fa-wifi"></i> <span id="ping-val">19</span>ms</div>
+            <div class="weather-ticker"><i class="fa-solid fa-cloud-sun"></i> Dakahlia: 32°C</div>
             <div class="session-ticker"><i class="fa-solid fa-clock"></i> <span id="session-time">00:00</span></div>
             <div class="battery-ticker"><i class="fa-solid fa-battery-full"></i> <span id="battery-val">100%</span></div>
         </div>
 
         <nav class="nav-links">
-            <a href="#about"><i class="fa-solid fa-user"></i> About</a>
+            <a href="#about"><i class="fa-solid fa-building"></i> Agency</a>
+            <a href="#ceo"><i class="fa-solid fa-user-tie"></i> CEO</a>
             <a href="#certifications"><i class="fa-solid fa-award"></i> Certifications</a>
-            <a href="#projects"><i class="fa-solid fa-layer-group"></i> Powerhouse</a>
-            <a href="#gallery"><i class="fa-solid fa-photo-film"></i> Showcase</a>
-            <a href="#skills"><i class="fa-solid fa-code"></i> Skills</a>
+            <a href="#projects"><i class="fa-solid fa-layer-group"></i> Solutions</a>
+            <a href="#skills"><i class="fa-solid fa-code"></i> Tech Stack</a>
             <a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
         </nav>
     </div>
@@ -260,35 +264,35 @@
 
 <div class="activity-ticker-bar">
     <div class="ticker-content">
-        🏆 <b>ELITE CERTIFICATIONS:</b> Udacity & Google Cloud Certified &nbsp;&bull;&nbsp; 🚀 40M+ Video Views &nbsp;&bull;&nbsp; ♟️ EGYPT CHESS CLUB &nbsp;&bull;&nbsp; Press <b>Ctrl + K</b> for quick navigation!
+        🏢 <b>MK CREATIVE AGENCY:</b> High-Performance Cloud Architecture & AI Integration &nbsp;&bull;&nbsp; ♟️ Directed by Mohamed Antar (CEO, 14y) &nbsp;&bull;&nbsp; Press <b>Ctrl + K</b> for Agency Quick Search!
     </div>
 </div>
 
 <section class="hero" id="about">
     <div class="container visible">
-        <h1>Mohamed Antar</h1>
-        <p style="font-size: 1.4rem; color: var(--text-muted);">
-            Architecting <span class="typed-text" id="typed"></span>
+        <h1>MK CREATIVE Agency</h1>
+        <p style="font-size: 1.3rem; color: var(--text-muted);">
+            Empowering Global Business with <span class="typed-text" id="typed"></span>
         </p>
         
         <div class="vibe-ticker">
-            <i class="fa-solid fa-compact-disc fa-spin" style="color: var(--accent);"></i> 
-            <span>Active Vibe: <b>Certified Cloud & AI Engineer</b></span>
+            <i class="fa-solid fa-microchip fa-spin" style="color: var(--accent);"></i> 
+            <span>Agency Status: <b>Next-Gen Cloud & AI Frameworks Active</b></span>
         </div>
 
         <p style="max-width: 750px; margin: 25px auto; color: #cbd5e1; line-height: 1.8;">
-            A 14-year-old software architect, certified in Google Cloud and Gemini integrations through Udacity, competitive chess organizer, and advanced video producer driving over 40M+ viral views.
+            MK CREATIVE Agency is a forward-thinking technology corporation specializing in automated retail POS systems, high-retention digital media pipelines, and Google Cloud infrastructure integration.
         </p>
         
         <div style="margin-top: 30px;">
-            <a href="https://youtube.com/@mo7amed_5272" class="btn" target="_blank"><i class="fa-brands fa-youtube"></i> MK GAMES PRO</a>
-            <a href="https://youtube.com/@mo7amed_5277" class="btn btn-outline" target="_blank"><i class="fa-brands fa-youtube"></i> MK QURAN</a>
+            <a href="#projects" class="btn"><i class="fa-solid fa-rocket"></i> Explore Solutions</a>
+            <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-headset"></i> Partner With Us</a>
         </div>
 
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-number" data-target="10">0</div>
-                <div class="stat-label">Verified Certifications</div>
+                <div class="stat-label">Verified Google Cloud Certs</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number" data-target="40">0</div>
@@ -296,175 +300,195 @@
             </div>
             <div class="stat-card">
                 <div class="stat-number" data-target="14">0</div>
-                <div class="stat-label">Years of Innovation</div>
+                <div class="stat-label">Years Young Innovator CEO</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number" data-target="120">0</div>
-                <div class="stat-label">Integrated UI Features</div>
+                <div class="stat-number" data-target="100">0</div>
+                <div class="stat-label">% Secure Infrastructure</div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- NEW CERTIFICATIONS SECTION -->
+<!-- CEO PROFILE SECTION -->
+<div class="container" id="ceo">
+    <h2 class="section-title">EXECUTIVE LEADERSHIP</h2>
+    <div class="card" style="max-width: 900px; margin: auto; display: flex; flex-direction: column; gap: 20px;">
+        <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+            <div style="width: 80px; height: 80px; background: rgba(56, 189, 248, 0.1); border: 2px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; color: var(--accent);">
+                <i class="fa-solid fa-user-tie"></i>
+            </div>
+            <div>
+                <h3 style="font-size: 1.6rem; color: var(--accent);">Mohamed Antar (محمد عنتر)</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Founder & Chief Executive Officer (CEO) • Age 14 • Dakahlia, Egypt</p>
+            </div>
+        </div>
+        <p style="color: #cbd5e1; line-height: 1.8;">
+            As the 14-year-old visionary behind MK CREATIVE Agency, Mohamed oversees technical architecture, AI integrations, and high-level software engineering. Holding 10 official certifications from Udacity and Google Cloud, he bridges the gap between advanced cloud operations, automated commercial applications, and viral digital media solutions. He also actively participates as an Admin in strategic chess initiatives within the EGYPT CHESS CLUB.
+        </p>
+    </div>
+</div>
+
+<!-- CERTIFICATIONS SECTION -->
 <div class="container" id="certifications">
-    <h2 class="section-title">ELITE CERTIFICATIONS</h2>
-    <p style="color: var(--text-muted); margin-bottom: 20px;">Official verified certificates awarded by Udacity in collaboration with Google Cloud and Accenture.</p>
+    <h2 class="section-title">VERIFIED AGENCY CERTIFICATIONS</h2>
+    <p style="color: var(--text-muted); margin-bottom: 20px;">Official credentials awarded by Udacity in collaboration with Google Cloud and Accenture.</p>
     
     <div class="cert-grid">
         <div class="cert-card">
             <img src="IMG_20251221_133154.jpg" alt="Gemini in Google Sheets" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Gemini in Google Sheets</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Issued December 2025 • Udacity & Google Cloud</p>
-            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_133154.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Certificate</button>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_133154.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Credential</button>
         </div>
 
         <div class="cert-card">
             <img src="IMG_20251221_133952_edit_1294679129859207.jpg" alt="Gemini in Gmail" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Gemini in Gmail</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Issued December 2025 • Udacity & Google Cloud</p>
-            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_133952_edit_1294679129859207.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Certificate</button>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_133952_edit_1294679129859207.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Credential</button>
         </div>
 
         <div class="cert-card">
             <img src="IMG_20251221_134712.jpg" alt="Trust and Security with Google Cloud" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Trust & Security with Google Cloud</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Issued December 2025 • Udacity & Google Cloud</p>
-            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_134712.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Certificate</button>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_134712.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Credential</button>
         </div>
 
         <div class="cert-card">
             <img src="IMG_20251221_135357.jpg" alt="Modernize Infrastructure and Applications" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Modernize Infrastructure & Apps</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Issued December 2025 • Udacity & Google Cloud</p>
-            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_135357.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Certificate</button>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_135357.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Credential</button>
         </div>
 
         <div class="cert-card">
             <img src="IMG_20260501_100603.jpg" alt="Responsible AI" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Responsible AI: Applying Principles</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Issued December 2025 • Udacity & Google Cloud</p>
-            <button class="btn btn-outline" onclick="openLightbox('IMG_20260501_100603.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Certificate</button>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20260501_100603.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Credential</button>
         </div>
 
         <div class="cert-card">
             <img src="IMG_20251221_140439.jpg" alt="Gemini in Google Meet" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Gemini in Google Meet</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Issued December 2025 • Udacity & Google Cloud</p>
-            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_140439.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Certificate</button>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_140439.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Credential</button>
         </div>
 
         <div class="cert-card">
             <img src="IMG_20260501_100729.jpg" alt="Introduction to Gemini for Google Workspace" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Intro to Gemini for Workspace</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Issued December 2025 • Udacity & Google Cloud</p>
-            <button class="btn btn-outline" onclick="openLightbox('IMG_20260501_100729.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Certificate</button>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20260501_100729.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Credential</button>
         </div>
 
         <div class="cert-card">
             <img src="IMG_20251221_141142.jpg" alt="Scaling with Google Cloud Operations" onclick="openLightbox(this.src)">
-            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Scaling with Google Cloud Operations</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Issued December 2025 • Udacity & Google Cloud</p>
-            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_141142.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Certificate</button>
+            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Scaling with Cloud Operations</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_141142.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Credential</button>
         </div>
 
         <div class="cert-card">
             <img src="IMG_20251221_142835_edit_2119882193330690.jpg" alt="Gemini in Google Slides" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Gemini in Google Slides</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Issued December 2025 • Udacity & Google Cloud</p>
-            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_142835_edit_2119882193330690.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Certificate</button>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_142835_edit_2119882193330690.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Credential</button>
         </div>
     </div>
 </div>
 
 <div class="container" id="projects">
-    <h2 class="section-title">THE POWERHOUSE</h2>
+    <h2 class="section-title">AGENCY SOLUTIONS</h2>
     <div class="grid">
-        <div class="card" onclick="openProjectModal('Future Mall POS', 'Full-stack retail web application featuring role-based access control, AI product classification via Keras/Teachable Machine, and multi-currency frameworks designed for peak retail efficiency.', ['Python', 'HTML/JS', 'AI Models'], 'https://github.com')">
+        <div class="card" onclick="openProjectModal('Future Mall POS', 'Advanced enterprise retail web application featuring role-based access control, AI product classification via Keras/Teachable Machine, multi-currency frameworks, and automated inventory management.', ['Python', 'HTML/JS', 'AI Frameworks'], 'https://github.com')">
             <h3><i class="fa-solid fa-store" style="color: var(--accent);"></i> Future Mall POS</h3>
-            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;">Full-stack retail web application featuring role-based access control, AI product classification via Keras/Teachable Machine, and multi-currency frameworks.</p>
-            <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);">Click for details &rarr;</span>
+            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;">Full-stack retail web application featuring role-based access control, AI product classification, and multi-currency frameworks.</p>
+            <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);">View System Specs &rarr;</span>
         </div>
-        <div class="card" onclick="openProjectModal('Viral Media Engine', 'Generated over 40M+ views through precision audio-visual balancing, advanced short-form optimization, and high-retention editing pipelines across major platforms.', ['Video Editing', 'Analytics', 'Media Pipelines'], 'https://youtube.com/@mo7amed_5272')">
+        <div class="card" onclick="openProjectModal('Viral Media Engine', 'Corporate media distribution engine generating over 40M+ views through precision audio-visual balancing, advanced short-form optimization, and high-retention editing pipelines.', ['Video Production', 'Analytics', 'Media Scaling'], 'https://youtube.com/@mo7amed_5272')">
             <h3><i class="fa-solid fa-video" style="color: var(--accent);"></i> Viral Media Engine</h3>
-            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;">Generated over 40M+ views through precision audio-visual balancing, advanced short-form optimization, and high-retention editing pipelines.</p>
-            <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);">Click for details &rarr;</span>
+            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;">Generated over 40M+ views through precision audio-visual balancing, advanced short-form optimization, and high-retention editing.</p>
+            <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);">View System Specs &rarr;</span>
         </div>
-        <div class="card" onclick="openProjectModal('EGYPT CHESS CLUB', 'Established and managed digital strategy communities, tactical booklets, and automated club management workflows on Chess.com to foster competitive local talent.', ['Chess Strategy', 'Community Management'], 'https://chess.com')">
-            <h3><i class="fa-solid fa-chess-board" style="color: var(--accent);"></i> EGYPT CHESS CLUB</h3>
-            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;">Established and managed digital strategy communities, tactical booklets, and automated club management workflows on Chess.com.</p>
-            <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);">Click for details &rarr;</span>
+        <div class="card" onclick="openProjectModal('EGYPT CHESS CLUB', 'Strategic community management ecosystem and automated tactical club frameworks hosted on Chess.com to foster high-level analytical thinking and local talent.', ['Strategy', 'Community Engine'], 'https://chess.com')">
+            <h3><i class="fa-solid fa-chess-board" style="color: var(--accent);"></i> EGYPT CHESS CLUB (Admin)</h3>
+            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;">Active administration and tactical management within digital strategy communities and club workflows.</p>
+            <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);">View System Specs &rarr;</span>
         </div>
     </div>
 </div>
 
 <div class="container" id="skills">
-    <h2 class="section-title">TECHNICAL MASTERY</h2>
+    <h2 class="section-title">AGENCY TECHNICAL STACK</h2>
     <div class="skills-container">
         <div class="skill-item">
-            <div class="skill-info"><span>Python & Software Logic</span><span>95%</span></div>
-            <div class="skill-bar"><div class="skill-progress" data-width="95"></div></div>
-        </div>
-        <div class="skill-item">
-            <div class="skill-info"><span>HTML / CSS / JavaScript</span><span>90%</span></div>
-            <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
-        </div>
-        <div class="skill-item">
-            <div class="skill-info"><span>Cloud & AI Certifications</span><span>98%</span></div>
+            <div class="skill-info"><span>Cloud Architecture & Security</span><span>98%</span></div>
             <div class="skill-bar"><div class="skill-progress" data-width="98"></div></div>
         </div>
         <div class="skill-item">
-            <div class="skill-info"><span>Chess Strategy & Analytics</span><span>88%</span></div>
-            <div class="skill-bar"><div class="skill-progress" data-width="88"></div></div>
+            <div class="skill-info"><span>Python & Business Software Logic</span><span>95%</span></div>
+            <div class="skill-bar"><div class="skill-progress" data-width="95"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-info"><span>Full-Stack Web (HTML/JS/CSS)</span><span>90%</span></div>
+            <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-info"><span>AI Integration & Workspace Automation</span><span>96%</span></div>
+            <div class="skill-bar"><div class="skill-progress" data-width="96"></div></div>
         </div>
     </div>
 </div>
 
 <div class="container" id="gallery">
-    <h2 class="section-title">CREATIVE SHOWCASE</h2>
+    <h2 class="section-title">CLIENT PORTALS & VISUAL DESIGNS</h2>
     <div class="showcase-grid">
         <div class="media-box">
-            <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 1rem;">Asmaa Clinic UI</h3>
+            <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 1rem;">Asmaa Clinic UI Portal</h3>
             <img src="IMG-20260630-WA0006.jpg" alt="Asmaa Clinic" onclick="openLightbox(this.src)">
         </div>
         <div class="media-box">
-            <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 1rem;">Minecraft Thumbnail</h3>
+            <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 1rem;">Gaming Media Production</h3>
             <img src="Screenshot_20260815_093326.jpg" alt="Minecraft Thumbnail" onclick="openLightbox(this.src)">
         </div>
         <div class="media-box">
-            <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 1rem;">Islam: A Way of Life</h3>
+            <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 1rem;">Islam: A Way of Life Interface</h3>
             <img src="Screenshot_20260815_093338.jpg" alt="Islam Way of Life" onclick="openLightbox(this.src)">
         </div>
     </div>
 </div>
 
 <div class="container" id="contact">
-    <h2 class="section-title">SECURE COMMUNICATIONS</h2>
+    <h2 class="section-title">SECURE AGENCY COMMUNICATIONS</h2>
     <div class="card" style="max-width: 650px; margin: auto; text-align: center; cursor: default;">
-        <p style="margin: 12px 0;"><i class="fa-solid fa-envelope" style="color: var(--accent);"></i> Email: <span>moamedantar8@gmail.com</span></p>
-        <p style="margin: 12px 0;"><i class="fa-brands fa-whatsapp" style="color: #22c55e;"></i> WhatsApp: <a href="https://wa.me/201559719175" target="_blank" style="color:var(--accent); text-decoration: none;">+20 155 971 9175</a></p>
-        <p style="margin: 12px 0;"><i class="fa-brands fa-linkedin" style="color: var(--accent);"></i> LinkedIn: <a href="https://linkedin.com/in/mohamed-antar-522201406" style="color:var(--accent); text-decoration: none;" target="_blank">mohamed-antar-522201406</a></p>
-        <button class="btn" style="margin-top: 20px;" onclick="copyEmail()"><i class="fa-solid fa-copy"></i> Copy Secure Email</button>
+        <p style="margin: 12px 0;"><i class="fa-solid fa-envelope" style="color: var(--accent);"></i> Agency Email: <span>moamedantar8@gmail.com</span></p>
+        <p style="margin: 12px 0;"><i class="fa-brands fa-whatsapp" style="color: #22c55e;"></i> Direct Line / WhatsApp: <a href="https://wa.me/201559719175" target="_blank" style="color:var(--accent); text-decoration: none;">+20 155 971 9175</a></p>
+        <p style="margin: 12px 0;"><i class="fa-brands fa-linkedin" style="color: var(--accent);"></i> Executive LinkedIn: <a href="https://linkedin.com/in/mohamed-antar-522201406" style="color:var(--accent); text-decoration: none;" target="_blank">mohamed-antar-522201406</a></p>
+        <button class="btn" style="margin-top: 20px;" onclick="copyEmail()"><i class="fa-solid fa-copy"></i> Copy Agency Email</button>
     </div>
 </div>
 
 <div class="floating-controls">
-    <button class="float-btn" onclick="toggleMatrixMode()" title="Toggle Matrix Green Theme"><i class="fa-solid fa-code"></i></button>
-    <button class="float-btn" id="audio-toggle-btn" onclick="toggleAudioFX()" title="Toggle Cyber Click FX"><i class="fa-solid fa-volume-high"></i></button>
+    <button class="float-btn" onclick="toggleMatrixMode()" title="Toggle Matrix Secure Mode"><i class="fa-solid fa-code"></i></button>
+    <button class="float-btn" onclick="toggleAmberMode()" title="Toggle Amber E-Ink Mode"><i class="fa-solid fa-moon"></i></button>
+    <button class="float-btn" id="audio-toggle-btn" onclick="toggleAudioFX()" title="Toggle Audio Sound FX"><i class="fa-solid fa-volume-high"></i></button>
 </div>
 
 <!-- Rocket Top Button -->
-<button class="rocket-top-btn" id="rocketBtn" onclick="launchToTop()" title="الرجوع للأعلى">
+<button class="rocket-top-btn" id="rocketBtn" onclick="launchToTop()" title="Scroll to Top">
     🚀
 </button>
 
 <!-- Mobile Search Float Button -->
-<button class="mobile-search-float" onclick="openSearchModalMobile()" title="بحث سريع">
+<button class="mobile-search-float" onclick="openSearchModalMobile()" title="Quick Search">
     <i class="fa-solid fa-magnifying-glass"></i>
 </button>
 
 <footer>
-    <p>&copy; 2026 Mohamed Antar. Built with absolute mastery, verified certifications, and relentless passion.</p>
+    <p>&copy; 2026 MK CREATIVE Agency. Founded and Directed by Mohamed Antar. All Rights Reserved.</p>
 </footer>
 
 <script>
@@ -648,7 +672,7 @@
     }
 
     setInterval(() => {
-        let randomPing = Math.floor(Math.random() * 6) + 19;
+        let randomPing = Math.floor(Math.random() * 5) + 17;
         document.getElementById('ping-val').textContent = randomPing;
     }, 3500);
 
@@ -672,19 +696,19 @@
 
     window.onload = () => {
         setTimeout(() => {
-            showToast("System Online: Elite Certifications Loaded");
+            showToast("MK CREATIVE Agency Systems Online");
         }, 1000);
         startCounters();
     };
 
     function showToast(msg) {
         let toast = document.getElementById("toast");
-        toast.innerHTML = `<i class="fa-solid fa-bolt" style="color: var(--accent); font-size: 1.4rem;"></i><div><div style="font-weight: 800;">${msg}</div><div style="font-size: 0.85rem; color: var(--text-muted);">Mohamed Antar Master Engine.</div></div>`;
+        toast.innerHTML = `<i class="fa-solid fa-shield-halved" style="color: var(--accent); font-size: 1.4rem;"></i><div><div style="font-weight: 800;">${msg}</div><div style="font-size: 0.85rem; color: var(--text-muted);">Managed by Mohamed Antar (CEO).</div></div>`;
         toast.classList.add("show");
         setTimeout(() => toast.classList.remove("show"), 4000);
     }
 
-    const words = ["Certified Cloud & AI Engineers.", "120-Feature Master Engines.", "High-Retention Media Ecosystems."];
+    const words = ["Cloud Infrastructure & AI.", "Automated Retail Solutions.", "Next-Gen Agency Frameworks."];
     let wordIdx = 0, charIdx = 0, currentWord = "", isDeletingState = false;
     function typeEffectEngine() {
         currentWord = words[wordIdx];
@@ -729,13 +753,22 @@
     }
 
     function toggleMatrixMode() {
+        document.body.classList.remove('amber-mode');
         document.body.classList.toggle('matrix-mode');
         initParticles();
+        showToast(document.body.classList.contains('matrix-mode') ? "Matrix Secure Mode Active" : "Default Mode Restored");
+    }
+
+    function toggleAmberMode() {
+        document.body.classList.remove('matrix-mode');
+        document.body.classList.toggle('amber-mode');
+        initParticles();
+        showToast(document.body.classList.contains('amber-mode') ? "Amber E-Ink Mode Active" : "Default Mode Restored");
     }
 
     function copyEmail() {
         navigator.clipboard.writeText("moamedantar8@gmail.com");
-        showToast("Secured & Copied to Clipboard!");
+        showToast("Agency Email Copied to Clipboard!");
     }
 
     function launchToTop() {
