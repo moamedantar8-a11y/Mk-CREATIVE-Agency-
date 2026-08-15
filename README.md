@@ -117,6 +117,33 @@
         .media-box img { width: 100%; border-radius: 14px; height: 210px; object-fit: cover; cursor: pointer; transition: 0.4s; }
         .media-box img:hover { transform: scale(1.05); }
 
+        /* Stock Market Ticker Table Style */
+        .stock-table-box { background: var(--glass); border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); overflow: hidden; backdrop-filter: blur(16px); margin-top: 25px; }
+        .stock-table { width: 100%; border-collapse: collapse; text-align: left; }
+        .stock-table th, .stock-table td { padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.95rem; }
+        .stock-table th { background: rgba(255,255,255,0.03); color: var(--accent); font-weight: 800; font-family: 'Courier New', monospace; }
+        .trend-up { color: #22c55e; font-weight: bold; display: inline-flex; align-items: center; gap: 6px; }
+        .trend-badge { background: rgba(34, 197, 94, 0.12); padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(34, 197, 94, 0.3); }
+
+        /* Code Sandbox Box with Escaping Bugs */
+        .code-sandbox-box { background: rgba(3, 7, 18, 0.95); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 16px; overflow: hidden; position: relative; height: 300px; margin-top: 25px; font-family: 'Courier New', monospace; }
+        .code-header { background: rgba(255, 255, 255, 0.05); padding: 10px 15px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+        .dot-red { width: 10px; height: 10px; background: #ef4444; border-radius: 50%; display: inline-block; }
+        .dot-yellow { width: 10px; height: 10px; background: #f59e0b; border-radius: 50%; display: inline-block; }
+        .dot-green { width: 10px; height: 10px; background: #22c55e; border-radius: 50%; display: inline-block; }
+        .code-title-text { font-size: 0.8rem; color: var(--text-muted); margin-left: 10px; font-family: 'Inter', sans-serif; }
+        .code-body { padding: 25px; position: relative; height: 100%; }
+        .code-line { color: #38bdf8; font-size: 0.95rem; display: block; margin-bottom: 8px; }
+        
+        .escaping-code {
+            position: absolute; color: #ef4444; background: rgba(239, 68, 68, 0.1);
+            border: 1px solid #ef4444; padding: 5px 10px; border-radius: 6px;
+            font-weight: bold; font-size: 0.85rem; cursor: grab; z-index: 10;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .escaping-code:hover { transform: scale(1.2); cursor: crosshair; }
+
         /* Action Buttons */
         .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; margin: 8px; background: var(--accent); color: #030712; text-decoration: none; border-radius: 50px; font-weight: 800; transition: 0.3s; cursor: pointer; border: none; box-shadow: 0 0 15px var(--accent-glow); }
         .btn:hover { transform: scale(1.06); box-shadow: 0 0 25px var(--accent); }
@@ -165,8 +192,8 @@
 <div id="toast">
     <i class="fa-solid fa-bolt" style="color: var(--accent); font-size: 1.4rem;"></i>
     <div>
-        <div style="font-weight: 800;">System Online: 100 Features Fully Loaded</div>
-        <div style="font-size: 0.85rem; color: var(--text-muted);">Welcome to Mohamed Antar's Ultimate 100-Feature Master Engine.</div>
+        <div style="font-weight: 800;">System Online: 100+ Elite Features Loaded</div>
+        <div style="font-size: 0.85rem; color: var(--text-muted);">Welcome to Mohamed Antar's Master Engine & Stock Ticker.</div>
     </div>
 </div>
 
@@ -180,7 +207,7 @@
     <div class="nav-container">
         <div class="logo">
             <i class="fa-solid fa-terminal"></i> M. ANTAR
-            <span class="status-badge"><span class="status-dot"></span> 100 Elite Status</span>
+            <span class="status-badge"><span class="status-dot"></span> Elite Live Status</span>
         </div>
         
         <div class="hud-panel">
@@ -193,7 +220,7 @@
         <nav class="nav-links">
             <a href="#about"><i class="fa-solid fa-user"></i> About</a>
             <a href="#projects"><i class="fa-solid fa-layer-group"></i> Powerhouse</a>
-            <a href="#gallery"><i class="fa-solid fa-photo-film"></i> Showcase</a>
+            <a href="#markets"><i class="fa-solid fa-chart-line"></i> Analytics</a>
             <a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
         </nav>
     </div>
@@ -209,7 +236,7 @@
         
         <div class="vibe-ticker">
             <i class="fa-solid fa-compact-disc fa-spin" style="color: var(--accent);"></i> 
-            <span>Active Vibe: <b>100-Feature Master Engine & Neural Code</b></span>
+            <span>Active Vibe: <b>100-Feature Master Engine & Live Stock Stream</b></span>
         </div>
 
         <p style="max-width: 750px; margin: 25px auto; color: #cbd5e1; line-height: 1.8;">
@@ -221,7 +248,7 @@
             <a href="https://youtube.com/@mo7amed_5277" class="btn btn-outline" target="_blank"><i class="fa-brands fa-youtube"></i> MK QURAN</a>
         </div>
 
-        <!-- 100-Feature Dynamic Statistics Grid -->
+        <!-- Dynamic Statistics Grid -->
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-number" data-target="40">0</div>
@@ -262,6 +289,45 @@
     </div>
 </div>
 
+<!-- Live Asset Market & Stock Ticker Section (Requested Feature) -->
+<div class="container" id="markets">
+    <h2 class="section-title">LIVE ASSETS & STOCKS TELEMETRY</h2>
+    <p style="color: var(--text-muted); margin-bottom: 15px;">Real-time valuation index tracking engagement growth, viral media milestones, and global assets.</p>
+    
+    <div class="stock-table-box">
+        <table class="stock-table">
+            <thead>
+                <tr>
+                    <th>ASSET / TICKER</th>
+                    <th>CATEGORY</th>
+                    <th>CURRENT MILESTONE</th>
+                    <th>24H PERFORMANCE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><b>MK_REMIXES_40M</b></td>
+                    <td>Viral Video Engine</td>
+                    <td><b>40,000,000 Views</b></td>
+                    <td><span class="trend-up trend-badge"><i class="fa-solid fa-arrow-trend-up"></i> +14.8% (Bullish)</span></td>
+                </tr>
+                <tr>
+                    <td><b>GOLD_INDEX_XAU</b></td>
+                    <td>Precious Asset</td>
+                    <td><b>All-Time High Tier</b></td>
+                    <td><span class="trend-up trend-badge"><i class="fa-solid fa-arrow-trend-up"></i> +3.2% (Rising)</span></td>
+                </tr>
+                <tr>
+                    <td><b>TECH_CODE_ENGINE</b></td>
+                    <td>Software Architecture</td>
+                    <td><b>100 Features Active</b></td>
+                    <td><span class="trend-up trend-badge"><i class="fa-solid fa-arrow-trend-up"></i> +9.5% (Stable)</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
 <!-- Creative Works Showcase Gallery -->
 <div class="container" id="gallery">
     <h2 class="section-title">CREATIVE SHOWCASE</h2>
@@ -281,6 +347,29 @@
     </div>
 </div>
 
+<!-- Interactive Code Sandbox with 4 Escaping Bugs -->
+<div class="container">
+    <h2 class="section-title">ACTIVE BUG SANDBOX</h2>
+    <div class="code-sandbox-box" id="codeSandbox">
+        <div class="code-header">
+            <span class="dot-red"></span> <span class="dot-yellow"></span> <span class="dot-green"></span>
+            <span class="code-title-text">engine_core.js - 4 Escaping Errors</span>
+        </div>
+        <div class="code-body">
+            <span class="code-line">1: initializeSystem();</span>
+            <span class="code-line">2: loadDependencies();</span>
+            <span class="code-line">3: checkBufferOverflow();</span>
+            <span class="code-line">4: system.ready();</span>
+            
+            <!-- الأكواد الأربعة الهاربة باللون الأحمر -->
+            <span class="escaping-code bug-1">ERR_TYPE_01</span>
+            <span class="escaping-code bug-2">ERR_TYPE_02</span>
+            <span class="escaping-code bug-3">ERR_TYPE_03</span>
+            <span class="escaping-code bug-4">ERR_TYPE_04</span>
+        </div>
+    </div>
+</div>
+
 <!-- Contact Station Section -->
 <div class="container" id="contact">
     <h2 class="section-title">SECURE COMMUNICATIONS</h2>
@@ -292,19 +381,19 @@
     </div>
 </div>
 
-<!-- Floating Controls (Matrix Toggle & Scroll Top) -->
+<!-- Floating Controls -->
 <div class="floating-controls">
     <button class="float-btn" onclick="toggleMatrixMode()" title="Toggle Matrix Green Theme"><i class="fa-solid fa-code"></i></button>
     <button class="float-btn" onclick="scrollToTop()" title="Scroll to Top"><i class="fa-solid fa-arrow-up"></i></button>
 </div>
 
 <footer>
-    <p>&copy; 2026 Mohamed Antar. Built with absolute mastery, 100 integrated features, and relentless passion.</p>
+    <p>&copy; 2026 Mohamed Antar. Built with absolute mastery, integrated features, and live stock market indexes.</p>
 </footer>
 
-<!-- Comprehensive 100-Feature JavaScript Execution Engine -->
+<!-- JavaScript Execution Engine -->
 <script>
-    // 1. Custom Smooth Mouse Mechanics
+    // Smooth Mouse Mechanics
     const dot = document.getElementById('cursor-dot');
     const outline = document.getElementById('cursor-outline');
     window.addEventListener('mousemove', (e) => {
@@ -314,7 +403,7 @@
         outline.style.top = e.clientY + 'px';
     });
 
-    // 2. Scroll Progress & Element Reveal Engine
+    // Scroll Progress & Reveal Engine
     window.onscroll = () => {
         let winScroll = document.documentElement.scrollTop || document.body.scrollTop;
         let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -327,13 +416,13 @@
         });
     };
 
-    // 3. Live Ping Telemetry Simulation
+    // Live Ping Telemetry
     setInterval(() => {
         let randomPing = Math.floor(Math.random() * 6) + 19;
         document.getElementById('ping-val').textContent = randomPing;
     }, 3500);
 
-    // 4. Live Session Timer Tracker
+    // Live Session Timer
     let totalSeconds = 0;
     setInterval(() => {
         totalSeconds++;
@@ -342,7 +431,7 @@
         document.getElementById('session-time').textContent = `${mins}:${secs}`;
     }, 1000);
 
-    // 5. Battery Status API Integration
+    // Battery Status API
     if ('getBattery' in navigator) {
         navigator.getBattery().then(battery => {
             function updateBattery() {
@@ -353,16 +442,17 @@
         });
     }
 
-    // 6. System Initialization & Toast Sequence
+    // Toast Notification Sequence
     window.onload = () => {
         setTimeout(() => {
             document.getElementById("toast").classList.add("show");
             setTimeout(() => document.getElementById("toast").classList.remove("show"), 4500);
         }, 1000);
         startCounters();
+        initBugs();
     };
 
-    // 7. Dynamic Typing Effect Logic
+    // Typing Effect
     const words = ["100-Feature Master Engines.", "High-Retention Media Ecosystems.", "Scalable Software Solutions."];
     let wordIdx = 0, charIdx = 0, currentWord = "", isDeletingState = false;
     function typeEffectEngine() {
@@ -380,7 +470,7 @@
     }
     typeEffectEngine();
 
-    // 8. Stat Counters Animation Sequence
+    // Stat Counters Animation
     function startCounters() {
         const counters = document.querySelectorAll('.stat-number');
         counters.forEach(counter => {
@@ -400,7 +490,28 @@
         });
     }
 
-    // 9. Image Lightbox Controllers
+    // Escaping Bugs Logic (4 Red Bugs)
+    function initBugs() {
+        const bugs = document.querySelectorAll('.escaping-code');
+        const container = document.getElementById('codeSandbox');
+
+        function moveBug(bug) {
+            const maxX = container.clientWidth - bug.clientWidth - 20;
+            const maxY = container.clientHeight - bug.clientHeight - 40;
+            const randomX = Math.floor(Math.random() * Math.max(10, maxX));
+            const randomY = Math.floor(Math.random() * Math.max(10, maxY));
+            bug.style.left = randomX + 'px';
+            bug.style.top = randomY + 'px';
+        }
+
+        bugs.forEach(bug => {
+            setInterval(() => moveBug(bug), 2000);
+            bug.addEventListener('mouseover', () => moveBug(bug));
+            moveBug(bug);
+        });
+    }
+
+    // Lightbox Controls
     function openLightbox(src) {
         document.getElementById('lightbox-img').src = src;
         document.getElementById('lightbox').style.display = 'flex';
@@ -409,12 +520,12 @@
         document.getElementById('lightbox').style.display = 'none';
     }
 
-    // 10. Matrix Theme Toggle Switch
+    // Matrix Theme Toggle
     function toggleMatrixMode() {
         document.body.classList.toggle('matrix-mode');
     }
 
-    // 11. Secure Clipboard Copy System
+    // Copy Email
     function copyEmail() {
         navigator.clipboard.writeText("moamedantar8@gmail.com");
         let toast = document.getElementById("toast");
@@ -423,26 +534,11 @@
         setTimeout(() => toast.classList.remove("show"), 3500);
     }
 
-    // 12. Smooth Navigation Top Return
+    // Scroll to Top
     function scrollToTop() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-
-    // 13. Water Ripple Effect on Click (Feature 97)
-    document.addEventListener('click', (e) => {
-        let ripple = document.createElement('div');
-        ripple.style.cssText = `position:fixed; left:${e.clientX}px; top:${e.clientY}px; width:10px; height:10px; border:2px solid var(--accent); border-radius:50%; pointer-events:none; z-index:99999; transform:translate(-50%, -50%); animation: rippleAnim 0.8s ease-out forwards;`;
-        document.body.appendChild(ripple);
-        setTimeout(() => ripple.remove(), 800);
-    });
 </script>
-
-<style>
-@keyframes rippleAnim {
-    0% { width: 10px; height: 10px; opacity: 1; }
-    100% { width: 120px; height: 120px; opacity: 0; }
-}
-</style>
 
 </body>
 </html> 
