@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="only dark">
-    <title>Mohamed Antar | The Ultimate 100-Feature Master Engine</title>
+    <title>Mohamed Antar | Master Engine & Elite Certifications</title>
     
     <!-- External FontAwesome & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -47,7 +47,7 @@
         .cursor-dot { position: fixed; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); transition: transform 0.05s ease; }
         .cursor-outline { position: fixed; width: 32px; height: 32px; border: 2px solid var(--accent); border-radius: 50%; pointer-events: none; z-index: 99998; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, border-color 0.2s; box-shadow: 0 0 15px var(--accent-glow); }
 
-        #progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: var(--accent); width: 0%; z-index: 10001; box-shadow: 0 0 12px var(--accent); }
+        #progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: var(--accent); width: 0%; z-index: 1001; box-shadow: 0 0 12px var(--accent); }
 
         header { background: rgba(3, 7, 18, 0.85); backdrop-filter: blur(16px); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(56, 189, 248, 0.2); }
         .nav-container { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 2rem; }
@@ -60,8 +60,8 @@
         .status-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 8px #22c55e; animation: pulse 1.5s infinite; }
         @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
 
-        .nav-links { display: flex; align-items: center; gap: 20px; list-style: none; }
-        .nav-links a { color: var(--text); text-decoration: none; font-size: 0.95rem; transition: 0.3s; }
+        .nav-links { display: flex; align-items: center; gap: 18px; list-style: none; }
+        .nav-links a { color: var(--text); text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--accent); }
 
         .activity-ticker-bar { background: rgba(56, 189, 248, 0.06); border-bottom: 1px solid rgba(56, 189, 248, 0.15); padding: 8px 0; font-size: 0.82rem; color: var(--accent); overflow: hidden; white-space: nowrap; margin-top: 65px; }
@@ -92,6 +92,12 @@
         .card { background: var(--glass); padding: 30px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(16px); transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden; cursor: pointer; }
         .card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 0 30px var(--accent-glow); }
 
+        .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 25px; }
+        .cert-card { background: var(--glass); border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); padding: 20px; backdrop-filter: blur(12px); transition: 0.3s; text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
+        .cert-card:hover { border-color: var(--accent); box-shadow: 0 0 25px var(--accent-glow); transform: translateY(-5px); }
+        .cert-card img { width: 100%; height: 210px; object-fit: cover; border-radius: 12px; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
+        .cert-card img:hover { transform: scale(1.03); }
+
         .skills-container { max-width: 900px; margin: 40px auto 0; background: var(--glass); padding: 35px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(16px); }
         .skill-item { margin-bottom: 20px; }
         .skill-item:last-child { margin-bottom: 0; }
@@ -105,7 +111,7 @@
         .media-box img { width: 100%; border-radius: 14px; height: 210px; object-fit: cover; cursor: pointer; transition: 0.4s; }
         .media-box img:hover { transform: scale(1.05); }
 
-        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; margin: 8px; background: var(--accent); color: #030712; text-decoration: none; border-radius: 50px; font-weight: 800; transition: 0.3s; cursor: pointer; border: none; box-shadow: 0 0 15px var(--accent-glow); }
+        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; margin: 6px; background: var(--accent); color: #030712; text-decoration: none; border-radius: 50px; font-weight: 800; transition: 0.3s; cursor: pointer; border: none; box-shadow: 0 0 15px var(--accent-glow); font-size: 0.9rem; }
         .btn:hover { transform: scale(1.06); box-shadow: 0 0 25px var(--accent); }
         .btn-outline { background: transparent; border: 2px solid var(--accent); color: var(--accent); box-shadow: none; }
         .btn-outline:hover { background: var(--accent); color: #030712; }
@@ -114,7 +120,6 @@
         .float-btn { width: 50px; height: 50px; background: var(--accent); border-radius: 50%; border: none; cursor: pointer; display: flex; justify-content: center; align-items: center; color: #030712; font-size: 1.2rem; box-shadow: 0 0 20px var(--accent-glow); transition: 0.3s; }
         .float-btn:hover { transform: scale(1.15) rotate(10deg); }
 
-        /* Rocket & Mobile Search Float Buttons */
         .rocket-top-btn {
             position: fixed; bottom: 30px; left: 95px;
             background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
@@ -193,7 +198,7 @@
 <div id="toast">
     <i class="fa-solid fa-bolt" style="color: var(--accent); font-size: 1.4rem;"></i>
     <div>
-        <div style="font-weight: 800;">System Online: Mobile Search & Features Active</div>
+        <div style="font-weight: 800;">System Online: Elite Certifications Loaded</div>
         <div style="font-size: 0.85rem; color: var(--text-muted);">Welcome to Mohamed Antar's Master Engine.</div>
     </div>
 </div>
@@ -205,11 +210,11 @@
 <!-- Quick Search Modal -->
 <div id="search-modal" onclick="closeSearchModal(event)">
     <div class="search-box-wrap" onclick="event.stopPropagation()">
-        <input type="text" class="search-input" id="search-input-box" placeholder="Type to search sections or projects (e.g. POS, Chess, Contact)..." oninput="filterSearch()">
+        <input type="text" class="search-input" id="search-input-box" placeholder="Type to search sections or certificates..." oninput="filterSearch()">
         <ul class="search-results-list" id="search-results">
             <li onclick="scrollToSection('about')"><i class="fa-solid fa-user"></i> About Mohamed Antar</li>
+            <li onclick="scrollToSection('certifications')"><i class="fa-solid fa-award"></i> Elite Certifications Hub</li>
             <li onclick="scrollToSection('projects')"><i class="fa-solid fa-store"></i> Future Mall POS Project</li>
-            <li onclick="scrollToSection('projects')"><i class="fa-solid fa-chess-board"></i> EGYPT CHESS CLUB</li>
             <li onclick="scrollToSection('gallery')"><i class="fa-solid fa-photo-film"></i> Creative Works Showcase</li>
             <li onclick="scrollToSection('skills')"><i class="fa-solid fa-code"></i> Technical Skills & Mastery</li>
             <li onclick="scrollToSection('contact')"><i class="fa-solid fa-envelope"></i> Secure Communications & Contact</li>
@@ -232,7 +237,7 @@
     <div class="nav-container">
         <div class="logo">
             <i class="fa-solid fa-terminal"></i> M. ANTAR
-            <span class="status-badge"><span class="status-dot"></span> 100 Elite Status</span>
+            <span class="status-badge"><span class="status-dot"></span> Elite Certified</span>
         </div>
         
         <div class="hud-panel">
@@ -244,6 +249,7 @@
 
         <nav class="nav-links">
             <a href="#about"><i class="fa-solid fa-user"></i> About</a>
+            <a href="#certifications"><i class="fa-solid fa-award"></i> Certifications</a>
             <a href="#projects"><i class="fa-solid fa-layer-group"></i> Powerhouse</a>
             <a href="#gallery"><i class="fa-solid fa-photo-film"></i> Showcase</a>
             <a href="#skills"><i class="fa-solid fa-code"></i> Skills</a>
@@ -254,7 +260,7 @@
 
 <div class="activity-ticker-bar">
     <div class="ticker-content">
-        ⚡ <b>LIVE ACTIVITY:</b> Architecting Next-Gen Systems &nbsp;&bull;&nbsp; ♟️ Managing EGYPT CHESS CLUB &nbsp;&bull;&nbsp; 🚀 Pushing 40M+ Video Views &nbsp;&bull;&nbsp; 💻 Building Interactive POS Web Applications &nbsp;&bull;&nbsp; Press <b>Ctrl + K</b> or use mobile search!
+        🏆 <b>ELITE CERTIFICATIONS:</b> Udacity & Google Cloud Certified &nbsp;&bull;&nbsp; 🚀 40M+ Video Views &nbsp;&bull;&nbsp; ♟️ EGYPT CHESS CLUB &nbsp;&bull;&nbsp; Press <b>Ctrl + K</b> for quick navigation!
     </div>
 </div>
 
@@ -267,11 +273,11 @@
         
         <div class="vibe-ticker">
             <i class="fa-solid fa-compact-disc fa-spin" style="color: var(--accent);"></i> 
-            <span>Active Vibe: <b>100-Feature Master Engine & Neural Code</b></span>
+            <span>Active Vibe: <b>Certified Cloud & AI Engineer</b></span>
         </div>
 
         <p style="max-width: 750px; margin: 25px auto; color: #cbd5e1; line-height: 1.8;">
-            A 14-year-old software architect, competitive chess organizer, and advanced video producer driving over 40M+ viral views through state-of-the-art web systems and optimized digital media engines.
+            A 14-year-old software architect, certified in Google Cloud and Gemini integrations through Udacity, competitive chess organizer, and advanced video producer driving over 40M+ viral views.
         </p>
         
         <div style="margin-top: 30px;">
@@ -281,24 +287,95 @@
 
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-number" data-target="40">0</div>
-                <div class="stat-label">Million+ Global Views</div>
+                <div class="stat-number" data-target="10">0</div>
+                <div class="stat-label">Verified Certifications</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number" data-target="500">0</div>
-                <div class="stat-label">Production Assets Created</div>
+                <div class="stat-number" data-target="40">0</div>
+                <div class="stat-label">Million+ Global Views</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number" data-target="14">0</div>
                 <div class="stat-label">Years of Innovation</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number" data-target="100">0</div>
+                <div class="stat-number" data-target="120">0</div>
                 <div class="stat-label">Integrated UI Features</div>
             </div>
         </div>
     </div>
 </section>
+
+<!-- NEW CERTIFICATIONS SECTION -->
+<div class="container" id="certifications">
+    <h2 class="section-title">ELITE CERTIFICATIONS</h2>
+    <p style="color: var(--text-muted); margin-bottom: 20px;">Official verified certificates awarded by Udacity in collaboration with Google Cloud and Accenture.</p>
+    
+    <div class="cert-grid">
+        <div class="cert-card">
+            <img src="IMG_20251221_133154.jpg" alt="Gemini in Google Sheets" onclick="openLightbox(this.src)">
+            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Gemini in Google Sheets</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Issued December 2025 • Udacity & Google Cloud</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_133154.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Certificate</button>
+        </div>
+
+        <div class="cert-card">
+            <img src="IMG_20251221_133952_edit_1294679129859207.jpg" alt="Gemini in Gmail" onclick="openLightbox(this.src)">
+            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Gemini in Gmail</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Issued December 2025 • Udacity & Google Cloud</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_133952_edit_1294679129859207.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Certificate</button>
+        </div>
+
+        <div class="cert-card">
+            <img src="IMG_20251221_134712.jpg" alt="Trust and Security with Google Cloud" onclick="openLightbox(this.src)">
+            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Trust & Security with Google Cloud</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Issued December 2025 • Udacity & Google Cloud</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_134712.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Certificate</button>
+        </div>
+
+        <div class="cert-card">
+            <img src="IMG_20251221_135357.jpg" alt="Modernize Infrastructure and Applications" onclick="openLightbox(this.src)">
+            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Modernize Infrastructure & Apps</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Issued December 2025 • Udacity & Google Cloud</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_135357.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Certificate</button>
+        </div>
+
+        <div class="cert-card">
+            <img src="IMG_20260501_100603.jpg" alt="Responsible AI" onclick="openLightbox(this.src)">
+            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Responsible AI: Applying Principles</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Issued December 2025 • Udacity & Google Cloud</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20260501_100603.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Certificate</button>
+        </div>
+
+        <div class="cert-card">
+            <img src="IMG_20251221_140439.jpg" alt="Gemini in Google Meet" onclick="openLightbox(this.src)">
+            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Gemini in Google Meet</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Issued December 2025 • Udacity & Google Cloud</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_140439.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Certificate</button>
+        </div>
+
+        <div class="cert-card">
+            <img src="IMG_20260501_100729.jpg" alt="Introduction to Gemini for Google Workspace" onclick="openLightbox(this.src)">
+            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Intro to Gemini for Workspace</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Issued December 2025 • Udacity & Google Cloud</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20260501_100729.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Certificate</button>
+        </div>
+
+        <div class="cert-card">
+            <img src="IMG_20251221_141142.jpg" alt="Scaling with Google Cloud Operations" onclick="openLightbox(this.src)">
+            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Scaling with Google Cloud Operations</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Issued December 2025 • Udacity & Google Cloud</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_141142.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Certificate</button>
+        </div>
+
+        <div class="cert-card">
+            <img src="IMG_20251221_142835_edit_2119882193330690.jpg" alt="Gemini in Google Slides" onclick="openLightbox(this.src)">
+            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Gemini in Google Slides</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Issued December 2025 • Udacity & Google Cloud</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_142835_edit_2119882193330690.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> View Certificate</button>
+        </div>
+    </div>
+</div>
 
 <div class="container" id="projects">
     <h2 class="section-title">THE POWERHOUSE</h2>
@@ -333,8 +410,8 @@
             <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
         </div>
         <div class="skill-item">
-            <div class="skill-info"><span>Video Editing & Motion Graphics</span><span>96%</span></div>
-            <div class="skill-bar"><div class="skill-progress" data-width="96"></div></div>
+            <div class="skill-info"><span>Cloud & AI Certifications</span><span>98%</span></div>
+            <div class="skill-bar"><div class="skill-progress" data-width="98"></div></div>
         </div>
         <div class="skill-item">
             <div class="skill-info"><span>Chess Strategy & Analytics</span><span>88%</span></div>
@@ -387,7 +464,7 @@
 </button>
 
 <footer>
-    <p>&copy; 2026 Mohamed Antar. Built with absolute mastery, 100 integrated features, and relentless passion.</p>
+    <p>&copy; 2026 Mohamed Antar. Built with absolute mastery, verified certifications, and relentless passion.</p>
 </footer>
 
 <script>
@@ -595,19 +672,19 @@
 
     window.onload = () => {
         setTimeout(() => {
-            showToast("System Online: All Features Loaded");
+            showToast("System Online: Elite Certifications Loaded");
         }, 1000);
         startCounters();
     };
 
     function showToast(msg) {
         let toast = document.getElementById("toast");
-        toast.innerHTML = `<i class="fa-solid fa-bolt" style="color: var(--accent); font-size: 1.4rem;"></i><div><div style="font-weight: 800;">${msg}</div><div style="font-size: 0.85rem; color: var(--text-muted);">Mohamed Antar Master Engine v100.</div></div>`;
+        toast.innerHTML = `<i class="fa-solid fa-bolt" style="color: var(--accent); font-size: 1.4rem;"></i><div><div style="font-weight: 800;">${msg}</div><div style="font-size: 0.85rem; color: var(--text-muted);">Mohamed Antar Master Engine.</div></div>`;
         toast.classList.add("show");
         setTimeout(() => toast.classList.remove("show"), 4000);
     }
 
-    const words = ["100-Feature Master Engines.", "High-Retention Media Ecosystems.", "Scalable Software Solutions."];
+    const words = ["Certified Cloud & AI Engineers.", "120-Feature Master Engines.", "High-Retention Media Ecosystems."];
     let wordIdx = 0, charIdx = 0, currentWord = "", isDeletingState = false;
     function typeEffectEngine() {
         currentWord = words[wordIdx];
@@ -672,4 +749,4 @@
 </script>
 
 </body>
-</html>
+</html> 
