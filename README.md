@@ -208,16 +208,17 @@
 </div>
 
 <div id="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img" src="" alt="Expanded Certificate View">
+    <img id="lightbox-img" src="" alt="Expanded View">
 </div>
 
 <!-- Quick Search Modal -->
 <div id="search-modal" onclick="closeSearchModal(event)">
     <div class="search-box-wrap" onclick="event.stopPropagation()">
-        <input type="text" class="search-input" id="search-input-box" placeholder="Search agency systems, CEO profile or certifications..." oninput="filterSearch()">
+        <input type="text" class="search-input" id="search-input-box" placeholder="Search agency systems, CEO profile or team..." oninput="filterSearch()">
         <ul class="search-results-list" id="search-results">
             <li onclick="scrollToSection('about')"><i class="fa-solid fa-building"></i> About MK CREATIVE Agency</li>
             <li onclick="scrollToSection('ceo')"><i class="fa-solid fa-user-tie"></i> CEO & Founder: Mohamed Antar</li>
+            <li onclick="scrollToSection('team')"><i class="fa-solid fa-users"></i> Motion Graphics Lead: Malek Mohamed</li>
             <li onclick="scrollToSection('certifications')"><i class="fa-solid fa-award"></i> Verified Google Cloud Certifications</li>
             <li onclick="scrollToSection('projects')"><i class="fa-solid fa-store"></i> Future Mall POS System</li>
             <li onclick="scrollToSection('skills')"><i class="fa-solid fa-code"></i> Enterprise Technical Stack</li>
@@ -254,6 +255,7 @@
         <nav class="nav-links">
             <a href="#about"><i class="fa-solid fa-building"></i> Agency</a>
             <a href="#ceo"><i class="fa-solid fa-user-tie"></i> CEO</a>
+            <a href="#team"><i class="fa-solid fa-users"></i> Team</a>
             <a href="#certifications"><i class="fa-solid fa-award"></i> Certifications</a>
             <a href="#projects"><i class="fa-solid fa-layer-group"></i> Solutions</a>
             <a href="#skills"><i class="fa-solid fa-code"></i> Tech Stack</a>
@@ -326,6 +328,32 @@
         <p style="color: #cbd5e1; line-height: 1.8;">
             As the 14-year-old visionary behind MK CREATIVE Agency, Mohamed oversees technical architecture, AI integrations, and high-level software engineering. Holding 10 official certifications from Udacity and Google Cloud, he bridges the gap between advanced cloud operations, automated commercial applications, and viral digital media solutions. He also actively participates as an Admin in strategic chess initiatives within the EGYPT CHESS CLUB.
         </p>
+    </div>
+</div>
+
+<!-- AGENCY TEAM & COLLABORATORS SECTION -->
+<div class="container" id="team">
+    <h2 class="section-title">AGENCY TEAM & COLLABORATORS</h2>
+    <p style="color: var(--text-muted); margin-bottom: 25px;">Key talent who contributed creative excellence to MK CREATIVE Agency projects.</p>
+    
+    <div class="grid" style="max-width: 900px; margin: auto;">
+        <div class="card" style="display: flex; flex-direction: column; gap: 15px;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <div style="width: 65px; height: 65px; background: rgba(56, 189, 248, 0.1); border: 2px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--accent);">
+                    <i class="fa-solid fa-video"></i>
+                </div>
+                <div>
+                    <h3 style="font-size: 1.3rem; color: var(--accent);">Malek Mohamed</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Motion Graphic Designer & Video Editor (Summer Launch)</p>
+                </div>
+            </div>
+            <p style="color: #cbd5e1; font-size: 0.950rem; line-height: 1.6;">
+                Served as the lead Motion Graphic Designer for MK CREATIVE Agency's Summer Launch. Demonstrated exemplary commitment, visual creativity, and professional execution across brand video production and dynamic logo animations.
+            </p>
+            <div style="margin-top: 10px;">
+                <button class="btn btn-outline" onclick="openLightbox('Screenshot_20260815_210636.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-award"></i> View Official Internship Certificate (June 29, 2026)</button>
+            </div>
+        </div>
     </div>
 </div>
 
