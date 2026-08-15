@@ -124,7 +124,14 @@
         .agency-table th { background: rgba(255,255,255,0.03); color: var(--accent); font-weight: 800; font-family: 'Courier New', monospace; }
         .service-badge { background: rgba(56, 189, 248, 0.12); color: var(--accent); padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(56, 189, 248, 0.3); font-weight: bold; display: inline-flex; align-items: center; gap: 6px; }
 
-        /* Code Sandbox Box with Escaping Bugs */
+        /* Form Inputs for Feedback / Suggestions */
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; font-size: 0.9rem; color: var(--accent); margin-bottom: 8px; font-weight: 600; }
+        .form-input, .form-textarea { width: 100%; background: rgba(3, 7, 18, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); padding: 12px 16px; border-radius: 12px; color: white; font-family: 'Inter', sans-serif; font-size: 0.95rem; outline: none; transition: 0.3s; }
+        .form-input:focus, .form-textarea:focus { border-color: var(--accent); box-shadow: 0 0 10px var(--accent-glow); }
+        .form-textarea { resize: vertical; height: 120px; }
+
+        /* Code Sandbox Box */
         .code-sandbox-box { background: rgba(3, 7, 18, 0.95); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 16px; overflow: hidden; position: relative; height: 300px; margin-top: 25px; font-family: 'Courier New', monospace; }
         .code-header { background: rgba(255, 255, 255, 0.05); padding: 10px 15px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
         .dot-red { width: 10px; height: 10px; background: #ef4444; border-radius: 50%; display: inline-block; }
@@ -191,8 +198,8 @@
 <div id="toast">
     <i class="fa-solid fa-bolt" style="color: var(--accent); font-size: 1.4rem;"></i>
     <div>
-        <div style="font-weight: 800;">System Online: MK Creative Agency Loaded</div>
-        <div style="font-size: 0.85rem; color: var(--text-muted);">Welcome to Mohamed Antar's Master Engine.</div>
+        <div style="font-weight: 800;" id="toast-title">System Online: MK Creative Agency Loaded</div>
+        <div style="font-size: 0.85rem; color: var(--text-muted);" id="toast-sub">Welcome to Mohamed Antar's Master Engine.</div>
     </div>
 </div>
 
@@ -205,8 +212,8 @@
 <header>
     <div class="nav-container">
         <div class="logo">
-            <i class="fa-solid fa-terminal"></i> M. ANTAR
-            <span class="status-badge"><span class="status-dot"></span> Elite Live Status</span>
+            <i class="fa-solid fa-terminal"></i> <span data-lang-en="M. ANTAR" data-lang-ar="محمد عنتر">M. ANTAR</span>
+            <span class="status-badge"><span class="status-dot"></span> <span data-lang-en="Elite Live Status" data-lang-ar="متصل ونشط">Elite Live Status</span></span>
         </div>
         
         <div class="hud-panel">
@@ -217,10 +224,11 @@
         </div>
 
         <nav class="nav-links">
-            <a href="#about"><i class="fa-solid fa-user"></i> About</a>
-            <a href="#projects"><i class="fa-solid fa-layer-group"></i> Powerhouse</a>
-            <a href="#services"><i class="fa-solid fa-briefcase"></i> Agency Services</a>
-            <a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+            <a href="#about"><i class="fa-solid fa-user"></i> <span data-lang-en="About" data-lang-ar="عني">About</span></a>
+            <a href="#projects"><i class="fa-solid fa-layer-group"></i> <span data-lang-en="Powerhouse" data-lang-ar="المشاريع">Powerhouse</span></a>
+            <a href="#services"><i class="fa-solid fa-briefcase"></i> <span data-lang-en="Services" data-lang-ar="الخدمات">Services</span></a>
+            <a href="#feedback"><i class="fa-solid fa-comments"></i> <span data-lang-en="Suggestions" data-lang-ar="الاقتراحات">Suggestions</span></a>
+            <a href="#contact"><i class="fa-solid fa-envelope"></i> <span data-lang-en="Contact" data-lang-ar="التواصل">Contact</span></a>
         </nav>
     </div>
 </header>
@@ -228,17 +236,17 @@
 <!-- Hero Section -->
 <section class="hero" id="about">
     <div class="container visible">
-        <h1>Mohamed Antar</h1>
+        <h1 data-lang-en="Mohamed Antar" data-lang-ar="محمد عنتر">Mohamed Antar</h1>
         <p style="font-size: 1.4rem; color: var(--text-muted);">
-            Architecting <span class="typed-text" id="typed"></span>
+            <span data-lang-en="Architecting" data-lang-ar="مهندس برمجيات ومونتاج يطور">Architecting</span> <span class="typed-text" id="typed"></span>
         </p>
         
         <div class="vibe-ticker">
             <i class="fa-solid fa-compact-disc fa-spin" style="color: var(--accent);"></i> 
-            <span>Active Vibe: <b>MK Creative Agency & Master Engine Core</b></span>
+            <span data-lang-en="Active Vibe: MK Creative Agency & Master Engine Core" data-lang-ar="الوضع الحالي: وكالة إم كي الإبداعية ومحرك الأداء">Active Vibe: <b>MK Creative Agency & Master Engine Core</b></span>
         </div>
 
-        <p style="max-width: 750px; margin: 25px auto; color: #cbd5e1; line-height: 1.8;">
+        <p style="max-width: 750px; margin: 25px auto; color: #cbd5e1; line-height: 1.8;" data-lang-en="A 14-year-old software architect, competitive chess organizer, and advanced video producer driving viral digital campaigns through state-of-the-art web systems and optimized content pipelines." data-lang-ar="مبرمج ومطور برمجيات عمره 14 عاماً، منظم بطولات شطرنج، ومصمم ومونيتير فيديوهات متقدم يقود حملات رقمية احترافية عبر أنظمة ويب متطورة ومونتاج استثنائي.">
             A 14-year-old software architect, competitive chess organizer, and advanced video producer driving viral digital campaigns through state-of-the-art web systems and optimized content pipelines.
         </p>
         
@@ -251,19 +259,19 @@
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-number" data-target="40">0</div>
-                <div class="stat-label">Million+ Global Views</div>
+                <div class="stat-label" data-lang-en="Million+ Global Views" data-lang-ar="أكثر من 40 مليون مشاهدة عالمية">Million+ Global Views</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number" data-target="500">0</div>
-                <div class="stat-label">Production Assets Created</div>
+                <div class="stat-label" data-lang-en="Production Assets Created" data-lang-ar="أصل إنتاجي تم إنجازه">Production Assets Created</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number" data-target="14">0</div>
-                <div class="stat-label">Years of Innovation</div>
+                <div class="stat-label" data-lang-en="Years of Innovation" data-lang-ar="سنوات من الابتكار التكنولوجي">Years of Innovation</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number" data-target="100">0</div>
-                <div class="stat-label">Integrated UI Features</div>
+                <div class="stat-label" data-lang-en="Integrated UI Features" data-lang-ar="خاصية واجهة مستخدم متكاملة">Integrated UI Features</div>
             </div>
         </div>
     </div>
@@ -271,56 +279,82 @@
 
 <!-- Powerhouse Projects Section -->
 <div class="container" id="projects">
-    <h2 class="section-title">THE POWERHOUSE</h2>
+    <h2 class="section-title" data-lang-en="THE POWERHOUSE" data-lang-ar="أبرز المشاريع والقوة التقنية">THE POWERHOUSE</h2>
     <div class="grid">
         <div class="card">
             <h3><i class="fa-solid fa-store" style="color: var(--accent);"></i> Future Mall POS</h3>
-            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;">Full-stack retail web application featuring role-based access control, AI product classification via Keras/Teachable Machine, and multi-currency frameworks.</p>
+            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;" data-lang-en="Full-stack retail web application featuring role-based access control, AI product classification via Keras/Teachable Machine, and multi-currency frameworks." data-lang-ar="تطبيق نقاط بيع متكامل لإدارة المتاجر مع نظام تحكم بالصلاحيات وتصنيف منتجات بالذكاء الاصطناعي ودعم متعدد العملات.">Full-stack retail web application featuring role-based access control, AI product classification via Keras/Teachable Machine, and multi-currency frameworks.</p>
         </div>
         <div class="card">
-            <h3><i class="fa-solid fa-video" style="color: var(--accent);"></i> Viral Media Engine</h3>
-            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;">Generated massive global views through precision audio-visual balancing, advanced short-form optimization, and high-retention editing pipelines.</p>
+            <h3><i class="fa-solid fa-video" style="color: var(--accent);"></i> <span data-lang-en="Viral Media Engine" data-lang-ar="محرك الوسائط الفيروسية">Viral Media Engine</span></h3>
+            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;" data-lang-en="Generated massive global views through precision audio-visual balancing, advanced short-form optimization, and high-retention editing pipelines." data-lang-ar="تمكن من حصد ملايين المشاهدات عبر موازنة الصوت والصورة بدقة واحترافية وتحسين الفيديوهات القصيرة لرفع نسبة الاحتفاظ بالمشاهد.">Generated massive global views through precision audio-visual balancing, advanced short-form optimization, and high-retention editing pipelines.</p>
         </div>
         <div class="card">
             <h3><i class="fa-solid fa-chess-board" style="color: var(--accent);"></i> EGYPT CHESS CLUB</h3>
-            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;">Established and managed digital strategy communities, tactical booklets, and automated club management workflows on Chess.com.</p>
+            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;" data-lang-en="Established and managed digital strategy communities, tactical booklets, and automated club management workflows on Chess.com." data-lang-ar="تأسيس وإدارة مجتمعات استراتيجية رقمية لبطولات الشطرنج ونشرات تكتيكية ومسابقات منظمة على منصة Chess.com.">Established and managed digital strategy communities, tactical booklets, and automated club management workflows on Chess.com.</p>
         </div>
     </div>
 </div>
 
-<!-- MK Creative Agency Services Table (Replacement Section) -->
+<!-- MK Creative Agency Services Table -->
 <div class="container" id="services">
-    <h2 class="section-title">MK CREATIVE AGENCY SERVICES</h2>
-    <p style="color: var(--text-muted); margin-bottom: 15px;">Professional digital production modules, software engineering, and multimedia scaling pipelines.</p>
+    <h2 class="section-title" data-lang-en="MK CREATIVE AGENCY SERVICES" data-lang-ar="خدمات وكالة إم كي الإبداعية">MK CREATIVE AGENCY SERVICES</h2>
+    <p style="color: var(--text-muted); margin-bottom: 15px;" data-lang-en="Professional video production packages, editing ecosystems, and content scaling pipelines." data-lang-ar="باقات إنتاج ومونتاج فيديو احترافية وأنظمة متكاملة لتوسيع ونشر المحتوى الرقمي.">Professional video production packages, editing ecosystems, and content scaling pipelines.</p>
     
     <div class="agency-table-box">
         <table class="agency-table">
             <thead>
                 <tr>
-                    <th>SERVICE MODULE</th>
-                    <th>CORE DOMAIN</th>
-                    <th>DELIVERY STANDARD</th>
-                    <th>STATUS</th>
+                    <th data-lang-en="PACKAGE NAME" data-lang-ar="اسم الباقة">PACKAGE NAME</th>
+                    <th data-lang-en="CATEGORY & FOCUS" data-lang-ar="التصنيف">CATEGORY & FOCUS</th>
+                    <th data-lang-en="CORE SERVICES & DELIVERABLES" data-lang-ar="الخدمات والتشغيل الأساسي">CORE SERVICES & DELIVERABLES</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><b>High-Retention Video Editing</b></td>
-                    <td>Media Production</td>
-                    <td>Advanced Short-Form Optimization</td>
-                    <td><span class="service-badge"><i class="fa-solid fa-circle-check"></i> Active Pipeline</span></td>
+                    <td><b>01. THE SINGLE SMASH</b></td>
+                    <td><span class="service-badge" data-lang-en="SHORT-FORM" data-lang-ar="فيديو قصير">SHORT-FORM</span></td>
+                    <td data-lang-en="1 Premium Short Video (Reels/Shorts/TikTok), dynamic kinetic text, background score syncing, custom SFX, fast delivery[cite: 1]." data-lang-ar="فيديو قصير احترافي واحد (ريلز/شورتس/تيك توك)، نصوص حركية ديناميكية، مزامنة الموسيقى ومؤثرات صوتية، وتوصيل سريع[cite: 1].">1 Premium Short Video (Reels/Shorts/TikTok), dynamic kinetic text, background score syncing, custom SFX, fast delivery[cite: 1].</td>
                 </tr>
                 <tr>
-                    <td><b>Full-Stack Web Development</b></td>
-                    <td>Software Engineering</td>
-                    <td>Interactive JS, Python & Responsive UI</td>
-                    <td><span class="service-badge"><i class="fa-solid fa-circle-check"></i> Scalable Ready</span></td>
+                    <td><b>02. AD CAMPAIGN PACK</b></td>
+                    <td><span class="service-badge" data-lang-en="SPECIALIZED" data-lang-ar="إعلانات خاصة">SPECIALIZED</span></td>
+                    <td data-lang-en="2 Promotional Videos for direct-response marketing, high-energy scroll-stoppers in the first 3 seconds, strategic CTA layouts[cite: 1]." data-lang-ar="عدد 2 فيديو ترويجي للتسويق المباشر، خطف انتباه المشاهد في أول 3 ثوانٍ، وتوجيه استراتيجي للعملاء[cite: 1].">2 Promotional Videos for direct-response marketing, high-energy scroll-stoppers in the first 3 seconds, strategic CTA layouts[cite: 1].</td>
                 </tr>
                 <tr>
-                    <td><b>Brand & Thumbnail Strategy</b></td>
-                    <td>Creative Branding</td>
-                    <td>High Click-Through Design Assets</td>
-                    <td><span class="service-badge"><i class="fa-solid fa-circle-check"></i> Optimized</span></td>
+                    <td><b>03. STARTER PACK</b></td>
+                    <td><span class="service-badge" data-lang-en="SHORT-FORM" data-lang-ar="فيديو قصير">SHORT-FORM</span></td>
+                    <td data-lang-en="4 Videos per month (1/week), clean subtitles, trend-matching background tracks, custom font animations, 1 revision round[cite: 1]." data-lang-ar="4 فيديوهات شهرياً (فيديو أسبوعياً)، ترجمة نصية دقيقة، مسارات خلفية متوافقة مع التريندات، وجولة تعديل واحدة[cite: 1].">4 Videos per month (1/week), clean subtitles, trend-matching background tracks, custom font animations, 1 revision round[cite: 1].</td>
+                </tr>
+                <tr>
+                    <td><b>04. CINEMATIC SHOWCASE</b></td>
+                    <td><span class="service-badge" data-lang-en="CINEMATIC" data-lang-ar="سينمائي فاخر">CINEMATIC</span></td>
+                    <td data-lang-en="1 Main Cinematic Promo Film (1-2 mins), 3 social media teasers, ultra-premium color grading, epic cinematic sound design[cite: 1]." data-lang-ar="فيديو ترويجي سينمائي رئيسي (1-2 دقيقة)، 3 مقاطع تشويقية، تدريج ألوان سينمائي وتصميم صوتي ضخم[cite: 1].">1 Main Cinematic Promo Film (1-2 mins), 3 social media teasers, ultra-premium color grading, epic cinematic sound design[cite: 1].</td>
+                </tr>
+                <tr>
+                    <td><b>05. YOUTUBE LONG-FORM PACK</b></td>
+                    <td><span class="service-badge" data-lang-en="LONG-FORM" data-lang-ar="فيديوهات طويلة">LONG-FORM</span></td>
+                    <td data-lang-en="4 Long-Form Videos/month (8-15 mins), expert pacing, B-roll integration, audio balancing, 1 free custom thumbnail per video[cite: 1]." data-lang-ar="4 فيديوهات طويلة شهرياً (8-15 دقيقة)، هندسة سرعة ومونتاج متقدم، موازنة الصوت، وتصميم مصغرة مجاناً[cite: 1].">4 Long-Form Videos/month (8-15 mins), expert pacing, B-roll integration, audio balancing, 1 free custom thumbnail per video[cite: 1].</td>
+                </tr>
+                <tr>
+                    <td><b>06. PERSONAL BRANDING PACK</b></td>
+                    <td><span class="service-badge" data-lang-en="CREATOR FOCUS" data-lang-ar="صناع المحتوى">CREATOR FOCUS</span></td>
+                    <td data-lang-en="6 talking-head/educational videos, studio-grade audio filtering, jump-cut optimization, custom glowing/neon subtitles[cite: 1]." data-lang-ar="6 فيديوهات تعليمية أو حوارية، فلترة صوت استوديو، قص سريع ذكي، ونصوص نيون مضيئة مخصصة[cite: 1].">6 talking-head/educational videos, studio-grade audio filtering, jump-cut optimization, custom glowing/neon subtitles[cite: 1].</td>
+                </tr>
+                <tr>
+                    <td><b>07. PODCAST CLIPPING PACK</b></td>
+                    <td><span class="service-badge" data-lang-en="LONG-TO-SHORT" data-lang-ar="قص بودكاست">LONG-TO-SHORT</span></td>
+                    <td data-lang-en="15 to 20 viral clips from long-form sessions, multi-cam editing, expressive stylized subtitles, pop-ups, and zoom frames[cite: 1]." data-lang-ar="قص من 15 لـ 20 مقطع فيروسي من البودكاست، متعدد الكاميرات، وترجمة معبرة تكبيرات وحركات ديناميكية[cite: 1].">15 to 20 viral clips from long-form sessions, multi-cam editing, expressive stylized subtitles, pop-ups, and zoom frames[cite: 1].</td>
+                </tr>
+                <tr>
+                    <td><b>08. PRO GROWTH PACK</b></td>
+                    <td><span class="service-badge" data-lang-en="MOST POPULAR" data-lang-ar="الأكثر طلباً">MOST POPULAR</span></td>
+                    <td data-lang-en="8 Videos/month (2/week), advanced motion graphics, psychologically mapped 3-second hooks, script architecture modifications[cite: 1]." data-lang-ar="8 فيديوهات شهرياً (فيديوهان أسبوعياً)، موشن جرافيك متقدم، خطافات نفسية في أول 3 ثوانٍ، وتعديل السكربتات[cite: 1].">8 Videos/month (2/week), advanced motion graphics, psychologically mapped 3-second hooks, script architecture modifications[cite: 1].</td>
+                </tr>
+                <tr>
+                    <td><b>09. ELITE AGENCY PACK</b></td>
+                    <td><span class="service-badge" data-lang-en="ULTRA PREMIUM" data-lang-ar="النخبة الفاخرة">ULTRA PREMIUM</span></td>
+                    <td data-lang-en="12-15 ultra-premium videos/month, custom VFX & animations, professional voiceovers, green-screen/chroma key, weekly strategy calls[cite: 1]." data-lang-ar="من 12 لـ 15 فيديو فائق الجودة، مؤثرات بصرية VFX معقدة، تعليق صوتي بشري، شاشة خضراء، ومكالمات استشارية أسبوعية[cite: 1].">12-15 ultra-premium videos/month, custom VFX & animations, professional voiceovers, green-screen/chroma key, weekly strategy calls[cite: 1].</td>
                 </tr>
             </tbody>
         </table>
@@ -329,11 +363,11 @@
 
 <!-- Creative Works Showcase Gallery -->
 <div class="container" id="gallery">
-    <h2 class="section-title">CREATIVE SHOWCASE</h2>
+    <h2 class="section-title" data-lang-en="CREATIVE SHOWCASE" data-lang-ar="معرض الأعمال البصرية">CREATIVE SHOWCASE</h2>
     <div class="showcase-grid">
         <div class="media-box">
             <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 1rem;">Asmaa Clinic UI</h3>
-            <img src="IMG-20260630-WA0006.jpg" alt="Asmaa Clinic" onclick="openLightbox(this.src)">
+            <img src="EYOUTH-31202101204057_Final Logo that is the name of the logo.jpg" alt="Asmaa Clinic" onclick="openLightbox(this.src)">
         </div>
         <div class="media-box">
             <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 1rem;">Minecraft Thumbnail</h3>
@@ -346,9 +380,30 @@
     </div>
 </div>
 
+<!-- Suggestions & Future Vision Box (New Addition requested by user) -->
+<div class="container" id="feedback">
+    <h2 class="section-title" data-lang-en="SUGGESTIONS & FUTURE VISION" data-lang-ar="صندوق الاقتراحات والرؤية المستقبلية">SUGGESTIONS & FUTURE VISION</h2>
+    <div class="card" style="max-width: 750px; margin: auto;">
+        <p style="color: var(--text-muted); margin-bottom: 20px; line-height: 1.6;" data-lang-en="Have an idea, suggestion, or feature you want to see in the future on this platform? Drop your message directly here!" data-lang-ar="عندك فكرة أو اقتراحات لأي ميزة جديدة حابب تشوفها في الموقع مستقبلاً؟ اكتبها هنا وسجل رأيك فوراً!">
+            Have an idea, suggestion, or feature you want to see in the future on this platform? Drop your message directly here!
+        </p>
+        <form onsubmit="handleSuggestionSubmit(event)">
+            <div class="form-group">
+                <label data-lang-en="Your Name / Alias" data-lang-ar="اسمك الكريم">Your Name / Alias</label>
+                <input type="text" class="form-input" id="sugName" placeholder="Mohamed Antar..." required>
+            </div>
+            <div class="form-group">
+                <label data-lang-en="Your Suggestions / What you want to see next" data-lang-ar="اقتراحاتك وماذا تود أن تراه في الموقع مستقبلاً؟">Your Suggestions / What you want to see next</label>
+                <textarea class="form-textarea" id="sugText" placeholder="Write your awesome ideas here..." required></textarea>
+            </div>
+            <button type="submit" class="btn"><i class="fa-solid fa-paper-plane"></i> <span data-lang-en="Send Suggestion" data-lang-ar="إرسال الاقتراح">Send Suggestion</span></button>
+        </form>
+    </div>
+</div>
+
 <!-- Interactive Code Sandbox with 4 Escaping Bugs -->
 <div class="container">
-    <h2 class="section-title">ACTIVE BUG SANDBOX</h2>
+    <h2 class="section-title" data-lang-en="ACTIVE BUG SANDBOX" data-lang-ar="منطقة الأخطاء التفاعلية">ACTIVE BUG SANDBOX</h2>
     <div class="code-sandbox-box" id="codeSandbox">
         <div class="code-header">
             <span class="dot-red"></span> <span class="dot-yellow"></span> <span class="dot-green"></span>
@@ -371,17 +426,18 @@
 
 <!-- Contact Station Section -->
 <div class="container" id="contact">
-    <h2 class="section-title">SECURE COMMUNICATIONS</h2>
+    <h2 class="section-title" data-lang-en="SECURE COMMUNICATIONS" data-lang-ar="قنوات الاتصال المؤمنة">SECURE COMMUNICATIONS</h2>
     <div class="card" style="max-width: 650px; margin: auto; text-align: center;">
         <p style="margin: 12px 0;"><i class="fa-solid fa-envelope" style="color: var(--accent);"></i> Email: <span>moamedantar8@gmail.com</span></p>
         <p style="margin: 12px 0;"><i class="fa-brands fa-whatsapp" style="color: #22c55e;"></i> WhatsApp: <a href="https://wa.me/201559719175" target="_blank" style="color:var(--accent); text-decoration: none;">+20 155 971 9175</a></p>
         <p style="margin: 12px 0;"><i class="fa-brands fa-linkedin" style="color: var(--accent);"></i> LinkedIn: <a href="https://linkedin.com/in/mohamed-antar-522201406" style="color:var(--accent); text-decoration: none;" target="_blank">mohamed-antar-522201406</a></p>
-        <button class="btn" style="margin-top: 20px;" onclick="copyEmail()"><i class="fa-solid fa-copy"></i> Copy Secure Email</button>
+        <button class="btn" style="margin-top: 20px;" onclick="copyEmail()"><i class="fa-solid fa-copy"></i> <span data-lang-en="Copy Secure Email" data-lang-ar="نسخ البريد الإلكتروني">Copy Secure Email</span></button>
     </div>
 </div>
 
-<!-- Floating Controls -->
+<!-- Floating Controls (Includes Language Toggle & Matrix & Scroll to Top) -->
 <div class="floating-controls">
+    <button class="float-btn" onclick="toggleLanguage()" title="Switch Language (EN / AR)"><i class="fa-solid fa-language"></i></button>
     <button class="float-btn" onclick="toggleMatrixMode()" title="Toggle Matrix Green Theme"><i class="fa-solid fa-code"></i></button>
     <button class="float-btn" onclick="scrollToTop()" title="Scroll to Top"><i class="fa-solid fa-arrow-up"></i></button>
 </div>
@@ -522,6 +578,36 @@
     // Matrix Theme Toggle
     function toggleMatrixMode() {
         document.body.classList.toggle('matrix-mode');
+    }
+
+    // Language Toggle Engine (EN / AR)
+    let currentLang = 'en';
+    function toggleLanguage() {
+        currentLang = currentLang === 'en' ? 'ar' : 'en';
+        document.documentElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+        
+        document.querySelectorAll('[data-lang-en]').forEach(el => {
+            el.textContent = el.getAttribute(`data-lang-${currentLang}`);
+        });
+
+        let toast = document.getElementById("toast");
+        toast.innerHTML = `<i class="fa-solid fa-globe" style="color: var(--accent); font-size: 1.4rem;"></i><div><div style="font-weight: 800;">Language Switched</div><div style="font-size: 0.85rem; color: var(--text-muted);">Current language: ${currentLang.toUpperCase()}</div></div>`;
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 3000);
+    }
+
+    // Handle Suggestions Form Submission
+    function handleSuggestionSubmit(e) {
+        e.preventDefault();
+        let name = document.getElementById('sugName').value;
+        let text = document.getElementById('sugText').value;
+        
+        let toast = document.getElementById("toast");
+        toast.innerHTML = `<i class="fa-solid fa-circle-check" style="color: #22c55e; font-size: 1.4rem;"></i><div><div style="font-weight: 800;">Thank You, ${name}!</div><div style="font-size: 0.85rem; color: var(--text-muted);">Your suggestion has been securely recorded.</div></div>`;
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 4000);
+        
+        e.target.reset();
     }
 
     // Copy Email
