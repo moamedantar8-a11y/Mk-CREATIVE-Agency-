@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="only dark">
-    <title id="page-title">MK CREATIVE Agency | Powered by Mohamed Antar</title>
+    <title id="page-title">MK CREATIVE AGENCY Web 2 | AI Assistant & Solutions</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -57,10 +57,10 @@
 
         header { background: rgba(3, 7, 18, 0.85); backdrop-filter: blur(16px); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(56, 189, 248, 0.2); }
         .nav-container { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 2rem; }
-        .logo { font-weight: 800; color: var(--accent); font-size: 1.2rem; display: flex; align-items: center; gap: 10px; letter-spacing: 0.5px; }
+        .logo { font-weight: 800; color: var(--accent); font-size: 1.1rem; display: flex; align-items: center; gap: 10px; letter-spacing: 0.5px; }
         
         .hud-panel { display: flex; align-items: center; gap: 10px; font-size: 0.75rem; flex-wrap: wrap; }
-        .network-ticker, .weather-ticker, .session-ticker, .battery-ticker { color: var(--accent); background: rgba(56, 189, 248, 0.08); padding: 5px 10px; border-radius: 12px; border: 1px solid rgba(56, 189, 248, 0.3); display: flex; align-items: center; gap: 5px; backdrop-filter: blur(8px); }
+        .network-ticker, .weather-ticker, .session-ticker { color: var(--accent); background: rgba(56, 189, 248, 0.08); padding: 5px 10px; border-radius: 12px; border: 1px solid rgba(56, 189, 248, 0.3); display: flex; align-items: center; gap: 5px; backdrop-filter: blur(8px); }
 
         .lang-select {
             background: rgba(56, 189, 248, 0.08);
@@ -74,14 +74,8 @@
             transition: 0.3s;
             font-family: 'Cairo', sans-serif;
         }
-        .lang-select option {
-            background: #030712;
-            color: #fff;
-        }
-        .lang-select:hover {
-            background: rgba(56, 189, 248, 0.2);
-            border-color: var(--accent);
-        }
+        .lang-select option { background: #030712; color: #fff; }
+        .lang-select:hover { background: rgba(56, 189, 248, 0.2); border-color: var(--accent); }
 
         .status-badge { font-size: 0.75rem; background: rgba(34, 197, 94, 0.15); color: #22c55e; border: 1px solid #22c55e; padding: 3px 10px; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px; }
         .status-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 8px #22c55e; animation: pulse 1.5s infinite; }
@@ -96,7 +90,7 @@
         @keyframes tickerScroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
         .hero { padding: 90px 20px 50px; text-align: center; position: relative; }
-        h1 { font-size: 3.5rem; font-weight: 800; background: linear-gradient(to right, #38bdf8, #818cf8, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; }
+        h1 { font-size: 3.2rem; font-weight: 800; background: linear-gradient(to right, #38bdf8, #818cf8, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; }
         
         .typed-text { color: var(--accent); border-right: 2px solid var(--accent); padding-right: 5px; animation: blink 0.7s infinite; }
         @keyframes blink { 50% { border-color: transparent; } }
@@ -125,18 +119,98 @@
         .cert-card img { width: 100%; height: 210px; object-fit: cover; border-radius: 12px; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
         .cert-card img:hover { transform: scale(1.03); }
 
-        .skills-container { max-width: 900px; margin: 30px auto 0; background: var(--glass); padding: 35px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(16px); }
-        .skill-item { margin-bottom: 20px; }
-        .skill-item:last-child { margin-bottom: 0; }
-        .skill-info { display: flex; justify-content: space-between; font-size: 0.95rem; margin-bottom: 8px; font-weight: 600; }
-        .skill-bar { width: 100%; height: 10px; background: rgba(255,255,255,0.08); border-radius: 5px; overflow: hidden; }
-        .skill-progress { height: 100%; background: linear-gradient(to right, var(--accent), var(--neon-purple)); width: 0%; border-radius: 5px; transition: width 1.5s cubic-bezier(0.1, 1, 0.1, 1); box-shadow: 0 0 10px var(--accent-glow); }
-
-        .showcase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; margin-top: 25px; }
-        .media-box { background: var(--glass); border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); padding: 18px; text-align: center; backdrop-filter: blur(12px); transition: 0.3s; }
-        .media-box:hover { border-color: var(--accent); }
-        .media-box img, .media-box video { width: 100%; border-radius: 14px; height: 380px; object-fit: cover; cursor: pointer; transition: 0.4s; }
-        .media-box img:hover, .media-box video:hover { transform: scale(1.02); }
+        /* تصميم المساعد الذكي MK Assistant Bot المتطور والمطابق لصورتك */
+        .assistant-section-container {
+            max-width: 900px;
+            margin: auto;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(3, 7, 18, 0.98));
+            border: 2px solid var(--accent);
+            border-radius: 28px;
+            padding: 30px;
+            box-shadow: 0 0 40px var(--accent-glow);
+            backdrop-filter: blur(20px);
+        }
+        .assistant-box-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .chat-messages-area {
+            height: 380px;
+            overflow-y: auto;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 18px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+            scroll-behavior: smooth;
+        }
+        .chat-msg {
+            max-width: 80%;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .chat-msg.bot {
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            color: var(--text);
+            align-self: flex-start;
+            border-top-left-radius: 4px;
+        }
+        .chat-msg.user {
+            background: var(--accent);
+            color: #030712;
+            align-self: flex-end;
+            font-weight: 600;
+            border-top-right-radius: 4px;
+        }
+        .chat-input-row {
+            display: flex;
+            gap: 12px;
+        }
+        .chat-input {
+            flex: 1;
+            padding: 14px 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 14px;
+            color: white;
+            outline: none;
+            font-size: 0.95rem;
+            font-family: 'Cairo', sans-serif;
+        }
+        .chat-input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+        .chat-quick-chips {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        .chip-btn {
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            color: var(--accent);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .chip-btn:hover {
+            background: var(--accent);
+            color: #030712;
+        }
 
         .btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; margin: 6px; background: var(--accent); color: #030712; text-decoration: none; border-radius: 50px; font-weight: 800; transition: 0.3s; cursor: pointer; border: none; box-shadow: 0 0 15px var(--accent-glow); font-size: 0.9rem; }
         .btn:hover { transform: scale(1.06); box-shadow: 0 0 25px var(--accent); }
@@ -207,7 +281,7 @@
 
         @media(max-width: 768px) {
             .nav-links, .hud-panel { display: none; }
-            h1 { font-size: 2.4rem; }
+            h1 { font-size: 2.2rem; }
             .cursor-dot, .cursor-outline, #particle-canvas { display: none; }
             * { cursor: auto !important; }
         }
@@ -223,7 +297,7 @@
 <div id="toast">
     <i class="fa-solid fa-shield-halved" style="color: var(--accent); font-size: 1.4rem;"></i>
     <div>
-        <div style="font-weight: 800;">MK CREATIVE Agency Security Active</div>
+        <div style="font-weight: 800;">MK CREATIVE AGENCY Web 2 Active</div>
         <div style="font-size: 0.85rem; color: var(--text-muted);">Systems online under Mohamed Antar's governance.</div>
     </div>
 </div>
@@ -235,14 +309,14 @@
 <!-- Quick Search Modal -->
 <div id="search-modal" onclick="closeSearchModal(event)">
     <div class="search-box-wrap" onclick="event.stopPropagation()">
-        <input type="text" class="search-input" id="search-input-box" placeholder="Search agency systems, CEO profile or team..." oninput="filterSearch()">
+        <input type="text" class="search-input" id="search-input-box" placeholder="Search agency systems, Assistant or team..." oninput="filterSearch()">
         <ul class="search-results-list" id="search-results">
             <li onclick="scrollToSection('about')"><i class="fa-solid fa-building"></i> <span data-translate="s_about">About MK CREATIVE Agency</span></li>
+            <li onclick="scrollToSection('assistant-bot')"><i class="fa-solid fa-robot"></i> <span data-translate="s_ai">MK Assistant Bot (المساعد الذكي)</span></li>
             <li onclick="scrollToSection('ceo')"><i class="fa-solid fa-user-tie"></i> <span data-translate="s_ceo">CEO & Founder: Mohamed Antar</span></li>
             <li onclick="scrollToSection('team')"><i class="fa-solid fa-users"></i> <span data-translate="s_team">Motion Graphics Lead: Malek Mohamed</span></li>
             <li onclick="scrollToSection('certifications')"><i class="fa-solid fa-award"></i> <span data-translate="s_certs">Verified Google Cloud Certifications</span></li>
-            <li onclick="scrollToSection('projects')"><i class="fa-solid fa-store"></i> <span data-translate="s_proj">Future Mall POS System</span></li>
-            <li onclick="scrollToSection('skills')"><i class="fa-solid fa-code"></i> <span data-translate="s_skills">Enterprise Technical Stack</span></li>
+            <li onclick="scrollToSection('projects')"><i class="fa-solid fa-store"></i> <span data-translate="s_proj">Future Mall POS System & AI Tools</span></li>
             <li onclick="scrollToSection('contact')"><i class="fa-solid fa-envelope"></i> <span data-translate="s_contact">Secure Corporate Contact</span></li>
         </ul>
     </div>
@@ -262,15 +336,14 @@
 <header>
     <div class="nav-container">
         <div class="logo">
-            <i class="fa-solid fa-cube"></i> MK CREATIVE AGENCY
-            <span class="status-badge"><span class="status-dot"></span> <span data-translate="secure_node">Secure Node</span></span>
+            <i class="fa-solid fa-cube"></i> MK CREATIVE AGENCY Web 2
+            <span class="status-badge"><span class="status-dot"></span> <span data-translate="secure_node">Active Node</span></span>
         </div>
         
         <div class="hud-panel">
             <div class="network-ticker"><i class="fa-solid fa-wifi"></i> <span id="ping-val">19</span>ms</div>
             <div class="weather-ticker"><i class="fa-solid fa-cloud-sun"></i> <span data-translate="dakahlia">Dakahlia: 32°C</span></div>
             <div class="session-ticker"><i class="fa-solid fa-clock"></i> <span id="session-time">00:00</span></div>
-            <div class="battery-ticker"><i class="fa-solid fa-battery-full"></i> <span id="battery-val">100%</span></div>
             <select id="langSwitch" class="lang-select" onchange="changeLanguage(this.value)">
                 <option value="ar">العربية</option>
                 <option value="en">English</option>
@@ -280,11 +353,11 @@
 
         <nav class="nav-links">
             <a href="#about"><i class="fa-solid fa-building"></i> <span data-translate="nav_agency">Agency</span></a>
+            <a href="#assistant-bot"><i class="fa-solid fa-robot"></i> <span data-translate="nav_ai">Assistant Bot</span></a>
             <a href="#ceo"><i class="fa-solid fa-user-tie"></i> <span data-translate="nav_ceo">CEO</span></a>
             <a href="#team"><i class="fa-solid fa-users"></i> <span data-translate="nav_team">Team</span></a>
             <a href="#certifications"><i class="fa-solid fa-award"></i> <span data-translate="nav_certs">Certifications</span></a>
             <a href="#projects"><i class="fa-solid fa-layer-group"></i> <span data-translate="nav_solutions">Solutions</span></a>
-            <a href="#skills"><i class="fa-solid fa-code"></i> <span data-translate="nav_tech">Tech Stack</span></a>
             <a href="#contact"><i class="fa-solid fa-envelope"></i> <span data-translate="nav_contact">Contact</span></a>
         </nav>
     </div>
@@ -292,29 +365,29 @@
 
 <div class="activity-ticker-bar">
     <div class="ticker-content">
-        🏢 <b data-translate="ticker_title">MK CREATIVE AGENCY:</b> <span data-translate="ticker_desc">High-Performance Cloud Architecture & AI Integration</span> &nbsp;&bull;&nbsp; ♟️ <span data-translate="ticker_ceo">Directed by Mohamed Antar (CEO, 14y)</span> &nbsp;&bull;&nbsp; <span data-translate="ticker_search">Press Ctrl + K for Agency Quick Search!</span>
+        🏢 <b data-translate="ticker_title">MK CREATIVE AGENCY Web 2:</b> <span data-translate="ticker_desc">High-Performance Cloud Architecture & AI Assistant Integration</span> &nbsp;&bull;&nbsp; ♟️ <span data-translate="ticker_ceo">Directed by Mohamed Antar (CEO, 14y)</span> &nbsp;&bull;&nbsp; <span data-translate="ticker_search">Press Ctrl + K for Agency Quick Search!</span>
     </div>
 </div>
 
 <section class="hero" id="about">
     <div class="container visible">
-        <h1>MK CREATIVE Agency</h1>
+        <h1>MK CREATIVE AGENCY Web 2</h1>
         <p style="font-size: 1.3rem; color: var(--text-muted);">
             <span data-translate="hero_subtitle">Empowering Global Business with</span> <span class="typed-text" id="typed"></span>
         </p>
         
         <div class="vibe-ticker">
             <i class="fa-solid fa-microchip fa-spin" style="color: var(--accent);"></i> 
-            <span><span data-translate="agency_status">Agency Status:</span> <b><span data-translate="agency_status_val">Next-Gen Cloud & AI Frameworks Active</span></b></span>
+            <span><span data-translate="agency_status">Agency Status:</span> <b><span data-translate="agency_status_val">Next-Gen Cloud & Assistant Frameworks Active</span></b></span>
         </div>
 
         <p style="max-width: 750px; margin: 25px auto; color: #cbd5e1; line-height: 1.8;" data-translate="hero_desc">
-            MK CREATIVE Agency is a forward-thinking technology corporation specializing in automated retail POS systems, high-retention digital media pipelines, and Google Cloud infrastructure integration.
+            MK CREATIVE AGENCY Web 2 is a forward-thinking technology corporation specializing in automated retail POS systems, high-retention digital media pipelines, and intelligent assistant solutions.
         </p>
         
         <div style="margin-top: 30px;">
-            <a href="#projects" class="btn"><i class="fa-solid fa-rocket"></i> <span data-translate="btn_explore">Explore Solutions</span></a>
-            <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-headset"></i> <span data-translate="btn_partner">Partner With Us</span></a>
+            <a href="#assistant-bot" class="btn"><i class="fa-solid fa-robot"></i> <span data-translate="btn_ai">Open MK Assistant Bot</span></a>
+            <a href="#projects" class="btn btn-outline"><i class="fa-solid fa-rocket"></i> <span data-translate="btn_explore">Explore Solutions</span></a>
         </div>
 
         <div class="stats-grid">
@@ -338,6 +411,46 @@
     </div>
 </section>
 
+<!-- MK ASSISTANT BOT (المساعد الذكي المدرب خصيصاً للشغل) -->
+<div class="container" id="assistant-bot">
+    <h2 class="section-title" data-translate="sec_bot">MK ASSISTANT BOT (المساعد الذكي للوكالة)</h2>
+    <p style="color: var(--text-muted); margin-bottom: 25px;" data-translate="bot_subtitle">اسأل المساعد عن خدمات الوكالة، تفاصيل المشاريع، انضمام فريق العمل، أو تقديم استمارة التقديم والتنفيذ.</p>
+    
+    <div class="assistant-section-container">
+        <div class="assistant-box-header">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 42px; height: 42px; background: rgba(56, 189, 248, 0.15); border: 2px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 1.2rem;">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+                <div>
+                    <h3 style="color: var(--accent); font-size: 1.1rem;"><span data-translate="bot_name">MK Assistant Bot v2.0</span></h3>
+                    <p style="color: #22c55e; font-size: 0.75rem;"><i class="fa-solid fa-circle" style="font-size: 6px;"></i> <span data-translate="bot_online">مستعد للإجابة عن أسئلة الشغل والخدمات</span></p>
+                </div>
+            </div>
+            <button class="btn btn-outline" style="padding: 6px 12px; font-size: 0.75rem;" onclick="clearChat()"><i class="fa-solid fa-rotate-right"></i> <span data-translate="clear_chat">إعادة المحادثة</span></button>
+        </div>
+
+        <!-- أسئلة سريعة مقترحة (Chips) -->
+        <div class="chat-quick-chips">
+            <button class="chip-btn" onclick="sendQuickQuery('من هو مؤسس الشركة وما هي خدماتها؟')">🏢 من هو المؤسس والخدمات؟</button>
+            <button class="chip-btn" onclick="sendQuickQuery('كيف أنضم لفريق العمل في MK Creative؟')">🤝 كيف أنضم للعمل؟</button>
+            <button class="chip-btn" onclick="sendQuickQuery('ما هو نظام Future Mall POS؟')">🛒 نظام Future Mall POS</button>
+            <button class="chip-btn" onclick="sendQuickQuery('ما هي مشاريع الموشن جرافيك ومالك محمد؟')">🎬 مشاريع الموشن جرافيك</button>
+        </div>
+
+        <div class="chat-messages-area" id="chat-messages">
+            <div class="chat-msg bot">
+                أهلاً بك في منصة <b>MK CREATIVE AGENCY Web 2</b>! أنا المساعد الذكي للوكالة. هل أنت مهتم بالانضمام للعمل معنا في فريق MK، أو ترغب في معرفة تفاصيل مشاريعنا وبرمجياتنا؟ اطرح سؤالك أو اختر من الأزرار السريعة بالأعلى! 🚀
+            </div>
+        </div>
+
+        <div class="chat-input-row">
+            <input type="text" id="chat-input-box" class="chat-input" placeholder="اكتب سؤالك عن الشغل، الخدمات، أو التقديم..." onkeypress="handleChatKeyPress(event)">
+            <button class="btn" onclick="sendUserMessage()"><i class="fa-solid fa-paper-plane"></i> <span data-translate="btn_send">إرسال</span></button>
+        </div>
+    </div>
+</div>
+
 <!-- CEO PROFILE SECTION -->
 <div class="container" id="ceo">
     <h2 class="section-title" data-translate="sec_exec">EXECUTIVE LEADERSHIP</h2>
@@ -352,7 +465,7 @@
             </div>
         </div>
         <p style="color: #cbd5e1; line-height: 1.8;" data-translate="ceo_desc">
-            As the 14-year-old visionary behind MK CREATIVE Agency, Mohamed oversees technical architecture, AI integrations, and high-level software engineering. Holding 10 official certifications from Udacity and Google Cloud, he bridges the gap between advanced cloud operations, automated commercial applications, and viral digital media solutions. He also actively participates as an Admin in strategic chess initiatives within the EGYPT CHESS CLUB.
+            As the 14-year-old visionary behind MK CREATIVE AGENCY Web 2, Mohamed oversees technical architecture, AI assistant integrations, and high-level software engineering. Holding 10 official certifications from Udacity and Google Cloud, he bridges the gap between advanced cloud operations, automated commercial applications, and viral digital media solutions. He also actively administers the EGYPT CHESS CLUB.
         </p>
     </div>
 </div>
@@ -360,7 +473,7 @@
 <!-- AGENCY TEAM & COLLABORATORS SECTION -->
 <div class="container" id="team">
     <h2 class="section-title" data-translate="sec_team">AGENCY TEAM & COLLABORATORS</h2>
-    <p style="color: var(--text-muted); margin-bottom: 25px;" data-translate="team_subtitle">Key talent who contributed creative excellence to MK CREATIVE Agency projects.</p>
+    <p style="color: var(--text-muted); margin-bottom: 25px;" data-translate="team_subtitle">Key talent who contributed creative excellence to MK CREATIVE AGENCY Web 2 projects.</p>
     
     <div class="grid" style="max-width: 900px; margin: auto;">
         <div class="card" style="display: flex; flex-direction: column; gap: 15px;">
@@ -373,7 +486,7 @@
                     <p style="color: var(--text-muted); font-size: 0.85rem;" data-translate="malek_role">Motion Graphic Designer & Video Editor (Summer Launch)</p>
                 </div>
             </div>
-            <p style="color: #cbd5e1; font-size: 0.950rem; line-height: 1.6;" data-translate="malek_desc">
+            <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6;" data-translate="malek_desc">
                 Served as the lead Motion Graphic Designer for MK CREATIVE Agency's Summer Launch. Demonstrated exemplary commitment, visual creativity, and professional execution across brand video production and dynamic logo animations.
             </p>
             
@@ -419,53 +532,11 @@
             <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
             <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_134712.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
         </div>
-
-        <div class="cert-card">
-            <img src="IMG_20251221_135357.jpg" alt="Modernize Infrastructure and Applications" onclick="openLightbox(this.src)">
-            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Modernize Infrastructure & Apps</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
-            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_135357.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
-        </div>
-
-        <div class="cert-card">
-            <img src="IMG_20260501_100603.jpg" alt="Responsible AI" onclick="openLightbox(this.src)">
-            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Responsible AI: Applying Principles</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
-            <button class="btn btn-outline" onclick="openLightbox('IMG_20260501_100603.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
-        </div>
-
-        <div class="cert-card">
-            <img src="IMG_20251221_140439.jpg" alt="Gemini in Google Meet" onclick="openLightbox(this.src)">
-            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Gemini in Google Meet</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
-            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_140439.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
-        </div>
-
-        <div class="cert-card">
-            <img src="IMG_20260501_100729.jpg" alt="Introduction to Gemini for Google Workspace" onclick="openLightbox(this.src)">
-            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Intro to Gemini for Workspace</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
-            <button class="btn btn-outline" onclick="openLightbox('IMG_20260501_100729.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
-        </div>
-
-        <div class="cert-card">
-            <img src="IMG_20251221_141142.jpg" alt="Scaling with Google Cloud Operations" onclick="openLightbox(this.src)">
-            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Scaling with Cloud Operations</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
-            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_141142.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
-        </div>
-
-        <div class="cert-card">
-            <img src="IMG_20251221_142835_edit_2119882193330690.jpg" alt="Gemini in Google Slides" onclick="openLightbox(this.src)">
-            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Gemini in Google Slides</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
-            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_142835_edit_2119882193330690.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
-        </div>
     </div>
 </div>
 
 <div class="container" id="projects">
-    <h2 class="section-title" data-translate="sec_solutions">AGENCY SOLUTIONS</h2>
+    <h2 class="section-title" data-translate="sec_solutions">AGENCY SOLUTIONS & AI TOOLS</h2>
     <div class="grid">
         <div class="card" onclick="openProjectModal('Future Mall POS', 'Advanced enterprise retail web application featuring role-based access control, AI product classification via Keras/Teachable Machine, multi-currency frameworks, and automated inventory management.', ['Python', 'HTML/JS', 'AI Frameworks'], 'https://github.com')">
             <h3><i class="fa-solid fa-store" style="color: var(--accent);"></i> Future Mall POS</h3>
@@ -481,46 +552,6 @@
             <h3><i class="fa-solid fa-chess-board" style="color: var(--accent);"></i> EGYPT CHESS CLUB (Admin)</h3>
             <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;" data-translate="proj3_desc">Active administration and tactical management within digital strategy communities and club workflows.</p>
             <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);" data-translate="view_specs">View System Specs &rarr;</span>
-        </div>
-    </div>
-</div>
-
-<div class="container" id="skills">
-    <h2 class="section-title" data-translate="sec_techstack">AGENCY TECHNICAL STACK</h2>
-    <div class="skills-container">
-        <div class="skill-item">
-            <div class="skill-info"><span data-translate="skill1">Cloud Architecture & Security</span><span>98%</span></div>
-            <div class="skill-bar"><div class="skill-progress" data-width="98"></div></div>
-        </div>
-        <div class="skill-item">
-            <div class="skill-info"><span data-translate="skill2">Python & Business Software Logic</span><span>95%</span></div>
-            <div class="skill-bar"><div class="skill-progress" data-width="95"></div></div>
-        </div>
-        <div class="skill-item">
-            <div class="skill-info"><span data-translate="skill3">Full-Stack Web (HTML/JS/CSS)</span><span>90%</span></div>
-            <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
-        </div>
-        <div class="skill-item">
-            <div class="skill-info"><span data-translate="skill4">AI Integration & Workspace Automation</span><span>96%</span></div>
-            <div class="skill-bar"><div class="skill-progress" data-width="96"></div></div>
-        </div>
-    </div>
-</div>
-
-<div class="container" id="gallery">
-    <h2 class="section-title" data-translate="sec_portals">CLIENT PORTALS & VISUAL DESIGNS</h2>
-    <div class="showcase-grid">
-        <div class="media-box">
-            <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 1rem;" data-translate="portal1">Asmaa Clinic UI Portal</h3>
-            <img src="IMG-20260630-WA0006.jpg" alt="Asmaa Clinic" onclick="openLightbox(this.src)">
-        </div>
-        <div class="media-box">
-            <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 1rem;" data-translate="portal2">Gaming Media Production</h3>
-            <img src="Screenshot_20260815_093326.jpg" alt="Minecraft Thumbnail" onclick="openLightbox(this.src)">
-        </div>
-        <div class="media-box">
-            <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 1rem;" data-translate="portal3">Islam: A Way of Life Interface</h3>
-            <img src="Screenshot_20260815_093338.jpg" alt="Islam Way of Life" onclick="openLightbox(this.src)">
         </div>
     </div>
 </div>
@@ -541,216 +572,293 @@
     <button class="float-btn" id="audio-toggle-btn" onclick="toggleAudioFX()" title="Toggle Audio Sound FX"><i class="fa-solid fa-volume-high"></i></button>
 </div>
 
-<button class="rocket-top-btn" id="rocketBtn" onclick="launchToTop()" title="Scroll to Top">
-    🚀
-</button>
-
-<button class="mobile-search-float" onclick="openSearchModalMobile()" title="Quick Search">
-    <i class="fa-solid fa-magnifying-glass"></i>
-</button>
+<button class="rocket-top-btn" id="rocketBtn" onclick="launchToTop()" title="Scroll to Top">🚀</button>
+<button class="mobile-search-float" onclick="openSearchModalMobile()" title="Quick Search"><i class="fa-solid fa-magnifying-glass"></i></button>
 
 <footer>
-    <p data-translate="footer_text">&copy; 2026 MK CREATIVE Agency. Founded and Directed by Mohamed Antar. All Rights Reserved.</p>
+    <p data-translate="footer_text">&copy; 2026 MK CREATIVE AGENCY Web 2. Founded and Directed by Mohamed Antar. All Rights Reserved.</p>
 </footer>
 
 <script>
+    // --- نظام MK Assistant Bot المدرب خصيصاً للشغل والخدمات ---
+    const agencyKnowledgeBase = [
+        {
+            keywords: ["مؤسس", "من أنت", "محمد عنتر", "الceo", "صاحب الشركة", "عمرك"],
+            response: "مؤسس ومدير شركة MK CREATIVE AGENCY Web 2 هو المبتكر الشاب **محمد عنتر** (عمره ١٤ عاماً من الدقهلية، مصر). وهو حاصل على 10 شهادات معتمدة من Google Cloud و Udacity في مجالات السحابة والذكاء الاصطناعي[cite: 4, 5]."
+        },
+        {
+            keywords: ["انضمام", "عمل", "وظيفة", "شغل", "فريق", "استمارة", "تقديم"],
+            response: "أهلاً بك! للانضمام والعمل معنا في فريق MK CREATIVE AGENCY Web 2، يسعدنا استقبال طلباتك عبر استمارة التقديم الرسمية أو التواصل المباشر عبر البريد (moamedantar8@gmail.com) أو الواتساب (+201559719175)[cite: 4]."
+        },
+        {
+            keywords: ["future mall", "pos", "نظام نقاط البيع", "متجر"],
+            response: "نظام **Future Mall POS** هو تطبيق ويب متطور لقطاع التجزئة تم تطويره بواسطة الوكالة باستخدام Python وتقنيات الويب، ويتميز بتحكم في الصلاحيات، وتصنيف ذكي للمنتجات، وأنظمة عملات متعددة[cite: 4, 5]."
+        },
+        {
+            keywords: ["مالك", "موشن", "جرافيك", "فيديو", "مونتاج", "أسماء"],
+            response: "تعاونت الوكالة مع مصمم الموشن جرافيك المبدع **مالك محمد** في مشاريع الصيف وإطلاق فيديوهات لعلامات تجارية مثل 'مشروع مركز أسماء' (Asmaa Centre collaboration project)[cite: 4]."
+        },
+        {
+            keywords: ["شطرنج", "chess", "egypt chess club"],
+            response: "يقوم المدير التنفيذي محمد عنتر بإدارة وتنسيق الأنشطة التكتيكية والمجتمعية في مجموعة **EGYPT CHESS CLUB** على منصة Chess.com[cite: 4]."
+        },
+        {
+            keywords: ["شهادات", "google cloud", "udacity", "اعتماد"],
+            response: "تمتلك الوكالة سجل موثوق من شهادات Google Cloud في مجالات الأمان، وتحليلات البيانات، وتكامل أدوات Gemini Workspace[cite: 4, 5]."
+        },
+        {
+            keywords: ["التواصل", "ايميل", "رقم", "واتساب", "اتصل"],
+            response: "يمكنك التواصل معنا مباشرة عبر البريد الإلكتروني: moamedantar8@gmail.com أو عبر رقم الواتساب: +201559719175[cite: 4]."
+        }
+    ];
+
+    function getBotResponse(userMsg) {
+        const lowerMsg = userMsg.toLowerCase();
+        for (let item of agencyKnowledgeBase) {
+            for (let kw of item.keywords) {
+                if (lowerMsg.includes(kw)) {
+                    return item.response;
+                }
+            }
+        }
+        return "سؤال ممتاز حول العمل في MK CREATIVE AGENCY Web 2! نحن نركز على تطوير الحلول التقنية المتقدمة، أنظمة الـ POS، وإنتاج المحتوى الرقمي. هل ترغب في معرفة المزيد عن خدماتنا أو التقديم للانضمام لفريقنا؟ يمكنك مراسلتنا عبر الواتساب أو الايميل الظاهر أسفل الموقع[cite: 4, 5].";
+    }
+
+    function appendMessage(sender, text) {
+        const chatContainer = document.getElementById('chat-messages');
+        if (!chatContainer) return;
+        const msgDiv = document.createElement('div');
+        msgDiv.className = `chat-msg ${sender}`;
+        msgDiv.innerHTML = text;
+        chatContainer.appendChild(msgDiv);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+
+    function sendUserMessage() {
+        const input = document.getElementById('chat-input-box');
+        const text = input.value.trim();
+        if (!text) return;
+        
+        appendMessage('user', text);
+        input.value = '';
+
+        // محاكاة تفكير المساعد الذكي
+        setTimeout(() => {
+            const reply = getBotResponse(text);
+            appendMessage('bot', reply);
+        }, 500);
+    }
+
+    function sendQuickQuery(queryText) {
+        document.getElementById('chat-input-box').value = queryText;
+        sendUserMessage();
+    }
+
+    function handleChatKeyPress(e) {
+        if (e.key === 'Enter') {
+            sendUserMessage();
+        }
+    }
+
+    function clearChat() {
+        const chatContainer = document.getElementById('chat-messages');
+        chatContainer.innerHTML = `
+            <div class="chat-msg bot">
+                تم مسح المحادثة. كيف يمكنني مساعدتك اليوم في أعمال وخدمات MK CREATIVE AGENCY Web 2؟ 🚀
+            </div>
+        `;
+        showToast("✓ تمت إعادة تعيين المحادثة");
+    }
+
+    // قاموس الترجمات الشامل
     const translations = {
         ar: {
             dir: "rtl",
-            secure_node: "نقطة آمنة",
+            secure_node: "Active Node",
             dakahlia: "الدقهلية: 32°م",
             nav_agency: "الوكالة",
+            nav_ai: "المساعد الذكي",
             nav_ceo: "المؤسس",
             nav_team: "الفريق",
             nav_certs: "الشهادات",
             nav_solutions: "الحلول",
-            nav_tech: "التقنيات",
             nav_contact: "تواصل معنا",
-            ticker_title: "وكالة MK الإبداعية:",
-            ticker_desc: "هندسة السحابة عالية الأداء وتكامل الذكاء الاصطناعي",
+            ticker_title: "MK CREATIVE AGENCY Web 2:",
+            ticker_desc: "هندسة السحابة عالية الأداء وتكامل المساعد الذكي",
             ticker_ceo: "بإدارة محمد عنتر (المدير التنفيذي، 14 سنة)",
             ticker_search: "اضغط Ctrl + K للبحث السريع داخل الموقع!",
             hero_subtitle: "تمكين الأعمال العالمية باستخدام",
             agency_status: "حالة الوكالة:",
-            agency_status_val: "أنظمة السحابة والذكاء الاصطناعي من الجيل التالي نشطة",
-            hero_desc: "وكالة MK الإبداعية هي شركة تقنية مستقبلية تخصصت في أنظمة نقاط البيع الآلية للتجزئة، خطوط الإنتاج الإعلامي الرقمي عالية الاحتفاظ، وتكامل البنية التحتية لسحابة Google Cloud.",
+            agency_status_val: "أنظمة السحابة والمساعد الذكي من الجيل التالي نشطة",
+            hero_desc: "MK CREATIVE AGENCY Web 2 هي شركة تقنية مستقبلية تخصصت في أنظمة نقاط البيع الآلية للتجزئة، خطوط الإنتاج الإعلامي الرقمي، وحلول المساعد الذكي.",
+            btn_ai: "فتح المساعد الذكي",
             btn_explore: "استكشف الحلول",
-            btn_partner: "شاركنا العمل",
             stat_certs: "شهادات Google Cloud معتمدة",
             stat_views: "أكثر من مليون مشاهدة عالمية",
             stat_age: "سنوات عمر المدير التنفيذي المبتكر",
             stat_secure: "% البنية التحتية الآمنة",
+            sec_bot: "MK ASSISTANT BOT (المساعد الذكي للوكالة)",
+            bot_subtitle: "اسأل المساعد عن خدمات الوكالة، تفاصيل المشاريع، انضمام فريق العمل، أو تقديم استمارة التقديم والتنفيذ.",
+            bot_name: "MK Assistant Bot v2.0",
+            bot_online: "مستعد للإجابة عن أسئلة الشغل والخدمات",
+            clear_chat: "إعادة المحادثة",
+            btn_send: "إرسال",
             sec_exec: "القيادة التنفيذية",
             ceo_role: "المؤسس والرئيس التنفيذي (CEO) • العمر 14 سنة • الدقهلية، مصر",
-            ceo_desc: "بصفته العقل المبتكر البالغ من العمر 14 عاماً خلف وكالة MK الإبداعية، يشرف محمد على الهندسة المعمارية التقنية، وتكامل الذكاء الاصطناعي، وهندسة البرمجيات عالية المستوى. يحمل 10 شهادات رسمية من Udacity و Google Cloud، ليجسد الجسر بين العمليات السحابية المتقدمة والتطبيقات التجارية الآلية.",
+            ceo_desc: "بصفته العقل المبتكر البالغ من العمر 14 عاماً خلف MK CREATIVE AGENCY Web 2، يشرف محمد على الهندسة المعمارية التقنية، وتكامل المساعد الذكي، وهندسة البرمجيات عالية المستوى.",
             sec_team: "فريق الوكالة والمبدعون",
-            team_subtitle: "المواهب الرئيسية التي ساهمت بالتميز الإبداعي في مشاريع وكالة MK الإبداعية.",
+            team_subtitle: "المواهب الرئيسية التي ساهمت بالتميز الإبداعي في مشاريع MK CREATIVE AGENCY Web 2.",
             malek_role: "مصمم جرافيك ومونتير فيديو (إطلاق الصيف)",
-            malek_desc: "عمل كمصمم رئيسي للرسومات المتحركة لإطلاق صيف وكالة MK الإبداعية، وأظهر التزاماً استثنائياً وإبداعاً بصرياً وتنفيذاً احترافياً لإنتاج فيديوهات العلامة التجارية ورسوم الشعار المتحركة.",
+            malek_desc: "عمل كمصمم رئيسي للرسومات المتحركة لإطلاق صيف الوكالة، وأظهر التزاماً استثنائياً وإبداعاً بصرياً وتنفيذاً احترافياً.",
             asmaa_title: "مشروع التعاون مع مركز أسماء",
             btn_cert: "عرض شهادة التدريب الرسمية (29 يونيو 2026)",
             sec_certs: "شهادات الوكالة المعتمدة",
             certs_subtitle: "أوراق الاعتماد الرسمية المقدمة من Udacity بالتعاون مع Google Cloud و Accenture.",
             view_cred: "عرض الاعتماد",
-            sec_solutions: "حلول الوكالة",
+            sec_solutions: "حلول الوكالة وأدوات الذكاء الاصطناعي",
             proj1_desc: "تطبيق ويب متكامل لقطاع التجزئة يتميز بالتحكم في الصلاحيات، التصنيف الآلي للمنتجات عبر الذكاء الاصطناعي، وأنظمة العملات المتعددة.",
             proj2_desc: "حقق أكثر من 40 مليون مشاهدة من خلال التوازن الصوتي البصري الدقيق، والتحسين المتقدم للفيديوهات القصيرة.",
             proj3_desc: "الإدارة النشطة والإدارة التكتيكية داخل مجتمعات الاستراتيجيات الرقمية وسير عمل الأندية.",
             view_specs: "عرض تفاصيل النظام ←",
-            sec_techstack: "التقنيات المستخدمة في الوكالة",
-            skill1: "هندسة السحابة والأمان",
-            skill2: "بايثون ومنطق برمجيات الأعمال",
-            skill3: "تطوير الويب الشامل (HTML/JS/CSS)",
-            skill4: "تكامل الذكاء الاصطناعي وأتمتة مساحة العمل",
-            sec_portals: "بوابات العملاء والتصاميم البصرية",
-            portal1: "بوابة عيادة أسماء",
-            portal2: "إنتاج المحتوى الإعلامي للألعاب",
-            portal3: "واجهة الإسلام منهج حياة",
             sec_comm: "اتصالات الوكالة الآمنة",
             agency_email: "بريد الوكالة:",
             agency_whatsapp: "الخط المباشر / واتساب:",
             agency_linkedin: "لينكد إن التنفيذي:",
             btn_copy: "نسخ بريد الوكالة",
-            footer_text: "© 2026 وكالة MK الإبداعية. مؤسسة ومُدارة بواسطة محمد عنتر. جميع الحقوق محفوظة.",
+            footer_text: "© 2026 MK CREATIVE AGENCY Web 2. مؤسسة ومُدارة بواسطة محمد عنتر. جميع الحقوق محفوظة.",
             launch_demo: "تشغيل العرض التوضيحي",
-            s_about: "حول وكالة MK الإبداعية",
+            s_about: "حول MK CREATIVE AGENCY Web 2",
+            s_ai: "المساعد الذكي MK Assistant Bot",
             s_ceo: "المؤسس والرئيس التنفيذي: محمد عنتر",
             s_team: "مسؤول الموشن جرافيك: مالك محمد",
             s_certs: "شهادات Google Cloud المعتمدة",
-            s_proj: "نظام نقاط البيع Future Mall POS",
-            s_skills: "التقنيات البرمجية المؤسسية",
+            s_proj: "نظام نقاط البيع Future Mall POS وأدوات الذكاء الاصطناعي",
             s_contact: "التواصل المؤسسي الآمن"
         },
         en: {
             dir: "ltr",
-            secure_node: "Secure Node",
+            secure_node: "Active Node",
             dakahlia: "Dakahlia: 32°C",
             nav_agency: "Agency",
+            nav_ai: "Assistant Bot",
             nav_ceo: "CEO",
             nav_team: "Team",
             nav_certs: "Certifications",
             nav_solutions: "Solutions",
-            nav_tech: "Tech Stack",
             nav_contact: "Contact",
-            ticker_title: "MK CREATIVE AGENCY:",
-            ticker_desc: "High-Performance Cloud Architecture & AI Integration",
+            ticker_title: "MK CREATIVE AGENCY Web 2:",
+            ticker_desc: "High-Performance Cloud Architecture & Assistant Integration",
             ticker_ceo: "Directed by Mohamed Antar (CEO, 14y)",
             ticker_search: "Press Ctrl + K for Agency Quick Search!",
             hero_subtitle: "Empowering Global Business with",
             agency_status: "Agency Status:",
-            agency_status_val: "Next-Gen Cloud & AI Frameworks Active",
-            hero_desc: "MK CREATIVE Agency is a forward-thinking technology corporation specializing in automated retail POS systems, high-retention digital media pipelines, and Google Cloud infrastructure integration.",
+            agency_status_val: "Next-Gen Cloud & Assistant Frameworks Active",
+            hero_desc: "MK CREATIVE AGENCY Web 2 is a forward-thinking technology corporation specializing in automated retail POS systems, high-retention digital media pipelines, and smart assistant solutions.",
+            btn_ai: "Open MK Assistant Bot",
             btn_explore: "Explore Solutions",
-            btn_partner: "Partner With Us",
             stat_certs: "Verified Google Cloud Certs",
             stat_views: "Million+ Global Views",
             stat_age: "Years Young Innovator CEO",
             stat_secure: "% Secure Infrastructure",
+            sec_bot: "MK ASSISTANT BOT",
+            bot_subtitle: "Ask the assistant about agency services, project details, team recruitment, or application submissions.",
+            bot_name: "MK Assistant Bot v2.0",
+            bot_online: "Ready to answer work and service questions",
+            clear_chat: "Reset Chat",
+            btn_send: "Send",
             sec_exec: "EXECUTIVE LEADERSHIP",
             ceo_role: "Founder & Chief Executive Officer (CEO) • Age 14 • Dakahlia, Egypt",
-            ceo_desc: "As the 14-year-old visionary behind MK CREATIVE Agency, Mohamed oversees technical architecture, AI integrations, and high-level software engineering. Holding 10 official certifications from Udacity and Google Cloud, he bridges the gap between advanced cloud operations, automated commercial applications, and viral digital media solutions.",
+            ceo_desc: "As the 14-year-old visionary behind MK CREATIVE AGENCY Web 2, Mohamed oversees technical architecture, AI assistant integrations, and high-level software engineering.",
             sec_team: "AGENCY TEAM & COLLABORATORS",
-            team_subtitle: "Key talent who contributed creative excellence to MK CREATIVE Agency projects.",
+            team_subtitle: "Key talent who contributed creative excellence to MK CREATIVE AGENCY Web 2 projects.",
             malek_role: "Motion Graphic Designer & Video Editor (Summer Launch)",
-            malek_desc: "Served as the lead Motion Graphic Designer for MK CREATIVE Agency's Summer Launch. Demonstrated exemplary commitment, visual creativity, and professional execution across brand video production and dynamic logo animations.",
+            malek_desc: "Served as the lead Motion Graphic Designer for MK CREATIVE Agency's Summer Launch. Demonstrated exemplary commitment and visual creativity.",
             asmaa_title: "Asmaa Centre Collaboration Project",
             btn_cert: "View Official Internship Certificate (June 29, 2026)",
             sec_certs: "VERIFIED AGENCY CERTIFICATIONS",
             certs_subtitle: "Official credentials awarded by Udacity in collaboration with Google Cloud and Accenture.",
             view_cred: "View Credential",
-            sec_solutions: "AGENCY SOLUTIONS",
+            sec_solutions: "AGENCY SOLUTIONS & AI TOOLS",
             proj1_desc: "Full-stack retail web application featuring role-based access control, AI product classification, and multi-currency frameworks.",
             proj2_desc: "Generated over 40M+ views through precision audio-visual balancing, advanced short-form optimization, and high-retention editing.",
             proj3_desc: "Active administration and tactical management within digital strategy communities and club workflows.",
             view_specs: "View System Specs →",
-            sec_techstack: "AGENCY TECHNICAL STACK",
-            skill1: "Cloud Architecture & Security",
-            skill2: "Python & Business Software Logic",
-            skill3: "Full-Stack Web (HTML/JS/CSS)",
-            skill4: "AI Integration & Workspace Automation",
-            sec_portals: "CLIENT PORTALS & VISUAL DESIGNS",
-            portal1: "Asmaa Clinic UI Portal",
-            portal2: "Gaming Media Production",
-            portal3: "Islam: A Way of Life Interface",
             sec_comm: "SECURE AGENCY COMMUNICATIONS",
             agency_email: "Agency Email:",
             agency_whatsapp: "Direct Line / WhatsApp:",
             agency_linkedin: "Executive LinkedIn:",
             btn_copy: "Copy Agency Email",
-            footer_text: "© 2026 MK CREATIVE Agency. Founded and Directed by Mohamed Antar. All Rights Reserved.",
+            footer_text: "© 2026 MK CREATIVE AGENCY Web 2. Founded and Directed by Mohamed Antar. All Rights Reserved.",
             launch_demo: "Launch Agency Demo",
-            s_about: "About MK CREATIVE Agency",
+            s_about: "About MK CREATIVE AGENCY Web 2",
+            s_ai: "MK Assistant Bot",
             s_ceo: "CEO & Founder: Mohamed Antar",
             s_team: "Motion Graphics Lead: Malek Mohamed",
             s_certs: "Verified Google Cloud Certifications",
-            s_proj: "Future Mall POS System",
-            s_skills: "Enterprise Technical Stack",
+            s_proj: "Future Mall POS System & AI Tools",
             s_contact: "Secure Corporate Contact"
         },
         fr: {
             dir: "ltr",
-            secure_node: "Nœud Sécurisé",
+            secure_node: "Nœud Actif",
             dakahlia: "Dakahlia: 32°C",
             nav_agency: "Agence",
+            nav_ai: "Assistant Bot",
             nav_ceo: "PDG",
             nav_team: "Équipe",
             nav_certs: "Certifications",
             nav_solutions: "Solutions",
-            nav_tech: "Technologies",
             nav_contact: "Contact",
-            ticker_title: "MK CREATIVE AGENCY:",
-            ticker_desc: "Architecture Cloud Haute Performance & Intégration IA",
+            ticker_title: "MK CREATIVE AGENCY Web 2:",
+            ticker_desc: "Architecture Cloud Haute Performance & Assistant IA",
             ticker_ceo: "Dirigé par Mohamed Antar (PDG, 14 ans)",
             ticker_search: "Appuyez sur Ctrl + K pour la recherche rapide !",
             hero_subtitle: "Autonomiser les entreprises mondiales avec",
             agency_status: "Statut de l'Agence:",
-            agency_status_val: "Cadres Cloud & IA de Nouvelle Génération Actifs",
-            hero_desc: "MK CREATIVE Agency est une entreprise technologique innovante spécialisée dans les systèmes POS de vente au détail automatisés et l'intégration d'infrastructure Google Cloud.",
+            agency_status_val: "Cadres Cloud & Assistant de Nouvelle Génération Actifs",
+            hero_desc: "MK CREATIVE AGENCY Web 2 est une entreprise technologique innovante spécialisée dans les systèmes POS automatisés.",
+            btn_ai: "Ouvrir MK Assistant Bot",
             btn_explore: "Explorer les Solutions",
-            btn_partner: "Devenir Partenaire",
             stat_certs: "Certifications Google Cloud Vérifiées",
             stat_views: "Millions de Vues Mondiales",
             stat_age: "Ans du PDG Innovateur",
             stat_secure: "% Infrastructure Sécurisée",
+            sec_bot: "MK ASSISTANT BOT",
+            bot_subtitle: "Posez vos questions à l'assistant concernant les services, les projets et le recrutement.",
+            bot_name: "MK Assistant Bot v2.0",
+            bot_online: "Prêt à répondre aux questions",
+            clear_chat: "Réinitialiser",
+            btn_send: "Envoyer",
             sec_exec: "LEADERSHIP EXÉCUTIF",
             ceo_role: "Fondateur & Directeur Général (PDG) • 14 ans • Dakahlia, Égypte",
-            ceo_desc: "En tant que visionnaire de 14 ans derrière MK CREATIVE Agency, Mohamed supervise l'architecture technique, les intégrations d'IA et l'ingénierie logicielle de haut niveau. Détenteur de 10 certifications officielles.",
+            ceo_desc: "En tant que visionnaire de 14 ans derrière MK CREATIVE AGENCY Web 2, Mohamed supervise l'architecture technique.",
             sec_team: "ÉQUIPE DE L'AGENCE & COLLABORATEURS",
-            team_subtitle: "Talents clés ayant contribué à l'excellence créative des projets de MK CREATIVE Agency.",
+            team_subtitle: "Talents clés ayant contribué à l'excellence créative des projets.",
             malek_role: "Designer Motion Graphics & Monteur Vidéo",
-            malek_desc: "A servi en tant que Motion Designer principal pour le lancement estival de MK CREATIVE Agency, démontrant un engagement exemplaire et une créativité visuelle.",
+            malek_desc: "A servi en tant que Motion Designer principal pour le lancement estival.",
             asmaa_title: "Projet de Collaboration Asmaa Centre",
             btn_cert: "Voir le Certificat de Stage Officiel (29 Juin 2026)",
             sec_certs: "CERTIFICATIONS OFFICIELLES DE L'AGENCE",
-            certs_subtitle: "Titres officiels décernés par Udacity en collaboration avec Google Cloud et Accenture.",
+            certs_subtitle: "Titres officiels décernés par Udacity en collaboration avec Google Cloud.",
             view_cred: "Voir le Certificat",
-            sec_solutions: "SOLUTIONS DE L'AGENCE",
-            proj1_desc: "Application Web e-commerce complète avec contrôle d'accès basé sur les rôles et classification des produits par IA.",
-            proj2_desc: "Généré plus de 40 millions de vues grâce à un équilibre audiovisuel précis et une optimisation des formats courts.",
-            proj3_desc: "Administration active et gestion tactique au sein des communautés de stratégie numérique.",
+            sec_solutions: "SOLUTIONS DE L'AGENCE & OUTILS IA",
+            proj1_desc: "Application Web e-commerce complète avec contrôle d'accès basé sur les rôles.",
+            proj2_desc: "Généré plus de 40 millions de vues grâce à un équilibre audiovisuel précis.",
+            proj3_desc: "Administration active et gestion tactique au sein des communautés de stratégie.",
             view_specs: "Voir les Spécifications →",
-            sec_techstack: "PILE TECHNIQUE DE L'AGENCE",
-            skill1: "Architecture Cloud & Sécurité",
-            skill2: "Python & Logique Logicielle",
-            skill3: "Développement Web Full-Stack",
-            skill4: "Intégration IA & Automatisation",
-            sec_portals: "PORTAILS CLIENTS & DESIGNS VISUELS",
-            portal1: "Portail UI Clinique Asmaa",
-            portal2: "Production Multimédia Gaming",
-            portal3: "Interface Islam: Un Mode de Vie",
             sec_comm: "COMMUNICATIONS SÉCURISÉES DE L'AGENCE",
             agency_email: "Email de l'Agence:",
             agency_whatsapp: "Ligne Directe / WhatsApp:",
             agency_linkedin: "LinkedIn Exécutif:",
             btn_copy: "Copier l'Email",
-            footer_text: "© 2026 MK CREATIVE Agency. Fondé et Dirigé par Mohamed Antar. Tous droits réservés.",
+            footer_text: "© 2026 MK CREATIVE AGENCY Web 2. Fondé et Dirigé par Mohamed Antar. Tous droits réservés.",
             launch_demo: "Lancer la Démo",
-            s_about: "À propos de MK CREATIVE Agency",
+            s_about: "À propos de MK CREATIVE AGENCY Web 2",
+            s_ai: "MK Assistant Bot",
             s_ceo: "PDG & Fondateur : Mohamed Antar",
             s_team: "Responsable Motion Design : Malek Mohamed",
             s_certs: "Certifications Google Cloud Vérifiées",
-            s_proj: "Système POS Future Mall",
-            s_skills: "Pile Technique d'Entreprise",
+            s_proj: "Système POS Future Mall & Outils IA",
             s_contact: "Contact Professionnel Sécurisé"
         }
     };
@@ -763,9 +871,7 @@
 
         document.querySelectorAll('[data-translate]').forEach(el => {
             const key = el.getAttribute('data-translate');
-            if (t[key]) {
-                el.textContent = t[key];
-            }
+            if (t[key]) el.textContent = t[key];
         });
         showToast(lang === 'ar' ? "تم تغيير اللغة إلى العربية" : (lang === 'en' ? "Language changed to English" : "Langue changée en Français"));
     }
@@ -869,7 +975,6 @@
     });
 
     const rocketBtn = document.getElementById('rocketBtn');
-    let skillsAnimated = false;
 
     window.onscroll = () => {
         let winScroll = document.documentElement.scrollTop || document.body.scrollTop;
@@ -887,14 +992,6 @@
             let rect = el.getBoundingClientRect();
             if(rect.top < window.innerHeight - 80) el.classList.add('visible');
         });
-
-        const skillsSec = document.getElementById('skills');
-        if (skillsSec && skillsSec.getBoundingClientRect().top < window.innerHeight - 100 && !skillsAnimated) {
-            document.querySelectorAll('.skill-progress').forEach(bar => {
-                bar.style.width = bar.getAttribute('data-width') + '%';
-            });
-            skillsAnimated = true;
-        }
     };
 
     window.addEventListener('keydown', (e) => {
@@ -962,19 +1059,9 @@
         document.getElementById('session-time').textContent = `${mins}:${secs}`;
     }, 1000);
 
-    if ('getBattery' in navigator) {
-        navigator.getBattery().then(battery => {
-            function updateBattery() {
-                document.getElementById('battery-val').textContent = Math.round(battery.level * 100) + '%';
-            }
-            updateBattery();
-            battery.addEventListener('levelchange', updateBattery);
-        });
-    }
-
     window.onload = () => {
         setTimeout(() => {
-            showToast("MK CREATIVE Agency Systems Online");
+            showToast("MK CREATIVE AGENCY Web 2 Online");
         }, 1000);
         startCounters();
     };
@@ -986,7 +1073,7 @@
         setTimeout(() => toast.classList.remove("show"), 4000);
     }
 
-    const words = ["Cloud Infrastructure & AI.", "Automated Retail Solutions.", "Next-Gen Agency Frameworks."];
+    const words = ["Cloud Infrastructure & AI.", "Automated Retail Solutions.", "Next-Gen Assistant Frameworks."];
     let wordIdx = 0, charIdx = 0, currentWord = "", isDeletingState = false;
     function typeEffectEngine() {
         currentWord = words[wordIdx];
