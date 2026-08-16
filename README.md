@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="only dark">
-    <title id="page-title">MK CREATIVE Agency & AI Suite | Powered by Mohamed Antar</title>
+    <title id="page-title">MK CREATIVE Agency | Powered by Mohamed Antar</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -20,14 +20,14 @@
             --neon-blue: #00d4ff;
             --neon-purple: #b14aed;
         }
-
+ 
         body.matrix-mode {
             --bg-dark: #020d05;
             --accent: #22c55e;
             --accent-glow: rgba(34, 197, 94, 0.5);
             background: radial-gradient(circle at top right, #052e16, #020d05) !important;
         }
-
+ 
         body.amber-mode {
             --bg-dark: #120803;
             --accent: #f59e0b;
@@ -46,22 +46,23 @@
             transition: background 0.5s ease;
             position: relative;
         }
-
+ 
         #particle-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
         header, .hero, .container, footer, .floating-controls, .rocket-top-btn, .mobile-search-float, #search-modal { position: relative; z-index: 2; }
-
+ 
         .cursor-dot { position: fixed; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); transition: transform 0.05s ease; }
         .cursor-outline { position: fixed; width: 32px; height: 32px; border: 2px solid var(--accent); border-radius: 50%; pointer-events: none; z-index: 99998; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, border-color 0.2s; box-shadow: 0 0 15px var(--accent-glow); }
-
+ 
         #progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: var(--accent); width: 0%; z-index: 1001; box-shadow: 0 0 12px var(--accent); }
-
+ 
         header { background: rgba(3, 7, 18, 0.85); backdrop-filter: blur(16px); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(56, 189, 248, 0.2); }
         .nav-container { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 2rem; }
         .logo { font-weight: 800; color: var(--accent); font-size: 1.2rem; display: flex; align-items: center; gap: 10px; letter-spacing: 0.5px; }
         
         .hud-panel { display: flex; align-items: center; gap: 10px; font-size: 0.75rem; flex-wrap: wrap; }
         .network-ticker, .weather-ticker, .session-ticker, .battery-ticker { color: var(--accent); background: rgba(56, 189, 248, 0.08); padding: 5px 10px; border-radius: 12px; border: 1px solid rgba(56, 189, 248, 0.3); display: flex; align-items: center; gap: 5px; backdrop-filter: blur(8px); }
-
+ 
+        /* زر اللغات الجديد */
         .lang-select {
             background: rgba(56, 189, 248, 0.08);
             color: var(--accent);
@@ -74,35 +75,41 @@
             transition: 0.3s;
             font-family: 'Cairo', sans-serif;
         }
-        .lang-select option { background: #030712; color: #fff; }
-        .lang-select:hover { background: rgba(56, 189, 248, 0.2); border-color: var(--accent); }
-
+        .lang-select option {
+            background: #030712;
+            color: #fff;
+        }
+        .lang-select:hover {
+            background: rgba(56, 189, 248, 0.2);
+            border-color: var(--accent);
+        }
+ 
         .status-badge { font-size: 0.75rem; background: rgba(34, 197, 94, 0.15); color: #22c55e; border: 1px solid #22c55e; padding: 3px 10px; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px; }
         .status-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 8px #22c55e; animation: pulse 1.5s infinite; }
         @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
-
+ 
         .nav-links { display: flex; align-items: center; gap: 15px; list-style: none; }
         .nav-links a { color: var(--text); text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--accent); }
-
+ 
         .activity-ticker-bar { background: rgba(56, 189, 248, 0.06); border-bottom: 1px solid rgba(56, 189, 248, 0.15); padding: 8px 0; font-size: 0.82rem; color: var(--accent); overflow: hidden; white-space: nowrap; margin-top: 65px; }
         .ticker-content { display: inline-block; animation: tickerScroll 30s linear infinite; }
         @keyframes tickerScroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-
+ 
         .hero { padding: 90px 20px 50px; text-align: center; position: relative; }
         h1 { font-size: 3.5rem; font-weight: 800; background: linear-gradient(to right, #38bdf8, #818cf8, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; }
         
         .typed-text { color: var(--accent); border-right: 2px solid var(--accent); padding-right: 5px; animation: blink 0.7s infinite; }
         @keyframes blink { 50% { border-color: transparent; } }
-
+ 
         .vibe-ticker { font-size: 0.85rem; color: var(--text-muted); margin-top: 15px; display: inline-flex; align-items: center; gap: 8px; background: var(--glass); padding: 8px 18px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.06); backdrop-filter: blur(10px); }
-
+ 
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 950px; margin: 40px auto 0; }
         .stat-card { background: var(--glass); padding: 22px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(12px); transition: 0.3s; }
         .stat-card:hover { border-color: var(--accent); box-shadow: 0 0 20px var(--accent-glow); }
         .stat-number { font-size: 2.4rem; font-weight: 800; color: var(--accent); }
         .stat-label { font-size: 0.85rem; color: var(--text-muted); margin-top: 5px; }
-
+ 
         .container { max-width: 1150px; margin: auto; padding: 60px 20px; opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .container.visible { opacity: 1; transform: translateY(0); }
         
@@ -112,36 +119,35 @@
         
         .card { background: var(--glass); padding: 30px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(16px); transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden; cursor: pointer; }
         .card:hover { transform: translateY(-8px); border-color: var(--accent); box-shadow: 0 0 30px var(--accent-glow); }
-
+ 
         .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 25px; }
         .cert-card { background: var(--glass); border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); padding: 20px; backdrop-filter: blur(12px); transition: 0.3s; text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
         .cert-card:hover { border-color: var(--accent); box-shadow: 0 0 25px var(--accent-glow); transform: translateY(-5px); }
         .cert-card img { width: 100%; height: 210px; object-fit: cover; border-radius: 12px; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
         .cert-card img:hover { transform: scale(1.03); }
-
+ 
         .skills-container { max-width: 900px; margin: 30px auto 0; background: var(--glass); padding: 35px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(16px); }
         .skill-item { margin-bottom: 20px; }
         .skill-item:last-child { margin-bottom: 0; }
         .skill-info { display: flex; justify-content: space-between; font-size: 0.95rem; margin-bottom: 8px; font-weight: 600; }
         .skill-bar { width: 100%; height: 10px; background: rgba(255,255,255,0.08); border-radius: 5px; overflow: hidden; }
         .skill-progress { height: 100%; background: linear-gradient(to right, var(--accent), var(--neon-purple)); width: 0%; border-radius: 5px; transition: width 1.5s cubic-bezier(0.1, 1, 0.1, 1); box-shadow: 0 0 10px var(--accent-glow); }
-
+ 
+        .showcase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; margin-top: 25px; }
+        .media-box { background: var(--glass); border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); padding: 18px; text-align: center; backdrop-filter: blur(12px); transition: 0.3s; }
+        .media-box:hover { border-color: var(--accent); }
+        .media-box img, .media-box video { width: 100%; border-radius: 14px; height: 380px; object-fit: cover; cursor: pointer; transition: 0.4s; }
+        .media-box img:hover, .media-box video:hover { transform: scale(1.02); }
+ 
         .btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; margin: 6px; background: var(--accent); color: #030712; text-decoration: none; border-radius: 50px; font-weight: 800; transition: 0.3s; cursor: pointer; border: none; box-shadow: 0 0 15px var(--accent-glow); font-size: 0.9rem; }
         .btn:hover { transform: scale(1.06); box-shadow: 0 0 25px var(--accent); }
         .btn-outline { background: transparent; border: 2px solid var(--accent); color: var(--accent); box-shadow: none; }
         .btn-outline:hover { background: var(--accent); color: #030712; }
-
-        .ai-tools-container { max-width: 900px; margin: auto; background: var(--glass); padding: 30px; border-radius: 24px; border: 1px solid rgba(56, 189, 248, 0.3); backdrop-filter: blur(16px); }
-        .ai-input-group { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
-        .ai-input { flex: 1; min-width: 250px; padding: 14px 20px; background: rgba(0,0,0,0.4); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 14px; color: white; outline: none; font-size: 0.95rem; }
-        .ai-input:focus { border-color: var(--accent); box-shadow: 0 0 15px var(--accent-glow); }
-        .ai-tasks-list { list-style: none; margin-top: 15px; }
-        .ai-tasks-list li { background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.2); padding: 12px 18px; border-radius: 12px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; font-size: 0.95rem; }
-
+ 
         .floating-controls { position: fixed; bottom: 30px; left: 30px; display: flex; flex-direction: column; gap: 14px; z-index: 1000; }
         .float-btn { width: 50px; height: 50px; background: var(--accent); border-radius: 50%; border: none; cursor: pointer; display: flex; justify-content: center; align-items: center; color: #030712; font-size: 1.2rem; box-shadow: 0 0 20px var(--accent-glow); transition: 0.3s; }
         .float-btn:hover { transform: scale(1.15) rotate(10deg); }
-
+ 
         .rocket-top-btn {
             position: fixed; bottom: 30px; left: 95px;
             background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
@@ -152,7 +158,7 @@
         }
         .rocket-top-btn.show { opacity: 1; visibility: visible; }
         .rocket-top-btn:hover { transform: scale(1.15); }
-
+ 
         .mobile-search-float {
             position: fixed; bottom: 30px; left: 160px;
             background: var(--accent); color: #030712; border: none; width: 50px; height: 50px; border-radius: 50%;
@@ -160,14 +166,14 @@
             box-shadow: 0 0 20px var(--accent-glow); z-index: 1000; transition: 0.3s;
         }
         .mobile-search-float:hover { transform: scale(1.15); }
-
+ 
         @keyframes launchRocket {
             0% { transform: translateY(0) scale(1); }
             30% { transform: translateY(10px) scale(0.9); filter: brightness(1.5); }
             100% { transform: translateY(-800px) scale(0.5); opacity: 0; }
         }
         .rocket-top-btn.launching { animation: launchRocket 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-
+ 
         #search-modal {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85);
             z-index: 50000; display: none; justify-content: center; align-items: flex-start; padding-top: 120px; backdrop-filter: blur(12px);
@@ -177,7 +183,7 @@
         .search-results-list { max-height: 300px; overflow-y: auto; padding: 10px; list-style: none; }
         .search-results-list li { padding: 12px 18px; border-radius: 12px; margin-bottom: 5px; cursor: pointer; transition: 0.2s; display: flex; align-items: center; gap: 10px; }
         .search-results-list li:hover { background: rgba(56, 189, 248, 0.15); color: var(--accent); }
-
+ 
         #project-modal {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.88);
             z-index: 40000; display: none; justify-content: center; align-items: center; padding: 20px; backdrop-filter: blur(15px);
@@ -185,7 +191,7 @@
         .modal-content { background: #0f172a; border: 2px solid var(--accent); width: 100%; max-width: 650px; padding: 35px; border-radius: 24px; position: relative; box-shadow: 0 0 50px var(--accent-glow); }
         .close-modal { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.1); border: none; color: white; width: 35px; height: 35px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: 0.3s; }
         .close-modal:hover { background: var(--accent); color: #030712; }
-
+ 
         #toast {
             position: fixed; bottom: 30px; right: 30px; background: rgba(15, 23, 42, 0.95);
             border: 1px solid var(--accent); color: white; padding: 16px 28px; border-radius: 16px;
@@ -194,12 +200,12 @@
             backdrop-filter: blur(15px);
         }
         #toast.show { transform: translateY(0); }
-
+ 
         #lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.94); z-index: 30000; display: none; justify-content: center; align-items: center; padding: 20px; backdrop-filter: blur(10px); }
         #lightbox img { max-width: 90%; max-height: 85vh; border-radius: 16px; border: 2px solid var(--accent); box-shadow: 0 0 40px var(--accent-glow); }
-
+ 
         footer { text-align: center; padding: 50px 20px; border-top: 1px solid rgba(255,255,255,0.08); color: var(--text-muted); margin-top: 80px; }
-
+ 
         @media(max-width: 768px) {
             .nav-links, .hud-panel { display: none; }
             h1 { font-size: 2.4rem; }
@@ -209,30 +215,30 @@
     </style>
 </head>
 <body>
-
+ 
 <canvas id="particle-canvas"></canvas>
 <div class="cursor-dot" id="cursor-dot"></div>
 <div class="cursor-outline" id="cursor-outline"></div>
 <div id="progress-bar"></div>
-
+ 
 <div id="toast">
     <i class="fa-solid fa-shield-halved" style="color: var(--accent); font-size: 1.4rem;"></i>
     <div>
-        <div style="font-weight: 800;">MK CREATIVE Agency & AI Suite Active</div>
+        <div style="font-weight: 800;">MK CREATIVE Agency Security Active</div>
         <div style="font-size: 0.85rem; color: var(--text-muted);">Systems online under Mohamed Antar's governance.</div>
     </div>
 </div>
-
+ 
 <div id="lightbox" onclick="closeLightbox()">
     <img id="lightbox-img" src="" alt="Expanded View">
 </div>
-
+ 
+<!-- Quick Search Modal -->
 <div id="search-modal" onclick="closeSearchModal(event)">
     <div class="search-box-wrap" onclick="event.stopPropagation()">
-        <input type="text" class="search-input" id="search-input-box" placeholder="Search agency systems, AI tools or team..." oninput="filterSearch()">
+        <input type="text" class="search-input" id="search-input-box" placeholder="Search agency systems, CEO profile or team..." oninput="filterSearch()">
         <ul class="search-results-list" id="search-results">
             <li onclick="scrollToSection('about')"><i class="fa-solid fa-building"></i> <span data-translate="s_about">About MK CREATIVE Agency</span></li>
-            <li onclick="scrollToSection('ai-suite')"><i class="fa-solid fa-brain"></i> <span data-translate="s_ai">MK AI Tools & Assistant</span></li>
             <li onclick="scrollToSection('ceo')"><i class="fa-solid fa-user-tie"></i> <span data-translate="s_ceo">CEO & Founder: Mohamed Antar</span></li>
             <li onclick="scrollToSection('team')"><i class="fa-solid fa-users"></i> <span data-translate="s_team">Motion Graphics Lead: Malek Mohamed</span></li>
             <li onclick="scrollToSection('certifications')"><i class="fa-solid fa-award"></i> <span data-translate="s_certs">Verified Google Cloud Certifications</span></li>
@@ -242,7 +248,8 @@
         </ul>
     </div>
 </div>
-
+ 
+<!-- Detailed Project Modal -->
 <div id="project-modal" onclick="closeProjectModal()">
     <div class="modal-content" onclick="event.stopPropagation()">
         <button class="close-modal" onclick="closeProjectModal()"><i class="fa-solid fa-xmark"></i></button>
@@ -252,12 +259,12 @@
         <a href="#" id="modal-link" class="btn" target="_blank"><i class="fa-solid fa-external-link"></i> <span data-translate="launch_demo">Launch Agency Demo</span></a>
     </div>
 </div>
-
+ 
 <header>
     <div class="nav-container">
         <div class="logo">
             <i class="fa-solid fa-cube"></i> MK CREATIVE AGENCY
-            <span class="status-badge"><span class="status-dot"></span> <span data-translate="secure_node">AI Node Active</span></span>
+            <span class="status-badge"><span class="status-dot"></span> <span data-translate="secure_node">Secure Node</span></span>
         </div>
         
         <div class="hud-panel">
@@ -265,34 +272,36 @@
             <div class="weather-ticker"><i class="fa-solid fa-cloud-sun"></i> <span data-translate="dakahlia">Dakahlia: 32°C</span></div>
             <div class="session-ticker"><i class="fa-solid fa-clock"></i> <span id="session-time">00:00</span></div>
             <div class="battery-ticker"><i class="fa-solid fa-battery-full"></i> <span id="battery-val">100%</span></div>
+            <!-- زر اختيار وترجمة اللغات المدمج هنا -->
             <select id="langSwitch" class="lang-select" onchange="changeLanguage(this.value)">
                 <option value="ar">العربية</option>
                 <option value="en">English</option>
                 <option value="fr">Français</option>
             </select>
         </div>
-
+ 
         <nav class="nav-links">
-            <a href="#about"><i class="fa-solid fa-building"></i> <span data-translate="nav_agency">Agency</span></a>
-            <a href="#ai-suite"><i class="fa-solid fa-brain"></i> <span data-translate="nav_ai">AI Tools</span></a>
+            <a href="#about"><i class="fa-solid fa-building">
+</i> <span data-translate="nav_agency">Agency</span></a>
             <a href="#ceo"><i class="fa-solid fa-user-tie"></i> <span data-translate="nav_ceo">CEO</span></a>
             <a href="#team"><i class="fa-solid fa-users"></i> <span data-translate="nav_team">Team</span></a>
             <a href="#certifications"><i class="fa-solid fa-award"></i> <span data-translate="nav_certs">Certifications</span></a>
             <a href="#projects"><i class="fa-solid fa-layer-group"></i> <span data-translate="nav_solutions">Solutions</span></a>
+            <a href="#skills"><i class="fa-solid fa-code"></i> <span data-translate="nav_tech">Tech Stack</span></a>
             <a href="#contact"><i class="fa-solid fa-envelope"></i> <span data-translate="nav_contact">Contact</span></a>
         </nav>
     </div>
 </header>
-
+ 
 <div class="activity-ticker-bar">
     <div class="ticker-content">
-        🏢 <b data-translate="ticker_title">MK CREATIVE AGENCY:</b> <span data-translate="ticker_desc">High-Performance Cloud Architecture & AI Integration</span> &nbsp;&bull;&nbsp; ♟️ <span data-translate="ticker_ceo">Directed by Mohamed Antar (CEO, 14y)</span> &nbsp;&bull;&nbsp; <span data-translate="ticker_search">Press Ctrl + K for Agency Quick Search!</span>
+        🏢 <b data-translate="ticker_title">MK CREATIVE AGENCY:</b> <span data-translate="ticker_desc">High-Performance Cloud Architecture & AI Integration</span>  •  ♟️ <span data-translate="ticker_ceo">Directed by Mohamed Antar (CEO, 14y)</span>  •  <span data-translate="ticker_search">Press Ctrl + K for Agency Quick Search!</span>
     </div>
 </div>
-
+ 
 <section class="hero" id="about">
     <div class="container visible">
-        <h1>MK CREATIVE Agency & AI Suite</h1>
+        <h1>MK CREATIVE Agency</h1>
         <p style="font-size: 1.3rem; color: var(--text-muted);">
             <span data-translate="hero_subtitle">Empowering Global Business with</span> <span class="typed-text" id="typed"></span>
         </p>
@@ -301,16 +310,16 @@
             <i class="fa-solid fa-microchip fa-spin" style="color: var(--accent);"></i> 
             <span><span data-translate="agency_status">Agency Status:</span> <b><span data-translate="agency_status_val">Next-Gen Cloud & AI Frameworks Active</span></b></span>
         </div>
-
+ 
         <p style="max-width: 750px; margin: 25px auto; color: #cbd5e1; line-height: 1.8;" data-translate="hero_desc">
             MK CREATIVE Agency is a forward-thinking technology corporation specializing in automated retail POS systems, high-retention digital media pipelines, and Google Cloud infrastructure integration.
         </p>
         
         <div style="margin-top: 30px;">
-            <a href="#ai-suite" class="btn"><i class="fa-solid fa-brain"></i> <span data-translate="btn_ai">Open MK AI Tools</span></a>
-            <a href="#projects" class="btn btn-outline"><i class="fa-solid fa-rocket"></i> <span data-translate="btn_explore">Explore Solutions</span></a>
+            <a href="#projects" class="btn"><i class="fa-solid fa-rocket"></i> <span data-translate="btn_explore">Explore Solutions</span></a>
+            <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-headset"></i> <span data-translate="btn_partner">Partner With Us</span></a>
         </div>
-
+ 
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-number" data-target="10">0</div>
@@ -331,32 +340,7 @@
         </div>
     </div>
 </section>
-
-<!-- MK AI TOOLS & HUGGING FACE INTEGRATION SECTION -->
-<div class="container" id="ai-suite">
-    <h2 class="section-title" data-translate="sec_aitools">MK AI TOOLS & SMART TASKS</h2>
-    <p style="color: var(--text-muted); margin-bottom: 25px;" data-translate="aitools_subtitle">Powered by Mistral-7B via Hugging Face API to optimize content creation and channel growth[cite: 5].</p>
-    
-    <div class="ai-tools-container">
-        <h3 style="color: var(--accent); margin-bottom: 15px; font-size: 1.2rem;"><i class="fa-solid fa-wand-magic-sparkles"></i> <span data-translate="ai_generator_title">AI Content & Task Assistant</span></h3>
-        
-        <div class="ai-input-group">
-            <input type="text" id="ai-custom-prompt" class="ai-input" placeholder="اكتب فكرة أو اسأل الذكاء الاصطناعي عن تحسين الريتش..." data-placeholder-trans="ai_placeholder">
-            <button class="btn" onclick="aiCustomQuery()"><i class="fa-solid fa-paper-plane"></i> <span data-translate="btn_ask_ai">تنفيذ الأمر</span></button>
-            <button class="btn btn-outline" onclick="aiSuggestTasks()"><i class="fa-solid fa-list-check"></i> <span data-translate="btn_suggest_tasks">اقتراح مهام ذكية</span></button>
-        </div>
-
-        <div id="ai-loading" style="display: none; color: var(--accent); margin: 15px 0; font-size: 0.9rem;">
-            <i class="fa-solid fa-spinner fa-spin"></i> <span data-translate="ai_loading_text">جاري المعالجة عبر Hugging Face Model...</span>
-        </div>
-
-        <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 16px; border: 1px solid rgba(56, 189, 248, 0.2); margin-top: 15px;">
-            <h4 style="color: var(--accent); font-size: 1rem; margin-bottom: 10px;"><i class="fa-solid fa-clipboard-list"></i> <span data-translate="tasks_header">قائمة المهام الذكية للقناة والوكالة</span></h4>
-            <ul id="ai-tasks-container" class="ai-tasks-list"></ul>
-        </div>
-    </div>
-</div>
-
+ 
 <!-- CEO PROFILE SECTION -->
 <div class="container" id="ceo">
     <h2 class="section-title" data-translate="sec_exec">EXECUTIVE LEADERSHIP</h2>
@@ -375,7 +359,7 @@
         </p>
     </div>
 </div>
-
+ 
 <!-- AGENCY TEAM & COLLABORATORS SECTION -->
 <div class="container" id="team">
     <h2 class="section-title" data-translate="sec_team">AGENCY TEAM & COLLABORATORS</h2>
@@ -392,10 +376,11 @@
                     <p style="color: var(--text-muted); font-size: 0.85rem;" data-translate="malek_role">Motion Graphic Designer & Video Editor (Summer Launch)</p>
                 </div>
             </div>
-            <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6;" data-translate="malek_desc">
+            <p style="color: #cbd5e1; font-size: 0.950rem; line-height: 1.6;" data-translate="malek_desc">
                 Served as the lead Motion Graphic Designer for MK CREATIVE Agency's Summer Launch. Demonstrated exemplary commitment, visual creativity, and professional execution across brand video production and dynamic logo animations.
             </p>
             
+            <!-- Asmaa Centre Collaboration Video Project -->
             <div style="margin-top: 15px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 16px; border: 1px solid rgba(56, 189, 248, 0.2);">
                 <h4 style="color: var(--accent); font-size: 1rem; margin-bottom: 10px;"><i class="fa-solid fa-play-circle"></i> <span data-translate="asmaa_title">Asmaa Centre Collaboration Project</span></h4>
                 <video controls autoplay muted loop playsinline style="width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); max-height: 450px; object-fit: cover;">
@@ -404,14 +389,14 @@
                     Your browser does not support the video tag.
                 </video>
             </div>
-
+ 
             <div style="margin-top: 10px;">
                 <button class="btn btn-outline" onclick="openLightbox('Screenshot_20260815_210636.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-award"></i> <span data-translate="btn_cert">View Official Internship Certificate (June 29, 2026)</span></button>
             </div>
         </div>
     </div>
 </div>
-
+ 
 <!-- CERTIFICATIONS SECTION -->
 <div class="container" id="certifications">
     <h2 class="section-title" data-translate="sec_certs">VERIFIED AGENCY CERTIFICATIONS</h2>
@@ -424,44 +409,86 @@
             <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
             <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_133154.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
         </div>
-
+ 
         <div class="cert-card">
             <img src="IMG_20251221_133952_edit_1294679129859207.jpg" alt="Gemini in Gmail" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Gemini in Gmail</h3>
             <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
             <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_133952_edit_1294679129859207.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
         </div>
-
+ 
         <div class="cert-card">
             <img src="IMG_20251221_134712.jpg" alt="Trust and Security with Google Cloud" onclick="openLightbox(this.src)">
             <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Trust & Security with Google Cloud</h3>
             <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
             <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_134712.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
         </div>
+ 
+        <div class="cert-card">
+            <img src="IMG_20251221_135357.jpg" alt="Modernize Infrastructure and Applications" onclick="openLightbox(this.src)">
+            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Modernize Infrastructure & Apps</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_135357.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
+        </div>
+ 
+        <div class="cert-card">
+            <img src="IMG_20260501_100603.jpg" alt="Responsible AI" onclick="openLightbox(this.src)">
+            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Responsible AI: Applying Principles</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20260501_100603.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
+        </div>
+ 
+        <div class="cert-card">
+            <img src="IMG_20251221_140439.jpg" alt="Gemini in Google Meet" onclick="openLightbox(this.src)">
+            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Gemini in Google Meet</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_140439.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
+        </div>
+ 
+        <div class="cert-card">
+            <img src="IMG_20260501_100729.jpg" alt="Introduction to Gemini for Google Workspace" onclick="openLightbox(this.src)">
+            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Intro to Gemini for Workspace</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20260501_100729.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
+        </div>
+ 
+        <div class="cert-card">
+            <img src="IMG_20251221_141142.jpg" alt="Scaling with Google Cloud Operations" onclick="openLightbox(this.src)">
+            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Scaling with Cloud Operations</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_141142.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
+        </div>
+ 
+        <div class="cert-card">
+            <img src="IMG_20251221_142835_edit_2119882193330690.jpg" alt="Gemini in Google Slides" onclick="openLightbox(this.src)">
+            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Gemini in Google Slides</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_142835_edit_2119882193330690.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
+        </div>
     </div>
 </div>
-
+ 
 <div class="container" id="projects">
     <h2 class="section-title" data-translate="sec_solutions">AGENCY SOLUTIONS</h2>
     <div class="grid">
         <div class="card" onclick="openProjectModal('Future Mall POS', 'Advanced enterprise retail web application featuring role-based access control, AI product classification via Keras/Teachable Machine, multi-currency frameworks, and automated inventory management.', ['Python', 'HTML/JS', 'AI Frameworks'], 'https://github.com')">
             <h3><i class="fa-solid fa-store" style="color: var(--accent);"></i> Future Mall POS</h3>
             <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;" data-translate="proj1_desc">Full-stack retail web application featuring role-based access control, AI product classification, and multi-currency frameworks.</p>
-            <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);" data-translate="view_specs">View System Specs &rarr;</span>
+            <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);" data-translate="view_specs">View System Specs →</span>
         </div>
         <div class="card" onclick="openProjectModal('Viral Media Engine', 'Corporate media distribution engine generating over 40M+ views through precision audio-visual balancing, advanced short-form optimization, and high-retention editing pipelines.', ['Video Production', 'Analytics', 'Media Scaling'], 'https://youtube.com/@mo7amed_5272')">
             <h3><i class="fa-solid fa-video" style="color: var(--accent);"></i> Viral Media Engine</h3>
             <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;" data-translate="proj2_desc">Generated over 40M+ views through precision audio-visual balancing, advanced short-form optimization, and high-retention editing.</p>
-            <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);" data-translate="view_specs">View System Specs &rarr;</span>
+            <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);" data-translate="view_specs">View System Specs →</span>
         </div>
         <div class="card" onclick="openProjectModal('EGYPT CHESS CLUB', 'Strategic community management ecosystem and automated tactical club frameworks hosted on Chess.com to foster high-level analytical thinking and local talent.', ['Strategy', 'Community Engine'], 'https://chess.com')">
             <h3><i class="fa-solid fa-chess-board" style="color: var(--accent);"></i> EGYPT CHESS CLUB (Admin)</h3>
             <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;" data-translate="proj3_desc">Active administration and tactical management within digital strategy communities and club workflows.</p>
-            <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);" data-translate="view_specs">View System Specs &rarr;</span>
+            <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);" data-translate="view_specs">View System Specs →</span>
         </div>
     </div>
 </div>
-
+ 
 <div class="container" id="skills">
     <h2 class="section-title" data-translate="sec_techstack">AGENCY TECHNICAL STACK</h2>
     <div class="skills-container">
@@ -483,146 +510,69 @@
         </div>
     </div>
 </div>
-
+ 
+<div class="container" id="gallery">
+    <h2 class="section-title" data-translate="sec_portals">CLIENT PORTALS & VISUAL DESIGNS</h2>
+    <div class="showcase-grid">
+        <div class="media-box">
+            <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 1rem;" data-translate="portal1">Asmaa Clinic UI Portal</h3>
+            <img src="IMG-20260630-WA0006.jpg" alt="Asmaa Clinic" onclick="openLightbox(this.src)">
+        </div>
+        <div class="media-box">
+            <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 1rem;" data-translate="portal2">Gaming Media Production</h3>
+            <img src="Screenshot_20260815_093326.jpg" alt="Minecraft Thumbnail" onclick="openLightbox(this.src)">
+        </div>
+        <div class="media-box">
+            <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 1rem;" data-translate="portal3">Islam: A Way of Life Interface</h3>
+            <img src="Screenshot_20260815_093338.jpg" alt="Islam Way of Life" onclick="openLightbox(this.src)">
+        </div>
+    </div>
+</div>
+ 
 <div class="container" id="contact">
     <h2 class="section-title" data-translate="sec_comm">SECURE AGENCY COMMUNICATIONS</h2>
     <div class="card" style="max-width: 650px; margin: auto; text-align: center; cursor: default;">
         <p style="margin: 12px 0;"><i class="fa-solid fa-envelope" style="color: var(--accent);"></i> <span data-translate="agency_email">Agency Email:</span> <span>moamedantar8@gmail.com</span></p>
         <p style="margin: 12px 0;"><i class="fa-brands fa-whatsapp" style="color: #22c55e;"></i> <span data-translate="agency_whatsapp">Direct Line / WhatsApp:</span> <a href="https://wa.me/201559719175" target="_blank" style="color:var(--accent); text-decoration: none;">+20 155 971 9175</a></p>
-        <p style="margin: 12px 0;"><i class="fa-brands fa-linkedin" style="color: var(--accent);"></i> <span data-translate="agency_linkedin">Executive LinkedIn:</span> <a href="https://linkedin.com/in/mohamed-antar-522201406" style="color:var(--accent); text-decoration: none;" target="_blank">mohamed-antar-522201406</a></p>
+        <p style="margin: 12px 0;"><i class="fa-brands fa-linkedin" style="color: var(--accent);">
+</i> <span data-translate="agency_linkedin">Executive LinkedIn:</span> <a href="https://linkedin.com/in/mohamed-antar-522201406" style="color:var(--accent); text-decoration: none;" target="_blank">mohamed-antar-522201406</a></p>
         <button class="btn" style="margin-top: 20px;" onclick="copyEmail()"><i class="fa-solid fa-copy"></i> <span data-translate="btn_copy">Copy Agency Email</span></button>
     </div>
 </div>
-
+ 
 <div class="floating-controls">
     <button class="float-btn" onclick="toggleMatrixMode()" title="Toggle Matrix Secure Mode"><i class="fa-solid fa-code"></i></button>
     <button class="float-btn" onclick="toggleAmberMode()" title="Toggle Amber E-Ink Mode"><i class="fa-solid fa-moon"></i></button>
     <button class="float-btn" id="audio-toggle-btn" onclick="toggleAudioFX()" title="Toggle Audio Sound FX"><i class="fa-solid fa-volume-high"></i></button>
 </div>
-
-<button class="rocket-top-btn" id="rocketBtn" onclick="launchToTop()" title="Scroll to Top">🚀</button>
-<button class="mobile-search-float" onclick="openSearchModalMobile()" title="Quick Search"><i class="fa-solid fa-magnifying-glass"></i></button>
-
+ 
+<!-- Rocket Top Button -->
+<button class="rocket-top-btn" id="rocketBtn" onclick="launchToTop()" title="Scroll to Top">
+    🚀
+</button>
+ 
+<!-- Mobile Search Float Button -->
+<button class="mobile-search-float" onclick="openSearchModalMobile()" title="Quick Search">
+    <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+ 
 <footer>
-    <p data-translate="footer_text">&copy; 2026 MK CREATIVE Agency. Founded and Directed by Mohamed Antar. All Rights Reserved.</p>
+    <p data-translate="footer_text">© 2026 MK CREATIVE Agency. Founded and Directed by Mohamed Antar. All Rights Reserved.</p>
 </footer>
-
+ 
 <script>
-    const API_TOKEN = "YOUR_HF_TOKEN_HERE";[cite: 5]
-    const MODEL_URL = "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2";[cite: 5]
-
-    let tasks = [
-        { id: 1, text: "تصميم مونتاج احترافي لفيديو الألعاب القادم لزيادة التفاعل", done: false },
-        { id: 2, text: "تحديث واجهة موقع وكالة MK CREATIVE وتطوير أنظمة الـ POS", done: false }
-    ];
-    let nextId = 3;
-
-    function renderTasks() {
-        const container = document.getElementById('ai-tasks-container');
-        if (!container) return;
-        container.innerHTML = '';
-        if (tasks.length === 0) {
-            container.innerHTML = '<li style="color: var(--text-muted); justify-content: center;">لا توجد مهام حالية. اضغط على اقتراح مهام ذكية.</li>';
-            return;
-        }
-        tasks.forEach(t => {
-            let li = document.createElement('li');
-            li.innerHTML = `
-                <span><i class="fa-solid fa-circle-dot" style="color: var(--accent); margin-left: 8px;"></i> ${t.text}</span>
-                <button class="btn btn-outline" style="padding: 4px 10px; font-size: 0.75rem;" onclick="removeTask(${t.id})"><i class="fa-solid fa-check"></i> إنجاز</button>
-            `;
-            container.appendChild(li);
-        });
-    }
-
-    function removeTask(id) {
-        tasks = tasks.filter(t => t.id !== id);
-        renderTasks();
-        showToast("✓ تم إنجاز المهام بنجاح");
-    }
-
-    function showLoading(show) {
-        const loader = document.getElementById('ai-loading');
-        if (loader) loader.style.display = show ? 'block' : 'none';
-    }
-
-    async function aiSuggestTasks() {
-        showLoading(true);
-        const existing = tasks.map(t => t.text).join(', ');
-        try {
-            const res = await fetch(MODEL_URL, {
-                method: 'POST',
-                headers: { 
-                    'Authorization': `Bearer ${API_TOKEN}`,[cite: 5]
-                    'Content-Type': 'application/json' 
-                },
-                body: JSON.stringify({ inputs: `أنا صانع محتوى ألعاب وتقنية ومدير وكالة MK CREATIVE. مهامي الحالية: ${existing || 'لا يوجد'}. اقترح 3 مهام جديدة ذكية لزيادة ريتش القناة والوكالة. أجب بنقاط مرقمة بالعربية.` })
-            });
-            
-            const data = await res.json();
-            const text = data[0]?.generated_text || '';
-            
-            const lines = text.split('\n').filter(l => l.match(/^\d+\./));
-            if (lines.length > 0) {
-                lines.forEach(line => {
-                    const taskText = line.replace(/^\d+\.\s*/, '').trim();
-                    if (taskText) tasks.unshift({ id: nextId++, text: taskText, done: false });
-                });
-            } else {
-                tasks.unshift({ id: nextId++, text: "إطلاق حملة تسويقية جديدة لخدمات الموشن جرافيك عبر منصات التواصل", done: false });
-            }
-            
-            renderTasks();
-            showToast("✓ تم إضافة مهام ذكية بنجاح عبر Hugging Face");[cite: 5]
-        } catch (err) {
-            console.error(err);
-            showToast("⚠️ تم إضافة مهمة افتراضية لتعذر الاتصال بالخادم المؤقت");
-            tasks.unshift({ id: nextId++, text: "تحسين خوارزميات الأداء ورفع سرعة تطبيق الويب الخاص بالوكالة", done: false });
-            renderTasks();
-        }
-        showLoading(false);
-    }
-
-    async function aiCustomQuery() {
-        const promptInput = document.getElementById('ai-custom-prompt');
-        const query = promptInput.value.trim();
-        if (!query) {
-            showToast("⚠️ يرجى إدخال نص أو سؤال أولاً");
-            return;
-        }
-        showLoading(true);
-        try {
-            const res = await fetch(MODEL_URL, {
-                method: 'POST',
-                headers: { 
-                    'Authorization': `Bearer ${API_TOKEN}`,[cite: 5]
-                    'Content-Type': 'application/json' 
-                },
-                body: JSON.stringify({ inputs: query })
-            });
-            const data = await res.json();
-            const text = data[0]?.generated_text || "تم استلام الطلب بنجاح وتطبيق خوارزميات الذكاء الاصطناعي.";
-            tasks.unshift({ id: nextId++, text: `رد الذكاء الاصطناعي: ${text.substring(0, 90)}...`, done: false });
-            renderTasks();
-            promptInput.value = '';
-            showToast("✓ تم تنفيذ استعلام الذكاء الاصطناعي بنجاح");
-        } catch (err) {
-            showToast("⚠️ خطأ في الاتصال بالنموذج الذكي");
-        }
-        showLoading(false);
-    }
-
+    // قاموس الترجمات الديناميكية للغات الثلاث
     const translations = {
         ar: {
             dir: "rtl",
-            secure_node: "نقطة الذكاء الاصطناعي",
+            secure_node: "نقطة آمنة",
             dakahlia: "الدقهلية: 32°م",
             nav_agency: "الوكالة",
-            nav_ai: "أدوات الذكاء الاصطناعي",
             nav_ceo: "المؤسس",
             nav_team: "الفريق",
             nav_certs: "الشهادات",
             nav_solutions: "الحلول",
+            nav_tech: "التقنيات",
             nav_contact: "تواصل معنا",
             ticker_title: "وكالة MK الإبداعية:",
             ticker_desc: "هندسة السحابة عالية الأداء وتكامل الذكاء الاصطناعي",
@@ -632,26 +582,19 @@
             agency_status: "حالة الوكالة:",
             agency_status_val: "أنظمة السحابة والذكاء الاصطناعي من الجيل التالي نشطة",
             hero_desc: "وكالة MK الإبداعية هي شركة تقنية مستقبلية تخصصت في أنظمة نقاط البيع الآلية للتجزئة، خطوط الإنتاج الإعلامي الرقمي عالية الاحتفاظ، وتكامل البنية التحتية لسحابة Google Cloud.",
-            btn_ai: "فتح أدوات MK AI",
             btn_explore: "استكشف الحلول",
+            btn_partner: "شاركنا العمل",
             stat_certs: "شهادات Google Cloud معتمدة",
             stat_views: "أكثر من مليون مشاهدة عالمية",
             stat_age: "سنوات عمر المدير التنفيذي المبتكر",
             stat_secure: "% البنية التحتية الآمنة",
-            sec_aitools: "أدوات MK AI والمهام الذكية",
-            aitools_subtitle: "مدعومة بنموذج Mistral-7B عبر Hugging Face API لتحسين صناعة المحتوى ونمو القناة[cite: 5].",
-            ai_generator_title: "مساعد الذكاء الاصطناعي للمحتوى والمهام",
-            btn_ask_ai: "تنفيذ الأمر",
-            btn_suggest_tasks: "اقتراح مهام ذكية",
-            ai_loading_text: "جاري المعالجة عبر Hugging Face Model...",
-            tasks_header: "قائمة المهام الذكية للقناة والوكالة",
             sec_exec: "القيادة التنفيذية",
             ceo_role: "المؤسس والرئيس التنفيذي (CEO) • العمر 14 سنة • الدقهلية، مصر",
-            ceo_desc: "بصفته العقل المبتكر البالغ من العمر 14 عاماً خلف وكالة MK الإبداعية، يشرف محمد على الهندسة المعمارية التقنية، وتكامل الذكاء الاصطناعي، وهندسة البرمجيات عالية المستوى.",
+            ceo_desc: "بصفته العقل المبتكر البالغ من العمر 14 عاماً خلف وكالة MK الإبداعية، يشرف محمد على الهندسة المعمارية التقنية، وتكامل الذكاء الاصطناعي، وهندسة البرمجيات عالية المستوى. يحمل 10 شهادات رسمية من Udacity و Google Cloud، ليجسد الجسر بين العمليات السحابية المتقدمة والتطبيقات التجارية الآلية.",
             sec_team: "فريق الوكالة والمبدعون",
             team_subtitle: "المواهب الرئيسية التي ساهمت بالتميز الإبداعي في مشاريع وكالة MK الإبداعية.",
             malek_role: "مصمم جرافيك ومونتير فيديو (إطلاق الصيف)",
-            malek_desc: "عمل كمصمم رئيسي للرسومات المتحركة لإطلاق صيف وكالة MK الإبداعية، وأظهر التزاماً استثنائياً وإبداعاً بصرياً وتنفيذاً احترافياً لإنتاج فيديوهات العلامة التجارية.",
+            malek_desc: "عمل كمصمم رئيسي للرسومات المتحركة لإطلاق صيف وكالة MK الإبداعية، وأظهر التزاماً استثنائياً وإبداعاً بصرياً وتنفيذاً احترافياً لإنتاج فيديوهات العلامة التجارية ورسوم الشعار المتحركة.",
             asmaa_title: "مشروع التعاون مع مركز أسماء",
             btn_cert: "عرض شهادة التدريب الرسمية (29 يونيو 2026)",
             sec_certs: "شهادات الوكالة المعتمدة",
@@ -667,6 +610,10 @@
             skill2: "بايثون ومنطق برمجيات الأعمال",
             skill3: "تطوير الويب الشامل (HTML/JS/CSS)",
             skill4: "تكامل الذكاء الاصطناعي وأتمتة مساحة العمل",
+            sec_portals: "بوابات العملاء والتصاميم البصرية",
+            portal1: "بوابة عيادة أسماء",
+            portal2: "إنتاج المحتوى الإعلامي للألعاب",
+            portal3: "واجهة الإسلام منهج حياة",
             sec_comm: "اتصالات الوكالة الآمنة",
             agency_email: "بريد الوكالة:",
             agency_whatsapp: "الخط المباشر / واتساب:",
@@ -675,7 +622,6 @@
             footer_text: "© 2026 وكالة MK الإبداعية. مؤسسة ومُدارة بواسطة محمد عنتر. جميع الحقوق محفوظة.",
             launch_demo: "تشغيل العرض التوضيحي",
             s_about: "حول وكالة MK الإبداعية",
-            s_ai: "أدوات الذكاء الاصطناعي MK AI",
             s_ceo: "المؤسس والرئيس التنفيذي: محمد عنتر",
             s_team: "مسؤول الموشن جرافيك: مالك محمد",
             s_certs: "شهادات Google Cloud المعتمدة",
@@ -685,14 +631,14 @@
         },
         en: {
             dir: "ltr",
-            secure_node: "AI Node Active",
+            secure_node: "Secure Node",
             dakahlia: "Dakahlia: 32°C",
             nav_agency: "Agency",
-            nav_ai: "AI Tools",
             nav_ceo: "CEO",
             nav_team: "Team",
             nav_certs: "Certifications",
             nav_solutions: "Solutions",
+            nav_tech: "Tech Stack",
             nav_contact: "Contact",
             ticker_title: "MK CREATIVE AGENCY:",
             ticker_desc: "High-Performance Cloud Architecture & AI Integration",
@@ -702,26 +648,19 @@
             agency_status: "Agency Status:",
             agency_status_val: "Next-Gen Cloud & AI Frameworks Active",
             hero_desc: "MK CREATIVE Agency is a forward-thinking technology corporation specializing in automated retail POS systems, high-retention digital media pipelines, and Google Cloud infrastructure integration.",
-            btn_ai: "Open MK AI Tools",
             btn_explore: "Explore Solutions",
+            btn_partner: "Partner With Us",
             stat_certs: "Verified Google Cloud Certs",
             stat_views: "Million+ Global Views",
             stat_age: "Years Young Innovator CEO",
             stat_secure: "% Secure Infrastructure",
-            sec_aitools: "MK AI TOOLS & SMART TASKS",
-            aitools_subtitle: "Powered by Mistral-7B via Hugging Face API to optimize content creation and channel growth[cite: 5].",
-            ai_generator_title: "AI Content & Task Assistant",
-            btn_ask_ai: "Execute Prompt",
-            btn_suggest_tasks: "Suggest Smart Tasks",
-            ai_loading_text: "Processing via Hugging Face Model...",
-            tasks_header: "Channel & Agency Smart Tasks List",
             sec_exec: "EXECUTIVE LEADERSHIP",
             ceo_role: "Founder & Chief Executive Officer (CEO) • Age 14 • Dakahlia, Egypt",
-            ceo_desc: "As the 14-year-old visionary behind MK CREATIVE Agency, Mohamed oversees technical architecture, AI integrations, and high-level software engineering.",
+            ceo_desc: "As the 14-year-old visionary behind MK CREATIVE Agency, Mohamed oversees technical architecture, AI integrations, and high-level software engineering. Holding 10 official certifications from Udacity and Google Cloud, he bridges the gap between advanced cloud operations, automated commercial applications, and viral digital media solutions.",
             sec_team: "AGENCY TEAM & COLLABORATORS",
             team_subtitle: "Key talent who contributed creative excellence to MK CREATIVE Agency projects.",
             malek_role: "Motion Graphic Designer & Video Editor (Summer Launch)",
-            malek_desc: "Served as the lead Motion Graphic Designer for MK CREATIVE Agency's Summer Launch. Demonstrated exemplary commitment and visual creativity.",
+            malek_desc: "Served as the lead Motion Graphic Designer for MK CREATIVE Agency's Summer Launch. Demonstrated exemplary commitment, visual creativity, and professional execution across brand video production and dynamic logo animations.",
             asmaa_title: "Asmaa Centre Collaboration Project",
             btn_cert: "View Official Internship Certificate (June 29, 2026)",
             sec_certs: "VERIFIED AGENCY CERTIFICATIONS",
@@ -737,6 +676,10 @@
             skill2: "Python & Business Software Logic",
             skill3: "Full-Stack Web (HTML/JS/CSS)",
             skill4: "AI Integration & Workspace Automation",
+            sec_portals: "CLIENT PORTALS & VISUAL DESIGNS",
+            portal1: "Asmaa Clinic UI Portal",
+            portal2: "Gaming Media Production",
+            portal3: "Islam: A Way of Life Interface",
             sec_comm: "SECURE AGENCY COMMUNICATIONS",
             agency_email: "Agency Email:",
             agency_whatsapp: "Direct Line / WhatsApp:",
@@ -745,7 +688,6 @@
             footer_text: "© 2026 MK CREATIVE Agency. Founded and Directed by Mohamed Antar. All Rights Reserved.",
             launch_demo: "Launch Agency Demo",
             s_about: "About MK CREATIVE Agency",
-            s_ai: "MK AI Tools & Assistant",
             s_ceo: "CEO & Founder: Mohamed Antar",
             s_team: "Motion Graphics Lead: Malek Mohamed",
             s_certs: "Verified Google Cloud Certifications",
@@ -755,14 +697,14 @@
         },
         fr: {
             dir: "ltr",
-            secure_node: "Nœud IA Actif",
+            secure_node: "Nœud Sécurisé",
             dakahlia: "Dakahlia: 32°C",
             nav_agency: "Agence",
-            nav_ai: "Outils IA",
             nav_ceo: "PDG",
             nav_team: "Équipe",
             nav_certs: "Certifications",
             nav_solutions: "Solutions",
+            nav_tech: "Technologies",
             nav_contact: "Contact",
             ticker_title: "MK CREATIVE AGENCY:",
             ticker_desc: "Architecture Cloud Haute Performance & Intégration IA",
@@ -771,27 +713,20 @@
             hero_subtitle: "Autonomiser les entreprises mondiales avec",
             agency_status: "Statut de l'Agence:",
             agency_status_val: "Cadres Cloud & IA de Nouvelle Génération Actifs",
-            hero_desc: "MK CREATIVE Agency est une entreprise technologique innovante spécialisée dans les systèmes POS de vente au détail automatisés.",
-            btn_ai: "Ouvrir MK AI Tools",
+            hero_desc: "MK CREATIVE Agency est une entreprise technologique innovante spécialisée dans les systèmes POS de vente au détail automatisés et l'intégration d'infrastructure Google Cloud.",
             btn_explore: "Explorer les Solutions",
+            btn_partner: "Devenir Partenaire",
             stat_certs: "Certifications Google Cloud Vérifiées",
             stat_views: "Millions de Vues Mondiales",
             stat_age: "Ans du PDG Innovateur",
             stat_secure: "% Infrastructure Sécurisée",
-            sec_aitools: "OUTILS MK AI & TÂCHES INTELLIGENTES",
-            aitools_subtitle: "Propulsé par Mistral-7B via Hugging Face API pour optimiser la création de contenu[cite: 5].",
-            ai_generator_title: "Assistant IA de Contenu et Tâches",
-            btn_ask_ai: "Exécuter",
-            btn_suggest_tasks: "Suggérer des Tâches",
-            ai_loading_text: "Traitement via le modèle Hugging Face...",
-            tasks_header: "Liste des Tâches Intelligentes",
             sec_exec: "LEADERSHIP EXÉCUTIF",
             ceo_role: "Fondateur & Directeur Général (PDG) • 14 ans • Dakahlia, Égypte",
-            ceo_desc: "En tant que visionnaire de 14 ans derrière MK CREATIVE Agency, Mohamed supervise l'architecture technique et les intégrations d'IA.",
+            ceo_desc: "En tant que visionnaire de 14 ans derrière MK CREATIVE Agency, Mohamed supervise l'architecture technique, les intégrations d'IA et l'ingénierie logicielle de haut niveau. Détenteur de 10 certifications officielles.",
             sec_team: "ÉQUIPE DE L'AGENCE & COLLABORATEURS",
             team_subtitle: "Talents clés ayant contribué à l'excellence créative des projets de MK CREATIVE Agency.",
             malek_role: "Designer Motion Graphics & Monteur Vidéo",
-            malek_desc: "A servi en tant que Motion Designer principal pour le lancement estival de MK CREATIVE Agency.",
+            malek_desc: "A servi en tant que Motion Designer principal pour le lancement estival de MK CREATIVE Agency, démontrant un engagement exemplaire et une créativité visuelle.",
             asmaa_title: "Projet de Collaboration Asmaa Centre",
             btn_cert: "Voir le Certificat de Stage Officiel (29 Juin 2026)",
             sec_certs: "CERTIFICATIONS OFFICIELLES DE L'AGENCE",
@@ -799,7 +734,7 @@
             view_cred: "Voir le Certificat",
             sec_solutions: "SOLUTIONS DE L'AGENCE",
             proj1_desc: "Application Web e-commerce complète avec contrôle d'accès basé sur les rôles et classification des produits par IA.",
-            proj2_desc: "Généré plus de 40 millions de vues grâce à un équilibre audiovisuel précis.",
+            proj2_desc: "Généré plus de 40 millions de vues grâce à un équilibre audiovisuel précis et une optimisation des formats courts.",
             proj3_desc: "Administration active et gestion tactique au sein des communautés de stratégie numérique.",
             view_specs: "Voir les Spécifications →",
             sec_techstack: "PILE TECHNIQUE DE L'AGENCE",
@@ -807,6 +742,10 @@
             skill2: "Python & Logique Logicielle",
             skill3: "Développement Web Full-Stack",
             skill4: "Intégration IA & Automatisation",
+            sec_portals: "PORTAILS CLIENTS & DESIGNS VISUELS",
+            portal1: "Portail UI Clinique Asmaa",
+            portal2: "Production Multimédia Gaming",
+            portal3: "Interface Islam: Un Mode de Vie",
             sec_comm: "COMMUNICATIONS SÉCURISÉES DE L'AGENCE",
             agency_email: "Email de l'Agence:",
             agency_whatsapp: "Ligne Directe / WhatsApp:",
@@ -815,7 +754,6 @@
             footer_text: "© 2026 MK CREATIVE Agency. Fondé et Dirigé par Mohamed Antar. Tous droits réservés.",
             launch_demo: "Lancer la Démo",
             s_about: "À propos de MK CREATIVE Agency",
-            s_ai: "Outils MK AI & Assistant",
             s_ceo: "PDG & Fondateur : Mohamed Antar",
             s_team: "Responsable Motion Design : Malek Mohamed",
             s_certs: "Certifications Google Cloud Vérifiées",
@@ -824,20 +762,23 @@
             s_contact: "Contact Professionnel Sécurisé"
         }
     };
-
+ 
     function changeLanguage(lang) {
         const t = translations[lang];
         if (!t) return;
         document.documentElement.lang = lang;
         document.documentElement.dir = t.dir;
-
+ 
+        // تحديث جميع النصوص التي تحتوي على سمة data-translate
         document.querySelectorAll('[data-translate]').forEach(el => {
             const key = el.getAttribute('data-translate');
-            if (t[key]) el.textContent = t[key];
+            if (t[key]) {
+                el.textContent = t[key];
+            }
         });
         showToast(lang === 'ar' ? "تم تغيير اللغة إلى العربية" : (lang === 'en' ? "Language changed to English" : "Langue changée en Français"));
     }
-
+ 
     let audioEnabled = true;
     function playClickSound() {
         if (!audioEnabled) return;
@@ -862,9 +803,9 @@
         btn.innerHTML = audioEnabled ? '<i class="fa-solid fa-volume-high"></i>' : '<i class="fa-solid fa-volume-xmark"></i>';
         showToast(audioEnabled ? "Audio FX Enabled" : "Audio FX Muted");
     }
-
+ 
     document.addEventListener('click', () => { playClickSound(); });
-
+ 
     const canvas = document.getElementById('particle-canvas');
     const ctx = canvas.getContext('2d');
     let particlesArray = [];
@@ -874,7 +815,7 @@
     }
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
-
+ 
     class Particle {
         constructor() {
             this.x = Math.random() * canvas.width;
@@ -902,7 +843,7 @@
         for (let i = 0; i < count; i++) particlesArray.push(new Particle());
     }
     initParticles();
-
+ 
     function animateParticles() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         for (let i = 0; i < particlesArray.length; i++) {
@@ -926,7 +867,7 @@
         requestAnimationFrame(animateParticles);
     }
     animateParticles();
-
+ 
     const dot = document.getElementById('cursor-dot');
     const outline = document.getElementById('cursor-outline');
     window.addEventListener('mousemove', (e) => {
@@ -935,9 +876,10 @@
         outline.style.left = e.clientX + 'px';
         outline.style.top = e.clientY + 'px';
     });
-
+ 
     const rocketBtn = document.getElementById('rocketBtn');
-
+    let skillsAnimated = false;
+ 
     window.onscroll = () => {
         let winScroll = document.documentElement.scrollTop || document.body.scrollTop;
         let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -949,13 +891,22 @@
         } else {
             rocketBtn.classList.remove('show');
         }
-
+ 
         document.querySelectorAll('.container').forEach(el => {
             let rect = el.getBoundingClientRect();
             if(rect.top < window.innerHeight - 80) el.classList.add('visible');
         });
+ 
+        const skillsSec = document.getElementById('skills');
+        if (skillsSec && skillsSec.getBoundingClientRect().top < window.innerHeight - 100 && !skillsAnimated) {
+            document.querySelectorAll('.skill-progress').forEach(bar =>
+ {
+                bar.style.width = bar.getAttribute('data-width') + '%';
+            });
+            skillsAnimated = true;
+        }
     };
-
+ 
     window.addEventListener('keydown', (e) => {
         if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
             e.preventDefault();
@@ -966,21 +917,21 @@
             document.getElementById('project-modal').style.display = 'none';
         }
     });
-
+ 
     function openSearchModalMobile() {
         document.getElementById('search-modal').style.display = 'flex';
         document.getElementById('search-input-box').focus();
     }
-
+ 
     function closeSearchModal(e) {
         if (e.target.id === 'search-modal') document.getElementById('search-modal').style.display = 'none';
     }
-
+ 
     function scrollToSection(id) {
         document.getElementById('search-modal').style.display = 'none';
         document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     }
-
+ 
     function filterSearch() {
         let query = document.getElementById('search-input-box').value.toLowerCase();
         let items = document.getElementById('search-results').getElementsByTagName('li');
@@ -989,7 +940,7 @@
             item.style.display = text.includes(query) ? 'flex' : 'none';
         }
     }
-
+ 
     function openProjectModal(title, desc, techArray, link) {
         document.getElementById('modal-title').textContent = title;
         document.getElementById('modal-desc').textContent = desc;
@@ -1007,12 +958,12 @@
     function closeProjectModal() {
         document.getElementById('project-modal').style.display = 'none';
     }
-
+ 
     setInterval(() => {
         let randomPing = Math.floor(Math.random() * 5) + 17;
         document.getElementById('ping-val').textContent = randomPing;
     }, 3500);
-
+ 
     let totalSeconds = 0;
     setInterval(() => {
         totalSeconds++;
@@ -1020,23 +971,32 @@
         let secs = (totalSeconds % 60).toString().padStart(2, '0');
         document.getElementById('session-time').textContent = `${mins}:${secs}`;
     }, 1000);
-
+ 
+    if ('getBattery' in navigator) {
+        navigator.getBattery().then(battery => {
+            function updateBattery() {
+                document.getElementById('battery-val').textContent = Math.round(battery.level * 100) + '%';
+            }
+            updateBattery();
+            battery.addEventListener('levelchange', updateBattery);
+        });
+    }
+ 
     window.onload = () => {
         setTimeout(() => {
-            showToast("MK CREATIVE Agency & AI Suite Online");
+            showToast("MK CREATIVE Agency Systems Online");
         }, 1000);
-        renderTasks();
         startCounters();
     };
-
+ 
     function showToast(msg) {
         let toast = document.getElementById("toast");
         toast.innerHTML = `<i class="fa-solid fa-shield-halved" style="color: var(--accent); font-size: 1.4rem;"></i><div><div style="font-weight: 800;">${msg}</div><div style="font-size: 0.85rem; color: var(--text-muted);">Managed by Mohamed Antar (CEO).</div></div>`;
         toast.classList.add("show");
         setTimeout(() => toast.classList.remove("show"), 4000);
     }
-
-    const words = ["Cloud Infrastructure & AI.", "Automated Retail Solutions.", "Next-Gen AI Agency Frameworks."];
+ 
+    const words = ["Cloud Infrastructure & AI.", "Automated Retail Solutions.", "Next-Gen Agency Frameworks."];
     let wordIdx = 0, charIdx = 0, currentWord = "", isDeletingState = false;
     function typeEffectEngine() {
         currentWord = words[wordIdx];
@@ -1052,7 +1012,7 @@
         setTimeout(typeEffectEngine, isDeletingState ? 35 : 80);
     }
     typeEffectEngine();
-
+ 
     function startCounters() {
         const counters = document.querySelectorAll('.stat-number');
         counters.forEach(counter => {
@@ -1071,7 +1031,7 @@
             updateCount();
         });
     }
-
+ 
     function openLightbox(src) {
         document.getElementById('lightbox-img').src = src;
         document.getElementById('lightbox').style.display = 'flex';
@@ -1079,26 +1039,26 @@
     function closeLightbox() {
         document.getElementById('lightbox').style.display = 'none';
     }
-
+ 
     function toggleMatrixMode() {
         document.body.classList.remove('amber-mode');
         document.body.classList.toggle('matrix-mode');
         initParticles();
         showToast(document.body.classList.contains('matrix-mode') ? "Matrix Secure Mode Active" : "Default Mode Restored");
     }
-
+ 
     function toggleAmberMode() {
         document.body.classList.remove('matrix-mode');
         document.body.classList.toggle('amber-mode');
         initParticles();
         showToast(document.body.classList.contains('amber-mode') ? "Amber E-Ink Mode Active" : "Default Mode Restored");
     }
-
+ 
     function copyEmail() {
         navigator.clipboard.writeText("moamedantar8@gmail.com");
         showToast("Agency Email Copied to Clipboard!");
     }
-
+ 
     function launchToTop() {
         rocketBtn.classList.add('launching');
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1108,6 +1068,6 @@
         }, 600);
     }
 </script>
-
+ 
 </body>
 </html> 
