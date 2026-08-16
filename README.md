@@ -1,1975 +1,1063 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MK AI Tools</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Cairo:wght@300;400;600;700&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-:root {
-  --neon-blue: #00d4ff;
-  --neon-purple: #b14aed;
-  --neon-pink: #ff2d78;
-  --dark-bg: #050a14;
-  --dark-surface: #0a1628;
-  --dark-card: #0d1f3c;
-  --dark-border: #1a3a5c;
-  --text-primary: #e8f4ff;
-  --text-secondary: #7aa8d0;
-  --text-muted: #3d6080;
-  --glow-blue: 0 0 20px rgba(0,212,255,0.4), 0 0 60px rgba(0,212,255,0.1);
-  --glow-purple: 0 0 20px rgba(177,74,237,0.4), 0 0 60px rgba(177,74,237,0.1);
-  --grid-color: rgba(0,212,255,0.03);
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  font-family: 'Cairo', sans-serif;
-  background: var(--dark-bg);
-  color: var(--text-primary);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-/* Animated grid background */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
-  background-size: 50px 50px;
-  animation: gridMove 20s linear infinite;
-  pointer-events: none;
-  z-index: 0;
-}
-
-@keyframes gridMove {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(50px); }
-}
-
-/* Floating orbs */
-.orb {
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(80px);
-  pointer-events: none;
-  z-index: 0;
-  animation: orbFloat 8s ease-in-out infinite;
-}
-.orb-1 { width: 400px; height: 400px; background: rgba(0,212,255,0.06); top: -100px; left: -100px; animation-delay: 0s; }
-.orb-2 { width: 350px; height: 350px; background: rgba(177,74,237,0.06); bottom: -100px; right: -100px; animation-delay: -4s; }
-.orb-3 { width: 250px; height: 250px; background: rgba(255,45,120,0.04); top: 50%; left: 50%; animation-delay: -2s; }
-
-@keyframes orbFloat {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(30px, -30px); }
-}
-
-/* HEADER */
-header {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  padding: 16px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(5,10,20,0.85);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0,212,255,0.1);
-}
-
-.logo {
-  font-family: 'Orbitron', monospace;
-  font-size: 22px;
-  font-weight: 900;
-  background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: 2px;
-}
-
-.logo span { color: var(--neon-pink); -webkit-text-fill-color: var(--neon-pink); }
-
-nav { display: flex; gap: 8px; }
-
-nav button {
-  background: transparent;
-  border: 1px solid var(--dark-border);
-  color: var(--text-secondary);
-  padding: 8px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-family: 'Cairo', sans-serif;
-  font-size: 14px;
-  transition: all 0.3s;
-}
-
-nav button:hover, nav button.active {
-  border-color: var(--neon-blue);
-  color: var(--neon-blue);
-  background: rgba(0,212,255,0.07);
-  box-shadow: 0 0 15px rgba(0,212,255,0.2);
-}
-
-/* SECTIONS */
-section { display: none; position: relative; z-index: 1; }
-section.active { display: block; }
-
-/* HERO */
-#hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 100px 40px 60px;
-}
-
-.hero-badge {
-  font-family: 'Orbitron', monospace;
-  font-size: 11px;
-  letter-spacing: 4px;
-  color: var(--neon-blue);
-  border: 1px solid rgba(0,212,255,0.3);
-  padding: 6px 20px;
-  border-radius: 20px;
-  margin-bottom: 30px;
-  background: rgba(0,212,255,0.05);
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { box-shadow: 0 0 10px rgba(0,212,255,0.2); }
-  50% { box-shadow: 0 0 25px rgba(0,212,255,0.5); }
-}
-
-h1.hero-title {
-  font-family: 'Orbitron', monospace;
-  font-size: clamp(40px, 7vw, 80px);
-  font-weight: 900;
-  line-height: 1.1;
-  margin-bottom: 20px;
-}
-
-h1.hero-title .mk { background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-h1.hero-title .ai { color: var(--neon-pink); }
-
-.hero-sub {
-  font-size: 18px;
-  color: var(--text-secondary);
-  max-width: 600px;
-  line-height: 1.8;
-  margin-bottom: 50px;
-}
-
-.hero-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  max-width: 900px;
-  width: 100%;
-  margin-bottom: 50px;
-}
-
-.hero-card {
-  background: var(--dark-card);
-  border: 1px solid var(--dark-border);
-  border-radius: 12px;
-  padding: 30px 24px;
-  cursor: pointer;
-  transition: all 0.4s;
-  text-align: right;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--card-color), transparent);
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.hero-card:hover::before { opacity: 1; }
-.hero-card:hover { transform: translateY(-6px); border-color: var(--card-color); box-shadow: 0 10px 40px rgba(0,0,0,0.4), 0 0 20px rgba(0,212,255,0.1); }
-
-.hero-card.blue { --card-color: var(--neon-blue); }
-.hero-card.purple { --card-color: var(--neon-purple); }
-.hero-card.pink { --card-color: var(--neon-pink); }
-
-.card-icon {
-  font-size: 36px;
-  margin-bottom: 16px;
-}
-
-.card-title {
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: var(--text-primary);
-}
-
-.card-desc {
-  font-size: 13px;
-  color: var(--text-secondary);
-  line-height: 1.7;
-}
-
-.cta-btn {
-  font-family: 'Orbitron', monospace;
-  font-size: 14px;
-  letter-spacing: 2px;
-  background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
-  color: #fff;
-  border: none;
-  padding: 16px 48px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s;
-  text-transform: uppercase;
-}
-
-.cta-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--glow-blue);
-}
-
-/* SECTION WRAPPER */
-.section-wrap {
-  min-height: 100vh;
-  padding: 100px 40px 60px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.section-header {
-  margin-bottom: 40px;
-}
-
-.section-tag {
-  font-family: 'Orbitron', monospace;
-  font-size: 11px;
-  letter-spacing: 3px;
-  color: var(--neon-blue);
-  margin-bottom: 12px;
-}
-
-.section-title {
-  font-family: 'Orbitron', monospace;
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-/* CHAT UI */
-.chat-layout {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 20px;
-  height: 82vh;
-}
-
-.chat-sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.mode-btn {
-  background: var(--dark-card);
-  border: 1px solid var(--dark-border);
-  color: var(--text-secondary);
-  padding: 12px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  text-align: right;
-  font-family: 'Cairo', sans-serif;
-  font-size: 13px;
-  transition: all 0.3s;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.mode-btn.active, .mode-btn:hover {
-  border-color: var(--neon-blue);
-  color: var(--neon-blue);
-  background: rgba(0,212,255,0.07);
-}
-
-.mode-icon { font-size: 18px; }
-
-.chat-main {
-  display: flex;
-  flex-direction: column;
-  background: var(--dark-card);
-  border: 1px solid var(--dark-border);
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.chat-header {
-  padding: 16px 20px;
-  border-bottom: 1px solid var(--dark-border);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: rgba(0,212,255,0.03);
-}
-
-.status-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: #00ff88;
-  box-shadow: 0 0 8px #00ff88;
-  animation: blink 2s ease-in-out infinite;
-}
-
-@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
-
-.chat-title { font-size: 14px; color: var(--text-primary); font-weight: 600; }
-.chat-sub { font-size: 11px; color: var(--text-muted); }
-
-.messages {
-  flex: 1;
-  overflow-y: auto;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  scrollbar-width: thin;
-  scrollbar-color: var(--dark-border) transparent;
-}
-
-.msg {
-  max-width: 80%;
-  animation: msgIn 0.3s ease;
-}
-
-@keyframes msgIn { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform:none; } }
-
-.msg.user { align-self: flex-end; }
-.msg.ai { align-self: flex-start; }
-
-.msg-bubble {
-  padding: 12px 16px;
-  border-radius: 12px;
-  font-size: 14px;
-  line-height: 1.7;
-  white-space: pre-wrap;
-}
-
-.msg.user .msg-bubble {
-  background: linear-gradient(135deg, rgba(0,212,255,0.2), rgba(177,74,237,0.2));
-  border: 1px solid rgba(0,212,255,0.3);
-  color: var(--text-primary);
-  border-radius: 12px 12px 4px 12px;
-}
-
-.msg.ai .msg-bubble {
-  background: var(--dark-surface);
-  border: 1px solid var(--dark-border);
-  color: var(--text-secondary);
-  border-radius: 12px 12px 12px 4px;
-  position: relative;
-}
-
-.msg.ai .msg-bubble::before {
-  content: '⬡ MK AI';
-  display: block;
-  font-family: 'Orbitron', monospace;
-  font-size: 10px;
-  color: var(--neon-blue);
-  margin-bottom: 8px;
-  letter-spacing: 1px;
-}
-
-.typing-dots {
-  display: flex;
-  gap: 4px;
-  padding: 4px 0;
-}
-.typing-dots span {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--neon-blue);
-  animation: dot 1.2s ease-in-out infinite;
-}
-.typing-dots span:nth-child(2) { animation-delay: 0.2s; }
-.typing-dots span:nth-child(3) { animation-delay: 0.4s; }
-@keyframes dot { 0%,80%,100%{transform:scale(0.8);opacity:0.4} 40%{transform:scale(1.2);opacity:1} }
-
-.chat-input-area {
-  padding: 16px;
-  border-top: 1px solid var(--dark-border);
-  display: flex;
-  gap: 10px;
-  align-items: flex-end;
-}
-
-.chat-input {
-  flex: 1;
-  background: var(--dark-surface);
-  border: 1px solid var(--dark-border);
-  border-radius: 8px;
-  color: var(--text-primary);
-  font-family: 'Cairo', sans-serif;
-  font-size: 14px;
-  padding: 12px 16px;
-  resize: none;
-  min-height: 48px;
-  max-height: 120px;
-  transition: border-color 0.3s;
-  outline: none;
-}
-
-.chat-input:focus { border-color: var(--neon-blue); box-shadow: 0 0 10px rgba(0,212,255,0.15); }
-
-.send-btn {
-  background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
-  border: none;
-  border-radius: 8px;
-  color: white;
-  width: 48px; height: 48px;
-  cursor: pointer;
-  font-size: 20px;
-  transition: all 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.send-btn:hover { transform: scale(1.05); box-shadow: var(--glow-blue); }
-.send-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
-
-/* CONTENT SECTION */
-.content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
-
-.content-type-btn {
-  background: var(--dark-card);
-  border: 1px solid var(--dark-border);
-  border-radius: 10px;
-  padding: 20px;
-  cursor: pointer;
-  transition: all 0.3s;
-  text-align: right;
-  font-family: 'Cairo', sans-serif;
-}
-
-.content-type-btn:hover, .content-type-btn.selected {
-  border-color: var(--neon-purple);
-  background: rgba(177,74,237,0.08);
-}
-
-.content-type-btn .ct-icon { font-size: 28px; margin-bottom: 8px; }
-.content-type-btn .ct-name { font-size: 14px; font-weight: 700; color: var(--text-primary); }
-.content-type-btn .ct-desc { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
-
-.content-form {
-  background: var(--dark-card);
-  border: 1px solid var(--dark-border);
-  border-radius: 12px;
-  padding: 24px;
-}
-
-.form-group { margin-bottom: 18px; }
-.form-label { display: block; font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; font-weight: 600; }
-
-.form-input, .form-textarea, .form-select {
-  width: 100%;
-  background: var(--dark-surface);
-  border: 1px solid var(--dark-border);
-  border-radius: 8px;
-  color: var(--text-primary);
-  font-family: 'Cairo', sans-serif;
-  font-size: 14px;
-  padding: 11px 14px;
-  outline: none;
-  transition: border-color 0.3s;
-}
-
-.form-input:focus, .form-textarea:focus, .form-select:focus {
-  border-color: var(--neon-purple);
-  box-shadow: 0 0 10px rgba(177,74,237,0.15);
-}
-
-.form-textarea { resize: vertical; min-height: 100px; }
-.form-select option { background: var(--dark-surface); }
-
-.generate-btn {
-  width: 100%;
-  background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue));
-  border: none;
-  border-radius: 8px;
-  color: white;
-  padding: 14px;
-  font-family: 'Orbitron', monospace;
-  font-size: 13px;
-  letter-spacing: 2px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.generate-btn:hover { transform: translateY(-2px); box-shadow: var(--glow-purple); }
-
-.output-box {
-  background: var(--dark-surface);
-  border: 1px solid var(--dark-border);
-  border-radius: 10px;
-  padding: 20px;
-  margin-top: 20px;
-  min-height: 120px;
-  font-size: 14px;
-  line-height: 1.8;
-  color: var(--text-secondary);
-  white-space: pre-wrap;
-  position: relative;
-}
-
-.output-box::before {
-  content: 'OUTPUT';
-  font-family: 'Orbitron', monospace;
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: var(--neon-purple);
-  display: block;
-  margin-bottom: 12px;
-}
-
-.copy-btn {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  background: rgba(177,74,237,0.15);
-  border: 1px solid rgba(177,74,237,0.3);
-  color: var(--neon-purple);
-  padding: 4px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 12px;
-  font-family: 'Cairo', sans-serif;
-}
-
-/* TASKS SECTION */
-.tasks-wrap { max-width: 1000px; }
-
-.tasks-header-row {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 24px;
-  align-items: center;
-}
-
-.task-input-row {
-  display: flex;
-  gap: 10px;
-  flex: 1;
-}
-
-.add-task-btn {
-  background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
-  border: none;
-  border-radius: 8px;
-  color: white;
-  padding: 11px 24px;
-  font-family: 'Cairo', sans-serif;
-  font-size: 14px;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.3s;
-}
-
-.add-task-btn:hover { box-shadow: var(--glow-blue); }
-
-.tasks-stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  margin-bottom: 24px;
-}
-
-.stat-card {
-  background: var(--dark-card);
-  border: 1px solid var(--dark-border);
-  border-radius: 10px;
-  padding: 16px;
-  text-align: center;
-}
-
-.stat-num {
-  font-family: 'Orbitron', monospace;
-  font-size: 28px;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.stat-label { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
-
-.filter-tabs {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.filter-tab {
-  background: transparent;
-  border: 1px solid var(--dark-border);
-  color: var(--text-muted);
-  padding: 6px 16px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-family: 'Cairo', sans-serif;
-  font-size: 13px;
-  transition: all 0.3s;
-}
-
-.filter-tab.active {
-  border-color: var(--neon-blue);
-  color: var(--neon-blue);
-  background: rgba(0,212,255,0.07);
-}
-
-.task-list { display: flex; flex-direction: column; gap: 10px; }
-
-.task-item {
-  background: var(--dark-card);
-  border: 1px solid var(--dark-border);
-  border-radius: 10px;
-  padding: 16px 20px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  transition: all 0.3s;
-  animation: msgIn 0.3s ease;
-}
-
-.task-item:hover { border-color: rgba(0,212,255,0.3); }
-.task-item.done { opacity: 0.5; }
-
-.task-check {
-  width: 22px; height: 22px;
-  border-radius: 6px;
-  border: 2px solid var(--dark-border);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s;
-  flex-shrink: 0;
-  font-size: 13px;
-  background: transparent;
-}
-
-.task-item.done .task-check {
-  background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
-  border-color: transparent;
-}
-
-.task-text {
-  flex: 1;
-  font-size: 14px;
-  color: var(--text-primary);
-}
-
-.task-item.done .task-text { text-decoration: line-through; color: var(--text-muted); }
-
-.task-priority {
-  font-size: 11px;
-  padding: 3px 10px;
-  border-radius: 12px;
-}
-
-.task-priority.high { background: rgba(255,45,120,0.15); color: var(--neon-pink); border: 1px solid rgba(255,45,120,0.3); }
-.task-priority.med { background: rgba(177,74,237,0.15); color: var(--neon-purple); border: 1px solid rgba(177,74,237,0.3); }
-.task-priority.low { background: rgba(0,212,255,0.1); color: var(--neon-blue); border: 1px solid rgba(0,212,255,0.2); }
-
-.task-del {
-  background: transparent;
-  border: none;
-  color: var(--text-muted);
-  cursor: pointer;
-  font-size: 16px;
-  transition: color 0.2s;
-  padding: 4px;
-}
-
-.task-del:hover { color: var(--neon-pink); }
-
-.ai-suggest-btn {
-  background: rgba(177,74,237,0.1);
-  border: 1px solid rgba(177,74,237,0.3);
-  color: var(--neon-purple);
-  border-radius: 8px;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-family: 'Cairo', sans-serif;
-  font-size: 13px;
-  margin-top: 16px;
-  width: 100%;
-  transition: all 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.ai-suggest-btn:hover { background: rgba(177,74,237,0.2); box-shadow: var(--glow-purple); }
-
-/* Loading */
-.loading-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(5,10,20,0.85);
-  z-index: 200;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 20px;
-  backdrop-filter: blur(10px);
-}
-
-.loading-overlay.show { display: flex; }
-
-.loader-ring {
-  width: 60px; height: 60px;
-  border: 3px solid var(--dark-border);
-  border-top-color: var(--neon-blue);
-  border-right-color: var(--neon-purple);
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin { to { transform: rotate(360deg); } }
-
-.loader-text {
-  font-family: 'Orbitron', monospace;
-  font-size: 12px;
-  letter-spacing: 3px;
-  color: var(--neon-blue);
-}
-
-/* Scrollbar */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--dark-border); border-radius: 2px; }
-
-/* Notification */
-.notif {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: var(--dark-card);
-  border: 1px solid var(--neon-blue);
-  border-radius: 10px;
-  padding: 14px 20px;
-  font-size: 13px;
-  color: var(--neon-blue);
-  box-shadow: var(--glow-blue);
-  transform: translateX(200%);
-  transition: transform 0.4s ease;
-  z-index: 300;
-  font-family: 'Orbitron', monospace;
-  letter-spacing: 1px;
-}
-
-.notif.show { transform: translateX(0); }
-
-/* FLOATING SURVEY CHAT WIDGET STYLES */
-.survey-widget-container {
-  position: fixed;
-  bottom: 25px;
-  left: 25px;
-  z-index: 1000;
-  font-family: 'Cairo', sans-serif;
-}
-
-.survey-toggle-btn {
-  background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
-  color: white;
-  border: none;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  cursor: pointer;
-  box-shadow: 0 0 20px rgba(0,212,255,0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  animation: pulseWidget 2s infinite;
-}
-
-.survey-toggle-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 30px var(--neon-blue);
-}
-
-@keyframes pulseWidget {
-  0% { box-shadow: 0 0 0 0 rgba(0,212,255, 0.4); }
-  70% { box-shadow: 0 0 0 15px rgba(0,212,255, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(0,212,255, 0); }
-}
-
-.survey-chat-box {
-  position: absolute;
-  bottom: 75px;
-  left: 0;
-  width: 320px;
-  background: var(--dark-card);
-  border: 1px solid var(--neon-blue);
-  border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.6), var(--glow-blue);
-  display: none;
-  flex-direction: column;
-  overflow: hidden;
-  animation: widgetFadeIn 0.3s ease;
-}
-
-@keyframes widgetFadeIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.survey-chat-box.open { display: flex; }
-
-.survey-header {
-  background: rgba(0,212,255,0.08);
-  padding: 14px 16px;
-  border-bottom: 1px solid var(--dark-border);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.survey-header-title {
-  font-family: 'Orbitron', monospace;
-  font-size: 13px;
-  color: var(--neon-blue);
-  letter-spacing: 1px;
-}
-
-.survey-close-btn {
-  background: transparent;
-  border: none;
-  color: var(--text-muted);
-  cursor: pointer;
-  font-size: 16px;
-}
-.survey-close-btn:hover { color: var(--neon-pink); }
-
-.survey-messages {
-  padding: 14px;
-  max-height: 250px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  font-size: 13px;
-}
-
-.s-msg {
-  padding: 10px 12px;
-  border-radius: 10px;
-  line-height: 1.5;
-  max-width: 85%;
-}
-
-.s-msg.ai {
-  background: var(--dark-surface);
-  border: 1px solid var(--dark-border);
-  color: var(--text-secondary);
-  align-self: flex-start;
-  border-bottom-left-radius: 2px;
-}
-
-.s-msg.user {
-  background: linear-gradient(135deg, rgba(0,212,255,0.2), rgba(177,74,237,0.2));
-  border: 1px solid rgba(0,212,255,0.3);
-  color: var(--text-primary);
-  align-self: flex-end;
-  border-bottom-right-radius: 2px;
-}
-
-.survey-input-area {
-  padding: 10px;
-  border-top: 1px solid var(--dark-border);
-  display: flex;
-  gap: 8px;
-  background: var(--dark-surface);
-}
-
-.survey-input {
-  flex: 1;
-  background: var(--dark-bg);
-  border: 1px solid var(--dark-border);
-  border-radius: 6px;
-  color: var(--text-primary);
-  padding: 8px 12px;
-  font-family: 'Cairo', sans-serif;
-  font-size: 13px;
-  outline: none;
-}
-.survey-input:focus { border-color: var(--neon-blue); }
-
-.survey-send-btn {
-  background: var(--neon-blue);
-  color: var(--dark-bg);
-  border: none;
-  border-radius: 6px;
-  padding: 0 12px;
-  cursor: pointer;
-  font-weight: 700;
-  font-size: 13px;
-}
-
-.survey-actions {
-  display: flex;
-  gap: 6px;
-  margin-top: 6px;
-}
-
-.survey-option-btn {
-  background: rgba(0,212,255,0.1);
-  border: 1px solid var(--neon-blue);
-  color: var(--neon-blue);
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 12px;
-  font-family: 'Cairo', sans-serif;
-  transition: all 0.2s;
-}
-
-.survey-option-btn:hover {
-  background: var(--neon-blue);
-  color: var(--dark-bg);
-}
-
-/* FOOTER */
-footer {
-  position: relative;
-  z-index: 1;
-  border-top: 1px solid rgba(0,212,255,0.1);
-  background: rgba(5,10,20,0.95);
-  padding: 40px 40px 24px;
-  margin-top: 0;
-}
-
-.footer-inner {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 32px;
-}
-
-.footer-brand .logo { font-size: 20px; margin-bottom: 10px; display: block; }
-
-.footer-brand p {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.7;
-  max-width: 220px;
-}
-
-.footer-col-title {
-  font-family: 'Orbitron', monospace;
-  font-size: 10px;
-  letter-spacing: 3px;
-  color: var(--neon-blue);
-  margin-bottom: 16px;
-}
-
-.footer-dev-card {
-  background: var(--dark-card);
-  border: 1px solid var(--dark-border);
-  border-radius: 10px;
-  padding: 16px;
-}
-
-.dev-name {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 4px;
-}
-
-.dev-role {
-  font-size: 12px;
-  color: var(--neon-purple);
-  margin-bottom: 8px;
-}
-
-.dev-badge {
-  display: inline-block;
-  font-size: 11px;
-  background: rgba(0,212,255,0.08);
-  border: 1px solid rgba(0,212,255,0.2);
-  color: var(--neon-blue);
-  padding: 3px 10px;
-  border-radius: 12px;
-  font-family: 'Orbitron', monospace;
-  letter-spacing: 1px;
-}
-
-.company-card {
-  background: var(--dark-card);
-  border: 1px solid var(--dark-border);
-  border-radius: 10px;
-  padding: 16px;
-}
-
-.company-name {
-  font-family: 'Orbitron', monospace;
-  font-size: 16px;
-  font-weight: 900;
-  background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 4px;
-}
-
-.company-tm {
-  font-size: 11px;
-  color: var(--text-muted);
-  margin-bottom: 8px;
-}
-
-.company-desc {
-  font-size: 12px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-.footer-bottom {
-  border-top: 1px solid rgba(0,212,255,0.07);
-  padding-top: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.footer-copy {
-  font-size: 12px;
-  color: var(--text-muted);
-}
-
-.footer-copy span { color: var(--neon-blue); }
-
-.footer-made {
-  font-family: 'Orbitron', monospace;
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: var(--text-muted);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .footer-inner { grid-template-columns: 1fr; gap: 20px; }
-  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-
-  header { padding: 12px 20px; }
-  .logo { font-size: 16px; }
-  nav button { padding: 7px 12px; font-size: 12px; }
-  .hero-cards { grid-template-columns: 1fr; }
-  .chat-layout { grid-template-columns: 1fr; }
-  .chat-sidebar { flex-direction: row; overflow-x: auto; }
-  .content-grid { grid-template-columns: 1fr 1fr; }
-  .tasks-stats { grid-template-columns: repeat(2, 1fr); }
-  .section-wrap { padding: 90px 20px 40px; }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="only dark">
+    <title id="page-title">MK CREATIVE Agency | Powered by Mohamed Antar</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { 
+            --bg-dark: #030712; 
+            --accent: #38bdf8; 
+            --accent-glow: rgba(56, 189, 248, 0.4);
+            --glass: rgba(255, 255, 255, 0.03); 
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --neon-blue: #00d4ff;
+            --neon-purple: #b14aed;
+        }
+
+        body.matrix-mode {
+            --bg-dark: #020d05;
+            --accent: #22c55e;
+            --accent-glow: rgba(34, 197, 94, 0.5);
+            background: radial-gradient(circle at top right, #052e16, #020d05) !important;
+        }
+
+        body.amber-mode {
+            --bg-dark: #120803;
+            --accent: #f59e0b;
+            --accent-glow: rgba(245, 158, 11, 0.5);
+            background: radial-gradient(circle at top right, #2e1a05, #120803) !important;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; color-scheme: dark; cursor: none; }
+        
+        body { 
+            background: radial-gradient(circle at top right, #1e1b4b, var(--bg-dark)); 
+            background-attachment: fixed;
+            color: var(--text); 
+            font-family: 'Cairo', 'Inter', sans-serif; 
+            overflow-x: hidden;
+            transition: background 0.5s ease;
+            position: relative;
+        }
+
+        #particle-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+        header, .hero, .container, footer, .floating-controls, .rocket-top-btn, .mobile-search-float, #search-modal { position: relative; z-index: 2; }
+
+        .cursor-dot { position: fixed; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); transition: transform 0.05s ease; }
+        .cursor-outline { position: fixed; width: 32px; height: 32px; border: 2px solid var(--accent); border-radius: 50%; pointer-events: none; z-index: 99998; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, border-color 0.2s; box-shadow: 0 0 15px var(--accent-glow); }
+
+        #progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: var(--accent); width: 0%; z-index: 1001; box-shadow: 0 0 12px var(--accent); }
+
+        header { background: rgba(3, 7, 18, 0.85); backdrop-filter: blur(16px); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(56, 189, 248, 0.2); }
+        .nav-container { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 2rem; }
+        .logo { font-weight: 800; color: var(--accent); font-size: 1.2rem; display: flex; align-items: center; gap: 10px; letter-spacing: 0.5px; }
+        
+        .hud-panel { display: flex; align-items: center; gap: 10px; font-size: 0.75rem; flex-wrap: wrap; }
+        .network-ticker, .weather-ticker, .session-ticker, .battery-ticker { color: var(--accent); background: rgba(56, 189, 248, 0.08); padding: 5px 10px; border-radius: 12px; border: 1px solid rgba(56, 189, 248, 0.3); display: flex; align-items: center; gap: 5px; backdrop-filter: blur(8px); }
+
+        .lang-select {
+            background: rgba(56, 189, 248, 0.08);
+            color: var(--accent);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 5px 10px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            outline: none;
+            transition: 0.3s;
+            font-family: 'Cairo', sans-serif;
+        }
+        .lang-select option {
+            background: #030712;
+            color: #fff;
+        }
+        .lang-select:hover {
+            background: rgba(56, 189, 248, 0.2);
+            border-color: var(--accent);
+        }
+
+        .status-badge { font-size: 0.75rem; background: rgba(34, 197, 94, 0.15); color: #22c55e; border: 1px solid #22c55e; padding: 3px 10px; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px; }
+        .status-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 8px #22c55e; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+
+        .nav-links { display: flex; align-items: center; gap: 15px; list-style: none; }
+        .nav-links a { color: var(--text); text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
+
+        .activity-ticker-bar { background: rgba(56, 189, 248, 0.06); border-bottom: 1px solid rgba(56, 189, 248, 0.15); padding: 8px 0; font-size: 0.82rem; color: var(--accent); overflow: hidden; white-space: nowrap; margin-top: 65px; }
+        .ticker-content { display: inline-block; animation: tickerScroll 30s linear infinite; }
+        @keyframes tickerScroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+        .hero { padding: 90px 20px 50px; text-align: center; position: relative; }
+        h1 { font-size: 3.5rem; font-weight: 800; background: linear-gradient(to right, #38bdf8, #818cf8, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; }
+        
+        .typed-text { color: var(--accent); border-right: 2px solid var(--accent); padding-right: 5px; animation: blink 0.7s infinite; }
+        @keyframes blink { 50% { border-color: transparent; } }
+
+        .vibe-ticker { font-size: 0.85rem; color: var(--text-muted); margin-top: 15px; display: inline-flex; align-items: center; gap: 8px; background: var(--glass); padding: 8px 18px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.06); backdrop-filter: blur(10px); }
+
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 950px; margin: 40px auto 0; }
+        .stat-card { background: var(--glass); padding: 22px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(12px); transition: 0.3s; }
+        .stat-card:hover { border-color: var(--accent); box-shadow: 0 0 20px var(--accent-glow); }
+        .stat-number { font-size: 2.4rem; font-weight: 800; color: var(--accent); }
+        .stat-label { font-size: 0.85rem; color: var(--text-muted); margin-top: 5px; }
+
+        .container { max-width: 1150px; margin: auto; padding: 60px 20px; opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .container.visible { opacity: 1; transform: translateY(0); }
+        
+        .section-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 25px; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 6px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        
+        .card { background: var(--glass); padding: 30px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(16px); transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden; cursor: pointer; }
+        .card:hover { transform: translateY(-8px); border-color: var(--accent); box-shadow: 0 0 30px var(--accent-glow); }
+
+        .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 25px; }
+        .cert-card { background: var(--glass); border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); padding: 20px; backdrop-filter: blur(12px); transition: 0.3s; text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
+        .cert-card:hover { border-color: var(--accent); box-shadow: 0 0 25px var(--accent-glow); transform: translateY(-5px); }
+        .cert-card img { width: 100%; height: 210px; object-fit: cover; border-radius: 12px; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
+        .cert-card img:hover { transform: scale(1.03); }
+
+        .skills-container { max-width: 900px; margin: 30px auto 0; background: var(--glass); padding: 35px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(16px); }
+        .skill-item { margin-bottom: 20px; }
+        .skill-item:last-child { margin-bottom: 0; }
+        .skill-info { display: flex; justify-content: space-between; font-size: 0.95rem; margin-bottom: 8px; font-weight: 600; }
+        .skill-bar { width: 100%; height: 10px; background: rgba(255,255,255,0.08); border-radius: 5px; overflow: hidden; }
+        .skill-progress { height: 100%; background: linear-gradient(to right, var(--accent), var(--neon-purple)); width: 0%; border-radius: 5px; transition: width 1.5s cubic-bezier(0.1, 1, 0.1, 1); box-shadow: 0 0 10px var(--accent-glow); }
+
+        .showcase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; margin-top: 25px; }
+        .media-box { background: var(--glass); border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); padding: 18px; text-align: center; backdrop-filter: blur(12px); transition: 0.3s; }
+        .media-box:hover { border-color: var(--accent); }
+        .media-box img, .media-box video { width: 100%; border-radius: 14px; height: 380px; object-fit: cover; cursor: pointer; transition: 0.4s; }
+        .media-box img:hover, .media-box video:hover { transform: scale(1.02); }
+
+        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; margin: 6px; background: var(--accent); color: #030712; text-decoration: none; border-radius: 50px; font-weight: 800; transition: 0.3s; cursor: pointer; border: none; box-shadow: 0 0 15px var(--accent-glow); font-size: 0.9rem; }
+        .btn:hover { transform: scale(1.06); box-shadow: 0 0 25px var(--accent); }
+        .btn-outline { background: transparent; border: 2px solid var(--accent); color: var(--accent); box-shadow: none; }
+        .btn-outline:hover { background: var(--accent); color: #030712; }
+
+        .floating-controls { position: fixed; bottom: 30px; left: 30px; display: flex; flex-direction: column; gap: 14px; z-index: 1000; }
+        .float-btn { width: 50px; height: 50px; background: var(--accent); border-radius: 50%; border: none; cursor: pointer; display: flex; justify-content: center; align-items: center; color: #030712; font-size: 1.2rem; box-shadow: 0 0 20px var(--accent-glow); transition: 0.3s; }
+        .float-btn:hover { transform: scale(1.15) rotate(10deg); }
+
+        .rocket-top-btn {
+            position: fixed; bottom: 30px; left: 95px;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            color: white; border: none; width: 50px; height: 50px; border-radius: 50%;
+            cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 22px;
+            box-shadow: 0 0 20px rgba(0,212,255,0.4); z-index: 1000;
+            opacity: 0; visibility: hidden; transition: all 0.3s ease;
+        }
+        .rocket-top-btn.show { opacity: 1; visibility: visible; }
+        .rocket-top-btn:hover { transform: scale(1.15); }
+
+        .mobile-search-float {
+            position: fixed; bottom: 30px; left: 160px;
+            background: var(--accent); color: #030712; border: none; width: 50px; height: 50px; border-radius: 50%;
+            cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 20px;
+            box-shadow: 0 0 20px var(--accent-glow); z-index: 1000; transition: 0.3s;
+        }
+        .mobile-search-float:hover { transform: scale(1.15); }
+
+        @keyframes launchRocket {
+            0% { transform: translateY(0) scale(1); }
+            30% { transform: translateY(10px) scale(0.9); filter: brightness(1.5); }
+            100% { transform: translateY(-800px) scale(0.5); opacity: 0; }
+        }
+        .rocket-top-btn.launching { animation: launchRocket 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+
+        #search-modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85);
+            z-index: 50000; display: none; justify-content: center; align-items: flex-start; padding-top: 120px; backdrop-filter: blur(12px);
+        }
+        .search-box-wrap { background: #0f172a; border: 2px solid var(--accent); width: 90%; max-width: 600px; border-radius: 20px; overflow: hidden; box-shadow: 0 0 40px var(--accent-glow); }
+        .search-input { width: 100%; padding: 20px; background: transparent; border: none; color: white; font-size: 1.2rem; outline: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .search-results-list { max-height: 300px; overflow-y: auto; padding: 10px; list-style: none; }
+        .search-results-list li { padding: 12px 18px; border-radius: 12px; margin-bottom: 5px; cursor: pointer; transition: 0.2s; display: flex; align-items: center; gap: 10px; }
+        .search-results-list li:hover { background: rgba(56, 189, 248, 0.15); color: var(--accent); }
+
+        #project-modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.88);
+            z-index: 40000; display: none; justify-content: center; align-items: center; padding: 20px; backdrop-filter: blur(15px);
+        }
+        .modal-content { background: #0f172a; border: 2px solid var(--accent); width: 100%; max-width: 650px; padding: 35px; border-radius: 24px; position: relative; box-shadow: 0 0 50px var(--accent-glow); }
+        .close-modal { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.1); border: none; color: white; width: 35px; height: 35px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: 0.3s; }
+        .close-modal:hover { background: var(--accent); color: #030712; }
+
+        #toast {
+            position: fixed; bottom: 30px; right: 30px; background: rgba(15, 23, 42, 0.95);
+            border: 1px solid var(--accent); color: white; padding: 16px 28px; border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6); z-index: 20000; transform: translateY(150px);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; align-items: center; gap: 14px;
+            backdrop-filter: blur(15px);
+        }
+        #toast.show { transform: translateY(0); }
+
+        #lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.94); z-index: 30000; display: none; justify-content: center; align-items: center; padding: 20px; backdrop-filter: blur(10px); }
+        #lightbox img { max-width: 90%; max-height: 85vh; border-radius: 16px; border: 2px solid var(--accent); box-shadow: 0 0 40px var(--accent-glow); }
+
+        footer { text-align: center; padding: 50px 20px; border-top: 1px solid rgba(255,255,255,0.08); color: var(--text-muted); margin-top: 80px; }
+
+        @media(max-width: 768px) {
+            .nav-links, .hud-panel { display: none; }
+            h1 { font-size: 2.4rem; }
+            .cursor-dot, .cursor-outline, #particle-canvas { display: none; }
+            * { cursor: auto !important; }
+        }
+    </style>
 </head>
 <body>
 
-<div class="orb orb-1"></div>
-<div class="orb orb-2"></div>
-<div class="orb orb-3"></div>
+<canvas id="particle-canvas"></canvas>
+<div class="cursor-dot" id="cursor-dot"></div>
+<div class="cursor-outline" id="cursor-outline"></div>
+<div id="progress-bar"></div>
 
-<!-- HEADER -->
+<div id="toast">
+    <i class="fa-solid fa-shield-halved" style="color: var(--accent); font-size: 1.4rem;"></i>
+    <div>
+        <div style="font-weight: 800;">MK CREATIVE Agency Security Active</div>
+        <div style="font-size: 0.85rem; color: var(--text-muted);">Systems online under Mohamed Antar's governance.</div>
+    </div>
+</div>
+
+<div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Expanded View">
+</div>
+
+<!-- Quick Search Modal -->
+<div id="search-modal" onclick="closeSearchModal(event)">
+    <div class="search-box-wrap" onclick="event.stopPropagation()">
+        <input type="text" class="search-input" id="search-input-box" placeholder="Search agency systems, CEO profile or team..." oninput="filterSearch()">
+        <ul class="search-results-list" id="search-results">
+            <li onclick="scrollToSection('about')"><i class="fa-solid fa-building"></i> <span data-translate="s_about">About MK CREATIVE Agency</span></li>
+            <li onclick="scrollToSection('ceo')"><i class="fa-solid fa-user-tie"></i> <span data-translate="s_ceo">CEO & Founder: Mohamed Antar</span></li>
+            <li onclick="scrollToSection('team')"><i class="fa-solid fa-users"></i> <span data-translate="s_team">Motion Graphics Lead: Malek Mohamed</span></li>
+            <li onclick="scrollToSection('certifications')"><i class="fa-solid fa-award"></i> <span data-translate="s_certs">Verified Google Cloud Certifications</span></li>
+            <li onclick="scrollToSection('projects')"><i class="fa-solid fa-store"></i> <span data-translate="s_proj">Future Mall POS System</span></li>
+            <li onclick="scrollToSection('skills')"><i class="fa-solid fa-code"></i> <span data-translate="s_skills">Enterprise Technical Stack</span></li>
+            <li onclick="scrollToSection('contact')"><i class="fa-solid fa-envelope"></i> <span data-translate="s_contact">Secure Corporate Contact</span></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Detailed Project Modal -->
+<div id="project-modal" onclick="closeProjectModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <button class="close-modal" onclick="closeProjectModal()"><i class="fa-solid fa-xmark"></i></button>
+        <h2 id="modal-title" style="color: var(--accent); margin-bottom: 15px;">Project Title</h2>
+        <p id="modal-desc" style="color: var(--text-muted); line-height: 1.7; margin-bottom: 20px;"></p>
+        <div id="modal-tech" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 25px;"></div>
+        <a href="#" id="modal-link" class="btn" target="_blank"><i class="fa-solid fa-external-link"></i> <span data-translate="launch_demo">Launch Agency Demo</span></a>
+    </div>
+</div>
+
 <header>
-  <div class="logo">MK<span>.</span>AI&nbsp;TOOLS</div>
-  <nav>
-    <button class="active" onclick="showSection('hero')">الرئيسية</button>
-    <button onclick="showSection('assistant')">المساعد</button>
-    <button onclick="showSection('content')">المحتوى</button>
-    <button onclick="showSection('tasks')">المهام</button>
-    <button onclick="showSection('developer')">المطوّر</button>
-    <button onclick="showSection('focus')">التركيز</button>
-  </nav>
+    <div class="nav-container">
+        <div class="logo">
+            <i class="fa-solid fa-cube"></i> MK CREATIVE AGENCY
+            <span class="status-badge"><span class="status-dot"></span> <span data-translate="secure_node">Secure Node</span></span>
+        </div>
+        
+        <div class="hud-panel">
+            <div class="network-ticker"><i class="fa-solid fa-wifi"></i> <span id="ping-val">19</span>ms</div>
+            <div class="weather-ticker"><i class="fa-solid fa-cloud-sun"></i> <span data-translate="dakahlia">Dakahlia: 32°C</span></div>
+            <div class="session-ticker"><i class="fa-solid fa-clock"></i> <span id="session-time">00:00</span></div>
+            <div class="battery-ticker"><i class="fa-solid fa-battery-full"></i> <span id="battery-val">100%</span></div>
+            <select id="langSwitch" class="lang-select" onchange="changeLanguage(this.value)">
+                <option value="ar">العربية</option>
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+            </select>
+        </div>
+
+        <nav class="nav-links">
+            <a href="#about"><i class="fa-solid fa-building"></i> <span data-translate="nav_agency">Agency</span></a>
+            <a href="#ceo"><i class="fa-solid fa-user-tie"></i> <span data-translate="nav_ceo">CEO</span></a>
+            <a href="#team"><i class="fa-solid fa-users"></i> <span data-translate="nav_team">Team</span></a>
+            <a href="#certifications"><i class="fa-solid fa-award"></i> <span data-translate="nav_certs">Certifications</span></a>
+            <a href="#projects"><i class="fa-solid fa-layer-group"></i> <span data-translate="nav_solutions">Solutions</span></a>
+            <a href="#skills"><i class="fa-solid fa-code"></i> <span data-translate="nav_tech">Tech Stack</span></a>
+            <a href="#contact"><i class="fa-solid fa-envelope"></i> <span data-translate="nav_contact">Contact</span></a>
+        </nav>
+    </div>
 </header>
 
-<!-- LOADING -->
-<div class="loading-overlay" id="loading">
-  <div class="loader-ring"></div>
-  <div class="loader-text">PROCESSING...</div>
+<div class="activity-ticker-bar">
+    <div class="ticker-content">
+        🏢 <b data-translate="ticker_title">MK CREATIVE AGENCY:</b> <span data-translate="ticker_desc">High-Performance Cloud Architecture & AI Integration</span> &nbsp;&bull;&nbsp; ♟️ <span data-translate="ticker_ceo">Directed by Mohamed Antar (CEO, 14y)</span> &nbsp;&bull;&nbsp; <span data-translate="ticker_search">Press Ctrl + K for Agency Quick Search!</span>
+    </div>
 </div>
 
-<div class="notif" id="notif"></div>
-
-<!-- HERO -->
-<section id="hero" class="active">
-  <div class="hero-badge">■ POWERED BY AI ■</div>
-  <h1 class="hero-title">
-    <span class="mk">MK</span> <span class="ai">AI</span><br>TOOLS
-  </h1>
-  <p class="hero-sub">منصة ذكاء اصطناعي متكاملة لصناع المحتوى والمبدعين — أدوات قوية في مكان واحد</p>
-
-  <div class="hero-cards">
-    <div class="hero-card blue" onclick="showSection('assistant')">
-      <div class="card-icon">🤖</div>
-      <div class="card-title">المساعد الذكي</div>
-      <div class="card-desc">أجب على أسئلتك، تعلّم، استفسر وتحدث مع الذكاء الاصطناعي بالعربية</div>
-    </div>
-    <div class="hero-card purple" onclick="showSection('content')">
-      <div class="card-icon">🎬</div>
-      <div class="card-title">صناعة المحتوى</div>
-      <div class="card-desc">سكريبتات، أفكار إبداعية، أوصاف فيديو، عناوين جذابة وأكثر</div>
-    </div>
-    <div class="hero-card pink" onclick="showSection('tasks')">
-      <div class="card-icon">⚡</div>
-      <div class="card-title">إدارة المهام</div>
-      <div class="card-desc">نظّم يومك، تتبع مهامك واحصل على اقتراحات ذكية لإنجازها</div>
-    </div>
-  </div>
-
-  <button class="cta-btn" onclick="showSection('assistant')">ابدأ الآن ←</button>
-</section>
-
-<!-- ASSISTANT SECTION -->
-<section id="assistant">
-  <div class="section-wrap">
-    <div class="section-header">
-      <div class="section-tag">■ AI ASSISTANT</div>
-      <div class="section-title">المساعد الذكي</div>
-    </div>
-
-    <div class="chat-layout">
-      <div class="chat-sidebar">
-        <button class="mode-btn active" onclick="setMode(this,'general')">
-          <span class="mode-icon">🧠</span> عام
-        </button>
-        <button class="mode-btn" onclick="setMode(this,'creative')">
-          <span class="mode-icon">✨</span> إبداعي
-        </button>
-        <button class="mode-btn" onclick="setMode(this,'technical')">
-          <span class="mode-icon">💻</span> تقني
-        </button>
-        <button class="mode-btn" onclick="setMode(this,'analysis')">
-          <span class="mode-icon">📊</span> تحليل
-        </button>
-        <button class="mode-btn" onclick="setMode(this,'arabic')">
-          <span class="mode-icon">📝</span> لغة عربية
-        </button>
-        <button class="mode-btn" style="margin-top:auto;border-color:rgba(255,45,120,0.3);color:var(--neon-pink)" onclick="clearChat()">
-          <span class="mode-icon">🗑️</span> مسح
-        </button>
-      </div>
-
-      <div class="chat-main">
-        <div class="chat-header">
-          <div class="status-dot"></div>
-          <div>
-            <div class="chat-title" id="chatTitle">المساعد العام</div>
-            <div class="chat-sub">MK AI — متصل</div>
-          </div>
+<section class="hero" id="about">
+    <div class="container visible">
+        <h1>MK CREATIVE Agency</h1>
+        <p style="font-size: 1.3rem; color: var(--text-muted);">
+            <span data-translate="hero_subtitle">Empowering Global Business with</span> <span class="typed-text" id="typed"></span>
+        </p>
+        
+        <div class="vibe-ticker">
+            <i class="fa-solid fa-microchip fa-spin" style="color: var(--accent);"></i> 
+            <span><span data-translate="agency_status">Agency Status:</span> <b><span data-translate="agency_status_val">Next-Gen Cloud & AI Frameworks Active</span></b></span>
         </div>
 
-        <div class="messages" id="messages">
-          <div class="msg ai">
-            <div class="msg-bubble">مرحباً! أنا MK AI، مساعدك الذكي. كيف يمكنني مساعدتك اليوم؟ 🚀</div>
-          </div>
+        <p style="max-width: 750px; margin: 25px auto; color: #cbd5e1; line-height: 1.8;" data-translate="hero_desc">
+            MK CREATIVE Agency is a forward-thinking technology corporation specializing in automated retail POS systems, high-retention digital media pipelines, and Google Cloud infrastructure integration.
+        </p>
+        
+        <div style="margin-top: 30px;">
+            <a href="#projects" class="btn"><i class="fa-solid fa-rocket"></i> <span data-translate="btn_explore">Explore Solutions</span></a>
+            <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-headset"></i> <span data-translate="btn_partner">Partner With Us</span></a>
         </div>
 
-        <div class="chat-input-area">
-          <textarea class="chat-input" id="chatInput" placeholder="اكتب رسالتك هنا..." rows="1"
-            onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
-          <button class="send-btn" id="sendBtn" onclick="sendMessage()">➤</button>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" data-target="10">0</div>
+                <div class="stat-label" data-translate="stat_certs">Verified Google Cloud Certs</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="40">0</div>
+                <div class="stat-label" data-translate="stat_views">Million+ Global Views</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="14">0</div>
+                <div class="stat-label" data-translate="stat_age">Years Young Innovator CEO</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="100">0</div>
+                <div class="stat-label" data-translate="stat_secure">% Secure Infrastructure</div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
-<!-- CONTENT SECTION -->
-<section id="content">
-  <div class="section-wrap">
-    <div class="section-header">
-      <div class="section-tag">■ CONTENT CREATION</div>
-      <div class="section-title">صناعة المحتوى</div>
-    </div>
-
-    <div class="content-grid">
-      <div class="content-type-btn selected" onclick="selectContentType(this,'script')">
-        <div class="ct-icon">🎬</div>
-        <div class="ct-name">سكريبت فيديو</div>
-        <div class="ct-desc">اكتب سكريبت فيديو احترافي</div>
-      </div>
-      <div class="content-type-btn" onclick="selectContentType(this,'ideas')">
-        <div class="ct-icon">💡</div>
-        <div class="ct-name">أفكار إبداعية</div>
-        <div class="ct-desc">توليد أفكار مبتكرة</div>
-      </div>
-      <div class="content-type-btn" onclick="selectContentType(this,'description')">
-        <div class="ct-icon">📋</div>
-        <div class="ct-name">وصف المقطع</div>
-        <div class="ct-desc">وصف SEO لليوتيوب</div>
-      </div>
-      <div class="content-type-btn" onclick="selectContentType(this,'title')">
-        <div class="ct-icon">🔥</div>
-        <div class="ct-name">عناوين جذابة</div>
-        <div class="ct-desc">عناوين تجذب المشاهدين</div>
-      </div>
-      <div class="content-type-btn" onclick="selectContentType(this,'hook')">
-        <div class="ct-icon">⚡</div>
-        <div class="ct-name">Hook افتتاحي</div>
-        <div class="ct-desc">مقدمة تشدّ الانتباه</div>
-      </div>
-      <div class="content-type-btn" onclick="selectContentType(this,'hashtags')">
-        <div class="ct-icon">🏷️</div>
-        <div class="ct-name">هاشتاقات</div>
-        <div class="ct-desc">هاشتاقات للسوشيال ميديا</div>
-      </div>
-    </div>
-
-    <div class="content-form">
-      <div class="form-group">
-        <label class="form-label">موضوع المحتوى</label>
-        <input class="form-input" id="contentTopic" placeholder="مثال: كيفية تعلم البرمجة في 30 يوم" />
-      </div>
-      <div class="form-group">
-        <label class="form-label">الجمهور المستهدف</label>
-        <select class="form-select" id="contentAudience">
-          <option value="عام">جمهور عام</option>
-          <option value="شباب">شباب (18-25)</option>
-          <option value="مهنيون">مهنيون</option>
-          <option value="طلاب">طلاب</option>
-          <option value="رواد أعمال">رواد أعمال</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label class="form-label">النبرة والأسلوب</label>
-        <select class="form-select" id="contentTone">
-          <option value="محفّز وحماسي">محفّز وحماسي</option>
-          <option value="تعليمي وبسيط">تعليمي وبسيط</option>
-          <option value="ترفيهي وفكاهي">ترفيهي وفكاهي</option>
-          <option value="احترافي وجدي">احترافي وجدي</option>
-          <option value="قصصي وإنساني">قصصي وإنساني</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label class="form-label">تفاصيل إضافية (اختياري)</label>
-        <textarea class="form-textarea" id="contentExtra" placeholder="أي معلومات إضافية تريد تضمينها..."></textarea>
-      </div>
-      <button class="generate-btn" onclick="generateContent()">⚡ توليد المحتوى</button>
-    </div>
-
-    <div class="output-box" id="contentOutput" style="display:none">
-      <button class="copy-btn" onclick="copyOutput()">نسخ</button>
-      <span id="contentText"></span>
-    </div>
-  </div>
-</section>
-
-<!-- TASKS SECTION -->
-<section id="tasks">
-  <div class="section-wrap tasks-wrap">
-    <div class="section-header">
-      <div class="section-tag">■ TASK MANAGER</div>
-      <div class="section-title">إدارة المهام</div>
-    </div>
-
-    <div class="tasks-stats">
-      <div class="stat-card">
-        <div class="stat-num" id="statTotal">0</div>
-        <div class="stat-label">إجمالي المهام</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num" id="statDone">0</div>
-        <div class="stat-label">مكتملة</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num" id="statPending">0</div>
-        <div class="stat-label">قيد التنفيذ</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num" id="statProgress">0%</div>
-        <div class="stat-label">نسبة الإنجاز</div>
-      </div>
-    </div>
-
-    <div class="tasks-header-row">
-      <div class="task-input-row">
-        <input class="form-input" id="taskInput" placeholder="أضف مهمة جديدة..." onkeydown="if(event.key==='Enter') addTask()" style="flex:1" />
-        <select class="form-select" id="taskPriority" style="width:140px">
-          <option value="high">عالية 🔴</option>
-          <option value="med" selected>متوسطة 🟣</option>
-          <option value="low">منخفضة 🔵</option>
-        </select>
-      </div>
-      <button class="add-task-btn" onclick="addTask()">+ إضافة</button>
-    </div>
-
-    <div class="filter-tabs">
-      <button class="filter-tab active" onclick="filterTasks(this,'all')">الكل</button>
-      <button class="filter-tab" onclick="filterTasks(this,'pending')">قيد التنفيذ</button>
-      <button class="filter-tab" onclick="filterTasks(this,'done')">مكتملة</button>
-      <button class="filter-tab" onclick="filterTasks(this,'high')">عالية الأولوية</button>
-    </div>
-
-    <div class="task-list" id="taskList"></div>
-
-    <button class="ai-suggest-btn" onclick="aiSuggestTasks()">
-      🤖 اقتراح مهام ذكية بالذكاء الاصطناعي
-    </button>
-    <div class="form-group" style="margin-top:30px;">
-      <label class="form-label" style="color:var(--neon-blue); font-size:14px;">💻 محرر ومُنظّم أكواد Python السريع</label>
-      <textarea class="form-textarea" id="codeEditor" style="font-family:monospace;background:#02060c;border-color:var(--dark-border);color:#a5d6ff;min-height:140px;" placeholder="# اكتب أو الصق كود الـ Python هنا..."></textarea>
-      <button class="generate-btn" style="background:linear-gradient(135deg,var(--neon-blue),#1a3a5c);margin-top:10px;" onclick="formatPythonCode()">⚡ تنظيم الكود</button>
-    </div>
-  </div>
-</section>
-
-<!-- DEVELOPER SECTION -->
-<section id="developer">
-  <div class="section-wrap">
-    <div class="section-header">
-      <div class="section-tag">■ THE FOUNDER</div>
-      <div class="section-title">عن المطور والشركة</div>
-    </div>
-
-    <div class="hero-card blue" style="text-align:right; margin-bottom:24px; cursor:default; padding:30px;">
-      <div style="display:flex; align-items:center; gap:20px; margin-bottom:16px; flex-wrap:wrap;">
-        <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--neon-blue),var(--neon-purple));display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:22px;font-weight:900;color:#fff;flex-shrink:0;">MA</div>
-        <div>
-          <h3 style="font-family:'Orbitron',monospace;color:var(--neon-blue);font-size:22px;margin-bottom:6px;letter-spacing:2px;">MOHAMED ANTAR</h3>
-          <span style="font-family:'Orbitron',monospace;font-size:10px;letter-spacing:3px;background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.3);color:var(--neon-blue);padding:4px 14px;border-radius:12px;">CEO &amp; FOUNDER — MK COMPANY ™</span>
+<!-- CEO PROFILE SECTION -->
+<div class="container" id="ceo">
+    <h2 class="section-title" data-translate="sec_exec">EXECUTIVE LEADERSHIP</h2>
+    <div class="card" style="max-width: 900px; margin: auto; display: flex; flex-direction: column; gap: 20px;">
+        <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+            <div style="width: 80px; height: 80px; background: rgba(56, 189, 248, 0.1); border: 2px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; color: var(--accent);">
+                <i class="fa-solid fa-user-tie"></i>
+            </div>
+            <div>
+                <h3 style="font-size: 1.6rem; color: var(--accent);">Mohamed Antar (محمد عنتر)</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem;" data-translate="ceo_role">Founder & Chief Executive Officer (CEO) • Age 14 • Dakahlia, Egypt</p>
+            </div>
         </div>
-      </div>
-      <p style="color:var(--text-secondary);font-size:14px;line-height:1.9;">
-        الرئيس التنفيذي ومؤسس براند <strong style="color:var(--neon-blue)">MK</strong>. صانع محتوى رقمي، ومطور حلول أتمتة ذكية، ومتخصص في تكييف التقنيات الحديثة والذكاء الاصطناعي لخدمة مجتمعات الجيمرز والمبدعين.
-      </p>
+        <p style="color: #cbd5e1; line-height: 1.8;" data-translate="ceo_desc">
+            As the 14-year-old visionary behind MK CREATIVE Agency, Mohamed oversees technical architecture, AI integrations, and high-level software engineering. Holding 10 official certifications from Udacity and Google Cloud, he bridges the gap between advanced cloud operations, automated commercial applications, and viral digital media solutions. He also actively participates as an Admin in strategic chess initiatives within the EGYPT CHESS CLUB.
+        </p>
     </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-bottom:24px;">
-
-      <div class="stat-card" style="border:1px solid var(--neon-purple);padding:24px;text-align:right;">
-        <div style="font-size:32px;margin-bottom:12px;">🎬</div>
-        <div style="font-size:15px;font-weight:700;color:var(--neon-purple);margin-bottom:8px;">صناعة المحتوى والمونتاج</div>
-        <div style="font-size:13px;color:var(--text-secondary);line-height:1.7;">خبرة طويلة في إدارة قنوات الألعاب وصناعة الفيديوهات الاحترافية.</div>
-      </div>
-
-      <div class="stat-card" style="border:1px solid var(--neon-pink);padding:24px;text-align:right;">
-        <div style="font-size:32px;margin-bottom:12px;">⚡</div>
-        <div style="font-size:15px;font-weight:700;color:var(--neon-pink);margin-bottom:8px;">خبير الأتمتة والبرمجة</div>
-        <div style="font-size:13px;color:var(--text-secondary);line-height:1.7;">تطوير سكربتات وأنظمة أتمتة متكاملة للهواتف والويب باستخدام Python و MacroDroid.</div>
-      </div>
-
-      <div class="stat-card" style="border:1px solid var(--neon-blue);padding:24px;text-align:right;">
-        <div style="font-size:32px;margin-bottom:12px;">🤖</div>
-        <div style="font-size:15px;font-weight:700;color:var(--neon-blue);margin-bottom:8px;">تطوير الذكاء الاصطناعي</div>
-        <div style="font-size:13px;color:var(--text-secondary);line-height:1.7;">بناء منصات وأدوات ذكاء اصطناعي متكاملة موجّهة للمستخدم العربي والمبدع.</div>
-      </div>
-
-    </div>
-
-    <div class="hero-card purple" style="text-align:right; cursor:default; padding:28px;">
-      <div style="display:flex;align-items:center;gap:16px;margin-bottom:14px;">
-        <div style="font-family:'Orbitron',monospace;font-size:20px;font-weight:900;background:linear-gradient(90deg,var(--neon-blue),var(--neon-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">MK COMPANY ™</div>
-        <span style="font-family:'Orbitron',monospace;font-size:9px;letter-spacing:2px;background:rgba(177,74,237,0.15);border:1px solid rgba(177,74,237,0.3);color:var(--neon-purple);padding:4px 12px;border-radius:12px;">TECH COMPANY</span>
-      </div>
-      <p style="color:var(--text-secondary);font-size:14px;line-height:1.9;">شركة رائدة في تطوير حلول الذكاء الاصطناعي والتقنية المتقدمة، تهدف إلى تمكين المبدعين والمطورين العرب بأدوات ذكية وسهلة الاستخدام. جميع الحقوق محفوظة لشركة MK Company ™.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- FOCUS MODE SECTION -->
-<section id="focus">
-  <div class="section-wrap" style="text-align:center;">
-    <div class="section-header" style="text-align:right;">
-      <div class="section-tag">■ PRODUCTIVITY</div>
-      <div class="section-title">وضع التركيز للمذاكرة والعمل</div>
-    </div>
-
-    <div style="font-family:'Orbitron',monospace;font-size:clamp(60px,12vw,100px);color:var(--neon-pink);margin:40px 0;text-shadow:0 0 30px rgba(255,45,120,0.5),0 0 60px rgba(255,45,120,0.2);letter-spacing:4px;">
-      <span id="timerDisplay">25:00</span>
-    </div>
-
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;">
-      <button class="cta-btn" id="timerBtn" style="background:linear-gradient(135deg,var(--neon-pink),var(--neon-purple));" onclick="toggleTimer()">▶ ابدأ الجلسة</button>
-      <button class="mode-btn" onclick="resetTimer()">↺ إعادة تعيين</button>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;max-width:600px;margin:0 auto 40px;">
-      <button class="content-type-btn" onclick="setTimerPreset(25,0)" style="text-align:center;padding:16px;">
-        <div style="font-family:'Orbitron',monospace;font-size:20px;color:var(--neon-pink);margin-bottom:6px;">25</div>
-        <div style="font-size:12px;color:var(--text-muted);">Pomodoro</div>
-      </button>
-      <button class="content-type-btn" onclick="setTimerPreset(15,0)" style="text-align:center;padding:16px;">
-        <div style="font-family:'Orbitron',monospace;font-size:20px;color:var(--neon-purple);margin-bottom:6px;">15</div>
-        <div style="font-size:12px;color:var(--text-muted);">جلسة قصيرة</div>
-      </button>
-      <button class="content-type-btn" onclick="setTimerPreset(50,0)" style="text-align:center;padding:16px;">
-        <div style="font-family:'Orbitron',monospace;font-size:20px;color:var(--neon-blue);margin-bottom:6px;">50</div>
-        <div style="font-size:12px;color:var(--text-muted);">جلسة عميقة</div>
-      </button>
-      <button class="content-type-btn" onclick="setTimerPreset(5,0)" style="text-align:center;padding:16px;">
-        <div style="font-family:'Orbitron',monospace;font-size:20px;color:#00ff88;margin-bottom:6px;">5</div>
-        <div style="font-size:12px;color:var(--text-muted);">استراحة</div>
-      </button>
-    </div>
-
-    <div style="max-width:500px;margin:0 auto;">
-      <div style="background:var(--dark-card);border:1px solid var(--dark-border);border-radius:12px;padding:24px;">
-        <div style="font-family:'Orbitron',monospace;font-size:10px;letter-spacing:3px;color:var(--neon-purple);margin-bottom:16px;">■ إحصائيات الجلسات</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-          <div class="stat-card">
-            <div class="stat-num" id="focusSessions" style="font-size:22px;">0</div>
-            <div class="stat-label">جلسات مكتملة</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-num" id="focusMinutes" style="font-size:22px;">0</div>
-            <div class="stat-label">دقيقة تركيز</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- INTERACTIVE SURVEY / HIRING BOT WIDGET -->
-<div class="survey-widget-container">
-  <div class="survey-chat-box" id="surveyChatBox">
-    <div class="survey-header">
-      <span class="survey-header-title">MK ASSISTANT BOT</span>
-      <button class="survey-close-btn" onclick="toggleSurveyChat()">✕</button>
-    </div>
-    <div class="survey-messages" id="surveyMessages">
-      <div class="s-msg ai">أهلاً بك في موقع MK! أنا مساعد الوكالة الذكي. ما هو اسمك الكريم؟ (اكتب اسمك الأول والأخير)</div>
-    </div>
-    <div class="survey-input-area" id="surveyInputArea">
-      <input type="text" class="survey-input" id="surveyInput" placeholder="اكتب هنا..." onkeydown="if(event.key==='Enter') handleSurveyInput()">
-      <button class="survey-send-btn" onclick="handleSurveyInput()">➤</button>
-    </div>
-  </div>
-  <button class="survey-toggle-btn" onclick="toggleSurveyChat()" title="انضم إلينا أو قيّم الموقع">🤖</button>
 </div>
+
+<!-- AGENCY TEAM & COLLABORATORS SECTION -->
+<div class="container" id="team">
+    <h2 class="section-title" data-translate="sec_team">AGENCY TEAM & COLLABORATORS</h2>
+    <p style="color: var(--text-muted); margin-bottom: 25px;" data-translate="team_subtitle">Key talent who contributed creative excellence to MK CREATIVE Agency projects.</p>
+    
+    <div class="grid" style="max-width: 900px; margin: auto;">
+        <div class="card" style="display: flex; flex-direction: column; gap: 15px;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <div style="width: 65px; height: 65px; background: rgba(56, 189, 248, 0.1); border: 2px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--accent);">
+                    <i class="fa-solid fa-video"></i>
+                </div>
+                <div>
+                    <h3 style="font-size: 1.3rem; color: var(--accent);">Malek Mohamed</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;" data-translate="malek_role">Motion Graphic Designer & Video Editor (Summer Launch)</p>
+                </div>
+            </div>
+            <p style="color: #cbd5e1; font-size: 0.950rem; line-height: 1.6;" data-translate="malek_desc">
+                Served as the lead Motion Graphic Designer for MK CREATIVE Agency's Summer Launch. Demonstrated exemplary commitment, visual creativity, and professional execution across brand video production and dynamic logo animations.
+            </p>
+            
+            <div style="margin-top: 15px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 16px; border: 1px solid rgba(56, 189, 248, 0.2);">
+                <h4 style="color: var(--accent); font-size: 1rem; margin-bottom: 10px;"><i class="fa-solid fa-play-circle"></i> <span data-translate="asmaa_title">Asmaa Centre Collaboration Project</span></h4>
+                <video controls autoplay muted loop playsinline style="width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); max-height: 450px; object-fit: cover;">
+                    <source src="Asmaa Centre collaboration project .mov" type="video/quicktime">
+                    <source src="Asmaa Centre collaboration project .mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div style="margin-top: 10px;">
+                <button class="btn btn-outline" onclick="openLightbox('Screenshot_20260815_210636.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-award"></i> <span data-translate="btn_cert">View Official Internship Certificate (June 29, 2026)</span></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CERTIFICATIONS SECTION -->
+<div class="container" id="certifications">
+    <h2 class="section-title" data-translate="sec_certs">VERIFIED AGENCY CERTIFICATIONS</h2>
+    <p style="color: var(--text-muted); margin-bottom: 20px;" data-translate="certs_subtitle">Official credentials awarded by Udacity in collaboration with Google Cloud and Accenture.</p>
+    
+    <div class="cert-grid">
+        <div class="cert-card">
+            <img src="IMG_20251221_133154.jpg" alt="Gemini in Google Sheets" onclick="openLightbox(this.src)">
+            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Gemini in Google Sheets</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_133154.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
+        </div>
+
+        <div class="cert-card">
+            <img src="IMG_20251221_133952_edit_1294679129859207.jpg" alt="Gemini in Gmail" onclick="openLightbox(this.src)">
+            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Gemini in Gmail</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_133952_edit_1294679129859207.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
+        </div>
+
+        <div class="cert-card">
+            <img src="IMG_20251221_134712.jpg" alt="Trust and Security with Google Cloud" onclick="openLightbox(this.src)">
+            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Trust & Security with Google Cloud</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_134712.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
+        </div>
+
+        <div class="cert-card">
+            <img src="IMG_20251221_135357.jpg" alt="Modernize Infrastructure and Applications" onclick="openLightbox(this.src)">
+            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Modernize Infrastructure & Apps</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_135357.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
+        </div>
+
+        <div class="cert-card">
+            <img src="IMG_20260501_100603.jpg" alt="Responsible AI" onclick="openLightbox(this.src)">
+            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Responsible AI: Applying Principles</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20260501_100603.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
+        </div>
+
+        <div class="cert-card">
+            <img src="IMG_20251221_140439.jpg" alt="Gemini in Google Meet" onclick="openLightbox(this.src)">
+            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Gemini in Google Meet</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_140439.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
+        </div>
+
+        <div class="cert-card">
+            <img src="IMG_20260501_100729.jpg" alt="Introduction to Gemini for Google Workspace" onclick="openLightbox(this.src)">
+            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Intro to Gemini for Workspace</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20260501_100729.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
+        </div>
+
+        <div class="cert-card">
+            <img src="IMG_20251221_141142.jpg" alt="Scaling with Google Cloud Operations" onclick="openLightbox(this.src)">
+            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Scaling with Cloud Operations</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_141142.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
+        </div>
+
+        <div class="cert-card">
+            <img src="IMG_20251221_142835_edit_2119882193330690.jpg" alt="Gemini in Google Slides" onclick="openLightbox(this.src)">
+            <h3 style="color: var(--accent); margin: 15px 0 8px; font-size: 1.1rem;">Gemini in Google Slides</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Google Cloud & Udacity</p>
+            <button class="btn btn-outline" onclick="openLightbox('IMG_20251221_142835_edit_2119882193330690.jpg')" style="width: 100%; justify-content: center;"><i class="fa-solid fa-eye"></i> <span data-translate="view_cred">View Credential</span></button>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="projects">
+    <h2 class="section-title" data-translate="sec_solutions">AGENCY SOLUTIONS</h2>
+    <div class="grid">
+        <div class="card" onclick="openProjectModal('Future Mall POS', 'Advanced enterprise retail web application featuring role-based access control, AI product classification via Keras/Teachable Machine, multi-currency frameworks, and automated inventory management.', ['Python', 'HTML/JS', 'AI Frameworks'], 'https://github.com')">
+            <h3><i class="fa-solid fa-store" style="color: var(--accent);"></i> Future Mall POS</h3>
+            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;" data-translate="proj1_desc">Full-stack retail web application featuring role-based access control, AI product classification, and multi-currency frameworks.</p>
+            <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);" data-translate="view_specs">View System Specs &rarr;</span>
+        </div>
+        <div class="card" onclick="openProjectModal('Viral Media Engine', 'Corporate media distribution engine generating over 40M+ views through precision audio-visual balancing, advanced short-form optimization, and high-retention editing pipelines.', ['Video Production', 'Analytics', 'Media Scaling'], 'https://youtube.com/@mo7amed_5272')">
+            <h3><i class="fa-solid fa-video" style="color: var(--accent);"></i> Viral Media Engine</h3>
+            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;" data-translate="proj2_desc">Generated over 40M+ views through precision audio-visual balancing, advanced short-form optimization, and high-retention editing.</p>
+            <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);" data-translate="view_specs">View System Specs &rarr;</span>
+        </div>
+        <div class="card" onclick="openProjectModal('EGYPT CHESS CLUB', 'Strategic community management ecosystem and automated tactical club frameworks hosted on Chess.com to foster high-level analytical thinking and local talent.', ['Strategy', 'Community Engine'], 'https://chess.com')">
+            <h3><i class="fa-solid fa-chess-board" style="color: var(--accent);"></i> EGYPT CHESS CLUB (Admin)</h3>
+            <p style="color: var(--text-muted); margin-top: 12px; line-height: 1.6;" data-translate="proj3_desc">Active administration and tactical management within digital strategy communities and club workflows.</p>
+            <span style="display:inline-block; margin-top: 15px; font-size:0.8rem; color:var(--accent);" data-translate="view_specs">View System Specs &rarr;</span>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="skills">
+    <h2 class="section-title" data-translate="sec_techstack">AGENCY TECHNICAL STACK</h2>
+    <div class="skills-container">
+        <div class="skill-item">
+            <div class="skill-info"><span data-translate="skill1">Cloud Architecture & Security</span><span>98%</span></div>
+            <div class="skill-bar"><div class="skill-progress" data-width="98"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-info"><span data-translate="skill2">Python & Business Software Logic</span><span>95%</span></div>
+            <div class="skill-bar"><div class="skill-progress" data-width="95"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-info"><span data-translate="skill3">Full-Stack Web (HTML/JS/CSS)</span><span>90%</span></div>
+            <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-info"><span data-translate="skill4">AI Integration & Workspace Automation</span><span>96%</span></div>
+            <div class="skill-bar"><div class="skill-progress" data-width="96"></div></div>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="gallery">
+    <h2 class="section-title" data-translate="sec_portals">CLIENT PORTALS & VISUAL DESIGNS</h2>
+    <div class="showcase-grid">
+        <div class="media-box">
+            <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 1rem;" data-translate="portal1">Asmaa Clinic UI Portal</h3>
+            <img src="IMG-20260630-WA0006.jpg" alt="Asmaa Clinic" onclick="openLightbox(this.src)">
+        </div>
+        <div class="media-box">
+            <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 1rem;" data-translate="portal2">Gaming Media Production</h3>
+            <img src="Screenshot_20260815_093326.jpg" alt="Minecraft Thumbnail" onclick="openLightbox(this.src)">
+        </div>
+        <div class="media-box">
+            <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 1rem;" data-translate="portal3">Islam: A Way of Life Interface</h3>
+            <img src="Screenshot_20260815_093338.jpg" alt="Islam Way of Life" onclick="openLightbox(this.src)">
+        </div>
+    </div>
+</div>
+
+<div class="container" id="contact">
+    <h2 class="section-title" data-translate="sec_comm">SECURE AGENCY COMMUNICATIONS</h2>
+    <div class="card" style="max-width: 650px; margin: auto; text-align: center; cursor: default;">
+        <p style="margin: 12px 0;"><i class="fa-solid fa-envelope" style="color: var(--accent);"></i> <span data-translate="agency_email">Agency Email:</span> <span>moamedantar8@gmail.com</span></p>
+        <p style="margin: 12px 0;"><i class="fa-brands fa-whatsapp" style="color: #22c55e;"></i> <span data-translate="agency_whatsapp">Direct Line / WhatsApp:</span> <a href="https://wa.me/201559719175" target="_blank" style="color:var(--accent); text-decoration: none;">+20 155 971 9175</a></p>
+        <p style="margin: 12px 0;"><i class="fa-brands fa-linkedin" style="color: var(--accent);"></i> <span data-translate="agency_linkedin">Executive LinkedIn:</span> <a href="https://linkedin.com/in/mohamed-antar-522201406" style="color:var(--accent); text-decoration: none;" target="_blank">mohamed-antar-522201406</a></p>
+        <button class="btn" style="margin-top: 20px;" onclick="copyEmail()"><i class="fa-solid fa-copy"></i> <span data-translate="btn_copy">Copy Agency Email</span></button>
+    </div>
+</div>
+
+<div class="floating-controls">
+    <button class="float-btn" onclick="toggleMatrixMode()" title="Toggle Matrix Secure Mode"><i class="fa-solid fa-code"></i></button>
+    <button class="float-btn" onclick="toggleAmberMode()" title="Toggle Amber E-Ink Mode"><i class="fa-solid fa-moon"></i></button>
+    <button class="float-btn" id="audio-toggle-btn" onclick="toggleAudioFX()" title="Toggle Audio Sound FX"><i class="fa-solid fa-volume-high"></i></button>
+</div>
+
+<button class="rocket-top-btn" id="rocketBtn" onclick="launchToTop()" title="Scroll to Top">
+    🚀
+</button>
+
+<button class="mobile-search-float" onclick="openSearchModalMobile()" title="Quick Search">
+    <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+
+<footer>
+    <p data-translate="footer_text">&copy; 2026 MK CREATIVE Agency. Founded and Directed by Mohamed Antar. All Rights Reserved.</p>
+</footer>
 
 <script>
-const API_URL = "https://api.anthropic.com/v1/messages";
-const MODEL = "claude-sonnet-4-20250514";
-
-let chatHistory = [];
-let currentMode = 'general';
-let selectedContentType = 'script';
-let tasks = [
-  { id: 1, text: 'مراجعة محتوى القناة الأسبوعي', priority: 'high', done: false },
-  { id: 2, text: 'التخطيط لمقاطع الشهر القادم', priority: 'med', done: false },
-  { id: 3, text: 'الرد على تعليقات المتابعين', priority: 'low', done: true }
-];
-if(localStorage.getItem('mk_tasks')) {
-  tasks = JSON.parse(localStorage.getItem('mk_tasks'));
-}
-let currentFilter = 'all';
-
-function saveTasksToStorage() {
-  localStorage.setItem('mk_tasks', JSON.stringify(tasks));
-}
-
-const MK_IDENTITY = `
-معلوماتك الأساسية التي يجب أن تعرفها دائماً:
-- اسمك: MK AI — المساعد الذكي الرسمي لمنصة MK AI Tools.
-- الشركة المطوّرة لك: شركة MK Company ™ — شركة رائدة في تطوير حلول الذكاء الاصطناعي والتقنية المتقدمة.
-- المطوّر والمؤسس: المهندس محمد عنتر محمد عوض — مطوّر الموقع والمنصة بالكامل.
-- المنصة: MK AI Tools — منصة ذكاء اصطناعي متكاملة تضم ثلاثة أقسام رئيسية: المساعد الذكي، صناعة المحتوى، وإدارة المهام.
-- رسالتك: مساعدة المستخدمين العرب وصناع المحتوى بأدوات ذكاء اصطناعي قوية وسهلة الاستخدام.
-- إذا سُئلت عن مطوّرك أو شركتك أو هويتك، أجب بثقة ووضوح بالمعلومات أعلاه.
-- لا تقل أبداً أنك ChatGPT أو Gemini أو أي نموذج آخر — أنت MK AI من MK Company ™.
-`;
-
-const modePrompts = {
-  general: MK_IDENTITY + 'أنت مساعد ذكاء اصطناعي متعدد الأغراض. أجب بالعربية بشكل واضح ومفيد وموجز.',
-  creative: MK_IDENTITY + 'أنت مساعد إبداعي. أجب بالعربية بطريقة إبداعية ومبتكرة، وقدّم أفكاراً غير تقليدية.',
-  technical: MK_IDENTITY + 'أنت مساعد تقني متخصص. أجب بالعربية بدقة تقنية عالية مع شرح واضح للمفاهيم.',
-  analysis: MK_IDENTITY + 'أنت محلل بيانات وخبير استراتيجي. قدّم تحليلات عميقة ومنظمة باللغة العربية.',
-  arabic: MK_IDENTITY + 'أنت خبير في اللغة العربية وآدابها. ساعد في الكتابة والنحو والصرف والأسلوب الأدبي.'
-};
-
-const modeTitles = {
-  general: 'المساعد العام', creative: 'المساعد الإبداعي',
-  technical: 'المساعد التقني', analysis: 'محلل البيانات', arabic: 'خبير اللغة العربية'
-};
-
-function showSection(id) {
-  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.querySelectorAll('nav button').forEach((b, i) => {
-    b.classList.toggle('active', ['hero','assistant','content','tasks','developer','focus'][i] === id);
-  });
-  if (id === 'tasks') renderTasks();
-}
-
-function setMode(btn, mode) {
-  document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  currentMode = mode;
-  document.getElementById('chatTitle').textContent = modeTitles[mode];
-  chatHistory = [];
-  const msgs = document.getElementById('messages');
-  msgs.innerHTML = `<div class="msg ai"><div class="msg-bubble">تم تغيير الوضع إلى: ${modeTitles[mode]} ✨ كيف أساعدك؟</div></div>`;
-}
-
-function clearChat() {
-  chatHistory = [];
-  document.getElementById('messages').innerHTML = `<div class="msg ai"><div class="msg-bubble">تم مسح المحادثة. كيف يمكنني مساعدتك؟ 🚀</div></div>`;
-}
-
-function autoResize(el) {
-  el.style.height = 'auto';
-  el.style.height = Math.min(el.scrollHeight, 120) + 'px';
-}
-
-function handleKey(e) {
-  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
-}
-
-function addMessage(role, text) {
-  const msgs = document.getElementById('messages');
-  const div = document.createElement('div');
-  div.className = `msg ${role}`;
-  div.innerHTML = `<div class="msg-bubble">${text}</div>`;
-  msgs.appendChild(div);
-  msgs.scrollTop = msgs.scrollHeight;
-}
-
-function addTyping() {
-  const msgs = document.getElementById('messages');
-  const div = document.createElement('div');
-  div.className = 'msg ai'; div.id = 'typing';
-  div.innerHTML = `<div class="msg-bubble" style="padding:16px 20px"><div class="typing-dots"><span></span><span></span><span></span></div></div>`;
-  msgs.appendChild(div);
-  msgs.scrollTop = msgs.scrollHeight;
-}
-
-async function sendMessage() {
-  const input = document.getElementById('chatInput');
-  const text = input.value.trim();
-  if (!text) return;
-
-  input.value = ''; input.style.height = 'auto';
-  document.getElementById('sendBtn').disabled = true;
-  playCyberSound('click');
-  addMessage('user', text);
-  addTyping();
-
-  chatHistory.push({ role: 'user', content: text });
-
-  try {
-    const res = await fetch(API_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: MODEL,
-        max_tokens: 1000,
-        system: modePrompts[currentMode],
-        messages: chatHistory
-      })
-    });
-
-    const data = await res.json();
-    const reply = data.content?.[0]?.text || 'عذراً، حدث خطأ في الاتصال.';
-    document.getElementById('typing')?.remove();
-    addMessage('ai', reply);
-    chatHistory.push({ role: 'assistant', content: reply });
-  } catch {
-    document.getElementById('typing')?.remove();
-    addMessage('ai', '⚠️ خطأ في الاتصال. تحقق من الإنترنت وأعد المحاولة.');
-  }
-
-  document.getElementById('sendBtn').disabled = false;
-}
-
-function selectContentType(btn, type) {
-  document.querySelectorAll('.content-type-btn').forEach(b => b.classList.remove('selected'));
-  btn.classList.add('selected');
-  selectedContentType = type;
-}
-
-const contentPrompts = {
-  script: (topic, aud, tone, extra) => `اكتب سكريبت فيديو يوتيوب احترافي ومتكامل بالعربية عن: "${topic}". الجمهور: ${aud}. الأسلوب: ${tone}. ${extra ? 'تفاصيل: ' + extra : ''}\n\nالسكريبت يجب أن يتضمن: مقدمة شيقة، المحتوى الرئيسي منظم في نقاط، خاتمة مع call-to-action.`,
-  ideas: (topic, aud, tone, extra) => `أعطني 8 أفكار فيديو إبداعية ومبتكرة بالعربية حول موضوع: "${topic}". الجمهور: ${aud}. ${extra || ''}\n\nلكل فكرة: عنوان جذاب + وصف موجز + سبب نجاحها.`,
-  description: (topic, aud, tone, extra) => `اكتب وصف يوتيوب احترافي ومحسّن لـ SEO بالعربية لفيديو عن: "${topic}". الجمهور: ${aud}.\nيجب أن يتضمن: فقرة تعريفية، نقاط ما ستتعلمه، معلومات التواصل، هاشتاقات مناسبة.`,
-  title: (topic, aud, tone, extra) => `أعطني 10 عناوين فيديو جذابة ومثيرة للفضول بالعربية حول: "${topic}". الجمهور: ${aud}. الأسلوب: ${tone}.\n\nالعناوين يجب أن تكون مثيرة للنقر (clickbait أخلاقي) ومحسّنة للخوارزميات.`,
-  hook: (topic, aud, tone, extra) => `اكتب 5 مقدمات افتتاحية (Hooks) قوية ومشوّقة بالعربية لفيديو عن: "${topic}". الجمهور: ${aud}. الأسلوب: ${tone}.\n\nكل hook لا يتجاوز 30 ثانية حواراً ويجب أن يشدّ المشاهد فوراً.`,
-  hashtags: (topic, aud, tone, extra) => `أعطني قائمة هاشتاقات شاملة بالعربية والإنجليزية لمحتوى عن: "${topic}". الجمهور: ${aud}.\n\nصنّف الهاشتاقات: عامة، متخصصة، ترند. أعطِ 30 هاشتاق على الأقل.`
-};
-
-async function generateContent() {
-  const topic = document.getElementById('contentTopic').value.trim();
-  if (!topic) { showNotif('⚠️ أدخل موضوع المحتوى أولاً'); return; }
-
-  const aud = document.getElementById('contentAudience').value;
-  const tone = document.getElementById('contentTone').value;
-  const extra = document.getElementById('contentExtra').value;
-
-  showLoading(true);
-
-  try {
-    const prompt = contentPrompts[selectedContentType](topic, aud, tone, extra);
-    const res = await fetch(API_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: MODEL,
-        max_tokens: 1000,
-        messages: [{ role: 'user', content: prompt }]
-      })
-    });
-
-    const data = await res.json();
-    const text = data.content?.[0]?.text || 'حدث خطأ.';
-    const box = document.getElementById('contentOutput');
-    document.getElementById('contentText').textContent = text;
-    box.style.display = 'block';
-    box.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  } catch {
-    showNotif('⚠️ خطأ في الاتصال');
-  }
-
-  showLoading(false);
-}
-
-function copyOutput() {
-  const text = document.getElementById('contentText').textContent;
-  navigator.clipboard.writeText(text).then(() => { playCyberSound('success'); showNotif('✓ تم النسخ'); });
-}
-
-// TASKS
-let nextId = 10;
-
-function addTask() {
-  const input = document.getElementById('taskInput');
-  const text = input.value.trim();
-  if (!text) return;
-  const priority = document.getElementById('taskPriority').value;
-  tasks.unshift({ id: nextId++, text, priority, done: false });
-  input.value = '';
-  saveTasksToStorage();
-  renderTasks();
-  playCyberSound('success');
-  showNotif('✓ تمت إضافة المهمة');
-}
-
-function toggleTask(id) {
-  const task = tasks.find(t => t.id === id);
-  if (task) { task.done = !task.done; saveTasksToStorage(); renderTasks(); }
-}
-
-function deleteTask(id) {
-  tasks = tasks.filter(t => t.id !== id);
-  saveTasksToStorage();
-  renderTasks();
-}
-
-function filterTasks(btn, filter) {
-  document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  currentFilter = filter;
-  renderTasks();
-}
-
-function renderTasks() {
-  let filtered = tasks;
-  if (currentFilter === 'pending') filtered = tasks.filter(t => !t.done);
-  else if (currentFilter === 'done') filtered = tasks.filter(t => t.done);
-  else if (currentFilter === 'high') filtered = tasks.filter(t => t.priority === 'high');
-
-  const total = tasks.length;
-  const done = tasks.filter(t => t.done).length;
-  document.getElementById('statTotal').textContent = total;
-  document.getElementById('statDone').textContent = done;
-  document.getElementById('statPending').textContent = total - done;
-  document.getElementById('statProgress').textContent = total ? Math.round(done / total * 100) + '%' : '0%';
-
-  const pLabels = { high: 'عالية', med: 'متوسطة', low: 'منخفضة' };
-  document.getElementById('taskList').innerHTML = filtered.map(t => `
-    <div class="task-item ${t.done ? 'done' : ''}">
-      <button class="task-check" onclick="toggleTask(${t.id})">${t.done ? '✓' : ''}</button>
-      <div class="task-text">${t.text}</div>
-      <span class="task-priority ${t.priority}">${pLabels[t.priority]}</span>
-      <button class="task-del" onclick="deleteTask(${t.id})">✕</button>
-    </div>
-  `).join('') || '<div style="color:var(--text-muted);text-align:center;padding:30px">لا توجد مهام في هذا القسم</div>';
-}
-
-async function aiSuggestTasks() {
-  showLoading(true);
-  const existing = tasks.map(t => t.text).join(', ');
-  try {
-    const res = await fetch(API_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: MODEL,
-        max_tokens: 1000,
-        messages: [{
-          role: 'user',
-          content: `أنا صانع محتوى. مهامي الحالية: ${existing || 'لا يوجد'}. اقترح لي 5 مهام جديدة مفيدة وذكية لصانع المحتوى. قدّمها كقائمة مرقمة بسيطة بدون تفاصيل زائدة.`
-        }]
-      })
-    });
-    const data = await res.json();
-    const text = data.content?.[0]?.text || '';
-    const lines = text.split('\n').filter(l => l.match(/^\d+\./));
-    lines.forEach(line => {
-      const taskText = line.replace(/^\d+\.\s*/, '').trim();
-      if (taskText) tasks.unshift({ id: nextId++, text: taskText, priority: 'med', done: false });
-    });
-    renderTasks();
-    showNotif('✓ تم إضافة مهام ذكية');
-  } catch {
-    showNotif('⚠️ خطأ في الاتصال');
-  }
-  showLoading(false);
-}
-
-function playCyberSound(type) {
-  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  const oscillator = audioCtx.createOscillator();
-  const gainNode = audioCtx.createGain();
-  oscillator.connect(gainNode);
-  gainNode.connect(audioCtx.destination);
-  if (type === 'click') {
-    oscillator.type = 'sine';
-    oscillator.frequency.setValueAtTime(800, audioCtx.currentTime);
-    gainNode.gain.setValueAtTime(0.05, audioCtx.currentTime);
-    oscillator.start();
-    oscillator.stop(audioCtx.currentTime + 0.05);
-  } else if (type === 'success') {
-    oscillator.type = 'triangle';
-    oscillator.frequency.setValueAtTime(600, audioCtx.currentTime);
-    oscillator.frequency.exponentialRampToValueAtTime(1200, audioCtx.currentTime + 0.15);
-    gainNode.gain.setValueAtTime(0.05, audioCtx.currentTime);
-    oscillator.start();
-    oscillator.stop(audioCtx.currentTime + 0.15);
-  }
-}
-
-function formatPythonCode() {
-  const editor = document.getElementById('codeEditor');
-  let code = editor.value;
-  if(!code.trim()) { showNotif('⚠️ المحرر فارغ!'); return; }
-  editor.value = code.trim();
-  playCyberSound('success');
-  showNotif('✓ تم تنظيم وتنسيق الكود بنجاح');
-}
-
-// FOCUS TIMER
-let timerInterval = null;
-let timerRunning = false;
-let timerMinutes = 25;
-let timerSeconds = 0;
-let focusSessionsCount = parseInt(localStorage.getItem('mk_focus_sessions') || '0');
-let focusTotalMinutes = parseInt(localStorage.getItem('mk_focus_minutes') || '0');
-
-function updateTimerDisplay() {
-  const m = String(timerMinutes).padStart(2,'0');
-  const s = String(timerSeconds).padStart(2,'0');
-  document.getElementById('timerDisplay').textContent = m + ':' + s;
-}
-
-function setTimerPreset(min, sec) {
-  if(timerRunning) return;
-  timerMinutes = min;
-  timerSeconds = sec;
-  updateTimerDisplay();
-  playCyberSound('click');
-}
-
-function toggleTimer() {
-  const btn = document.getElementById('timerBtn');
-  if (!timerRunning) {
-    timerRunning = true;
-    btn.textContent = '⏸ إيقاف مؤقت';
-    playCyberSound('click');
-    timerInterval = setInterval(() => {
-      if (timerSeconds === 0) {
-        if (timerMinutes === 0) {
-          clearInterval(timerInterval);
-          timerRunning = false;
-          btn.textContent = '▶ ابدأ الجلسة';
-          focusSessionsCount++;
-          focusTotalMinutes += 25;
-          localStorage.setItem('mk_focus_sessions', focusSessionsCount);
-          localStorage.setItem('mk_focus_minutes', focusTotalMinutes);
-          document.getElementById('focusSessions').textContent = focusSessionsCount;
-          document.getElementById('focusMinutes').textContent = focusTotalMinutes;
-          playCyberSound('success');
-          showNotif('🎉 انتهت الجلسة! أحسنت!');
-          return;
+    const translations = {
+        ar: {
+            dir: "rtl",
+            secure_node: "نقطة آمنة",
+            dakahlia: "الدقهلية: 32°م",
+            nav_agency: "الوكالة",
+            nav_ceo: "المؤسس",
+            nav_team: "الفريق",
+            nav_certs: "الشهادات",
+            nav_solutions: "الحلول",
+            nav_tech: "التقنيات",
+            nav_contact: "تواصل معنا",
+            ticker_title: "وكالة MK الإبداعية:",
+            ticker_desc: "هندسة السحابة عالية الأداء وتكامل الذكاء الاصطناعي",
+            ticker_ceo: "بإدارة محمد عنتر (المدير التنفيذي، 14 سنة)",
+            ticker_search: "اضغط Ctrl + K للبحث السريع داخل الموقع!",
+            hero_subtitle: "تمكين الأعمال العالمية باستخدام",
+            agency_status: "حالة الوكالة:",
+            agency_status_val: "أنظمة السحابة والذكاء الاصطناعي من الجيل التالي نشطة",
+            hero_desc: "وكالة MK الإبداعية هي شركة تقنية مستقبلية تخصصت في أنظمة نقاط البيع الآلية للتجزئة، خطوط الإنتاج الإعلامي الرقمي عالية الاحتفاظ، وتكامل البنية التحتية لسحابة Google Cloud.",
+            btn_explore: "استكشف الحلول",
+            btn_partner: "شاركنا العمل",
+            stat_certs: "شهادات Google Cloud معتمدة",
+            stat_views: "أكثر من مليون مشاهدة عالمية",
+            stat_age: "سنوات عمر المدير التنفيذي المبتكر",
+            stat_secure: "% البنية التحتية الآمنة",
+            sec_exec: "القيادة التنفيذية",
+            ceo_role: "المؤسس والرئيس التنفيذي (CEO) • العمر 14 سنة • الدقهلية، مصر",
+            ceo_desc: "بصفته العقل المبتكر البالغ من العمر 14 عاماً خلف وكالة MK الإبداعية، يشرف محمد على الهندسة المعمارية التقنية، وتكامل الذكاء الاصطناعي، وهندسة البرمجيات عالية المستوى. يحمل 10 شهادات رسمية من Udacity و Google Cloud، ليجسد الجسر بين العمليات السحابية المتقدمة والتطبيقات التجارية الآلية.",
+            sec_team: "فريق الوكالة والمبدعون",
+            team_subtitle: "المواهب الرئيسية التي ساهمت بالتميز الإبداعي في مشاريع وكالة MK الإبداعية.",
+            malek_role: "مصمم جرافيك ومونتير فيديو (إطلاق الصيف)",
+            malek_desc: "عمل كمصمم رئيسي للرسومات المتحركة لإطلاق صيف وكالة MK الإبداعية، وأظهر التزاماً استثنائياً وإبداعاً بصرياً وتنفيذاً احترافياً لإنتاج فيديوهات العلامة التجارية ورسوم الشعار المتحركة.",
+            asmaa_title: "مشروع التعاون مع مركز أسماء",
+            btn_cert: "عرض شهادة التدريب الرسمية (29 يونيو 2026)",
+            sec_certs: "شهادات الوكالة المعتمدة",
+            certs_subtitle: "أوراق الاعتماد الرسمية المقدمة من Udacity بالتعاون مع Google Cloud و Accenture.",
+            view_cred: "عرض الاعتماد",
+            sec_solutions: "حلول الوكالة",
+            proj1_desc: "تطبيق ويب متكامل لقطاع التجزئة يتميز بالتحكم في الصلاحيات، التصنيف الآلي للمنتجات عبر الذكاء الاصطناعي، وأنظمة العملات المتعددة.",
+            proj2_desc: "حقق أكثر من 40 مليون مشاهدة من خلال التوازن الصوتي البصري الدقيق، والتحسين المتقدم للفيديوهات القصيرة.",
+            proj3_desc: "الإدارة النشطة والإدارة التكتيكية داخل مجتمعات الاستراتيجيات الرقمية وسير عمل الأندية.",
+            view_specs: "عرض تفاصيل النظام ←",
+            sec_techstack: "التقنيات المستخدمة في الوكالة",
+            skill1: "هندسة السحابة والأمان",
+            skill2: "بايثون ومنطق برمجيات الأعمال",
+            skill3: "تطوير الويب الشامل (HTML/JS/CSS)",
+            skill4: "تكامل الذكاء الاصطناعي وأتمتة مساحة العمل",
+            sec_portals: "بوابات العملاء والتصاميم البصرية",
+            portal1: "بوابة عيادة أسماء",
+            portal2: "إنتاج المحتوى الإعلامي للألعاب",
+            portal3: "واجهة الإسلام منهج حياة",
+            sec_comm: "اتصالات الوكالة الآمنة",
+            agency_email: "بريد الوكالة:",
+            agency_whatsapp: "الخط المباشر / واتساب:",
+            agency_linkedin: "لينكد إن التنفيذي:",
+            btn_copy: "نسخ بريد الوكالة",
+            footer_text: "© 2026 وكالة MK الإبداعية. مؤسسة ومُدارة بواسطة محمد عنتر. جميع الحقوق محفوظة.",
+            launch_demo: "تشغيل العرض التوضيحي",
+            s_about: "حول وكالة MK الإبداعية",
+            s_ceo: "المؤسس والرئيس التنفيذي: محمد عنتر",
+            s_team: "مسؤول الموشن جرافيك: مالك محمد",
+            s_certs: "شهادات Google Cloud المعتمدة",
+            s_proj: "نظام نقاط البيع Future Mall POS",
+            s_skills: "التقنيات البرمجية المؤسسية",
+            s_contact: "التواصل المؤسسي الآمن"
+        },
+        en: {
+            dir: "ltr",
+            secure_node: "Secure Node",
+            dakahlia: "Dakahlia: 32°C",
+            nav_agency: "Agency",
+            nav_ceo: "CEO",
+            nav_team: "Team",
+            nav_certs: "Certifications",
+            nav_solutions: "Solutions",
+            nav_tech: "Tech Stack",
+            nav_contact: "Contact",
+            ticker_title: "MK CREATIVE AGENCY:",
+            ticker_desc: "High-Performance Cloud Architecture & AI Integration",
+            ticker_ceo: "Directed by Mohamed Antar (CEO, 14y)",
+            ticker_search: "Press Ctrl + K for Agency Quick Search!",
+            hero_subtitle: "Empowering Global Business with",
+            agency_status: "Agency Status:",
+            agency_status_val: "Next-Gen Cloud & AI Frameworks Active",
+            hero_desc: "MK CREATIVE Agency is a forward-thinking technology corporation specializing in automated retail POS systems, high-retention digital media pipelines, and Google Cloud infrastructure integration.",
+            btn_explore: "Explore Solutions",
+            btn_partner: "Partner With Us",
+            stat_certs: "Verified Google Cloud Certs",
+            stat_views: "Million+ Global Views",
+            stat_age: "Years Young Innovator CEO",
+            stat_secure: "% Secure Infrastructure",
+            sec_exec: "EXECUTIVE LEADERSHIP",
+            ceo_role: "Founder & Chief Executive Officer (CEO) • Age 14 • Dakahlia, Egypt",
+            ceo_desc: "As the 14-year-old visionary behind MK CREATIVE Agency, Mohamed oversees technical architecture, AI integrations, and high-level software engineering. Holding 10 official certifications from Udacity and Google Cloud, he bridges the gap between advanced cloud operations, automated commercial applications, and viral digital media solutions.",
+            sec_team: "AGENCY TEAM & COLLABORATORS",
+            team_subtitle: "Key talent who contributed creative excellence to MK CREATIVE Agency projects.",
+            malek_role: "Motion Graphic Designer & Video Editor (Summer Launch)",
+            malek_desc: "Served as the lead Motion Graphic Designer for MK CREATIVE Agency's Summer Launch. Demonstrated exemplary commitment, visual creativity, and professional execution across brand video production and dynamic logo animations.",
+            asmaa_title: "Asmaa Centre Collaboration Project",
+            btn_cert: "View Official Internship Certificate (June 29, 2026)",
+            sec_certs: "VERIFIED AGENCY CERTIFICATIONS",
+            certs_subtitle: "Official credentials awarded by Udacity in collaboration with Google Cloud and Accenture.",
+            view_cred: "View Credential",
+            sec_solutions: "AGENCY SOLUTIONS",
+            proj1_desc: "Full-stack retail web application featuring role-based access control, AI product classification, and multi-currency frameworks.",
+            proj2_desc: "Generated over 40M+ views through precision audio-visual balancing, advanced short-form optimization, and high-retention editing.",
+            proj3_desc: "Active administration and tactical management within digital strategy communities and club workflows.",
+            view_specs: "View System Specs →",
+            sec_techstack: "AGENCY TECHNICAL STACK",
+            skill1: "Cloud Architecture & Security",
+            skill2: "Python & Business Software Logic",
+            skill3: "Full-Stack Web (HTML/JS/CSS)",
+            skill4: "AI Integration & Workspace Automation",
+            sec_portals: "CLIENT PORTALS & VISUAL DESIGNS",
+            portal1: "Asmaa Clinic UI Portal",
+            portal2: "Gaming Media Production",
+            portal3: "Islam: A Way of Life Interface",
+            sec_comm: "SECURE AGENCY COMMUNICATIONS",
+            agency_email: "Agency Email:",
+            agency_whatsapp: "Direct Line / WhatsApp:",
+            agency_linkedin: "Executive LinkedIn:",
+            btn_copy: "Copy Agency Email",
+            footer_text: "© 2026 MK CREATIVE Agency. Founded and Directed by Mohamed Antar. All Rights Reserved.",
+            launch_demo: "Launch Agency Demo",
+            s_about: "About MK CREATIVE Agency",
+            s_ceo: "CEO & Founder: Mohamed Antar",
+            s_team: "Motion Graphics Lead: Malek Mohamed",
+            s_certs: "Verified Google Cloud Certifications",
+            s_proj: "Future Mall POS System",
+            s_skills: "Enterprise Technical Stack",
+            s_contact: "Secure Corporate Contact"
+        },
+        fr: {
+            dir: "ltr",
+            secure_node: "Nœud Sécurisé",
+            dakahlia: "Dakahlia: 32°C",
+            nav_agency: "Agence",
+            nav_ceo: "PDG",
+            nav_team: "Équipe",
+            nav_certs: "Certifications",
+            nav_solutions: "Solutions",
+            nav_tech: "Technologies",
+            nav_contact: "Contact",
+            ticker_title: "MK CREATIVE AGENCY:",
+            ticker_desc: "Architecture Cloud Haute Performance & Intégration IA",
+            ticker_ceo: "Dirigé par Mohamed Antar (PDG, 14 ans)",
+            ticker_search: "Appuyez sur Ctrl + K pour la recherche rapide !",
+            hero_subtitle: "Autonomiser les entreprises mondiales avec",
+            agency_status: "Statut de l'Agence:",
+            agency_status_val: "Cadres Cloud & IA de Nouvelle Génération Actifs",
+            hero_desc: "MK CREATIVE Agency est une entreprise technologique innovante spécialisée dans les systèmes POS de vente au détail automatisés et l'intégration d'infrastructure Google Cloud.",
+            btn_explore: "Explorer les Solutions",
+            btn_partner: "Devenir Partenaire",
+            stat_certs: "Certifications Google Cloud Vérifiées",
+            stat_views: "Millions de Vues Mondiales",
+            stat_age: "Ans du PDG Innovateur",
+            stat_secure: "% Infrastructure Sécurisée",
+            sec_exec: "LEADERSHIP EXÉCUTIF",
+            ceo_role: "Fondateur & Directeur Général (PDG) • 14 ans • Dakahlia, Égypte",
+            ceo_desc: "En tant que visionnaire de 14 ans derrière MK CREATIVE Agency, Mohamed supervise l'architecture technique, les intégrations d'IA et l'ingénierie logicielle de haut niveau. Détenteur de 10 certifications officielles.",
+            sec_team: "ÉQUIPE DE L'AGENCE & COLLABORATEURS",
+            team_subtitle: "Talents clés ayant contribué à l'excellence créative des projets de MK CREATIVE Agency.",
+            malek_role: "Designer Motion Graphics & Monteur Vidéo",
+            malek_desc: "A servi en tant que Motion Designer principal pour le lancement estival de MK CREATIVE Agency, démontrant un engagement exemplaire et une créativité visuelle.",
+            asmaa_title: "Projet de Collaboration Asmaa Centre",
+            btn_cert: "Voir le Certificat de Stage Officiel (29 Juin 2026)",
+            sec_certs: "CERTIFICATIONS OFFICIELLES DE L'AGENCE",
+            certs_subtitle: "Titres officiels décernés par Udacity en collaboration avec Google Cloud et Accenture.",
+            view_cred: "Voir le Certificat",
+            sec_solutions: "SOLUTIONS DE L'AGENCE",
+            proj1_desc: "Application Web e-commerce complète avec contrôle d'accès basé sur les rôles et classification des produits par IA.",
+            proj2_desc: "Généré plus de 40 millions de vues grâce à un équilibre audiovisuel précis et une optimisation des formats courts.",
+            proj3_desc: "Administration active et gestion tactique au sein des communautés de stratégie numérique.",
+            view_specs: "Voir les Spécifications →",
+            sec_techstack: "PILE TECHNIQUE DE L'AGENCE",
+            skill1: "Architecture Cloud & Sécurité",
+            skill2: "Python & Logique Logicielle",
+            skill3: "Développement Web Full-Stack",
+            skill4: "Intégration IA & Automatisation",
+            sec_portals: "PORTAILS CLIENTS & DESIGNS VISUELS",
+            portal1: "Portail UI Clinique Asmaa",
+            portal2: "Production Multimédia Gaming",
+            portal3: "Interface Islam: Un Mode de Vie",
+            sec_comm: "COMMUNICATIONS SÉCURISÉES DE L'AGENCE",
+            agency_email: "Email de l'Agence:",
+            agency_whatsapp: "Ligne Directe / WhatsApp:",
+            agency_linkedin: "LinkedIn Exécutif:",
+            btn_copy: "Copier l'Email",
+            footer_text: "© 2026 MK CREATIVE Agency. Fondé et Dirigé par Mohamed Antar. Tous droits réservés.",
+            launch_demo: "Lancer la Démo",
+            s_about: "À propos de MK CREATIVE Agency",
+            s_ceo: "PDG & Fondateur : Mohamed Antar",
+            s_team: "Responsable Motion Design : Malek Mohamed",
+            s_certs: "Certifications Google Cloud Vérifiées",
+            s_proj: "Système POS Future Mall",
+            s_skills: "Pile Technique d'Entreprise",
+            s_contact: "Contact Professionnel Sécurisé"
         }
-        timerMinutes--;
-        timerSeconds = 59;
-      } else {
-        timerSeconds--;
-      }
-      updateTimerDisplay();
-    }, 1000);
-  } else {
-    clearInterval(timerInterval);
-    timerRunning = false;
-    btn.textContent = '▶ استمرار';
-    playCyberSound('click');
-  }
-}
+    };
 
-function resetTimer() {
-  clearInterval(timerInterval);
-  timerRunning = false;
-  timerMinutes = 25;
-  timerSeconds = 0;
-  updateTimerDisplay();
-  const btn = document.getElementById('timerBtn');
-  if(btn) btn.textContent = '▶ ابدأ الجلسة';
-  playCyberSound('click');
-}
+    function changeLanguage(lang) {
+        const t = translations[lang];
+        if (!t) return;
+        document.documentElement.lang = lang;
+        document.documentElement.dir = t.dir;
 
-// SURVEY WIDGET LOGIC (CONDITIONAL BOT FLOW)
-let surveyStep = 0; // 0: ask name, 1: ask interest
-let userName = '';
-
-function toggleSurveyChat() {
-  const box = document.getElementById('surveyChatBox');
-  box.classList.toggle('open');
-}
-
-function appendSurveyMsg(sender, text, htmlExtra = '') {
-  const container = document.getElementById('surveyMessages');
-  const div = document.createElement('div');
-  div.className = `s-msg ${sender}`;
-  div.innerHTML = text + htmlExtra;
-  container.appendChild(div);
-  container.scrollTop = container.scrollHeight;
-}
-
-function handleSurveyInput() {
-  const input = document.getElementById('surveyInput');
-  const val = input.value.trim();
-  if(!val) return;
-
-  appendSurveyMsg('user', val);
-  input.value = '';
-
-  setTimeout(() => {
-    if(surveyStep === 0) {
-      userName = val;
-      surveyStep = 1;
-      appendSurveyMsg('ai', `أهلاً بك يا ${userName}! هل أنت مهتم بالانضمام للعمل معنا في فريق MK (كورك) ولا مجرد زيارة وتقييم الموقع؟`);
-      // Add quick choice buttons
-      const extraDiv = document.createElement('div');
-      extraDiv.className = 'survey-actions';
-      extraDiv.innerHTML = `
-        <button class="survey-option-btn" onclick="handleSurveyChoice('yes')">مهتم بالعمل والانضمام 💼</button>
-        <button class="survey-option-btn" onclick="handleSurveyChoice('no')">تقييم الموقع فقط ⭐</button>
-      `;
-      document.getElementById('surveyMessages').appendChild(extraDiv);
-      document.getElementById('surveyMessages').scrollTop = document.getElementById('surveyMessages').scrollHeight;
-      document.getElementById('surveyInputArea').style.display = 'none'; // hide text input during choice
+        document.querySelectorAll('[data-translate]').forEach(el => {
+            const key = el.getAttribute('data-translate');
+            if (t[key]) {
+                el.textContent = t[key];
+            }
+        });
+        showToast(lang === 'ar' ? "تم تغيير اللغة إلى العربية" : (lang === 'en' ? "Language changed to English" : "Langue changée en Français"));
     }
-  }, 500);
-}
 
-function handleSurveyChoice(choice) {
-  // Remove buttons container
-  const actions = document.querySelectorAll('.survey-actions');
-  actions.forEach(el => el.remove());
+    let audioEnabled = true;
+    function playClickSound() {
+        if (!audioEnabled) return;
+        try {
+            const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(800, ctx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.05);
+            gain.gain.setValueAtTime(0.05, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.05);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start();
+            osc.stop(ctx.currentTime + 0.05);
+        } catch(e) {}
+    }
+    function toggleAudioFX() {
+        audioEnabled = !audioEnabled;
+        let btn = document.getElementById('audio-toggle-btn');
+        btn.innerHTML = audioEnabled ? '<i class="fa-solid fa-volume-high"></i>' : '<i class="fa-solid fa-volume-xmark"></i>';
+        showToast(audioEnabled ? "Audio FX Enabled" : "Audio FX Muted");
+    }
 
-  if(choice === 'yes') {
-    appendSurveyMsg('user', 'مهتم بالانضمام للعمل والانضمام 💼');
-    setTimeout(() => {
-      appendSurveyMsg('ai', `رائع جداً يا ${userName}! يسعدنا انضمامك لمجتمع المبدعين. تفضل بالدخول إلى استمارة التقديم الرسمية من هنا: <br><br><a href="https://surveymars.com/q/l0irKxv2M" target="_blank" style="color:var(--neon-blue);text-decoration:underline;font-weight:bold;">اضغط هنا لفتح استمارة التقديم 🚀</a>`);
-      document.getElementById('surveyInputArea').style.display = 'flex';
-      surveyStep = 0; // reset flow
-    }, 600);
-  } else {
-    appendSurveyMsg('user', 'تقييم الموقع فقط ⭐');
-    setTimeout(() => {
-      appendSurveyMsg('ai', `شكراً لوقتك يا ${userName}! نتمنى أن يكون الموقع قد نال إعجابك. يسعدنا دائماً رأيك لتطوير أدواتنا.`);
-      document.getElementById('surveyInputArea').style.display = 'flex';
-      surveyStep = 0; // reset flow
-    }, 600);
-  }
-}
+    document.addEventListener('click', () => { playClickSound(); });
 
-// Init focus stats
-document.addEventListener('DOMContentLoaded', () => {
-  const fs = document.getElementById('focusSessions');
-  const fm = document.getElementById('focusMinutes');
-  if(fs) fs.textContent = focusSessionsCount;
-  if(fm) fm.textContent = focusTotalMinutes;
-});
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let particlesArray = [];
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
 
-function showLoading(show) {
-  document.getElementById('loading').classList.toggle('show', show);
-}
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.vx = (Math.random() - 0.5) * 0.8;
+            this.vy = (Math.random() - 0.5) * 0.8;
+            this.size = Math.random() * 2 + 1;
+        }
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+            if (this.x < 0 || this.x > canvas.width) this.vx = -this.vx;
+            if (this.y < 0 || this.y > canvas.height) this.vy = -this.vy;
+        }
+        draw() {
+            ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('--accent').trim();
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+    function initParticles() {
+        particlesArray = [];
+        let count = window.innerWidth > 768 ? 45 : 0;
+        for (let i = 0; i < count; i++) particlesArray.push(new Particle());
+    }
+    initParticles();
 
-function showNotif(msg) {
-  const n = document.getElementById('notif');
-  n.textContent = msg;
-  n.classList.add('show');
-  setTimeout(() => n.classList.remove('show'), 3000);
-}
+    function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < particlesArray.length; i++) {
+            particlesArray[i].update();
+            particlesArray[i].draw();
+            for (let j = i + 1; j < particlesArray.length; j++) {
+                let dx = particlesArray[i].x - particlesArray[j].x;
+                let dy = particlesArray[i].y - particlesArray[j].y;
+                let dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 120) {
+                    ctx.strokeStyle = getComputedStyle(document.body).getPropertyValue('--accent').trim();
+                    ctx.globalAlpha = (1 - (dist / 120)) * 0.2;
+                    ctx.beginPath();
+                    ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+                    ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+                    ctx.stroke();
+                    ctx.globalAlpha = 1.0;
+                }
+            }
+        }
+        requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
 
-renderTasks();
+    const dot = document.getElementById('cursor-dot');
+    const outline = document.getElementById('cursor-outline');
+    window.addEventListener('mousemove', (e) => {
+        dot.style.left = e.clientX + 'px';
+        dot.style.top = e.clientY + 'px';
+        outline.style.left = e.clientX + 'px';
+        outline.style.top = e.clientY + 'px';
+    });
+
+    const rocketBtn = document.getElementById('rocketBtn');
+    let skillsAnimated = false;
+
+    window.onscroll = () => {
+        let winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrolled = (winScroll / height) * 100;
+        document.getElementById("progress-bar").style.width = scrolled + "%";
+        
+        if (winScroll > 300) {
+            rocketBtn.classList.add('show');
+        } else {
+            rocketBtn.classList.remove('show');
+        }
+
+        document.querySelectorAll('.container').forEach(el => {
+            let rect = el.getBoundingClientRect();
+            if(rect.top < window.innerHeight - 80) el.classList.add('visible');
+        });
+
+        const skillsSec = document.getElementById('skills');
+        if (skillsSec && skillsSec.getBoundingClientRect().top < window.innerHeight - 100 && !skillsAnimated) {
+            document.querySelectorAll('.skill-progress').forEach(bar => {
+                bar.style.width = bar.getAttribute('data-width') + '%';
+            });
+            skillsAnimated = true;
+        }
+    };
+
+    window.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+            e.preventDefault();
+            openSearchModalMobile();
+        }
+        if (e.key === 'Escape') {
+            document.getElementById('search-modal').style.display = 'none';
+            document.getElementById('project-modal').style.display = 'none';
+        }
+    });
+
+    function openSearchModalMobile() {
+        document.getElementById('search-modal').style.display = 'flex';
+        document.getElementById('search-input-box').focus();
+    }
+
+    function closeSearchModal(e) {
+        if (e.target.id === 'search-modal') document.getElementById('search-modal').style.display = 'none';
+    }
+
+    function scrollToSection(id) {
+        document.getElementById('search-modal').style.display = 'none';
+        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function filterSearch() {
+        let query = document.getElementById('search-input-box').value.toLowerCase();
+        let items = document.getElementById('search-results').getElementsByTagName('li');
+        for (let item of items) {
+            let text = item.textContent.toLowerCase();
+            item.style.display = text.includes(query) ? 'flex' : 'none';
+        }
+    }
+
+    function openProjectModal(title, desc, techArray, link) {
+        document.getElementById('modal-title').textContent = title;
+        document.getElementById('modal-desc').textContent = desc;
+        let techDiv = document.getElementById('modal-tech');
+        techDiv.innerHTML = '';
+        techArray.forEach(t => {
+            let span = document.createElement('span');
+            span.style.cssText = 'background: rgba(56, 189, 248, 0.1); color: var(--accent); padding: 5px 12px; border-radius: 10px; font-size: 0.8rem; border: 1px solid rgba(56, 189, 248, 0.3);';
+            span.textContent = t;
+            techDiv.appendChild(span);
+        });
+        document.getElementById('modal-link').href = link;
+        document.getElementById('project-modal').style.display = 'flex';
+    }
+    function closeProjectModal() {
+        document.getElementById('project-modal').style.display = 'none';
+    }
+
+    setInterval(() => {
+        let randomPing = Math.floor(Math.random() * 5) + 17;
+        document.getElementById('ping-val').textContent = randomPing;
+    }, 3500);
+
+    let totalSeconds = 0;
+    setInterval(() => {
+        totalSeconds++;
+        let mins = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
+        let secs = (totalSeconds % 60).toString().padStart(2, '0');
+        document.getElementById('session-time').textContent = `${mins}:${secs}`;
+    }, 1000);
+
+    if ('getBattery' in navigator) {
+        navigator.getBattery().then(battery => {
+            function updateBattery() {
+                document.getElementById('battery-val').textContent = Math.round(battery.level * 100) + '%';
+            }
+            updateBattery();
+            battery.addEventListener('levelchange', updateBattery);
+        });
+    }
+
+    window.onload = () => {
+        setTimeout(() => {
+            showToast("MK CREATIVE Agency Systems Online");
+        }, 1000);
+        startCounters();
+    };
+
+    function showToast(msg) {
+        let toast = document.getElementById("toast");
+        toast.innerHTML = `<i class="fa-solid fa-shield-halved" style="color: var(--accent); font-size: 1.4rem;"></i><div><div style="font-weight: 800;">${msg}</div><div style="font-size: 0.85rem; color: var(--text-muted);">Managed by Mohamed Antar (CEO).</div></div>`;
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 4000);
+    }
+
+    const words = ["Cloud Infrastructure & AI.", "Automated Retail Solutions.", "Next-Gen Agency Frameworks."];
+    let wordIdx = 0, charIdx = 0, currentWord = "", isDeletingState = false;
+    function typeEffectEngine() {
+        currentWord = words[wordIdx];
+        if (isDeletingState) {
+            document.getElementById("typed").textContent = currentWord.substring(0, charIdx - 1);
+            charIdx--;
+            if (charIdx == 0) { isDeletingState = false; wordIdx = (wordIdx + 1) % words.length; }
+        } else {
+            document.getElementById("typed").textContent = currentWord.substring(0, charIdx + 1);
+            charIdx++;
+            if (charIdx == currentWord.length) { isDeletingState = true; setTimeout(typeEffectEngine, 2200); return; }
+        }
+        setTimeout(typeEffectEngine, isDeletingState ? 35 : 80);
+    }
+    typeEffectEngine();
+
+    function startCounters() {
+        const counters = document.querySelectorAll('.stat-number');
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            let count = 0;
+            const speed = target / 40;
+            const updateCount = () => {
+                count += speed;
+                if (count < target) {
+                    counter.innerText = Math.ceil(count) + (target === 40 ? "M+" : "+");
+                    setTimeout(updateCount, 30);
+                } else {
+                    counter.innerText = target + (target === 40 ? "M+" : "+");
+                }
+            };
+            updateCount();
+        });
+    }
+
+    function openLightbox(src) {
+        document.getElementById('lightbox-img').src = src;
+        document.getElementById('lightbox').style.display = 'flex';
+    }
+    function closeLightbox() {
+        document.getElementById('lightbox').style.display = 'none';
+    }
+
+    function toggleMatrixMode() {
+        document.body.classList.remove('amber-mode');
+        document.body.classList.toggle('matrix-mode');
+        initParticles();
+        showToast(document.body.classList.contains('matrix-mode') ? "Matrix Secure Mode Active" : "Default Mode Restored");
+    }
+
+    function toggleAmberMode() {
+        document.body.classList.remove('matrix-mode');
+        document.body.classList.toggle('amber-mode');
+        initParticles();
+        showToast(document.body.classList.contains('amber-mode') ? "Amber E-Ink Mode Active" : "Default Mode Restored");
+    }
+
+    function copyEmail() {
+        navigator.clipboard.writeText("moamedantar8@gmail.com");
+        showToast("Agency Email Copied to Clipboard!");
+    }
+
+    function launchToTop() {
+        rocketBtn.classList.add('launching');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(() => {
+            rocketBtn.classList.remove('launching');
+            rocketBtn.classList.remove('show');
+        }, 600);
+    }
 </script>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <span class="logo">MK<span style="-webkit-text-fill-color:var(--neon-pink);color:var(--neon-pink)">.</span>AI&nbsp;TOOLS</span>
-      <p>منصة ذكاء اصطناعي متكاملة لصناع المحتوى والمبدعين — أدوات قوية في مكان واحد.</p>
-    </div>
-    <div>
-      <div class="footer-col-title">■ المطوّر</div>
-      <div class="footer-dev-card">
-        <div class="dev-name">محمد عنتر محمد عوض</div>
-        <div class="dev-role">مطوّر الموقع والمنصة</div>
-        <span class="dev-badge">FULL STACK DEV</span>
-      </div>
-    </div>
-    <div>
-      <div class="footer-col-title">■ الشركة المطوّرة</div>
-      <div class="company-card">
-        <div class="company-name">MK CREATIVE Agency </div>
-        <div class="company-tm">™ — جميع الحقوق محفوظة</div>
-        <div class="company-desc">شركة رائدة في تطوير حلول الذكاء الاصطناعي والتقنية المتقدمة.</div>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2025 <span>MK CREATIVE Agency ™</span> — تطوير: محمد عنتر محمد عوض. جميع الحقوق محفوظة.</div>
-    <div class="footer-made">BUILT WITH ❤ BY MK CREATIVE Agency</div>
-  </div>
-</footer>
 
 </body>
 </html>
