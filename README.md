@@ -1243,6 +1243,17 @@
         if(e.key === 'Enter') sendMessage(); 
     }
 </script>
+<script type="module">
+  import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0/dist/web.js'
+
+  Typebot.initBubble({
+    typebot: "assistant-mohamed-x2nnuyt",
+    theme: {
+      button: { backgroundColor: "#1D1D1D" },
+      chatWindow: { backgroundColor: "#F8F8F8" },
+    },
+  });
+</script>
 
 </body>
 </html>
