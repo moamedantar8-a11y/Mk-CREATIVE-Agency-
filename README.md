@@ -1068,6 +1068,77 @@
         }, 600);
     }
 </script>
+<!-- زر المساعد العائم -->
+<button class="chat-float-btn" onclick="toggleChat()">
+    <i class="fa-brands fa-whatsapp"></i>
+</button>
+
+<!-- نافذة المحادثة (شاشة الهاتف) -->
+<div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+        <span><i class="fa-solid fa-user-tie"></i> Mohamed Assistant</span>
+        <button onclick="toggleChat()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="chat-body" id="chatBody">
+        <div class="message bot">أهلاً بك في MK Agency! أنا مساعد محمد، كيف يمكنني مساعدتك اليوم؟</div>
+    </div>
+    <div class="chat-footer">
+        <input type="text" id="chatInput" placeholder="اكتب رسالة..." onkeypress="handleEnter(event)">
+        <button onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+</div>
+
+<style>
+/* تصميم الزر العائم */
+.chat-float-btn {
+    position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
+    background: #25D366; color: white; border-radius: 50%; border: none;
+    font-size: 1.8rem; cursor: pointer; box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+    z-index: 10000; transition: 0.3s;
+}
+.chat-float-btn:hover { transform: scale(1.1); }
+
+/* تصميم نافذة "شاشة الهاتف" */
+.chat-window {
+    position: fixed; bottom: 100px; right: 30px; width: 320px; height: 450px;
+    background: #0f172a; border: 1px solid var(--accent); border-radius: 20px;
+    display: none; flex-direction: column; overflow: hidden; z-index: 10000;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+.chat-header { background: var(--accent); padding: 15px; display: flex; justify-content: space-between; color: #030712; font-weight: 800; }
+.chat-body { flex: 1; padding: 15px; overflow-y: auto; color: white; }
+.message { margin-bottom: 10px; padding: 10px; border-radius: 10px; font-size: 0.9rem; }
+.message.bot { background: rgba(255,255,255,0.1); }
+.chat-footer { padding: 10px; display: flex; gap: 5px; background: #1e293b; }
+.chat-footer input { flex: 1; padding: 8px; border-radius: 5px; border: none; outline: none; }
+</style>
+
+<script>
+function toggleChat() {
+    const win = document.getElementById('chatWindow');
+    win.style.display = win.style.display === 'flex' ? 'none' : 'flex';
+}
+
+function sendMessage() {
+    const input = document.getElementById('chatInput');
+    const body = document.getElementById('chatBody');
+    if(input.value.trim() === "") return;
+
+    // رسالة المستخدم
+    body.innerHTML += `<div class="message" style="background: var(--accent); color: #030712; text-align: left;">${input.value}</div>`;
+    
+    // رد المساعد (مبدئي)
+    setTimeout(() => {
+        body.innerHTML += `<div class="message bot">شكراً لرسالتك! محمد سيرد عليك قريباً. هل تريد معرفة المزيد عن خدمات الوكالة؟</div>`;
+        body.scrollTop = body.scrollHeight;
+    }, 500);
+    
+    input.value = "";
+}
+
+function handleEnter(e) { if(e.key === 'Enter') sendMessage(); }
+</script>
+
  
 </body>
 </html> 
