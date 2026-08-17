@@ -197,84 +197,6 @@
         #lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.94); z-index: 30000; display: none; justify-content: center; align-items: center; padding: 20px; backdrop-filter: blur(10px); }
         #lightbox img { max-width: 90%; max-height: 85vh; border-radius: 16px; border: 2px solid var(--accent); box-shadow: 0 0 40px var(--accent-glow); }
 
-        /* تنسيقات المساعد الذكي (Chatbot Styles) المتوافقة مع الموقع */
-        .chat-float-btn {
-            position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
-            background: #25D366; color: white; border-radius: 50%; border: none;
-            font-size: 2rem; cursor: pointer; box-shadow: 0 0 25px rgba(37, 211, 102, 0.5);
-            z-index: 10000; display: flex; align-items: center; justify-content: center;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .chat-float-btn:hover { transform: scale(1.12) rotate(8deg); }
-        .chat-notification-dot {
-            position: absolute; top: 5px; right: 5px; width: 14px; height: 14px;
-            background: #ef4444; border-radius: 50%; border: 2px solid #030712;
-        }
-        .chat-window {
-            position: fixed; bottom: 105px; right: 30px; width: 350px; height: 500px;
-            background: #0b1329; border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 24px;
-            display: none; flex-direction: column; overflow: hidden; z-index: 10000;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); backdrop-filter: blur(16px);
-        }
-        .chat-header {
-            background: linear-gradient(135deg, #0f172a, #1e293b); padding: 14px 18px;
-            display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .chat-profile-info { display: flex; align-items: center; gap: 12px; }
-        .chat-avatar { position: relative; width: 42px; height: 42px; border-radius: 50%; overflow: hidden; border: 2px solid var(--accent); }
-        .chat-avatar img { width: 100%; height: 100%; object-fit: cover; }
-        .online-indicator {
-            position: absolute; bottom: 0; right: 0; width: 10px; height: 10px;
-            background: #22c55e; border-radius: 50%; border: 2px solid #0f172a;
-        }
-        .chat-title { color: #f8fafc; font-weight: 700; font-size: 0.95rem; }
-        .chat-status { color: #38bdf8; font-size: 0.75rem; }
-        .close-chat-btn {
-            background: rgba(255, 255, 255, 0.08); border: none; color: #94a3b8;
-            width: 32px; height: 32px; border-radius: 50%; cursor: pointer;
-            display: flex; align-items: center; justify-content: center; transition: 0.2s;
-        }
-        .close-chat-btn:hover { background: var(--accent); color: #030712; }
-        .chat-body {
-            flex: 1; padding: 18px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px;
-            background: radial-gradient(circle at center, #090e1a, #030712);
-        }
-        .message {
-            max-width: 82%; padding: 12px 16px; border-radius: 16px; font-size: 0.88rem;
-            line-height: 1.5; position: relative; word-break: break-word; color: #f8fafc;
-        }
-        .message.bot {
-            background: #1e293b; color: #f8fafc; align-self: flex-start;
-            border-bottom-left-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .message.user {
-            background: var(--accent); color: #030712; align-self: flex-end;
-            border-bottom-right-radius: 4px; font-weight: 600;
-        }
-        .chat-time { font-size: 0.65rem; color: #94a3b8; margin-top: 4px; }
-        .quick-replies { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; align-self: flex-start; width: 100%; }
-        .quick-btn {
-            background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3);
-            color: var(--accent); padding: 8px 12px; border-radius: 12px; font-size: 0.8rem;
-            cursor: pointer; text-align: right; transition: 0.2s; font-family: 'Cairo', sans-serif;
-        }
-        .quick-btn:hover { background: var(--accent); color: #030712; }
-        .chat-footer {
-            padding: 12px 15px; display: flex; gap: 10px; background: #0f172a;
-            border-top: 1px solid rgba(255, 255, 255, 0.08); align-items: center;
-        }
-        .chat-footer input {
-            flex: 1; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 10px 14px; border-radius: 25px; color: white; font-size: 0.88rem; outline: none;
-            font-family: 'Cairo', sans-serif;
-        }
-        .send-btn {
-            background: var(--accent); color: #030712; border: none; width: 40px; height: 40px;
-            border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;
-            font-size: 0.9rem; flex-shrink: 0;
-        }
-
         footer { text-align: center; padding: 50px 20px; border-top: 1px solid rgba(255,255,255,0.08); color: var(--text-muted); margin-top: 80px; }
 
         @media(max-width: 768px) {
@@ -282,7 +204,6 @@
             h1 { font-size: 2.4rem; }
             .cursor-dot, .cursor-outline, #particle-canvas { display: none; }
             * { cursor: auto !important; }
-            .chat-window { width: 90vw; right: 5vw; height: 450px; bottom: 95px; }
         }
     </style>
 </head>
@@ -608,44 +529,15 @@
     </div>
 </div>
 
-<!-- عناصر المساعد الذكي (Chatbot HTML) المدمجة هنا -->
-<button class="chat-float-btn" onclick="toggleChat()" title="مساعد محمد">
-    <i class="fa-brands fa-whatsapp"></i>
-    <span class="chat-notification-dot"></span>
-</button>
+<!-- كود Typebot الجديد المضاف -->
+<script type="module">
+  import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0/dist/web.js'
 
-<div class="chat-window" id="chatWindow">
-    <div class="chat-header">
-        <div class="chat-profile-info">
-            <div class="chat-avatar">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces" alt="Mohamed Assistant">
-                <span class="online-indicator"></span>
-            </div>
-            <div>
-                <div class="chat-title">Mohamed Assistant</div>
-                <div class="chat-status" id="chatStatusText">متصل الآن</div>
-            </div>
-        </div>
-        <button class="close-chat-btn" onclick="toggleChat()"><i class="fa-solid fa-xmark"></i></button>
-    </div>
-
-    <div class="chat-body" id="chatBody">
-        <div class="message bot">
-            أهلاً بك في وكالة MK الإبداعية! 🚀<br>أنا مساعد محمد الذكي، كيف يمكنني مساعدتك اليوم؟
-            <div class="chat-time">الآن</div>
-        </div>
-        <div class="quick-replies" id="quickReplies">
-            <button class="quick-btn" onclick="sendQuickReply('ما هي خدمات الوكالة؟')">⚡ ما هي خدمات الوكالة؟</button>
-            <button class="quick-btn" onclick="sendQuickReply('كيف أتواصل مع محمد؟')">📞 التواصل المباشر</button>
-            <button class="quick-btn" onclick="sendQuickReply('عرض المشاريع السابقة')">📂 عرض المشاريع</button>
-        </div>
-    </div>
-
-    <div class="chat-footer">
-        <input type="text" id="chatInput" placeholder="اكتب رسالتك هنا..." onkeypress="handleEnter(event)">
-        <button class="send-btn" onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
-    </div>
-</div>
+  Typebot.initBubble({
+    typebot: "assistant-mohamed-x2nnuyt",
+    theme: { button: { backgroundColor: "#1A2249" } },
+  });
+</script>
 
 <div class="floating-controls">
     <button class="float-btn" onclick="toggleMatrixMode()" title="Toggle Matrix Secure Mode"><i class="fa-solid fa-code"></i></button>
@@ -1018,7 +910,6 @@
         if (e.key === 'Escape') {
             document.getElementById('search-modal').style.display = 'none';
             document.getElementById('project-modal').style.display = 'none';
-            document.getElementById('chatWindow').style.display = 'none';
         }
     });
 
@@ -1170,77 +1061,6 @@
             rocketBtn.classList.remove('launching');
             rocketBtn.classList.remove('show');
         }, 600);
-    }
-
-    // دوال تشغيل وإدارة المساعد الذكي (Chatbot Script)
-    function toggleChat() {
-        const win = document.getElementById('chatWindow');
-        win.style.display = win.style.display === 'flex' ? 'none' : 'flex';
-        if(win.style.display === 'flex') {
-            document.getElementById('chatInput').focus();
-        }
-    }
-    function getTimeString() {
-        return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    }
-    function appendMessage(text, sender) {
-        const body = document.getElementById('chatBody');
-        const msgDiv = document.createElement('div');
-        msgDiv.className = `message ${sender}`;
-        msgDiv.innerHTML = `${text}<div class="chat-time" style="text-align: ${sender === 'user' ? 'right' : 'left'}">${getTimeString()}</div>`;
-        body.appendChild(msgDiv);
-        body.scrollTop = body.scrollHeight;
-    }
-    function showTypingIndicator() {
-        const body = document.getElementById('chatBody');
-        const typingDiv = document.createElement('div');
-        typingDiv.id = 'typingIndicator';
-        typingDiv.className = 'message bot';
-        typingDiv.innerHTML = 'يكتب الآن...';
-        body.appendChild(typingDiv);
-        body.scrollTop = body.scrollHeight;
-    }
-    function removeTypingIndicator() {
-        const typing = document.getElementById('typingIndicator');
-        if(typing) typing.remove();
-    }
-    function getBotResponse(userText) {
-        let reply = "شكراً لرسالتك! محمد عنتر سيرد عليك قريباً.";
-        let lower = userText.toLowerCase();
-        if(lower.includes('خدمات') || lower.includes('خدمة') || lower.includes('solutions')) {
-            reply = "وكالة MK تقدم: هندسة السحابة، أنظمة نقاط البيع Future Mall POS، ومونتاج الفيديوهات الاحترافية! 🚀";
-        } else if(lower.includes('تواصل') || lower.includes('رقم') || lower.includes('واتساب') || lower.includes('contact')) {
-            reply = "يمكنك التواصل المباشر مع محمد عنتر عبر الواتساب: <a href='https://wa.me/201559719175' target='_blank' style='color:var(--accent);'>+20 155 971 9175</a> 📱";
-        } else if(lower.includes('مشاريع') || lower.includes('معرض') || lower.includes('سابق') || lower.includes('projects')) {
-            reply = "من أبرز مشاريعنا نظام 'Future Mall POS' وإدارة 'EGYPT CHESS CLUB' وهندسة الميديا الرقمية! 💼";
-        }
-        return reply;
-    }
-    function processUserMessage(text) {
-        appendMessage(text, 'user');
-        const quick = document.getElementById('quickReplies');
-        if(quick) quick.style.display = 'none';
-        document.getElementById('chatStatusText').textContent = 'يكتب الآن...';
-        showTypingIndicator();
-        setTimeout(() => {
-            removeTypingIndicator();
-            document.getElementById('chatStatusText').textContent = 'متصل الآن';
-            let botReply = getBotResponse(text);
-            appendMessage(botReply, 'bot');
-        }, 1200);
-    }
-    function sendMessage() {
-        const input = document.getElementById('chatInput');
-        if(input.value.trim() === "") return;
-        let txt = input.value;
-        input.value = "";
-        processUserMessage(txt);
-    }
-    function sendQuickReply(text) {
-        processUserMessage(text);
-    }
-    function handleEnter(e) { 
-        if(e.key === 'Enter') sendMessage(); 
     }
 </script>
 
