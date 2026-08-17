@@ -1074,12 +1074,12 @@
         </p>
         <p style="margin: 15px 0;">
             <i class="fa-brands fa-youtube" style="color: #FF0000; font-size: 1.5rem;"></i> 
-            <span style="font-weight: bold;">YouTube Channel 1:</span> 
+            <span style="font-weight: bold;">MK GAMES PRO :</span> 
             <a href="https://www.youtube.com/@mo7amed_5272" target="_blank" style="color: var(--accent);">MK GAMES PRO @mo7amed_5272</a>
         </p>
         <p style="margin: 15px 0;">
             <i class="fa-brands fa-youtube" style="color: #FF0000; font-size: 1.5rem;"></i> 
-            <span style="font-weight: bold;">YouTube Channel 2:</span> 
+            <span style="font-weight: bold;">MK QURAN :</span> 
             <a href="https://www.youtube.com/@mo7amed_5277" target="_blank" style="color: var(--accent);">MK GAMES PRO @mo7amed_5277</a>
         </p>
     </div>
