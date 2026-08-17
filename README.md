@@ -1065,7 +1065,7 @@
 </script>
 <!-- قسم روابط الوكالة - تم التحديث -->
 <div class="container" id="links">
-    <h2 class="section-title" data-translate="sec_links">روابط الوكالة</h2>
+    <h2 class="section-title" data-translate="sec_links">Agency Links</h2>
     <div class="card" style="max-width: 650px; margin: auto; text-align: center;">
         <p style="margin: 15px 0;">
             <i class="fa-brands fa-discord" style="color: #5865F2; font-size: 1.5rem;"></i> 
