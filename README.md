@@ -1063,6 +1063,26 @@
         }, 600);
     }
 </script>
-
+<!-- قسم روابط الوكالة - تم التحديث -->
+<div class="container" id="links">
+    <h2 class="section-title" data-translate="sec_links">روابط الوكالة</h2>
+    <div class="card" style="max-width: 650px; margin: auto; text-align: center;">
+        <p style="margin: 15px 0;">
+            <i class="fa-brands fa-discord" style="color: #5865F2; font-size: 1.5rem;"></i> 
+            <span style="font-weight: bold;">Discord Server:</span> 
+            <a href="https://discord.gg/rzXhZ7dsDF" target="_blank" style="color: var(--accent);">اضغط للانضمام إلى الديسكورد</a>
+        </p>
+        <p style="margin: 15px 0;">
+            <i class="fa-brands fa-youtube" style="color: #FF0000; font-size: 1.5rem;"></i> 
+            <span style="font-weight: bold;">YouTube Channel 1:</span> 
+            <a href="https://www.youtube.com/@mo7amed_5272" target="_blank" style="color: var(--accent);">MK GAMES PRO @mo7amed_5272</a>
+        </p>
+        <p style="margin: 15px 0;">
+            <i class="fa-brands fa-youtube" style="color: #FF0000; font-size: 1.5rem;"></i> 
+            <span style="font-weight: bold;">YouTube Channel 2:</span> 
+            <a href="https://www.youtube.com/@mo7amed_5277" target="_blank" style="color: var(--accent);">MK GAMES PRO @mo7amed_5277</a>
+        </p>
+    </div>
+</div>
 </body>
 </html>
