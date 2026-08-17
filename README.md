@@ -671,10 +671,10 @@
             sec_techstack: "AGENCY TECHNICAL STACK",
             skill1: "Cloud Architecture & Security",
             skill2: "Python & Business Software Logic",
-            skill3: "Full-Stack Web (HTML/JS/CSS)",
+            skill3: "Full-Stack Web (HTML/CSS)",
             skill4: "AI Integration & Workspace Automation",
             sec_portals: "CLIENT PORTALS & VISUAL DESIGNS",
-            portal1: "Asmaa Clinic UI Portal",
+            portal1: "Asmaa Clinic Thumbnail",
             portal2: "Gaming Media Production",
             portal3: "Islam: A Way of Life Interface",
             sec_comm: "SECURE AGENCY COMMUNICATIONS",
@@ -1070,7 +1070,7 @@
         <p style="margin: 15px 0;">
             <i class="fa-brands fa-discord" style="color: #5865F2; font-size: 1.5rem;"></i> 
             <span style="font-weight: bold;">Discord Server:</span> 
-            <a href="https://discord.gg/rzXhZ7dsDF" target="_blank" style="color: var(--accent);">اضغط للانضمام إلى الديسكورد</a>
+            <a href="https://discord.gg/rzXhZ7dsDF" target="_blank" style="color: var(--accent);">Join our team on Discord </a>
         </p>
         <p style="margin: 15px 0;">
             <i class="fa-brands fa-youtube" style="color: #FF0000; font-size: 1.5rem;"></i> 
