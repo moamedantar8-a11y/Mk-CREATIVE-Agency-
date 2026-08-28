@@ -1084,5 +1084,32 @@
         </p>
     </div>
 </div>
+<!-- نافذة الحقوق المنبثقة (Modal) -->
+<div id="rightsModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden">
+    <div class="bg-slate-900 border border-indigo-500/30 rounded-2xl max-w-lg w-full mx-4 p-6 text-right relative shadow-2xl">
+        <!-- زر الإغلاق (X) -->
+        <button onclick="toggleRightsModal()" class="absolute top-4 left-4 text-gray-400 hover:text-white text-xl">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <h3 class="text-2xl font-bold text-white mb-4 border-b border-indigo-500/30 pb-2">حفظ حقوق الملكية</h3>
+        
+        <div class="space-y-3 text-gray-300 text-sm max-h-64 overflow-y-auto pl-2">
+            <p>جميع التصاميم، الأكواد، والمحتوى في موقع MK CREATIVE Agency محمية بموجب حقوق الملكية الفكرية[cite: 6].</p>
+            <p>يُمنع نسخ أو إعادة استخدام أي محتوى أو إصدار دون إذن كتابي مسبق.</p>
+        </div>
+        
+        <div class="mt-6 text-center">
+            <button onclick="toggleRightsModal()" class="px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-sm font-medium transition">فهمت ذلك</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleRightsModal() {
+        const modal = document.getElementById('rightsModal');
+        modal.classList.toggle('hidden');
+    }
+</script>
 </body>
 </html>
